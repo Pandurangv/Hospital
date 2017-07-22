@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 14.5" name="CriticareHospital">
+  <DataContextMoniker Name="/CriticareHospitalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ccd22fba-6f54-4547-b9d6-e289cff7c42e" isExpanded="false" absoluteBounds="0.5, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblAllocConsultDoctor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b27e99c7-76dc-4490-9e09-de52f35441a3" absoluteBounds="0.51500000000000012, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0dd63ca0-f86c-4e06-9bf7-134aaec77bd6" isExpanded="false" absoluteBounds="2.75, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblAllocConsultDoctorDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="801434fa-d5f1-45b6-91e5-ce1910f2737d" absoluteBounds="2.7649999999999997, 5.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b69e485-d0d2-4a5a-a634-fc4bd3c48e92" isExpanded="false" absoluteBounds="2.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblAllowanceDeduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="746ee361-dfd3-44dd-b7fd-acb47cffe603" absoluteBounds="2.7650000000000006, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1829d278-db26-4759-9795-4fb9451a9c28" isExpanded="false" absoluteBounds="0.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblAnaesthetist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac159874-db1b-4c69-9eae-433ba10d954a" absoluteBounds="0.51500000000000012, 5.9600000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da334144-54b9-495c-b827-59479e31fc20" isExpanded="false" absoluteBounds="2.75, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBankMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="838e0ee1-19dd-4f2a-86d4-d6f6d7058e34" absoluteBounds="2.7650000000000006, 2.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab80c179-a0a4-4f2b-8eda-1e4116e7ba31" isExpanded="false" absoluteBounds="2.75, 9.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBedAllocationToPatient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c799b961-09c0-4cd5-8cc6-cce5f26cf38d" absoluteBounds="2.7649999999999997, 9.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee89d0af-a325-4624-b88d-1063b6daca15" isExpanded="false" absoluteBounds="0.5, 10, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBedMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d32a9d8-da96-43b1-bae4-98e7f4dcdb18" absoluteBounds="0.51500000000000057, 10.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25b5a47b-2b3c-44fc-ab11-e38f3e9cb7e8" isExpanded="false" absoluteBounds="2.75, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBirthCertificate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5849ddcd-1eae-4f40-8725-cf2925b3a369" absoluteBounds="2.7650000000000006, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52a117ee-f4f8-4ff5-a526-a0006cd53504" isExpanded="false" absoluteBounds="0.5, 7.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBloodTest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b41d209-c5e0-4098-ba6e-db53f1c67bf9" absoluteBounds="0.51500000000000057, 7.9600000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cb329a9-38dd-4080-961d-04fd1ff16677" isExpanded="false" absoluteBounds="0.5, 8.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblBookAppointment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73b4ff81-c853-4402-b92c-e160aca7ff9b" absoluteBounds="0.51500000000000057, 9.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9a40f28-1771-4113-9427-1bf8ee7a7e84" isExpanded="false" absoluteBounds="0.5, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCasteMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3980c51-9750-4ae4-9460-85d313041547" absoluteBounds="0.51500000000000057, 11.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e18a7a0c-5f8c-4b02-a8b3-b19a1941867b" isExpanded="false" absoluteBounds="2.75, 10, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblChargeCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1cb57cf-bae9-486e-9547-acca7883084a" absoluteBounds="2.7650000000000006, 10.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b806cff-a2a4-46a8-ba79-0cabc4988801" isExpanded="false" absoluteBounds="0.5, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCityMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d49d5b8e-a7d5-4d08-9c9f-f5a1a9f1a298" absoluteBounds="0.515, 11.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef6aa098-e479-48df-934d-2d09614c8999" isExpanded="false" absoluteBounds="2.75, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCompanyClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa7f9555-ff97-4b9b-a632-ee92659d7a96" absoluteBounds="2.765, 11.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b00063d-c946-4ee9-81d7-089918978386" isExpanded="false" absoluteBounds="2.75, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCompanyClaimDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9da5840a-2647-4e9d-a2ea-559d89a3ec9f" absoluteBounds="2.7650000000000006, 12.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6d542e7-985a-4c33-84ab-53f0d1252ebd" isExpanded="false" absoluteBounds="2.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCompanyMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30dc48e9-4b44-4059-a413-d8cf734de0e6" absoluteBounds="2.7650000000000006, 2.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76e7a166-362c-4cc7-9c29-e85a946ed900" isExpanded="false" absoluteBounds="0.5, 8.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblConsultantMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1ad66b8-6c70-4400-a4be-6265beb3a2f6" absoluteBounds="0.51500000000000057, 8.585, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e4ad3ce-d49e-4140-a2ea-d6e5ed773817" isExpanded="false" absoluteBounds="2.75, 12.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCountryMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9777ca67-51f8-4d31-aaca-f77cd261767a" absoluteBounds="2.7650000000000006, 12.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="708b66bc-4a0d-405b-8e70-a0c8b44dec3b" isExpanded="false" absoluteBounds="2.75, 13.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCurrencyMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7c65dbc-530d-42df-aeea-a8eeec6b2253" absoluteBounds="2.7650000000000006, 13.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab503e52-bce8-48e4-ac38-f1b7e820696a" isExpanded="false" absoluteBounds="2.75, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblCustomerTransaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="780963d3-481c-489c-9bfc-1062f41ca80b" absoluteBounds="2.7649999999999997, 11.71, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3db06387-48bf-4559-a06c-05b908c29ae9" isExpanded="false" absoluteBounds="9.5, 12.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDeathCertificate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8d8888b-3435-4209-921b-73da031f4cf7" absoluteBounds="9.515, 12.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d154fd44-6348-4509-9f68-8f6312ddecab" isExpanded="false" absoluteBounds="0.5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDebitNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c7d55ca-6c06-4314-a995-d151e76084ca" absoluteBounds="0.51500000000000057, 2.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc6f7f37-19f2-4895-accb-dab7136de87a" isExpanded="false" absoluteBounds="0.5, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDebitNoteDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b88756b8-5f63-4d19-ae1f-f1de5eb2a393" absoluteBounds="0.515, 12.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="145bb030-caa1-4151-9191-aa04bfe89e9a" isExpanded="false" absoluteBounds="0.5, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDepartment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e2384bb-a806-43df-b261-f340ab7a954b" absoluteBounds="0.51500000000000057, 6.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9fb22f9-c832-4591-bfe3-c70ab3229c06" isExpanded="false" absoluteBounds="5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDesignationMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74fc80b3-f1d8-4cb5-8d9d-e7df1376e4e4" absoluteBounds="5.0150000000000006, 2.8350000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a448584-bbe0-48c3-b72b-d3ae4931c931" isExpanded="false" absoluteBounds="5, 13.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDignosi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84b5c3f3-5e59-4be4-bb33-1d2ba744ecac" absoluteBounds="5.0150000000000006, 13.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19c57843-38e5-43ff-bce3-3a6a8415e020" isExpanded="false" absoluteBounds="5, 3.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDischarge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41196c75-2d48-4d67-872b-76de3875d52c" absoluteBounds="5.0150000000000006, 3.5850000000000009, 1.9700000000000002, 9.8644612630208321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cc114a3-1236-477f-a473-1e523fbf8045" isExpanded="false" absoluteBounds="7.25, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDiscount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5697f32a-9315-4b13-9e12-d72f2761b5cd" absoluteBounds="7.2650000000000006, 11.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27f574b2-76fb-452f-8a86-f37d5d2de4fb" isExpanded="false" absoluteBounds="0.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDocCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f3051db-5baa-4e73-91bd-134cf7026833" absoluteBounds="0.51500000000000057, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7d1013b-9da6-4061-ade9-623be8ffdc69" isExpanded="false" absoluteBounds="0.5, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDocument" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f2b01b8-4e07-4f26-8d26-6888d12d45cb" absoluteBounds="0.51500000000000057, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e74c133f-d5d2-414a-b8c8-a73c9343ca16" isExpanded="false" absoluteBounds="5, 5.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblFloorMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="335f953d-a154-4b9c-b901-bc9007bb4f14" absoluteBounds="5.0150000000000006, 6.0850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0c510e6-ba9d-44e5-af95-133c80994224" isExpanded="false" absoluteBounds="5, 6.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblFormMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="390830ca-3132-4364-ac9b-f12a83507e9d" absoluteBounds="5.0150000000000006, 6.7100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44b6e5cc-626e-44a6-a827-4d01358a5b25" isExpanded="false" absoluteBounds="5, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblGender" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b323871b-cf16-494e-938d-e58ff7a0123a" absoluteBounds="5.0150000000000006, 7.3350000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d372da4b-75a0-4562-b41f-e34f53c2b21f" isExpanded="false" absoluteBounds="0.5, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblGroupMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8bc5efc9-99da-4446-94d2-50a03ffcc92e" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42b57590-da75-4a13-b183-afd7889be39b" isExpanded="false" absoluteBounds="0.5, 12.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblICUBedAlloc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c831299-c646-418d-a9ab-c40a8e7fd262" absoluteBounds="0.515, 12.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a5de3f1-c27f-47a0-802d-2c6db718a6c3" isExpanded="false" absoluteBounds="7.25, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblICUInvoiceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b0bb69b-a1b6-4f8e-abdc-1a40c076b7b5" absoluteBounds="7.2650000000000006, 5.9600000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8f0c1540-f3ae-4bf1-8f34-a64bf27ed1d6" isExpanded="false" absoluteBounds="7.25, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblICUInvoiceDischarge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1911625-b748-43ee-85e7-bbcf2abdccae" absoluteBounds="7.2650000000000006, 7.2100000000000009, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bda063f0-18b7-49ec-b5b7-9770acaeeb54" isExpanded="false" absoluteBounds="7.25, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblICUInvoiceDischargeDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be556be5-c383-4e66-8ac0-4203b9de625f" absoluteBounds="7.2650000000000006, 6.5850000000000009, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a513a0e9-67b7-4d6f-98a9-54553428a476" isExpanded="false" absoluteBounds="7.25, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblIndentDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65e8f5b0-0021-4d7b-be0e-ddb2ebd78fbd" absoluteBounds="7.2650000000000006, 9.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="433ea7f5-0f58-4e49-8e14-e4886e80b46b" isExpanded="false" absoluteBounds="5, 7.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblIndentMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa949340-a987-49ce-af88-007c732ddc3c" absoluteBounds="5.0150000000000006, 7.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a07b57b7-2445-4150-9ebe-6f027d21954b" isExpanded="false" absoluteBounds="0.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInitial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35d05554-dadb-4d20-b4d0-805d0d15d0a1" absoluteBounds="0.51500000000000057, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30e128e4-b963-4690-bbaf-c484a048b8bf" isExpanded="false" absoluteBounds="2.75, 6.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInsuranceClaim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e7e68d7-59f2-412d-bcf7-53ab9d849716" absoluteBounds="2.7650000000000006, 7.335, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbe4c7e6-f8f2-47d9-be9d-6eebae57bfa6" isExpanded="false" absoluteBounds="0.5, 13.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInsuranceClaimDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb017f63-1b6d-47c6-bacf-76a06d8bf71e" absoluteBounds="0.51500000000000012, 13.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="575e0526-e1d1-44ca-873f-5c95d5be2a5e" isExpanded="false" absoluteBounds="5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInsuranceComMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95d240ba-3ca8-4f1c-875c-1cec98cc2f1d" absoluteBounds="5.0150000000000006, 2.2100000000000009, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="196760ee-2d23-4bae-aa16-620f7b445864" isExpanded="false" absoluteBounds="7.25, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInwardDT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb494a33-2e6c-4c81-bf44-4c4c37a549ec" absoluteBounds="7.2650000000000006, 2.8350000000000009, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f51b6287-65a6-4765-a831-d3d6180cfdfe" isExpanded="false" absoluteBounds="9.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblInwardMT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99507a9b-1559-4e93-b00e-dd20340dd3ce" absoluteBounds="9.515, 3.4600000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ebb9a62-5458-4618-87be-7c11e5c33ae9" isExpanded="false" absoluteBounds="9.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblIssueDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c47a8bb3-6b78-4098-8179-9cac7ec56cb5" absoluteBounds="9.515, 4.0850000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17792901-3143-41d4-b120-7331172393fe" isExpanded="false" absoluteBounds="7.25, 8.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblIssueMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="659f34e3-4418-4304-80d9-3cc8aa9ab38f" absoluteBounds="7.2650000000000006, 9.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd1f4c38-6760-43d3-a5f4-524d5727fb72" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblItemMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18b23e2b-f704-4306-a1c8-5d9890ffcfc8" absoluteBounds="0.51499999999999968, 2.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="363a28ac-c8f3-4c5c-8578-5fbf639a16cd" isExpanded="false" absoluteBounds="0.5, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblMaterialRequisitionDT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3d911b4-8290-43f8-927a-409061ca8a57" absoluteBounds="0.51500000000000057, 4.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9cc1284d-0c4d-4f57-a312-e42003e297c7" isExpanded="false" absoluteBounds="2.75, 8.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblMaterialRequisitionMT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf8dbbb9-5b52-4145-880c-5a8c2795d25f" absoluteBounds="2.7650000000000006, 8.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="033c38c2-486e-4325-b53b-71ca91f67fe8" isExpanded="false" absoluteBounds="5, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblMedicalCertificate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dfb88c6d-3e34-4b6c-b855-aa3e2c4bfed3" absoluteBounds="5.0150000000000006, 1.5850000000000009, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8438a032-3369-4687-b902-7fa06e0babbb" isExpanded="false" absoluteBounds="7.25, 7.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblNurse" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7df081e-cc88-48d8-a23a-96ee2548a9c7" absoluteBounds="7.2650000000000006, 7.8350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="650ea6be-7f73-4a38-9441-c7f3ebc20741" isExpanded="false" absoluteBounds="7.25, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblNursingManagement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2dc62232-0986-4ca9-908b-075b6052d49b" absoluteBounds="7.2650000000000006, 2.2100000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce6f0b70-e1d5-405d-ab89-bc6207699a74" isExpanded="false" absoluteBounds="7.25, 8, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblNursingManagementDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91b97f3c-8870-4b6d-b2fe-113f652a3cff" absoluteBounds="7.2650000000000006, 8.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a19e1408-ebce-4106-9fe1-826b6760f138" isExpanded="false" absoluteBounds="7.25, 3, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOccupationMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f60e269-2404-4e01-b185-3b57b38b4181" absoluteBounds="7.2650000000000006, 3.4600000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e7f1cec-6042-4a28-8401-6bc8e3ff1e38" isExpanded="false" absoluteBounds="9.5, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOPDMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b88dd897-12a8-41e9-8605-4af5d72ae813" absoluteBounds="9.515, 1.5850000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="907d6d70-3f13-4733-a96a-be0a6e0d7db1" isExpanded="false" absoluteBounds="9.5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOperationCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29ae09f1-4198-4d2c-a656-0078a6c8dd6f" absoluteBounds="9.515, 2.8350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66d93d8d-6e97-4a02-8a55-35aab368256b" isExpanded="false" absoluteBounds="9.5, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOperationMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f5d5973-446e-4305-9eb0-6acbf72ff191" absoluteBounds="9.515, 5.3350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="054493bd-dd58-4402-b6e7-94d870b4978e" isExpanded="false" absoluteBounds="9.5, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOTBedAlloc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b8d6847-5d7c-465e-91e6-61546f048b0b" absoluteBounds="9.515, 4.7100000000000009, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d6597cd2-f6a5-48d2-a76a-2fcda2354b17" isExpanded="false" absoluteBounds="7.25, 13.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOTMedicineBill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1f3598b-fdd5-48a1-ab62-7fdbf3c886b8" absoluteBounds="7.265, 13.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="afc1c86d-b6dc-4bea-940a-031a12d4fea6" isExpanded="false" absoluteBounds="5, 8.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOTMedicineBillDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03edf846-5009-40af-9991-84028ebf21b2" absoluteBounds="5.0150000000000006, 8.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a981874-94d6-4fa3-bb54-1ca94858849a" isExpanded="false" absoluteBounds="7.25, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblOTSchedulingMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81e71542-7369-485e-9082-6b4797ce4bac" absoluteBounds="7.2650000000000006, 12.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3906a6e8-fe49-4edf-ba2f-9f04bdaf307d" isExpanded="false" absoluteBounds="5, 8.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPathology" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9394ab1-aaa8-47ae-8344-6eb5a79b94cc" absoluteBounds="5.0150000000000006, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5b37500-8bcd-4d77-ab6d-e118c31dcced" isExpanded="false" absoluteBounds="2.75, 3, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPathologyDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0875a337-ad25-4778-8a84-9cc15daf19f5" absoluteBounds="2.7650000000000006, 3.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5d49573-f029-4830-a7f9-7f160487bd85" isExpanded="false" absoluteBounds="9.5, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientAllocToDoc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a9933ef-1e0d-4a0a-9c2a-be54f01ed46f" absoluteBounds="9.515, 11.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9bea169-f448-4949-a2e5-b2ea6ef5193d" isExpanded="false" absoluteBounds="7.25, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29ca494a-a7fd-489a-87a6-28a29135bc43" absoluteBounds="7.2650000000000006, 0.96000000000000085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52410530-ff69-4b46-beef-e1f88d55997b" isExpanded="false" absoluteBounds="7.25, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientInvoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="933a5537-2f26-4972-91d3-2cba73f0d7a6" absoluteBounds="7.2650000000000006, 1.5850000000000009, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9305f6f-7626-4574-aeb6-3ec74156a008" isExpanded="false" absoluteBounds="9.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientInvoiceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f228314a-7975-44d4-ae40-e640d6b39235" absoluteBounds="9.515, 0.96000000000000085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fbd65584-ff21-4d94-b758-f6b2d15ea8d0" isExpanded="false" absoluteBounds="9.5, 8, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPurchaseInvoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="deea557c-4a23-4d41-92c6-2762c63177bc" absoluteBounds="9.515, 8.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7c1b7890-2276-4279-86a0-04e03ebba9c4" isExpanded="false" absoluteBounds="5, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPurchaseInvoiceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca7be900-b009-46c2-9069-bf14f05481cb" absoluteBounds="5.0150000000000006, 11.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8ba7045-6fa9-470e-b201-0377a5bf84d1" isExpanded="false" absoluteBounds="5, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPurchaseOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a1c4f708-05e9-4a06-bc63-de6d125fe8b7" absoluteBounds="5.0150000000000006, 11.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a257926-f500-4178-a319-d839ac4537c3" isExpanded="false" absoluteBounds="9.5, 9.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPurchaseOrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9d28737a-d134-475f-a9c5-75956b98ee23" absoluteBounds="9.515, 9.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="557cdaf4-2399-4548-b0de-381b3dbd17e4" isExpanded="false" absoluteBounds="2.75, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblReligion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36c47aed-8c2a-4641-a77d-21ca8717a3b7" absoluteBounds="2.7650000000000006, 4.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d36303ad-a487-45ea-8d29-d432e8acf7a3" isExpanded="false" absoluteBounds="9.5, 10.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblRoomCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8eac2aa1-7883-4782-af5b-2118f5cf2021" absoluteBounds="9.515, 11.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4537b2e-7db8-4a73-be26-450aa2a90069" isExpanded="false" absoluteBounds="0.5, 9.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblRoomMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71f421b1-5be8-4ef4-9375-955513a0e077" absoluteBounds="0.51500000000000057, 9.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f0dc1a1-4d4e-47a2-8f57-fce7b266ea86" isExpanded="false" absoluteBounds="9.5, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblSalary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7c8039c-8e4e-4ed0-af89-b0b6416fefc6" absoluteBounds="9.515, 12.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="88863e76-2173-439f-8f0c-a34f77d0b489" isExpanded="false" absoluteBounds="2.75, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblSalaryDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01c7e618-992d-49f8-8b83-cf16576ed92c" absoluteBounds="2.7650000000000006, 5.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d83d6116-72dc-408e-9ea6-067178e1c66e" isExpanded="false" absoluteBounds="9.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblShiftAllocEmp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96a00e28-865c-45aa-9cab-681c63bd62ae" absoluteBounds="9.515, 2.2100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7b26238-508b-4c88-b679-4780a123dfa3" isExpanded="false" absoluteBounds="5, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblShiftMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2c1a0cb-4c3a-40ad-be27-e9738055c8ef" absoluteBounds="5.0150000000000006, 4.2100000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac551f46-f3ac-4196-bfd9-22c66449f70c" isExpanded="false" absoluteBounds="7.25, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblStateMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75c283cd-b55b-4963-b7c4-ac8a64590929" absoluteBounds="7.2650000000000006, 4.0850000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c14892f7-7a04-4e51-8d9d-ccb76ff9960c" isExpanded="false" absoluteBounds="7.25, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblStockDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cfe6a931-af34-416f-b0fd-b7d411ecf35c" absoluteBounds="7.2650000000000006, 5.3350000000000009, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d1089bb-dcb8-427b-bab5-ef10fd513694" isExpanded="false" absoluteBounds="9.5, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblSupplierMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5371cd5-4564-4932-9ab3-dc4c78fadb76" absoluteBounds="9.515, 7.2100000000000009, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8da7c9b6-432f-4756-8cf3-18f4d7f2a52c" isExpanded="false" absoluteBounds="9.5, 7.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblSurgeryMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d30878f-671f-4479-9579-5f1ab602e17a" absoluteBounds="9.515, 7.8350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0494c68-d6d2-4cb4-a21a-d3739ef9ca70" isExpanded="false" absoluteBounds="9.5, 8.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblSymptomDiagnosi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83f81654-4839-4cd7-953f-4fcf1f9a2af0" absoluteBounds="9.515, 9.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad00df13-c9f8-4b8b-8c47-6d2a1137c1a4" isExpanded="false" absoluteBounds="7.25, 11.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTabletMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="933b834d-b4e3-48e8-bf8c-e20e75bebd97" absoluteBounds="7.2650000000000006, 11.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc2c1c30-f404-467e-99c8-0c77c3a4e25e" isExpanded="false" absoluteBounds="5, 12.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTempLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcd1411e-c526-4743-a1aa-812b5f1c6a56" absoluteBounds="5.0150000000000006, 12.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d643c12-0646-4ab6-b120-0cad89b69a36" isExpanded="false" absoluteBounds="5, 11.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestCatagory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="076f1550-3a13-441c-9e67-f68590a592ee" absoluteBounds="5.0150000000000006, 12.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8530085-0bdd-4454-aef1-bfec398cb0a5" isExpanded="false" absoluteBounds="9.5, 9.875, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestInvoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b23be01-074b-4b9b-83fa-12a600e8efd3" absoluteBounds="9.515, 10.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d31a3cbb-d0ca-44df-83ce-41d31da776f2" isExpanded="false" absoluteBounds="2.75, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestInvoiceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="668e3480-2d33-4653-8a2b-6a10522174a2" absoluteBounds="2.7650000000000006, 4.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39acb07a-e6fc-4866-96a4-184befe7c182" isExpanded="false" absoluteBounds="2.75, 7.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c9b50f1-728f-4e01-8670-a56758911cbe" absoluteBounds="2.7650000000000006, 7.9600000000000009, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e779d67-24fa-4cd8-b10d-a289d728a70d" isExpanded="false" absoluteBounds="7.25, 12.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestMethod" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86df8fee-216f-4417-bde2-4f5963f4c7f0" absoluteBounds="7.265, 12.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c956c71-d6f1-42b6-9453-e612a336e2bf" isExpanded="false" absoluteBounds="2.75, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblTestPara" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ae46702-baa9-4688-930e-4a3461c64b47" absoluteBounds="2.7650000000000006, 6.5850000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75a70f81-1732-4542-aa6e-46b7b72fac57" isExpanded="false" absoluteBounds="5, 4.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblUnitMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51100ef0-c343-4efc-a58f-b8edbc144e0d" absoluteBounds="5.0150000000000006, 4.8350000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="969d7323-cf1e-44ad-8363-dcbfa6705f31" isExpanded="false" absoluteBounds="5, 5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblUserAuthorization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2c22064-dd23-44d6-b762-a22b4261e5c4" absoluteBounds="5.0150000000000006, 5.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c827353d-1502-442f-bb4d-90dede7505ad" isExpanded="false" absoluteBounds="7.25, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblXRayTest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61a42e1d-1cce-4a71-b2b4-270d7dcf02d2" absoluteBounds="7.2650000000000006, 4.7100000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 1.575); (1.5 : 1.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CriticareHospitalDataContext/tblGroupMaster/tblGroupMaster_tblItemMaster" />
+      <nodes>
+        <classShapeMoniker Id="d372da4b-75a0-4562-b41f-e34f53c2b21f" />
+        <classShapeMoniker Id="cd1f4c38-6760-43d3-a5f4-524d5727fb72" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6c3c6df2-198b-477a-af91-506262d1d13b" isExpanded="false" absoluteBounds="7.25, 10, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c578cb91-5c63-4cc4-867c-1b75e3ea5b21" absoluteBounds="7.265, 10.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa6121f8-60ac-46b0-9e03-59d07bd175f9" isExpanded="false" absoluteBounds="9.5, 6.125, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a5a983a-352b-478a-aed3-279c59a2d1ce" absoluteBounds="9.515, 6.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="107cdf5d-35b7-491f-8f4a-22d7e1f04834" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83f212e8-3330-4381-b881-69748c463154" absoluteBounds="0.51500000000000057, 0.96, 1.9700000000000002, 11.402872721354166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.18419230769231 : 0.95); (1.18419230769231 : 1.2); (1.83084615384615 : 1.2); (1.83084615384615 : 0.95)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CriticareHospitalDataContext/tblPatientMaster/tblPatientMaster_tblPatientMaster" />
+      <nodes>
+        <classShapeMoniker Id="107cdf5d-35b7-491f-8f4a-22d7e1f04834" />
+        <classShapeMoniker Id="107cdf5d-35b7-491f-8f4a-22d7e1f04834" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e9cdc10e-c2b4-4e80-beb7-1cceea4cfa53" isExpanded="false" absoluteBounds="5, 9.375, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPrescriptionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a1448d2-26c4-4a15-be30-ed1418e509a7" absoluteBounds="5.015, 9.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e67b870-07fe-4ed3-a100-1085989a1df4" isExpanded="false" absoluteBounds="5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblEmployee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4304eeab-7ae7-44a3-9eb2-602c2b03852a" absoluteBounds="5.015, 0.96, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ea8a9b7-1d31-4ff1-b200-7486fbb0ae52" isExpanded="false" absoluteBounds="9.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPrescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37ccd9ce-7746-4fb5-8f71-40c172baa94e" absoluteBounds="9.515, 5.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="86b2310b-c0da-4b72-a665-802c2a8d07e2" isExpanded="false" absoluteBounds="7.25, 13.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblUserData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a6b0bb0-9f9c-4e67-907a-da9a4463cf89" absoluteBounds="7.265, 14.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b0b6b90-f4ef-4460-95cd-deab170c1244" isExpanded="false" absoluteBounds="5, 10, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblProductMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="336bb539-2f0e-463c-90f7-9db40a31f53d" absoluteBounds="5.015, 10.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6cebc6d5-7556-4963-a386-37b2cf1e8bad" isExpanded="false" absoluteBounds="5, 13.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblProductType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01c35ac9-3568-40b6-9053-05f2a90c2bf9" absoluteBounds="5.015, 14.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5bee20b-8e42-40b2-8e94-e2d73be5751a" isExpanded="false" absoluteBounds="2.75, 8.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblPatientAdmitDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6649cfbb-ba9c-4639-80f8-03c4f11a25da" absoluteBounds="2.765, 9.21, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

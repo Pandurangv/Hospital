@@ -1,0 +1,1615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{040A5522-9F38-4E4C-B015-2C7E97623FB0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hospital</RootNamespace>
+    <AssemblyName>Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.1005, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\..\Publish\bin\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>D:\MainProjectHos\Bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="TimePicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d25e9f59e49c4d2f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\TimePicker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="BankTransaction\frmBankMaster.aspx" />
+    <Content Include="BedStatus\frmBedAllocToPatient.aspx" />
+    <Content Include="Billing\frmAdvancePayment.aspx" />
+    <Content Include="Billing\frmCustomerTransaction.aspx" />
+    <Content Include="Billing\frmICUInvoice.aspx" />
+    <Content Include="Billing\frmICUInvoiceDischargeBilling.aspx" />
+    <Content Include="Billing\frmPatientInvoice.aspx" />
+    <Content Include="Billing\frmPatintICUInvoice.aspx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\HtmlAgilityPack.dll" />
+    <Content Include="bin\obout_EasyMenu_Pro.dll" />
+    <Content Include="bin\obout_TextMenu.dll" />
+    <Content Include="bin\TimePicker.dll" />
+    <Content Include="BookAppoinment.aspx" />
+    <Content Include="css\adminpanelcss\all-themes.css" />
+    <Content Include="css\adminpanelcss\materialize.css" />
+    <Content Include="css\adminpanelcss\style.css" />
+    <Content Include="css\Bootstrap\bootstrap.min.css" />
+    <Content Include="css\coin-slider.css" />
+    <Content Include="css\content.css" />
+    <Content Include="css\Message.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="ExcelReport\MonthwiseSalExcel.aspx" />
+    <Content Include="frmAdminMain.aspx" />
+    <Content Include="frmAdmitPatient.aspx" />
+    <Content Include="frmAllocConsultDoctorToPatient.aspx" />
+    <Content Include="AnaesthetistMaster.aspx" />
+    <Content Include="frmBedAllocToPatient.aspx" />
+    <Content Include="frmBedMaster.aspx" />
+    <Content Include="frmBedStatus.aspx" />
+    <Content Include="frmBookAppointment.aspx" />
+    <Content Include="frmCastMaster.aspx" />
+    <Content Include="frmChangePassword.aspx" />
+    <Content Include="frmChargeCategory.aspx" />
+    <Content Include="frmCityMaster.aspx" />
+    <Content Include="frmCompanyMaster.aspx" />
+    <Content Include="frmConsultantChargeMaster.aspx" />
+    <Content Include="frmConsultantMaster.aspx" />
+    <Content Include="frmCountryMaster.aspx" />
+    <Content Include="frmCurrencyMaster.aspx" />
+    <Content Include="frmDailyNursingManagement.aspx" />
+    <Content Include="frmDepartmentMaster.aspx" />
+    <Content Include="frmDesignationMaster.aspx" />
+    <Content Include="frmDignosisMaster.aspx" />
+    <Content Include="frmDiscountMaster.aspx" />
+    <Content Include="frmDocCategory.aspx" />
+    <Content Include="frmEmployeeMaster.aspx" />
+    <Content Include="frmFirstLogin.aspx" />
+    <Content Include="frmGenderMaster.aspx" />
+    <Content Include="frmInitialsMaster.aspx" />
+    <Content Include="frmInsuranceComMaster.aspx" />
+    <Content Include="frmLogin.aspx" />
+    <Content Include="frmLogout.aspx" />
+    <Content Include="frmMakeDischarge.aspx" />
+    <Content Include="frmNewIPDPatient.aspx" />
+    <Content Include="frmNurseMaster.aspx" />
+    <Content Include="frmOccupationMaster.aspx" />
+    <Content Include="frmOPDCheckedPatient.aspx" />
+    <Content Include="frmOPDMaster.aspx" />
+    <Content Include="frmOPDPatient.aspx" />
+    <Content Include="frmOPDPatientDetail.aspx" />
+    <Content Include="frmOperationCatMaster.aspx" />
+    <Content Include="frmOperationMaster.aspx" />
+    <Content Include="frmOTMedicineBill.aspx" />
+    <Content Include="frmPathology.aspx" />
+    <Content Include="frmPatientAllocToDoc.aspx" />
+    <Content Include="frmPatientMainType.aspx" />
+    <Content Include="frmPrescription.aspx" />
+    <Content Include="frmProductMaster.aspx" />
+    <Content Include="frmReligionMaster.aspx" />
+    <Content Include="frmRoomCategoryMaster.aspx" />
+    <Content Include="frmRoomMaster.aspx" />
+    <Content Include="frmShiftAllocation.aspx" />
+    <Content Include="frmShiftMaster.aspx" />
+    <Content Include="frmStateMaster.aspx" />
+    <Content Include="frmSupplierMaster.aspx" />
+    <Content Include="frmSurgeryMaster.aspx" />
+    <Content Include="frmTabletMaster.aspx" />
+    <Content Include="frmTestAllocation.aspx" />
+    <Content Include="frmTestMaster.aspx" />
+    <Content Include="frmTestMethodMaster.aspx" />
+    <Content Include="frmTestParameters.aspx" />
+    <Content Include="frmUnitMaster.aspx" />
+    <Content Include="frmUploadDocuments.aspx" />
+    <Content Include="frmViewDocument.aspx" />
+    <Content Include="frmViewIPDPatient.aspx" />
+    <Content Include="images\add.png" />
+    <Content Include="images\AdmitCard.png" />
+    <Content Include="images\AFP_Getty1.jpg" />
+    <Content Include="images\AFP_Getty1c.jpg" />
+    <Content Include="images\Atlas.jpg" />
+    <Content Include="images\BannerImages\abc.png" />
+    <Content Include="images\BannerImages\abd.png" />
+    <Content Include="images\BannerImages\accounts.png" />
+    <Content Include="images\BannerImages\cooltext1748792652.png" />
+    <Content Include="images\BannerImages\cooltext17488049723.png" />
+    <Content Include="images\BannerImages\HospitalName.png" />
+    <Content Include="images\BannerImages\HospitalNameDrKhan.png" />
+    <Content Include="images\BannerImages\HospitalNameGNH.png" />
+    <Content Include="images\BannerImages\HospitalNameNagare.png" />
+    <Content Include="images\BannerImages\HospitalNameSevadham.png" />
+    <Content Include="images\BannerImages\HospitalNameSevadham1.png" />
+    <Content Include="images\BannerImages\IngaleDoctor.png" />
+    <Content Include="images\BannerImages\Laboratory.png" />
+    <Content Include="images\BannerImages\mir.png" />
+    <Content Include="images\BannerImages\Receptionist.png" />
+    <Content Include="images\BannerImages\Sevadham - Copy.jpg" />
+    <Content Include="images\BannerImages\Sevadham.jpg" />
+    <Content Include="images\BannerImages\Stores.png" />
+    <Content Include="images\BannerImages\whiteBackgroundImg.JPG" />
+    <Content Include="images\Banner\accounts.png" />
+    <Content Include="images\Banner\admin.png" />
+    <Content Include="images\Banner\laboratory.png" />
+    <Content Include="images\Banner\mri.png" />
+    <Content Include="images\Banner\receptionist.png" />
+    <Content Include="images\Banner\stores.png" />
+    <Content Include="images\BedImages\bed3.png" />
+    <Content Include="images\BedImages\bed4.png" />
+    <Content Include="images\BirthCertificate.jpg" />
+    <Content Include="images\BirthCertificate.png" />
+    <Content Include="images\BirthCertificate1.JPG" />
+    <Content Include="images\blood_bank.jpg" />
+    <Content Include="images\cardiology_1.jpg" />
+    <Content Include="images\child2.jpg" />
+    <Content Include="images\DeathCertificate.png" />
+    <Content Include="images\doc.jpg" />
+    <Content Include="images\Doc4.jpg" />
+    <Content Include="images\doctors1.jpg" />
+    <Content Include="images\Dr.Sapna_.04-small.jpg" />
+    <Content Include="images\edit.ico" />
+    <Content Include="images\edit.jpg" />
+    <Content Include="images\EndoHold1.jpg" />
+    <Content Include="images\Erase.png" />
+    <Content Include="images\Final.jpg" />
+    <Content Include="images\Final1.jpg" />
+    <Content Include="images\Final1N.JPG" />
+    <Content Include="images\Final2.jpg" />
+    <Content Include="images\find_test.png" />
+    <Content Include="images\fotolia_28051798.jpg" />
+    <Content Include="images\fotolia_30308648_xs.jpg" />
+    <Content Include="images\gal1.jpg" />
+    <Content Include="images\gal2.jpg" />
+    <Content Include="images\gal3.jpg" />
+    <Content Include="images\gal4.jpg" />
+    <Content Include="images\gal5.jpg" />
+    <Content Include="images\gal6.jpg" />
+    <Content Include="images\GW1.JPG" />
+    <Content Include="images\hd.jpg" />
+    <Content Include="images\ICU1.JPG" />
+    <Content Include="images\img1.jpg" />
+    <Content Include="images\img2.jpg" />
+    <Content Include="images\internalBack.jpg" />
+    <Content Include="images\joint_replacement.jpg" />
+    <Content Include="images\Justtach-04_011.jpg" />
+    <Content Include="images\kidney_transplant.jpg" />
+    <Content Include="images\Knob\Knob Attention.png" />
+    <Content Include="images\Knob\Knob Cancel.png" />
+    <Content Include="images\Knob\Knob Info.png" />
+    <Content Include="images\Knob\Knob Valid Green.png" />
+    <Content Include="images\Labour Room.JPG" />
+    <Content Include="images\main100.png" />
+    <Content Include="images\Main_01.jpg" />
+    <Content Include="images\NICU.JPG" />
+    <Content Include="images\Odyssy_Web.jpg" />
+    <Content Include="images\oprogoramowanie-dla-przychodni1.jpg" />
+    <Content Include="images\pdf-icon.png" />
+    <Content Include="images\pdfIcon.jpg" />
+    <Content Include="images\pdficonblack.jpg" />
+    <Content Include="images\RecepStaff.JPG" />
+    <Content Include="images\Report.bmp" />
+    <Content Include="images\Slice!T.jpg" />
+    <Content Include="images\slide1.jpg" />
+    <Content Include="images\slide2.jpg" />
+    <Content Include="images\slide3.jpg" />
+    <Content Include="images\spiffygif_30x30.gif" />
+    <Content Include="images\spine_surgery.jpg" />
+    <Content Include="images\toolbar_find.png" />
+    <Content Include="images\User_256x256.png" />
+    <Content Include="images\Waiting Area.JPG" />
+    <Content Include="InsuranceClaim\frmClaimApproval.aspx" />
+    <Content Include="InsuranceClaim\frmCompanyClaim.aspx" />
+    <Content Include="InsuranceClaim\frmCompanyClaimApproval.aspx" />
+    <Content Include="InsuranceClaim\frmInsuranceClaim.aspx" />
+    <Content Include="js\calendar-en.min.js" />
+    <Content Include="js\coin-slider.min.js" />
+    <Content Include="js\cufon-titillium-250.js" />
+    <Content Include="js\cufon-yui.js" />
+    <Content Include="js\jquery-1.4.1-vsdoc.js" />
+    <Content Include="js\jquery-1.4.1.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
+    <Content Include="js\jquery-1.4.2.min.js" />
+    <Content Include="js\jquery.dynDateTime.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="PathalogyReport\Reports.aspx" />
+    <Content Include="Scripts\adminpanel\admin.js" />
+    <Content Include="Scripts\adminpanel\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Scripts\adminpanel\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\adminpanel\bootstrap\css\bootstrap.css" />
+    <Content Include="Scripts\adminpanel\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\adminpanel\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\adminpanel\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\adminpanel\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\adminpanel\bootstrap\js\npm.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\buttons.flash.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\buttons.html5.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\buttons.print.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\dataTables.buttons.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\jszip.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\pdfmake.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\extensions\export\vfs_fonts.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\jquery.dataTables.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\favicon.ico" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\sort_asc.png" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\sort_both.png" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\sort_desc.png" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\adminpanel\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="Scripts\adminpanel\jquery\jquery.js" />
+    <Content Include="Scripts\adminpanel\jquery\jquery.min.js" />
+    <Content Include="Scripts\adminpanel\node-waves\waves.css" />
+    <Content Include="Scripts\adminpanel\node-waves\waves.js" />
+    <Content Include="Scripts\adminpanel\node-waves\waves.min.css" />
+    <Content Include="Scripts\adminpanel\node-waves\waves.min.js" />
+    <Content Include="Scripts\Bootstrap\angular.min.js" />
+    <Content Include="Scripts\Bootstrap\App.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap-datepicker.js" />
+    <Content Include="Scripts\Bootstrap\DailyCollection.js" />
+    <Content Include="Scripts\Bootstrap\datehelper.js" />
+    <Content Include="Scripts\Bootstrap\Main\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap\common.js" />
+    <Content Include="Scripts\Bootstrap\Main\jquery.min.js" />
+    <Content Include="Scripts\Bootstrap\ProductController.js" />
+    <Content Include="Scripts\Bootstrap\ProductTypeController.js" />
+    <Content Include="Scripts\Bootstrap\ReportsController.js" />
+    <Content Include="Scripts\Bootstrap\ShowCustomAlert.js" />
+    <Content Include="Scripts\Bootstrap\spin.js" />
+    <Content Include="js\script.js" />
+    <Content Include="Notimoo\mootools-1.2-core.js" />
+    <Content Include="Notimoo\notimoo-documented-1.1.css" />
+    <Content Include="Notimoo\notimoo-documented-1.1.js" />
+    <Content Include="Notimoo\notimoo-v1.1.css" />
+    <Content Include="Notimoo\notimoo-v1.1.js" />
+    <Content Include="PathalogyReport\DailyCollection.aspx" />
+    <Content Include="PathalogyReport\frmAdmitedPatientListReport.aspx" />
+    <Content Include="PathalogyReport\frmBedConsumption.aspx" />
+    <Content Include="PathalogyReport\frmDailyCollectionIPDOPD.aspx" />
+    <Content Include="PathalogyReport\frmDailyNursingChart.aspx" />
+    <Content Include="PathalogyReport\frmDatewiseCollection.aspx" />
+    <Content Include="PathalogyReport\frmDatewiseCompanyClaim.aspx" />
+    <Content Include="PathalogyReport\frmDatewiseConsultDoctorReport.aspx" />
+    <Content Include="PathalogyReport\frmDatewiseInsuranceClaim.aspx" />
+    <Content Include="PathalogyReport\frmDebitNoteReport.aspx" />
+    <Content Include="PathalogyReport\frmDischargePatientListReport.aspx" />
+    <Content Include="PathalogyReport\frmHistoryReport.aspx" />
+    <Content Include="PathalogyReport\frmIPDPatientReport.aspx" />
+    <Content Include="PathalogyReport\frmIPDRegistrationBookReport.aspx" />
+    <Content Include="PathalogyReport\frmItemStockReport.aspx" />
+    <Content Include="PathalogyReport\frmNewServicesReport.aspx" />
+    <Content Include="PathalogyReport\frmOTBedPatientReport.aspx" />
+    <Content Include="PathalogyReport\frmOutstandingReport.aspx" />
+    <Content Include="PathalogyReport\frmPatientLedger.aspx" />
+    <Content Include="PathalogyReport\frmPatientMIS.aspx" />
+    <Content Include="PathalogyReport\frmPatientwiseDocumentSearch.aspx" />
+    <Content Include="PathalogyReport\frmStockDetailReport.aspx" />
+    <Content Include="PathalogyReport\frmSummarizedDetailReport.aspx" />
+    <Content Include="PathalogyReport\frmSupplierLedger.aspx" />
+    <Content Include="PathalogyReport\frmSupplierOutstandingReport.aspx" />
+    <Content Include="PathalogyReport\frmTDSReport.aspx" />
+    <Content Include="PathalogyReport\PathologyReport.aspx" />
+    <Content Include="PathologyImages\2.jpg" />
+    <Content Include="PathologyImages\3.jpg" />
+    <Content Include="PatientStatus\frmBirthCertificate.aspx" />
+    <Content Include="PatientStatus\frmDeathCertificate.aspx" />
+    <Content Include="PatientStatus\frmMedicalCertificate.aspx" />
+    <Content Include="Payroll\frmAllowanceDeduction.aspx" />
+    <Content Include="Payroll\frmSalaryCalculation.aspx" />
+    <Content Include="README.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="RegistrationPortal.aspx" />
+    <Content Include="Reports\MonthwiseSalaryReport.aspx" />
+    <Content Include="Sample.aspx" />
+    <Content Include="SamplePage.aspx" />
+    <Content Include="Scheduling\frmOTScheduling.aspx" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap\jquery.min.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="StoreForms\frmGroupMaster.aspx" />
+    <Content Include="StoreForms\frmItemMaster.aspx" />
+    <Content Include="StoreForms\frmMaterialInword.aspx" />
+    <Content Include="StoreForms\frmMaterialRequisiton.aspx" />
+    <Content Include="StoreForms\frmRequisitionDetails.aspx" />
+    <Content Include="StoreForms\frmStoreMain.aspx" />
+    <Content Include="StoreForms\frmUnitMaster.aspx" />
+    <Content Include="Store\frmDebitNote.aspx" />
+    <Content Include="Store\frmIssueMaterial.aspx" />
+    <Content Include="Store\frmPurchaseInvoice.aspx" />
+    <Content Include="Store\frmPurchaseOrder.aspx" />
+    <Content Include="Store\frmStockDetails.aspx" />
+    <Content Include="Store\frmSupplierPayment.aspx" />
+    <Content Include="Store\ProductType.aspx" />
+    <Content Include="Store\StoreProducts.aspx" />
+    <Content Include="Style\AdminStyle.css" />
+    <Content Include="Style\calendar-blue.css" />
+    <Content Include="Style\calender.png" />
+    <Content Include="Style\pil_submeny.png" />
+    <Content Include="Style\style.css" />
+    <Content Include="svn.ico" />
+    <Content Include="UserAuthentication\frmUserAuthentication.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BankTransaction\frmBankMaster.aspx.cs">
+      <DependentUpon>frmBankMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BankTransaction\frmBankMaster.aspx.designer.cs">
+      <DependentUpon>frmBankMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BedStatus\frmBedAllocToPatient.aspx.cs">
+      <DependentUpon>frmBedAllocToPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BedStatus\frmBedAllocToPatient.aspx.designer.cs">
+      <DependentUpon>frmBedAllocToPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmAdvancePayment.aspx.cs">
+      <DependentUpon>frmAdvancePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmAdvancePayment.aspx.designer.cs">
+      <DependentUpon>frmAdvancePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmCustomerTransaction.aspx.cs">
+      <DependentUpon>frmCustomerTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmCustomerTransaction.aspx.designer.cs">
+      <DependentUpon>frmCustomerTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmICUInvoice.aspx.cs">
+      <DependentUpon>frmICUInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmICUInvoice.aspx.designer.cs">
+      <DependentUpon>frmICUInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmICUInvoiceDischargeBilling.aspx.cs">
+      <DependentUpon>frmICUInvoiceDischargeBilling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmICUInvoiceDischargeBilling.aspx.designer.cs">
+      <DependentUpon>frmICUInvoiceDischargeBilling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmPatientInvoice.aspx.cs">
+      <DependentUpon>frmPatientInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmPatientInvoice.aspx.designer.cs">
+      <DependentUpon>frmPatientInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Billing\frmPatintICUInvoice.aspx.cs">
+      <DependentUpon>frmPatintICUInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Billing\frmPatintICUInvoice.aspx.designer.cs">
+      <DependentUpon>frmPatintICUInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookAppoinment.aspx.cs">
+      <DependentUpon>BookAppoinment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookAppoinment.aspx.designer.cs">
+      <DependentUpon>BookAppoinment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.Master.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Master.designer.cs">
+      <DependentUpon>Dashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelReport\MonthwiseSalExcel.aspx.cs">
+      <DependentUpon>MonthwiseSalExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExcelReport\MonthwiseSalExcel.aspx.designer.cs">
+      <DependentUpon>MonthwiseSalExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminMain.aspx.cs">
+      <DependentUpon>frmAdminMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAdminMain.aspx.designer.cs">
+      <DependentUpon>frmAdminMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmitPatient.aspx.cs">
+      <DependentUpon>frmAdmitPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAdmitPatient.aspx.designer.cs">
+      <DependentUpon>frmAdmitPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAllocConsultDoctorToPatient.aspx.cs">
+      <DependentUpon>frmAllocConsultDoctorToPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAllocConsultDoctorToPatient.aspx.designer.cs">
+      <DependentUpon>frmAllocConsultDoctorToPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnaesthetistMaster.aspx.cs">
+      <DependentUpon>AnaesthetistMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnaesthetistMaster.aspx.designer.cs">
+      <DependentUpon>AnaesthetistMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmBedAllocToPatient.aspx.cs">
+      <DependentUpon>frmBedAllocToPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBedAllocToPatient.aspx.designer.cs">
+      <DependentUpon>frmBedAllocToPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmBedMaster.aspx.cs">
+      <DependentUpon>frmBedMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBedMaster.aspx.designer.cs">
+      <DependentUpon>frmBedMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmBedStatus.aspx.cs">
+      <DependentUpon>frmBedStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBedStatus.aspx.designer.cs">
+      <DependentUpon>frmBedStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookAppointment.aspx.cs">
+      <DependentUpon>frmBookAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBookAppointment.aspx.designer.cs">
+      <DependentUpon>frmBookAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCastMaster.aspx.cs">
+      <DependentUpon>frmCastMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCastMaster.aspx.designer.cs">
+      <DependentUpon>frmCastMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.aspx.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.aspx.designer.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmChargeCategory.aspx.cs">
+      <DependentUpon>frmChargeCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmChargeCategory.aspx.designer.cs">
+      <DependentUpon>frmChargeCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCityMaster.aspx.cs">
+      <DependentUpon>frmCityMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCityMaster.aspx.designer.cs">
+      <DependentUpon>frmCityMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompanyMaster.aspx.cs">
+      <DependentUpon>frmCompanyMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCompanyMaster.aspx.designer.cs">
+      <DependentUpon>frmCompanyMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultantChargeMaster.aspx.cs">
+      <DependentUpon>frmConsultantChargeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmConsultantChargeMaster.aspx.designer.cs">
+      <DependentUpon>frmConsultantChargeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultantMaster.aspx.cs">
+      <DependentUpon>frmConsultantMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmConsultantMaster.aspx.designer.cs">
+      <DependentUpon>frmConsultantMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCountryMaster.aspx.cs">
+      <DependentUpon>frmCountryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCountryMaster.aspx.designer.cs">
+      <DependentUpon>frmCountryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCurrencyMaster.aspx.cs">
+      <DependentUpon>frmCurrencyMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCurrencyMaster.aspx.designer.cs">
+      <DependentUpon>frmCurrencyMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDailyNursingManagement.aspx.cs">
+      <DependentUpon>frmDailyNursingManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDailyNursingManagement.aspx.designer.cs">
+      <DependentUpon>frmDailyNursingManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepartmentMaster.aspx.cs">
+      <DependentUpon>frmDepartmentMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDepartmentMaster.aspx.designer.cs">
+      <DependentUpon>frmDepartmentMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDesignationMaster.aspx.cs">
+      <DependentUpon>frmDesignationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDesignationMaster.aspx.designer.cs">
+      <DependentUpon>frmDesignationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDignosisMaster.aspx.cs">
+      <DependentUpon>frmDignosisMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDignosisMaster.aspx.designer.cs">
+      <DependentUpon>frmDignosisMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiscountMaster.aspx.cs">
+      <DependentUpon>frmDiscountMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDiscountMaster.aspx.designer.cs">
+      <DependentUpon>frmDiscountMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocCategory.aspx.cs">
+      <DependentUpon>frmDocCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDocCategory.aspx.designer.cs">
+      <DependentUpon>frmDocCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeeMaster.aspx.cs">
+      <DependentUpon>frmEmployeeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeMaster.aspx.designer.cs">
+      <DependentUpon>frmEmployeeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmFirstLogin.aspx.cs">
+      <DependentUpon>frmFirstLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmFirstLogin.aspx.designer.cs">
+      <DependentUpon>frmFirstLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenderMaster.aspx.cs">
+      <DependentUpon>frmGenderMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmGenderMaster.aspx.designer.cs">
+      <DependentUpon>frmGenderMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInitialsMaster.aspx.cs">
+      <DependentUpon>frmInitialsMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInitialsMaster.aspx.designer.cs">
+      <DependentUpon>frmInitialsMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsuranceComMaster.aspx.cs">
+      <DependentUpon>frmInsuranceComMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInsuranceComMaster.aspx.designer.cs">
+      <DependentUpon>frmInsuranceComMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogout.aspx.cs">
+      <DependentUpon>frmLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogout.aspx.designer.cs">
+      <DependentUpon>frmLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMakeDischarge.aspx.cs">
+      <DependentUpon>frmMakeDischarge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMakeDischarge.aspx.designer.cs">
+      <DependentUpon>frmMakeDischarge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewIPDPatient.aspx.cs">
+      <DependentUpon>frmNewIPDPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmNewIPDPatient.aspx.designer.cs">
+      <DependentUpon>frmNewIPDPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmNurseMaster.aspx.cs">
+      <DependentUpon>frmNurseMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmNurseMaster.aspx.designer.cs">
+      <DependentUpon>frmNurseMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOccupationMaster.aspx.cs">
+      <DependentUpon>frmOccupationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOccupationMaster.aspx.designer.cs">
+      <DependentUpon>frmOccupationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOPDCheckedPatient.aspx.cs">
+      <DependentUpon>frmOPDCheckedPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOPDCheckedPatient.aspx.designer.cs">
+      <DependentUpon>frmOPDCheckedPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOPDMaster.aspx.cs">
+      <DependentUpon>frmOPDMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOPDMaster.aspx.designer.cs">
+      <DependentUpon>frmOPDMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOPDPatient.aspx.cs">
+      <DependentUpon>frmOPDPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOPDPatient.aspx.designer.cs">
+      <DependentUpon>frmOPDPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOPDPatientDetail.aspx.cs">
+      <DependentUpon>frmOPDPatientDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOPDPatientDetail.aspx.designer.cs">
+      <DependentUpon>frmOPDPatientDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOperationCatMaster.aspx.cs">
+      <DependentUpon>frmOperationCatMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOperationCatMaster.aspx.designer.cs">
+      <DependentUpon>frmOperationCatMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOperationMaster.aspx.cs">
+      <DependentUpon>frmOperationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOperationMaster.aspx.designer.cs">
+      <DependentUpon>frmOperationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOTMedicineBill.aspx.cs">
+      <DependentUpon>frmOTMedicineBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOTMedicineBill.aspx.designer.cs">
+      <DependentUpon>frmOTMedicineBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPathology.aspx.cs">
+      <DependentUpon>frmPathology.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPathology.aspx.designer.cs">
+      <DependentUpon>frmPathology.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPatientAllocToDoc.aspx.cs">
+      <DependentUpon>frmPatientAllocToDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPatientAllocToDoc.aspx.designer.cs">
+      <DependentUpon>frmPatientAllocToDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPatientMainType.aspx.cs">
+      <DependentUpon>frmPatientMainType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPatientMainType.aspx.designer.cs">
+      <DependentUpon>frmPatientMainType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrescription.aspx.cs">
+      <DependentUpon>frmPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPrescription.aspx.designer.cs">
+      <DependentUpon>frmPrescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductMaster.aspx.cs">
+      <DependentUpon>frmProductMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmProductMaster.aspx.designer.cs">
+      <DependentUpon>frmProductMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReligionMaster.aspx.cs">
+      <DependentUpon>frmReligionMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReligionMaster.aspx.designer.cs">
+      <DependentUpon>frmReligionMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoomCategoryMaster.aspx.cs">
+      <DependentUpon>frmRoomCategoryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRoomCategoryMaster.aspx.designer.cs">
+      <DependentUpon>frmRoomCategoryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoomMaster.aspx.cs">
+      <DependentUpon>frmRoomMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRoomMaster.aspx.designer.cs">
+      <DependentUpon>frmRoomMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmShiftAllocation.aspx.cs">
+      <DependentUpon>frmShiftAllocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmShiftAllocation.aspx.designer.cs">
+      <DependentUpon>frmShiftAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmShiftMaster.aspx.cs">
+      <DependentUpon>frmShiftMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmShiftMaster.aspx.designer.cs">
+      <DependentUpon>frmShiftMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmStateMaster.aspx.cs">
+      <DependentUpon>frmStateMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmStateMaster.aspx.designer.cs">
+      <DependentUpon>frmStateMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplierMaster.aspx.cs">
+      <DependentUpon>frmSupplierMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSupplierMaster.aspx.designer.cs">
+      <DependentUpon>frmSupplierMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSurgeryMaster.aspx.cs">
+      <DependentUpon>frmSurgeryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSurgeryMaster.aspx.designer.cs">
+      <DependentUpon>frmSurgeryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTabletMaster.aspx.cs">
+      <DependentUpon>frmTabletMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTabletMaster.aspx.designer.cs">
+      <DependentUpon>frmTabletMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestAllocation.aspx.cs">
+      <DependentUpon>frmTestAllocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTestAllocation.aspx.designer.cs">
+      <DependentUpon>frmTestAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestMaster.aspx.cs">
+      <DependentUpon>frmTestMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTestMaster.aspx.designer.cs">
+      <DependentUpon>frmTestMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestMethodMaster.aspx.cs">
+      <DependentUpon>frmTestMethodMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTestMethodMaster.aspx.designer.cs">
+      <DependentUpon>frmTestMethodMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestParameters.aspx.cs">
+      <DependentUpon>frmTestParameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTestParameters.aspx.designer.cs">
+      <DependentUpon>frmTestParameters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnitMaster.aspx.cs">
+      <DependentUpon>frmUnitMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUnitMaster.aspx.designer.cs">
+      <DependentUpon>frmUnitMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUploadDocuments.aspx.cs">
+      <DependentUpon>frmUploadDocuments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUploadDocuments.aspx.designer.cs">
+      <DependentUpon>frmUploadDocuments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewDocument.aspx.cs">
+      <DependentUpon>frmViewDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmViewDocument.aspx.designer.cs">
+      <DependentUpon>frmViewDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewIPDPatient.aspx.cs">
+      <DependentUpon>frmViewIPDPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmViewIPDPatient.aspx.designer.cs">
+      <DependentUpon>frmViewIPDPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmClaimApproval.aspx.cs">
+      <DependentUpon>frmClaimApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmClaimApproval.aspx.designer.cs">
+      <DependentUpon>frmClaimApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmCompanyClaim.aspx.cs">
+      <DependentUpon>frmCompanyClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmCompanyClaim.aspx.designer.cs">
+      <DependentUpon>frmCompanyClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmCompanyClaimApproval.aspx.cs">
+      <DependentUpon>frmCompanyClaimApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmCompanyClaimApproval.aspx.designer.cs">
+      <DependentUpon>frmCompanyClaimApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmInsuranceClaim.aspx.cs">
+      <DependentUpon>frmInsuranceClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsuranceClaim\frmInsuranceClaim.aspx.designer.cs">
+      <DependentUpon>frmInsuranceClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\BusinessLayer\AdvancePaymentBLL.cs" />
+    <Compile Include="Models\BusinessLayer\AllocConsultDoctorToPatientBLL.cs" />
+    <Compile Include="Models\BusinessLayer\AllowanceDeductionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BankMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BedConsumtionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BedMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BedStatusBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BirthCertificateBLL.cs" />
+    <Compile Include="Models\BusinessLayer\BookAppoinmentBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CasteBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ChangePasswordBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ChargeCategoryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CityBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ClaimApprovalBLL.cs" />
+    <Compile Include="Models\BusinessLayer\clsTestAllocation.cs" />
+    <Compile Include="Models\BusinessLayer\CompanyBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CompanyClaimApprovalBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CompanyClaimBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ConsultantBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ConsultantChargeBLL.cs" />
+    <Compile Include="Models\BusinessLayer\Converter.cs" />
+    <Compile Include="Models\BusinessLayer\CountryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CurrencyBLL.cs" />
+    <Compile Include="Models\BusinessLayer\CustomerTransactionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DatewiseCollectionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DeathCertificateBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DebitNoteBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DepartmentBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DesignationBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DignosisBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DiscountBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DocCategoryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\EmployeeBLL.cs" />
+    <Compile Include="Models\BusinessLayer\GenderBLL.cs" />
+    <Compile Include="Models\BusinessLayer\GetLoginBLL.cs" />
+    <Compile Include="Models\BusinessLayer\GroupBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ICUDischargeBilling.cs" />
+    <Compile Include="Models\BusinessLayer\ICUInvoiceBLL.cs" />
+    <Compile Include="Models\BusinessLayer\InitialsBLL.cs" />
+    <Compile Include="Models\BusinessLayer\InsuranceClaimBLL.cs" />
+    <Compile Include="Models\BusinessLayer\InsuranceComBLL.cs" />
+    <Compile Include="Models\BusinessLayer\IssueMaterialBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ItemBLL.cs" />
+    <Compile Include="Models\BusinessLayer\MakeDischargeBLL.cs" />
+    <Compile Include="Models\BusinessLayer\MaterialRequisitionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\MterialInwordBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OccupationBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OPDBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OPDPatientMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OpeartionMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OperationCategoryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OTMedicineBillBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OTScheduleBLL.cs" />
+    <Compile Include="Models\BusinessLayer\OutstandingBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PathologyBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PatientAllocDocBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PatientInvoiceBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PatientMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PatientTypeBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PredicateBuilder.cs" />
+    <Compile Include="Models\BusinessLayer\PrescriptionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ProductBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PurchaseInvoiceBLL.cs" />
+    <Compile Include="Models\BusinessLayer\PurchaseOrderBLL.cs" />
+    <Compile Include="Models\BusinessLayer\RegistrationBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ReligionBLL.cs" />
+    <Compile Include="Models\BusinessLayer\RequisitionDetailsBLL.cs" />
+    <Compile Include="Models\BusinessLayer\RoomCategoryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\RoomMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\SalaryCalculationBLL.cs" />
+    <Compile Include="Models\BusinessLayer\ShiftBLL.cs" />
+    <Compile Include="Models\BusinessLayer\StateBLL.cs" />
+    <Compile Include="Models\BusinessLayer\StoreMainBLL.cs" />
+    <Compile Include="Models\BusinessLayer\SupplierBLL.cs" />
+    <Compile Include="Models\BusinessLayer\SurgeryMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\TabletMasterBLL.cs" />
+    <Compile Include="Models\BusinessLayer\TdsReportBLL.cs" />
+    <Compile Include="Models\BusinessLayer\TestBLL.cs" />
+    <Compile Include="Models\BusinessLayer\TestMethodBLL.cs" />
+    <Compile Include="Models\BusinessLayer\UnitBLL.cs" />
+    <Compile Include="Models\BusinessLayer\UserAuthenticationBLL.cs" />
+    <Compile Include="Models\DataLayer\clsDataAccess.cs" />
+    <Compile Include="Models\DataLayer\Commons.cs" />
+    <Compile Include="Models\DataLayer\CriticareHospital.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CriticareHospital.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\ListConverter.cs" />
+    <Compile Include="Models\DataLayer\SessionWrapper.cs" />
+    <Compile Include="Models\Models\EnitiyRoomMaster.cs" />
+    <Compile Include="Models\Models\EntityAllocaConDoc.cs" />
+    <Compile Include="Models\Models\EntityAllowanceDeduction.cs" />
+    <Compile Include="Models\Models\EntityBankMaster.cs" />
+    <Compile Include="Models\Models\EntityBedAllocToPatient.cs" />
+    <Compile Include="Models\Models\EntityBedMaster.cs" />
+    <Compile Include="Models\Models\EntityBirthCertificate.cs" />
+    <Compile Include="Models\Models\EntityBookAppoinment.cs" />
+    <Compile Include="Models\Models\EntityCast.cs" />
+    <Compile Include="Models\Models\EntityChargeCategory.cs" />
+    <Compile Include="Models\Models\EntityCity.cs" />
+    <Compile Include="Models\Models\EntityCompany.cs" />
+    <Compile Include="Models\Models\EntityConsultant.cs" />
+    <Compile Include="Models\Models\EntityConsultantChargeMaster.cs" />
+    <Compile Include="Models\Models\EntityCountry.cs" />
+    <Compile Include="Models\Models\EntityCurrency.cs" />
+    <Compile Include="Models\Models\EntityCustomerTransaction.cs" />
+    <Compile Include="Models\Models\EntityDeathCertificate.cs" />
+    <Compile Include="Models\Models\EntityDebitNote.cs" />
+    <Compile Include="Models\Models\EntityDebitNoteDetails.cs" />
+    <Compile Include="Models\Models\EntityDepartment.cs" />
+    <Compile Include="Models\Models\EntityDesignation.cs" />
+    <Compile Include="Models\Models\EntityDignosis.cs" />
+    <Compile Include="Models\Models\EntityDiscount.cs" />
+    <Compile Include="Models\Models\EntityDocCategory.cs" />
+    <Compile Include="Models\Models\EntityDocument.cs" />
+    <Compile Include="Models\Models\EntityEmployee.cs" />
+    <Compile Include="Models\Models\EntityFacAllocEmp.cs" />
+    <Compile Include="Models\Models\EntityFormMaster.cs" />
+    <Compile Include="Models\Models\EntityGender.cs" />
+    <Compile Include="Models\Models\EntityGroup.cs" />
+    <Compile Include="Models\Models\EntityICUInvoice.cs" />
+    <Compile Include="Models\Models\EntityICUInvoiceDetail.cs" />
+    <Compile Include="Models\Models\EntityICUInvoiceDischarge.cs" />
+    <Compile Include="Models\Models\EntityICUInvoiceDischargeDetails.cs" />
+    <Compile Include="Models\Models\EntityInitials.cs" />
+    <Compile Include="Models\Models\EntityInsuranceClaim.cs" />
+    <Compile Include="Models\Models\EntityinsuranceClaimDetails.cs" />
+    <Compile Include="Models\Models\EntityInsuranceCom.cs" />
+    <Compile Include="Models\Models\EntityInvoiceDetails.cs" />
+    <Compile Include="Models\Models\EntityIssueMaterial.cs" />
+    <Compile Include="Models\Models\EntityIssueMaterialDetails.cs" />
+    <Compile Include="Models\Models\EntityItem.cs" />
+    <Compile Include="Models\Models\EntityLogin.cs" />
+    <Compile Include="Models\Models\EntityMakeDischarge.cs" />
+    <Compile Include="Models\Models\EntityMaterialRequisition.cs" />
+    <Compile Include="Models\Models\EntityMatrialInward.cs" />
+    <Compile Include="Models\Models\EntityMedicine.cs" />
+    <Compile Include="Models\Models\EntityOccupation.cs" />
+    <Compile Include="Models\Models\EntityOPD.cs" />
+    <Compile Include="Models\Models\EntityOPDBilling.cs" />
+    <Compile Include="Models\Models\EntityOPDPatient.cs" />
+    <Compile Include="Models\Models\EntityOperationCategory.cs" />
+    <Compile Include="Models\Models\EntityOperationMaster.cs" />
+    <Compile Include="Models\Models\EntityOTBedAlloc.cs" />
+    <Compile Include="Models\Models\EntityPatAllocDoc.cs" />
+    <Compile Include="Models\Models\EntityPathology.cs" />
+    <Compile Include="Models\Models\EntityPatientAdmit.cs" />
+    <Compile Include="Models\Models\EntityPatientAlloc.cs" />
+    <Compile Include="Models\Models\EntityPatientInvoice.cs" />
+    <Compile Include="Models\Models\EntityPatientMaster.cs" />
+    <Compile Include="Models\Models\EntityPatientType.cs" />
+    <Compile Include="Models\Models\EntityPrescription.cs" />
+    <Compile Include="Models\Models\EntityPrescriptionDetails.cs" />
+    <Compile Include="Models\Models\EntityProduct.cs" />
+    <Compile Include="Models\Models\EntityPurchaseInvoice.cs" />
+    <Compile Include="Models\Models\EntityPurchaseInvoiceDetails.cs" />
+    <Compile Include="Models\Models\EntityPurchaseOrder.cs" />
+    <Compile Include="Models\Models\EntityPurchaseOrderDetails.cs" />
+    <Compile Include="Models\Models\EntityRegistration.cs" />
+    <Compile Include="Models\Models\EntityReligion.cs" />
+    <Compile Include="Models\Models\EntityRoomCategory.cs" />
+    <Compile Include="Models\Models\EntitySalary.cs" />
+    <Compile Include="Models\Models\EntitySalaryDetails.cs" />
+    <Compile Include="Models\Models\EntitySelectICUInvoiceDetail.cs" />
+    <Compile Include="Models\Models\EntityShift.cs" />
+    <Compile Include="Models\Models\EntityState.cs" />
+    <Compile Include="Models\Models\EntityStockDetails.cs" />
+    <Compile Include="Models\Models\EntityStoreMain.cs" />
+    <Compile Include="Models\Models\EntitySupplier.cs" />
+    <Compile Include="Models\Models\EntitySupplierMaster.cs" />
+    <Compile Include="Models\Models\EntitySurgeryMaster.cs" />
+    <Compile Include="Models\Models\EntityTabletMaster.cs" />
+    <Compile Include="Models\Models\EntityTest.cs" />
+    <Compile Include="Models\Models\EntityTestInvoice.cs" />
+    <Compile Include="Models\Models\EntityTestMethod.cs" />
+    <Compile Include="Models\Models\EntityTestPara.cs" />
+    <Compile Include="Models\Models\EntityUnit.cs" />
+    <Compile Include="Models\Models\StockInfo.cs" />
+    <Compile Include="Models\Models\TestAllocation.cs" />
+    <Compile Include="mstAdmin.Master.cs">
+      <DependentUpon>mstAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mstAdmin.Master.designer.cs">
+      <DependentUpon>mstAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Mstlogin.Master.cs">
+      <DependentUpon>Mstlogin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mstlogin.Master.designer.cs">
+      <DependentUpon>Mstlogin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="mstmain.Master.cs">
+      <DependentUpon>mstmain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mstmain.Master.designer.cs">
+      <DependentUpon>mstmain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\DailyCollection.aspx.cs">
+      <DependentUpon>DailyCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\DailyCollection.aspx.designer.cs">
+      <DependentUpon>DailyCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmAdmitedPatientListReport.aspx.cs">
+      <DependentUpon>frmAdmitedPatientListReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmAdmitedPatientListReport.aspx.designer.cs">
+      <DependentUpon>frmAdmitedPatientListReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmBedConsumption.aspx.cs">
+      <DependentUpon>frmBedConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmBedConsumption.aspx.designer.cs">
+      <DependentUpon>frmBedConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDailyCollectionIPDOPD.aspx.cs">
+      <DependentUpon>frmDailyCollectionIPDOPD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDailyCollectionIPDOPD.aspx.designer.cs">
+      <DependentUpon>frmDailyCollectionIPDOPD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDailyNursingChart.aspx.cs">
+      <DependentUpon>frmDailyNursingChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDailyNursingChart.aspx.designer.cs">
+      <DependentUpon>frmDailyNursingChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseCollection.aspx.cs">
+      <DependentUpon>frmDatewiseCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseCollection.aspx.designer.cs">
+      <DependentUpon>frmDatewiseCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseCompanyClaim.aspx.cs">
+      <DependentUpon>frmDatewiseCompanyClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseCompanyClaim.aspx.designer.cs">
+      <DependentUpon>frmDatewiseCompanyClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseConsultDoctorReport.aspx.cs">
+      <DependentUpon>frmDatewiseConsultDoctorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseConsultDoctorReport.aspx.designer.cs">
+      <DependentUpon>frmDatewiseConsultDoctorReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseInsuranceClaim.aspx.cs">
+      <DependentUpon>frmDatewiseInsuranceClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDatewiseInsuranceClaim.aspx.designer.cs">
+      <DependentUpon>frmDatewiseInsuranceClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDebitNoteReport.aspx.cs">
+      <DependentUpon>frmDebitNoteReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDebitNoteReport.aspx.designer.cs">
+      <DependentUpon>frmDebitNoteReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDischargePatientListReport.aspx.cs">
+      <DependentUpon>frmDischargePatientListReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmDischargePatientListReport.aspx.designer.cs">
+      <DependentUpon>frmDischargePatientListReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmHistoryReport.aspx.cs">
+      <DependentUpon>frmHistoryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmHistoryReport.aspx.designer.cs">
+      <DependentUpon>frmHistoryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmIPDPatientReport.aspx.cs">
+      <DependentUpon>frmIPDPatientReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmIPDPatientReport.aspx.designer.cs">
+      <DependentUpon>frmIPDPatientReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmIPDRegistrationBookReport.aspx.cs">
+      <DependentUpon>frmIPDRegistrationBookReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmIPDRegistrationBookReport.aspx.designer.cs">
+      <DependentUpon>frmIPDRegistrationBookReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmItemStockReport.aspx.cs">
+      <DependentUpon>frmItemStockReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmItemStockReport.aspx.designer.cs">
+      <DependentUpon>frmItemStockReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmNewServicesReport.aspx.cs">
+      <DependentUpon>frmNewServicesReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmNewServicesReport.aspx.designer.cs">
+      <DependentUpon>frmNewServicesReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmOTBedPatientReport.aspx.cs">
+      <DependentUpon>frmOTBedPatientReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmOTBedPatientReport.aspx.designer.cs">
+      <DependentUpon>frmOTBedPatientReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmOutstandingReport.aspx.cs">
+      <DependentUpon>frmOutstandingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmOutstandingReport.aspx.designer.cs">
+      <DependentUpon>frmOutstandingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientLedger.aspx.cs">
+      <DependentUpon>frmPatientLedger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientLedger.aspx.designer.cs">
+      <DependentUpon>frmPatientLedger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientMIS.aspx.cs">
+      <DependentUpon>frmPatientMIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientMIS.aspx.designer.cs">
+      <DependentUpon>frmPatientMIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientwiseDocumentSearch.aspx.cs">
+      <DependentUpon>frmPatientwiseDocumentSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmPatientwiseDocumentSearch.aspx.designer.cs">
+      <DependentUpon>frmPatientwiseDocumentSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmStockDetailReport.aspx.cs">
+      <DependentUpon>frmStockDetailReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmStockDetailReport.aspx.designer.cs">
+      <DependentUpon>frmStockDetailReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSummarizedDetailReport.aspx.cs">
+      <DependentUpon>frmSummarizedDetailReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSummarizedDetailReport.aspx.designer.cs">
+      <DependentUpon>frmSummarizedDetailReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSupplierLedger.aspx.cs">
+      <DependentUpon>frmSupplierLedger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSupplierLedger.aspx.designer.cs">
+      <DependentUpon>frmSupplierLedger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSupplierOutstandingReport.aspx.cs">
+      <DependentUpon>frmSupplierOutstandingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmSupplierOutstandingReport.aspx.designer.cs">
+      <DependentUpon>frmSupplierOutstandingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\frmTDSReport.aspx.cs">
+      <DependentUpon>frmTDSReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\frmTDSReport.aspx.designer.cs">
+      <DependentUpon>frmTDSReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\PathologyReport.aspx.cs">
+      <DependentUpon>PathologyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\PathologyReport.aspx.designer.cs">
+      <DependentUpon>PathologyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PathalogyReport\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PathalogyReport\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientStatus\frmBirthCertificate.aspx.cs">
+      <DependentUpon>frmBirthCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientStatus\frmBirthCertificate.aspx.designer.cs">
+      <DependentUpon>frmBirthCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientStatus\frmDeathCertificate.aspx.cs">
+      <DependentUpon>frmDeathCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientStatus\frmDeathCertificate.aspx.designer.cs">
+      <DependentUpon>frmDeathCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientStatus\frmMedicalCertificate.aspx.cs">
+      <DependentUpon>frmMedicalCertificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PatientStatus\frmMedicalCertificate.aspx.designer.cs">
+      <DependentUpon>frmMedicalCertificate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmAllowanceDeduction.aspx.cs">
+      <DependentUpon>frmAllowanceDeduction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmAllowanceDeduction.aspx.designer.cs">
+      <DependentUpon>frmAllowanceDeduction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\frmSalaryCalculation.aspx.cs">
+      <DependentUpon>frmSalaryCalculation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payroll\frmSalaryCalculation.aspx.designer.cs">
+      <DependentUpon>frmSalaryCalculation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationPortal.aspx.cs">
+      <DependentUpon>RegistrationPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationPortal.aspx.designer.cs">
+      <DependentUpon>RegistrationPortal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MonthwiseSalaryReport.aspx.cs">
+      <DependentUpon>MonthwiseSalaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MonthwiseSalaryReport.aspx.designer.cs">
+      <DependentUpon>MonthwiseSalaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sample.aspx.cs">
+      <DependentUpon>Sample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sample.aspx.designer.cs">
+      <DependentUpon>Sample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePage.aspx.cs">
+      <DependentUpon>SamplePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SamplePage.aspx.designer.cs">
+      <DependentUpon>SamplePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduling\frmOTScheduling.aspx.cs">
+      <DependentUpon>frmOTScheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scheduling\frmOTScheduling.aspx.designer.cs">
+      <DependentUpon>frmOTScheduling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmGroupMaster.aspx.cs">
+      <DependentUpon>frmGroupMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmGroupMaster.aspx.designer.cs">
+      <DependentUpon>frmGroupMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmItemMaster.aspx.cs">
+      <DependentUpon>frmItemMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmItemMaster.aspx.designer.cs">
+      <DependentUpon>frmItemMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmMaterialInword.aspx.cs">
+      <DependentUpon>frmMaterialInword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmMaterialInword.aspx.designer.cs">
+      <DependentUpon>frmMaterialInword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmMaterialRequisiton.aspx.cs">
+      <DependentUpon>frmMaterialRequisiton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmMaterialRequisiton.aspx.designer.cs">
+      <DependentUpon>frmMaterialRequisiton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmRequisitionDetails.aspx.cs">
+      <DependentUpon>frmRequisitionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmRequisitionDetails.aspx.designer.cs">
+      <DependentUpon>frmRequisitionDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmStoreMain.aspx.cs">
+      <DependentUpon>frmStoreMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmStoreMain.aspx.designer.cs">
+      <DependentUpon>frmStoreMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreForms\frmUnitMaster.aspx.cs">
+      <DependentUpon>frmUnitMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreForms\frmUnitMaster.aspx.designer.cs">
+      <DependentUpon>frmUnitMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmDebitNote.aspx.cs">
+      <DependentUpon>frmDebitNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmDebitNote.aspx.designer.cs">
+      <DependentUpon>frmDebitNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmIssueMaterial.aspx.cs">
+      <DependentUpon>frmIssueMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmIssueMaterial.aspx.designer.cs">
+      <DependentUpon>frmIssueMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmPurchaseInvoice.aspx.cs">
+      <DependentUpon>frmPurchaseInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmPurchaseInvoice.aspx.designer.cs">
+      <DependentUpon>frmPurchaseInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmPurchaseOrder.aspx.cs">
+      <DependentUpon>frmPurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmPurchaseOrder.aspx.designer.cs">
+      <DependentUpon>frmPurchaseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmStockDetails.aspx.cs">
+      <DependentUpon>frmStockDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmStockDetails.aspx.designer.cs">
+      <DependentUpon>frmStockDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\frmSupplierPayment.aspx.cs">
+      <DependentUpon>frmSupplierPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\frmSupplierPayment.aspx.designer.cs">
+      <DependentUpon>frmSupplierPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\ProductType.aspx.cs">
+      <DependentUpon>ProductType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\ProductType.aspx.designer.cs">
+      <DependentUpon>ProductType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\StoreProducts.aspx.cs">
+      <DependentUpon>StoreProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\StoreProducts.aspx.designer.cs">
+      <DependentUpon>StoreProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAuthentication\frmUserAuthentication.aspx.cs">
+      <DependentUpon>frmUserAuthentication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserAuthentication\frmUserAuthentication.aspx.designer.cs">
+      <DependentUpon>frmUserAuthentication.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dashboard.Master" />
+    <None Include="images\Thumbs.db" />
+    <None Include="Models\DataLayer\CriticareHospital.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CriticareHospital.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Mstlogin.Master" />
+    <Content Include="mstmain.Master" />
+    <Content Include="mstAdmin.Master" />
+    <None Include="Scripts\adminpanel\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\adminpanel\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Scripts\adminpanel\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Scripts\adminpanel\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\adminpanel\jquery-datatable\skin\bootstrap\images\Sorting icons.psd" />
+    <None Include="Scripts\adminpanel\jquery\jquery.min.map" />
+    <None Include="Scripts\adminpanel\node-waves\waves.min.js.map" />
+    <None Include="Style\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataLayer\CriticareHospital.dbml.layout">
+      <DependentUpon>CriticareHospital.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1240</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Hospital</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
