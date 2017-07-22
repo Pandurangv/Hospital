@@ -1,0 +1,199 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.master.cs"
+    Inherits="Hospital.Dashboard" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Ganga Clinic</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <script type="text/javascript" src="../scripts/bootstrap/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/angular.min.js"></script>
+    <script type="text/javascript" src="../scripts/bootstrap/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/datehelper.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/App.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/common.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/spin.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap/ShowCustomAlert.js"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container Mainborder">
+        <form id="form1" runat="server">
+        <div class="row">
+            <img src="../images/BannerImages/HospitalNameGNH.png" class="img-fluid banner" alt="Ganga Nursing Home">
+        </div>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Masters
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                       <li><a href="../frmEmployeeMaster.aspx">Employee Master</a></li>
+                       <li><a href="../UserAuthentication/frmUserAuthentication.aspx">
+                          </a>
+                       </li>
+                       <li><a href="../frmDepartmentMaster.aspx">Department Master
+                          </a>
+                       </li>
+                       <li><a href="../frmRoomCategoryMaster.aspx">Room Rate Master
+                          </a>
+                       </li>
+                       <li><a href="../frmRoomMaster.aspx">Ward Master
+                          </a>
+                       </li>
+                       <li><a href="../frmBedMaster.aspx">Bed Master
+                          </a>
+                       </li>
+                       <li><a href="../frmSupplierMaster.aspx">Supplier Master
+                          </a>
+                       </li>
+                       <li><a href="../frmUnitMaster.aspx">Unit Master
+                          </a>
+                       </li>
+                       <li><a href="../frmChargeCategory.aspx">Charge Master
+                          </a>
+                       </li>
+                       <li><a href="../BankTransaction/frmBankMaster.aspx">Bank Master
+                          </a>
+                       </li>
+                       <li><a  href="../frmInsuranceComMaster.aspx">Insurance Master
+                          </a>
+                       </li>
+                       <li><a href="../frmCompanyMaster.aspx">Company Master
+                          </a>
+                       </li>
+                       <li><a href="../frmProductMaster.aspx">Tablet Master
+                          </a>
+                       </li>
+                       <li><a href="../frmOccupationMaster.aspx">Occupation Master
+                          </a>
+                       </li>
+                       <li><a href="../frmOperationCatMaster.aspx">Doctor Department
+                          </a>
+                       </li>
+                       <li><a href="../frmShiftMaster.aspx">Shift Master 
+                          </a>
+                       </li>
+                       <li><a  href="../frmShiftAllocation.aspx">Shift Allocation
+                          </a>
+                       </li>
+                       <li><a href="../frmOperationMaster.aspx">Operation Master
+                          </a>
+                       </li>
+                       <li><a href="../frmDocCategory.aspx">Incharge Doctor
+                          </a>
+                       </li>
+                    </ul>
+                </li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patient Masters
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+			            <li ><a href="../frmOPDPatientDetail.aspx" >New Patient Registration</a></li>
+                        <li ><a href="../frmAdmitPatient.aspx" >Readmit Patient</a></li>
+                        <li ><a href="../frmPatientAllocToDoc.aspx" >Allocate Patient ToDoctor</a></li>
+                        <li ><a href="../frmAllocConsultDoctorToPatient.aspx" >Allocate Visiting Doctor</a></li>
+                        <li ><a href="../BedStatus/frmBedAllocToPatient.aspx" >Bed Allocation To Patient</a></li>
+		            </ul>
+                </li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+			            <li><a href="../Payroll/frmAllowanceDeduction.aspx">Allowance/Deductions</a></li>
+                        <li><a href="../Payroll/frmSalaryCalculation.aspx">Salary Calculation</a></li>
+		            </ul>
+                </li>
+                <li><a href="../#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laboratory Test
+                        <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+			            <li><a href="../frmTestMaster.aspx" >Test Master</a></li>
+                        <li><a href="../frmTestParameters.aspx" >Test Parameter</a></li>
+                        <li><a href="../frmTestMethodMaster.aspx" >Test Method</a></li>
+                        <li><a href="../frmTestAllocation.aspx" >Test Invoice</a></li>
+                        <li><a href="../frmPathology.aspx" >Pathology Result</a></li>
+		            </ul>
+                </li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ><a href="../frmOTMedicineBill.aspx" >OTPatientMedicineBill</a></li>
+                        <li ><a href="../frmMakeDischarge.aspx" >Discharge</a></li>
+                        <li ><a href="../PatientStatus/frmMedicalCertificate.aspx" >Medical Certificate</a></li>
+                        <li ><a href="../PatientStatus/frmDeathCertificate.aspx" >Death Certificate</a></li>
+                        <li ><a href="../PatientStatus/frmBirthCertificate.aspx" >Birth Certificate</a></li>
+                        <li ><a href="../Billing/frmPatientInvoice.aspx" >Patient Bill</a></li>
+                        <li ><a href="../Billing/frmCustomerTransaction.aspx" >Patient Receipt</a></li>
+                        <li ><a href="../Billing/frmAdvancePayment.aspx" >Refund Payment</a></li>
+                        <li ><a href="../InsuranceClaim/frmInsuranceClaim.aspx" >Insurance Claim</a></li>
+                        <li ><a href="../InsuranceClaim/frmClaimApproval.aspx" >Insurance Approval</a></li>
+                        <li ><a href="../InsuranceClaim/frmCompanyClaim.aspx" >Company Claim</a></li>
+                        <li ><a href="../InsuranceClaim/frmCompanyClaimApproval.aspx" >Company Approval</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Store
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ><a href="../Store/frmPurchaseOrder.aspx" >Purchase Order</a></li>
+                        <li ><a href="../Store/frmPurchaseInvoice.aspx" >Purchase Invoice</a></li>
+                        <li ><a href="../Store/frmSupplierPayment.aspx" >Supplier Payment</a></li>
+                    </ul></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ><a href="PathalogyReport/frmBedConsumption.aspx" >BedConsumptionReport</a></li>
+                        <li ><a href="PathalogyReport/frmIPDPatientReport.aspx" >DailyOPD/IPDPatientDetails</a></li>
+                        <li ><a href="PathalogyReport/frmHistoryReport.aspx" >Patient History</a></li>
+                        <li ><a href="PathalogyReport/frmOutstandingReport.aspx" >Patient Outstanding</a></li>
+                        <li ><a href="PathalogyReport/frmDatewiseCollection.aspx" >Datewise Collection</a></li>
+                        <li ><a href="Reports/MonthwiseSalaryReport.aspx" >Salary Report</a></li>
+                        <li ><a href="PathalogyReport/frmPatientLedger.aspx" >Patient Ledger</a></li>
+                        <li ><a href="PathalogyReport/frmSupplierLedger.aspx" >Supplier Ledger</a></li>
+                        <li ><a href="PathalogyReport/frmStockDetailReport.aspx" >Item Stock Detail</a></li>
+                        <li ><a href="PathalogyReport/frmItemStockReport.aspx" >Stock Detail Report</a></li>
+                        <li ><a href="PathalogyReport/frmSupplierOutstandingReport.aspx" >Supplier Outstanding</a></li>
+                        <li ><a href="PathalogyReport/frmOTBedPatientReport.aspx" >OTBedAllocatePatientReport</a></li>
+                        <li ><a href="PathalogyReport/frmDailyNursingChart.aspx" >DailyNursingTreatmentChart</a></li>
+                        <li ><a href="PathalogyReport/frmAdmitedPatientListReport.aspx" >AdmitedPatientList</a></li>
+                        <li ><a href="PathalogyReport/frmDischargePatientListReport.aspx" >DischargePatientList</a></li>
+                        <li ><a href="PathalogyReport/frmIPDRegistrationBookReport.aspx" >MonthwiseIPDRecord</a></li>
+                        <li ><a href="PathalogyReport/frmDatewiseInsuranceClaim.aspx" >Datewise Insurance Claim</a></li>
+                        <li ><a href="PathalogyReport/frmDatewiseCompanyClaim.aspx" >Datewise Company Claim</a></li>
+                    </ul></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="container-fluid bg-3 text-center">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid bg-3 text-center">
+        </div>
+        <br>
+        <br>
+        <footer class="container-fluid text-center">
+          <p>C Brain Solutions Pvt. Ltd. Pune</p>
+        </footer>
+        </form>
+    </div>
+</body>
+</html>

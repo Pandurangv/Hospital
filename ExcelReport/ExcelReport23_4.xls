@@ -1,0 +1,11 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" id="ContentPlaceHolder1_dgvMonthSalary" style="color:#333333;font-family:Verdana;font-size:Small;border-collapse:collapse;">
+		<tr style="color:White;background-color:#3B3535;font-size:12px;font-weight:bold;white-space:nowrap;">
+			<th scope="col">PatientName</th><th scope="col">MedicineName</th><th scope="col">Quantity</th><th scope="col">Prescription_Id</th><th scope="col">IsDelete</th><th scope="col">Prescription_Date</th><th scope="col">AdmitId</th><th scope="col">DeptCategory</th><th scope="col">DeptDoctor</th><th scope="col">CategoryName</th><th scope="col">Investigation</th><th scope="col">Impression</th><th scope="col">AdviceNote</th><th scope="col">Remarks</th><th scope="col">DoctorId</th><th scope="col">FollowUpDate</th>
+		</tr><tr style="background-color:#E0F0E8;font-size:11px;white-space:nowrap;">
+			<td>Vaibhav M Shelar</td><td>&nbsp;</td><td>0</td><td>1</td><td><span class="aspNetDisabled" title="IsDelete"><input id="ContentPlaceHolder1_dgvMonthSalary_ctl00_0" type="checkbox" name="ctl00$ContentPlaceHolder1$dgvMonthSalary$ctl02$ctl00" disabled="disabled" /></span></td><td>04-08-2017 00:00:00</td><td>25</td><td>2</td><td>Dr.Milind M. Kanjalkar</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>6</td><td>&nbsp;</td>
+		</tr><tr style="background-color:White;font-size:11px;white-space:nowrap;">
+			<td>Sapana M Pawar</td><td>&nbsp;</td><td>0</td><td>2</td><td><span class="aspNetDisabled" title="IsDelete"><input id="ContentPlaceHolder1_dgvMonthSalary_ctl00_1" type="checkbox" name="ctl00$ContentPlaceHolder1$dgvMonthSalary$ctl03$ctl00" disabled="disabled" /></span></td><td>22-04-2017 00:00:00</td><td>90</td><td>0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>don&#39;t do heavy work</td><td>&nbsp;</td><td>6</td><td>&nbsp;</td>
+		</tr>
+	</table>
+</div>
