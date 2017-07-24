@@ -1084,24 +1084,6 @@ namespace Hospital {
         protected global::System.Web.UI.WebControls.TextBox txtOBGY;
         
         /// <summary>
-        /// Label31 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label31;
-        
-        /// <summary>
-        /// txtLabI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLabI;
-        
-        /// <summary>
         /// Label32 control.
         /// </summary>
         /// <remarks>

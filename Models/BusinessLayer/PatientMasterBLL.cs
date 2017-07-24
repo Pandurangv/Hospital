@@ -610,7 +610,51 @@ namespace Hospital.Models.BusinessLayer
                 };
                 
                 objData.tblPatientMasters.InsertOnSubmit(obj);
+
                 objData.SubmitChanges();
+                tblPatientAdmitDetail lastrec = (from tbl in objData.tblPatientAdmitDetails
+                                                 where tbl.PatientId == obj.PKId
+                                                 orderby tbl.AdmitId descending
+                                                 select tbl).FirstOrDefault();
+
+                if (lastrec!=null)
+                {
+                    lastrec.ProvDiag = entPatientMaster.ProvDiag;
+
+                    lastrec.FinalDiag = entPatientMaster.FinalDiag;
+
+                    lastrec.Ailergies = entPatientMaster.Ailergies;
+
+                    lastrec.Symptomes = entPatientMaster.Symptomes;
+
+                    lastrec.PastIllness = entPatientMaster.PastIllness;
+
+                    lastrec.Temperature = entPatientMaster.Temperature;
+
+                    lastrec.Pulse = entPatientMaster.Pulse;
+
+                    lastrec.Respiration = entPatientMaster.Respiration;
+
+                    lastrec.Others = entPatientMaster.Others;
+
+                    lastrec.RS = entPatientMaster.RS;
+
+                    lastrec.CVS = entPatientMaster.CVS;
+
+                    lastrec.PA = entPatientMaster.PA;
+
+                    lastrec.CNS = entPatientMaster.CNS;
+
+                    lastrec.OBGY = entPatientMaster.OBGY;
+
+                    lastrec.XRAY = entPatientMaster.XRAY;
+
+                    lastrec.ECG = entPatientMaster.ECG;
+
+                    lastrec.USG = entPatientMaster.USG;
+
+                    objData.SubmitChanges();
+                }
                 cnt++;
             }
             catch (Exception ex)
@@ -872,6 +916,39 @@ namespace Hospital.Models.BusinessLayer
                     DeptDoctorId = admit.DeptDoctorId,
                     BP=admit.BP,
                     PatientTypeId=admit.PatientTypeId,
+                    ProvDiag = admit.ProvDiag,
+
+                    FinalDiag = admit.FinalDiag,
+
+                    Ailergies = admit.Ailergies,
+
+                    Symptomes = admit.Symptomes,
+
+                    PastIllness = admit.PastIllness,
+
+                    Temperature = admit.Temperature,
+
+                    Pulse = admit.Pulse,
+
+                    Respiration = admit.Respiration,
+
+                    Others = admit.Others,
+
+                    RS = admit.RS,
+
+                    CVS = admit.CVS,
+
+                    PA = admit.PA,
+
+                    CNS = admit.CNS,
+
+                    OBGY = admit.OBGY,
+
+                    XRAY = admit.XRAY,
+
+                    ECG = admit.ECG,
+
+                    USG = admit.USG,
                 };
                 objData.tblPatientAdmitDetails.InsertOnSubmit(objAdmit);
                 objData.SubmitChanges();
@@ -912,6 +989,40 @@ namespace Hospital.Models.BusinessLayer
                     admit.DeptDoctorId = entAdmit.DeptDoctorId;
                     admit.InsuranceName = entAdmit.InsuName;
                     admit.CompanyName = entAdmit.CompanyName;
+
+                    admit.ProvDiag = entAdmit.ProvDiag;
+
+                    admit.FinalDiag = entAdmit.FinalDiag;
+
+                    admit.Ailergies = entAdmit.Ailergies;
+
+                    admit.Symptomes = entAdmit.Symptomes;
+
+                    admit.PastIllness = entAdmit.PastIllness;
+
+                    admit.Temperature = entAdmit.Temperature;
+
+                    admit.Pulse = entAdmit.Pulse;
+
+                    admit.Respiration = entAdmit.Respiration;
+
+                    admit.Others = entAdmit.Others;
+
+                    admit.RS = entAdmit.RS;
+
+                    admit.CVS = entAdmit.CVS;
+
+                    admit.PA = entAdmit.PA;
+
+                    admit.CNS = entAdmit.CNS;
+
+                    admit.OBGY = entAdmit.OBGY;
+
+                    admit.XRAY = entAdmit.XRAY;
+
+                    admit.ECG = entAdmit.ECG;
+
+                    admit.USG = entAdmit.USG;
                 }
                 objData.SubmitChanges();
                 cnt++;
@@ -1028,6 +1139,51 @@ namespace Hospital.Models.BusinessLayer
                     objPatient.InsuranceCompName = entPatientMaster.InsuranceCompName;
                     objPatient.BP = entPatientMaster.BP;
                     objPatient.PatientTypeId = entPatientMaster.PatientTypeId;
+
+
+                    tblPatientAdmitDetail lastrec = (from tbl in objData.tblPatientAdmitDetails
+                                                     where tbl.PatientId == entPatientMaster.PKId
+                                                     orderby tbl.AdmitId descending
+                                                     select tbl).FirstOrDefault();
+
+                    if (lastrec != null)
+                    {
+                        lastrec.ProvDiag = entPatientMaster.ProvDiag;
+
+                        lastrec.FinalDiag = entPatientMaster.FinalDiag;
+
+                        lastrec.Ailergies = entPatientMaster.Ailergies;
+
+                        lastrec.Symptomes = entPatientMaster.Symptomes;
+
+                        lastrec.PastIllness = entPatientMaster.PastIllness;
+
+                        lastrec.Temperature = entPatientMaster.Temperature;
+
+                        lastrec.Pulse = entPatientMaster.Pulse;
+
+                        lastrec.Respiration = entPatientMaster.Respiration;
+
+                        lastrec.Others = entPatientMaster.Others;
+
+                        lastrec.RS = entPatientMaster.RS;
+
+                        lastrec.CVS = entPatientMaster.CVS;
+
+                        lastrec.PA = entPatientMaster.PA;
+
+                        lastrec.CNS = entPatientMaster.CNS;
+
+                        lastrec.OBGY = entPatientMaster.OBGY;
+
+                        lastrec.XRAY = entPatientMaster.XRAY;
+
+                        lastrec.ECG = entPatientMaster.ECG;
+
+                        lastrec.USG = entPatientMaster.USG;
+
+                        objData.SubmitChanges();
+                    }
                     //List<tblPatientAdmitDetail> lst = (from tbl in objData.tblPatientAdmitDetails
                     //                                   where tbl.IsDelete == false
                     //                                   && tbl.PatientId == objPatient.PKId

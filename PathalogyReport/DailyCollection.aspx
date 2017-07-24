@@ -7,11 +7,12 @@
     
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <div data-ng-app="HospitalApp" data-ng-controller="DailyCollectionController" class="row">
+  <div class="container-fluid">  
+    <div class="row clearfix" data-ng-app="HospitalApp" data-ng-controller="DailyCollectionController">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 card">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">OPD Collection</a></li>
-            <li><a data-toggle="tab" href="#menu1">IPD Collection</a></li>
+            <li class="active"><a data-toggle="tab" href="#home"><h4>OPD Collection</h4></a></li>
+            <li><a data-toggle="tab" href="#menu1"><h4>IPD Collection</h4></a></li>
         </ul>
         <div class="tab-content">
             <div class="col-md-12">
@@ -30,10 +31,9 @@
                 </div>
             </div>
             <div id="home" class="tab-pane fade in active">
-                <h3>OPD Collection</h3>
+                <hr />
                 <div class="col-md-12">
                     <table class="table table-bordered">
-                        <thead>
                             <tr>
                                 <th>
                                     Patient Id
@@ -63,7 +63,6 @@
                                     Doctor Name
                                 </th>
                             </tr>
-                        </thead>
                         <tbody>
                             <tr data-ng-repeat="opd in SearchOPDCollectionList">
                                 <td>
@@ -108,7 +107,7 @@
                 
             </div>
             <div id="menu1" class="tab-pane fade">
-                <h3>IPD Collection</h3>
+              <hr />
                 <div class="col-md-12">
                     <table class="table table-bordered">
                         <thead>
@@ -186,5 +185,8 @@
             </div>
         </div>
     </div>
+     </div>
+      </div>
     <script type="text/javascript" src="../Scripts/Bootstrap/DailyCollection.js"></script>
 </asp:Content>
+

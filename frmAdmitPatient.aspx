@@ -534,11 +534,11 @@
                                                                             <asp:TextBox ID="txtOBGY" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
                                                                         </td>
                                                                         <td align="right">
-                                                                            <asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
-                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                            <%--<asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>--%>
                                                                         </td>
                                                                         <td align="left">
-                                                                            <asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                            <%--<asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>--%>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>

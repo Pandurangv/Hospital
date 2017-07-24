@@ -5609,34 +5609,6 @@
       <Column Name="ChangeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_GetAllPatientListForRegistered" Method="sp_GetAllPatientListForRegistered">
-    <ElementType Name="sp_GetAllPatientListForRegisteredResult">
-      <Column Name="AdmitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PatientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
-      <Column Name="AdmitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="BirthDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AgeIn" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="GenderDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PatientContactNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="PatientType" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="CompanyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="InsuranceComId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Dignosys" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EmpName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
-      <Column Name="IPDNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="OPDNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PatientTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DeptCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DeptDoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="InsuranceDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.STP_Insert_tblPrescription" Method="STP_Insert_tblPrescription">
     <Parameter Name="AdmitId" Parameter="admitId" Type="System.Int32" DbType="Int" />
     <Parameter Name="DeptCategory" Parameter="deptCategory" Type="System.Int32" DbType="Int" />
@@ -5753,5 +5725,50 @@
     <Parameter Name="SubUOM" Parameter="subUOM" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="Price" Parameter="price" Type="System.String" DbType="NVarChar(10)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetAllPatientListForRegistered" Method="sp_GetAllPatientListForRegistered">
+    <ElementType Name="sp_GetAllPatientListForRegisteredResult">
+      <Column Name="AdmitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
+      <Column Name="AdmitDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AgeIn" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GenderDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PatientContactNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PatientType" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InsuranceComId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dignosys" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmpName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
+      <Column Name="IPDNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="OPDNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PatientTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeptCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DeptDoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ailergies" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ProvDiag" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FinalDiag" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Symptomes" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PastIllness" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Temperature" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Pulse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Respiration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Others" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CVS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CNS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="XRAY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ECG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OBGY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InsuranceDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

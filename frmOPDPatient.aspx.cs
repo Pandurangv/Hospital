@@ -97,6 +97,41 @@ namespace Hospital
                         txtBP.Text = ldtPat.Rows[0]["BP"].ToString();
                         txtRefDoctor.Text = ldtPat.Rows[0]["ReferedBy"].ToString();// == string.Empty ? ldtPat.Rows[0]["ReferedBy"].ToString() : string.Empty;
                         txtDignosys.Text = ldtPat.Rows[0]["Dignosys"].ToString();
+
+                        txtProvDiag.Text = ldtPat.Rows[0]["ProvDiag"].ToString();
+                        
+                        txtFinalDiag.Text = ldtPat.Rows[0]["FinalDiag"].ToString();
+
+                        txtAilergies.Text = ldtPat.Rows[0]["Ailergies"].ToString();
+
+                        txtSymptoms.Text = ldtPat.Rows[0]["Symptomes"].ToString();
+
+                        txtPastIllness.Text = ldtPat.Rows[0]["PastIllness"].ToString();
+
+                        txtTemperature.Text = ldtPat.Rows[0]["Temperature"].ToString();
+
+                        txtPulse.Text = ldtPat.Rows[0]["Pulse"].ToString();
+
+                        txtRespiration.Text = ldtPat.Rows[0]["Respiration"].ToString();
+
+                        txtOthers.Text = ldtPat.Rows[0]["Others"].ToString();
+
+                        txtRS.Text = ldtPat.Rows[0]["RS"].ToString();
+
+                        txtCVS.Text = ldtPat.Rows[0]["CVS"].ToString();
+
+                        txtPA.Text = ldtPat.Rows[0]["PA"].ToString();
+
+                        txtCNS.Text = ldtPat.Rows[0]["CNS"].ToString();
+
+                        txtOBGY.Text = ldtPat.Rows[0]["OBGY"].ToString();
+
+                        txtXRay.Text = ldtPat.Rows[0]["XRAY"].ToString();
+
+                        txtECG.Text = ldtPat.Rows[0]["ECG"].ToString();
+
+                        txtUSG.Text = ldtPat.Rows[0]["USG"].ToString();
+
                         if (!string.IsNullOrEmpty(ldtPat.Rows[0]["CompanyCode"].ToString()) && Convert.ToInt32(ldtPat.Rows[0]["CompanyCode"]) > 0)
                         {
                             chkCom.Checked = true;
@@ -252,7 +287,6 @@ namespace Hospital
             {
                 lblMsg.Text = ex.Message;
             }
-
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -262,6 +296,11 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
+                if (ddlDeptDoctor.Items.Count == 0 || ddlDeptDoctor.SelectedIndex == 0)
+                {
+                    lblMsg.Text = "Please Select dept doctor.";
+                    return;
+                }
                 if (ddlDeptCategory.SelectedIndex == 0)
                 {
                     lblMsg.Text = "Please Select Department Category";
@@ -333,6 +372,40 @@ namespace Hospital
                                         entPatientMaster.Country = FirstCharToUpper(txtCountry.Text);
                                         entPatientMaster.ReferedBy = FirstCharToUpper(txtRefDoctor.Text);
                                         entPatientMaster.Dignosys = FirstCharToUpper(txtDignosys.Text);
+
+                                        entPatientMaster.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
+
+                                        entPatientMaster.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                                        entPatientMaster.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                                        entPatientMaster.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                                        entPatientMaster.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                                        entPatientMaster.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                                        entPatientMaster.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                                        entPatientMaster.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                                        entPatientMaster.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                                        entPatientMaster.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                                        entPatientMaster.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                                        entPatientMaster.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                                        entPatientMaster.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                                        entPatientMaster.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                                        entPatientMaster.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                                        entPatientMaster.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                                        entPatientMaster.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
 
                                         if (chkCom.Checked)
                                         {
@@ -666,6 +739,11 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
+                if (ddlDeptDoctor.Items.Count==0 || ddlDeptDoctor.SelectedIndex==0)
+                {
+                    lblMsg.Text = "Please Select dept doctor.";
+                    return;
+                }
                 if (ddlInitials.SelectedIndex == 0)
                 {
                     lblMsg.Text = "Please Select Initial For Patient Name....";
@@ -822,6 +900,39 @@ namespace Hospital
                                     entPatientMaster.PatientHistory = "";
                                     entPatientMaster.PastMedicalHistory = "";
                                     entPatientMaster.FamilyHistory = "";
+                                    entPatientMaster.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
+
+                                    entPatientMaster.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                                    entPatientMaster.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                                    entPatientMaster.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                                    entPatientMaster.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                                    entPatientMaster.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                                    entPatientMaster.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                                    entPatientMaster.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                                    entPatientMaster.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                                    entPatientMaster.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                                    entPatientMaster.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                                    entPatientMaster.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                                    entPatientMaster.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                                    entPatientMaster.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                                    entPatientMaster.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                                    entPatientMaster.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                                    entPatientMaster.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
 
                                     if (!Commons.IsRecordExists("tblPatientMaster", "PatientFirstName + ' ' + PatientMiddleName + ' ' + PatientLastName", entPatientMaster.PatientFirstName + ' ' + entPatientMaster.PatientMiddleName + ' ' + entPatientMaster.PatientLastName))
                                     {

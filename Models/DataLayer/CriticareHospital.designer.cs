@@ -4192,13 +4192,6 @@ namespace Hospital.Models.DataLayer
 			return ((ISingleResult<GetALLCategoriesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAllPatientListForRegistered")]
-		public ISingleResult<sp_GetAllPatientListForRegisteredResult> sp_GetAllPatientListForRegistered()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_GetAllPatientListForRegisteredResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_Insert_tblPrescription")]
 		public int STP_Insert_tblPrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdmitId", DbType="Int")] System.Nullable<int> admitId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeptCategory", DbType="Int")] System.Nullable<int> deptCategory, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DeptDoctor", DbType="NVarChar(150)")] string deptDoctor, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionDate", DbType="DateTime")] System.Nullable<System.DateTime> prescriptionDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsDressing", DbType="Bit")] System.Nullable<bool> isDressing, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsInjection", DbType="Bit")] System.Nullable<bool> isInjection, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InjectionName", DbType="VarChar(50)")] string injectionName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Investigation", DbType="NVarChar(MAX)")] string investigation, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Impression", DbType="NVarChar(MAX)")] string impression, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdvoiceNote", DbType="NVarChar(MAX)")] string advoiceNote, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(MAX)")] string remarks, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DoctorId", DbType="Int")] System.Nullable<int> doctorId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FollowUpDate", DbType="DateTime")] System.Nullable<System.DateTime> followUpDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionId", DbType="Int")] ref System.Nullable<int> prescriptionId)
 		{
@@ -4247,6 +4240,13 @@ namespace Hospital.Models.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), productId, productName, uOM, subUOM, price);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAllPatientListForRegistered")]
+		public ISingleResult<sp_GetAllPatientListForRegisteredResult> sp_GetAllPatientListForRegistered()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_GetAllPatientListForRegisteredResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -67628,446 +67628,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	public partial class sp_GetAllPatientListForRegisteredResult
-	{
-		
-		private int _AdmitId;
-		
-		private string _PatientCode;
-		
-		private string _FullName;
-		
-		private System.Nullable<System.DateTime> _AdmitDate;
-		
-		private System.Nullable<System.DateTime> _BirthDate;
-		
-		private System.Nullable<int> _Age;
-		
-		private string _AgeIn;
-		
-		private string _GenderDesc;
-		
-		private string _PatientContactNo;
-		
-		private string _PatientType;
-		
-		private System.Nullable<int> _CompanyId;
-		
-		private System.Nullable<int> _InsuranceComId;
-		
-		private string _Dignosys;
-		
-		private string _EmpName;
-		
-		private string _IPDNo;
-		
-		private string _OPDNo;
-		
-		private string _CategoryName;
-		
-		private System.Nullable<int> _PatientTypeId;
-		
-		private string _BP;
-		
-		private System.Nullable<int> _PatientId;
-		
-		private System.Nullable<int> _DeptCategory;
-		
-		private System.Nullable<int> _DeptDoctorId;
-		
-		private string _CompanyName;
-		
-		private string _InsuranceDesc;
-		
-		public sp_GetAllPatientListForRegisteredResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int NOT NULL")]
-		public int AdmitId
-		{
-			get
-			{
-				return this._AdmitId;
-			}
-			set
-			{
-				if ((this._AdmitId != value))
-				{
-					this._AdmitId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PatientCode
-		{
-			get
-			{
-				return this._PatientCode;
-			}
-			set
-			{
-				if ((this._PatientCode != value))
-				{
-					this._PatientCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(152)")]
-		public string FullName
-		{
-			get
-			{
-				return this._FullName;
-			}
-			set
-			{
-				if ((this._FullName != value))
-				{
-					this._FullName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> AdmitDate
-		{
-			get
-			{
-				return this._AdmitDate;
-			}
-			set
-			{
-				if ((this._AdmitDate != value))
-				{
-					this._AdmitDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> BirthDate
-		{
-			get
-			{
-				return this._BirthDate;
-			}
-			set
-			{
-				if ((this._BirthDate != value))
-				{
-					this._BirthDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Age", DbType="Int")]
-		public System.Nullable<int> Age
-		{
-			get
-			{
-				return this._Age;
-			}
-			set
-			{
-				if ((this._Age != value))
-				{
-					this._Age = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeIn", DbType="NVarChar(50)")]
-		public string AgeIn
-		{
-			get
-			{
-				return this._AgeIn;
-			}
-			set
-			{
-				if ((this._AgeIn != value))
-				{
-					this._AgeIn = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderDesc", DbType="NVarChar(50)")]
-		public string GenderDesc
-		{
-			get
-			{
-				return this._GenderDesc;
-			}
-			set
-			{
-				if ((this._GenderDesc != value))
-				{
-					this._GenderDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientContactNo", DbType="NVarChar(20)")]
-		public string PatientContactNo
-		{
-			get
-			{
-				return this._PatientContactNo;
-			}
-			set
-			{
-				if ((this._PatientContactNo != value))
-				{
-					this._PatientContactNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string PatientType
-		{
-			get
-			{
-				return this._PatientType;
-			}
-			set
-			{
-				if ((this._PatientType != value))
-				{
-					this._PatientType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyId", DbType="Int")]
-		public System.Nullable<int> CompanyId
-		{
-			get
-			{
-				return this._CompanyId;
-			}
-			set
-			{
-				if ((this._CompanyId != value))
-				{
-					this._CompanyId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceComId", DbType="Int")]
-		public System.Nullable<int> InsuranceComId
-		{
-			get
-			{
-				return this._InsuranceComId;
-			}
-			set
-			{
-				if ((this._InsuranceComId != value))
-				{
-					this._InsuranceComId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dignosys", DbType="VarChar(50)")]
-		public string Dignosys
-		{
-			get
-			{
-				return this._Dignosys;
-			}
-			set
-			{
-				if ((this._Dignosys != value))
-				{
-					this._Dignosys = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmpName", DbType="NVarChar(152)")]
-		public string EmpName
-		{
-			get
-			{
-				return this._EmpName;
-			}
-			set
-			{
-				if ((this._EmpName != value))
-				{
-					this._EmpName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IPDNo", DbType="VarChar(500)")]
-		public string IPDNo
-		{
-			get
-			{
-				return this._IPDNo;
-			}
-			set
-			{
-				if ((this._IPDNo != value))
-				{
-					this._IPDNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPDNo", DbType="VarChar(500)")]
-		public string OPDNo
-		{
-			get
-			{
-				return this._OPDNo;
-			}
-			set
-			{
-				if ((this._OPDNo != value))
-				{
-					this._OPDNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryName", DbType="NVarChar(50)")]
-		public string CategoryName
-		{
-			get
-			{
-				return this._CategoryName;
-			}
-			set
-			{
-				if ((this._CategoryName != value))
-				{
-					this._CategoryName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientTypeId", DbType="Int")]
-		public System.Nullable<int> PatientTypeId
-		{
-			get
-			{
-				return this._PatientTypeId;
-			}
-			set
-			{
-				if ((this._PatientTypeId != value))
-				{
-					this._PatientTypeId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BP", DbType="VarChar(50)")]
-		public string BP
-		{
-			get
-			{
-				return this._BP;
-			}
-			set
-			{
-				if ((this._BP != value))
-				{
-					this._BP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientId", DbType="Int")]
-		public System.Nullable<int> PatientId
-		{
-			get
-			{
-				return this._PatientId;
-			}
-			set
-			{
-				if ((this._PatientId != value))
-				{
-					this._PatientId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeptCategory", DbType="Int")]
-		public System.Nullable<int> DeptCategory
-		{
-			get
-			{
-				return this._DeptCategory;
-			}
-			set
-			{
-				if ((this._DeptCategory != value))
-				{
-					this._DeptCategory = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeptDoctorId", DbType="Int")]
-		public System.Nullable<int> DeptDoctorId
-		{
-			get
-			{
-				return this._DeptDoctorId;
-			}
-			set
-			{
-				if ((this._DeptDoctorId != value))
-				{
-					this._DeptDoctorId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(100)")]
-		public string CompanyName
-		{
-			get
-			{
-				return this._CompanyName;
-			}
-			set
-			{
-				if ((this._CompanyName != value))
-				{
-					this._CompanyName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceDesc", DbType="NVarChar(50)")]
-		public string InsuranceDesc
-		{
-			get
-			{
-				return this._InsuranceDesc;
-			}
-			set
-			{
-				if ((this._InsuranceDesc != value))
-				{
-					this._InsuranceDesc = value;
-				}
-			}
-		}
-	}
-	
 	public partial class STP_PrintPrescriptionResult
 	{
 		
@@ -69363,6 +68923,752 @@ namespace Hospital.Models.DataLayer
 				if ((this._ProductTyepe != value))
 				{
 					this._ProductTyepe = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetAllPatientListForRegisteredResult
+	{
+		
+		private int _AdmitId;
+		
+		private string _PatientCode;
+		
+		private string _FullName;
+		
+		private System.Nullable<System.DateTime> _AdmitDate;
+		
+		private System.Nullable<System.DateTime> _BirthDate;
+		
+		private System.Nullable<int> _Age;
+		
+		private string _AgeIn;
+		
+		private string _GenderDesc;
+		
+		private string _PatientContactNo;
+		
+		private string _PatientType;
+		
+		private System.Nullable<int> _CompanyId;
+		
+		private System.Nullable<int> _InsuranceComId;
+		
+		private string _Dignosys;
+		
+		private string _EmpName;
+		
+		private string _IPDNo;
+		
+		private string _OPDNo;
+		
+		private string _CategoryName;
+		
+		private System.Nullable<int> _PatientTypeId;
+		
+		private string _BP;
+		
+		private System.Nullable<int> _PatientId;
+		
+		private System.Nullable<int> _DeptCategory;
+		
+		private System.Nullable<int> _DeptDoctorId;
+		
+		private string _Ailergies;
+		
+		private string _ProvDiag;
+		
+		private string _FinalDiag;
+		
+		private string _Symptomes;
+		
+		private string _PastIllness;
+		
+		private string _Temperature;
+		
+		private string _Pulse;
+		
+		private string _Respiration;
+		
+		private string _Others;
+		
+		private string _RS;
+		
+		private string _CVS;
+		
+		private string _PA;
+		
+		private string _CNS;
+		
+		private string _XRAY;
+		
+		private string _ECG;
+		
+		private string _USG;
+		
+		private string _OBGY;
+		
+		private string _CompanyName;
+		
+		private string _InsuranceDesc;
+		
+		public sp_GetAllPatientListForRegisteredResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int NOT NULL")]
+		public int AdmitId
+		{
+			get
+			{
+				return this._AdmitId;
+			}
+			set
+			{
+				if ((this._AdmitId != value))
+				{
+					this._AdmitId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientCode
+		{
+			get
+			{
+				return this._PatientCode;
+			}
+			set
+			{
+				if ((this._PatientCode != value))
+				{
+					this._PatientCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(152)")]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AdmitDate
+		{
+			get
+			{
+				return this._AdmitDate;
+			}
+			set
+			{
+				if ((this._AdmitDate != value))
+				{
+					this._AdmitDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BirthDate
+		{
+			get
+			{
+				return this._BirthDate;
+			}
+			set
+			{
+				if ((this._BirthDate != value))
+				{
+					this._BirthDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Age", DbType="Int")]
+		public System.Nullable<int> Age
+		{
+			get
+			{
+				return this._Age;
+			}
+			set
+			{
+				if ((this._Age != value))
+				{
+					this._Age = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeIn", DbType="NVarChar(50)")]
+		public string AgeIn
+		{
+			get
+			{
+				return this._AgeIn;
+			}
+			set
+			{
+				if ((this._AgeIn != value))
+				{
+					this._AgeIn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderDesc", DbType="NVarChar(50)")]
+		public string GenderDesc
+		{
+			get
+			{
+				return this._GenderDesc;
+			}
+			set
+			{
+				if ((this._GenderDesc != value))
+				{
+					this._GenderDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientContactNo", DbType="NVarChar(20)")]
+		public string PatientContactNo
+		{
+			get
+			{
+				return this._PatientContactNo;
+			}
+			set
+			{
+				if ((this._PatientContactNo != value))
+				{
+					this._PatientContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientType", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string PatientType
+		{
+			get
+			{
+				return this._PatientType;
+			}
+			set
+			{
+				if ((this._PatientType != value))
+				{
+					this._PatientType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyId", DbType="Int")]
+		public System.Nullable<int> CompanyId
+		{
+			get
+			{
+				return this._CompanyId;
+			}
+			set
+			{
+				if ((this._CompanyId != value))
+				{
+					this._CompanyId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceComId", DbType="Int")]
+		public System.Nullable<int> InsuranceComId
+		{
+			get
+			{
+				return this._InsuranceComId;
+			}
+			set
+			{
+				if ((this._InsuranceComId != value))
+				{
+					this._InsuranceComId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dignosys", DbType="VarChar(50)")]
+		public string Dignosys
+		{
+			get
+			{
+				return this._Dignosys;
+			}
+			set
+			{
+				if ((this._Dignosys != value))
+				{
+					this._Dignosys = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmpName", DbType="NVarChar(152)")]
+		public string EmpName
+		{
+			get
+			{
+				return this._EmpName;
+			}
+			set
+			{
+				if ((this._EmpName != value))
+				{
+					this._EmpName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IPDNo", DbType="VarChar(500)")]
+		public string IPDNo
+		{
+			get
+			{
+				return this._IPDNo;
+			}
+			set
+			{
+				if ((this._IPDNo != value))
+				{
+					this._IPDNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPDNo", DbType="VarChar(500)")]
+		public string OPDNo
+		{
+			get
+			{
+				return this._OPDNo;
+			}
+			set
+			{
+				if ((this._OPDNo != value))
+				{
+					this._OPDNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryName", DbType="NVarChar(50)")]
+		public string CategoryName
+		{
+			get
+			{
+				return this._CategoryName;
+			}
+			set
+			{
+				if ((this._CategoryName != value))
+				{
+					this._CategoryName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientTypeId", DbType="Int")]
+		public System.Nullable<int> PatientTypeId
+		{
+			get
+			{
+				return this._PatientTypeId;
+			}
+			set
+			{
+				if ((this._PatientTypeId != value))
+				{
+					this._PatientTypeId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BP", DbType="VarChar(50)")]
+		public string BP
+		{
+			get
+			{
+				return this._BP;
+			}
+			set
+			{
+				if ((this._BP != value))
+				{
+					this._BP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientId", DbType="Int")]
+		public System.Nullable<int> PatientId
+		{
+			get
+			{
+				return this._PatientId;
+			}
+			set
+			{
+				if ((this._PatientId != value))
+				{
+					this._PatientId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeptCategory", DbType="Int")]
+		public System.Nullable<int> DeptCategory
+		{
+			get
+			{
+				return this._DeptCategory;
+			}
+			set
+			{
+				if ((this._DeptCategory != value))
+				{
+					this._DeptCategory = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeptDoctorId", DbType="Int")]
+		public System.Nullable<int> DeptDoctorId
+		{
+			get
+			{
+				return this._DeptDoctorId;
+			}
+			set
+			{
+				if ((this._DeptDoctorId != value))
+				{
+					this._DeptDoctorId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ailergies", DbType="VarChar(150)")]
+		public string Ailergies
+		{
+			get
+			{
+				return this._Ailergies;
+			}
+			set
+			{
+				if ((this._Ailergies != value))
+				{
+					this._Ailergies = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProvDiag", DbType="VarChar(150)")]
+		public string ProvDiag
+		{
+			get
+			{
+				return this._ProvDiag;
+			}
+			set
+			{
+				if ((this._ProvDiag != value))
+				{
+					this._ProvDiag = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FinalDiag", DbType="VarChar(150)")]
+		public string FinalDiag
+		{
+			get
+			{
+				return this._FinalDiag;
+			}
+			set
+			{
+				if ((this._FinalDiag != value))
+				{
+					this._FinalDiag = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Symptomes", DbType="VarChar(150)")]
+		public string Symptomes
+		{
+			get
+			{
+				return this._Symptomes;
+			}
+			set
+			{
+				if ((this._Symptomes != value))
+				{
+					this._Symptomes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PastIllness", DbType="VarChar(150)")]
+		public string PastIllness
+		{
+			get
+			{
+				return this._PastIllness;
+			}
+			set
+			{
+				if ((this._PastIllness != value))
+				{
+					this._PastIllness = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Temperature", DbType="VarChar(50)")]
+		public string Temperature
+		{
+			get
+			{
+				return this._Temperature;
+			}
+			set
+			{
+				if ((this._Temperature != value))
+				{
+					this._Temperature = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pulse", DbType="VarChar(50)")]
+		public string Pulse
+		{
+			get
+			{
+				return this._Pulse;
+			}
+			set
+			{
+				if ((this._Pulse != value))
+				{
+					this._Pulse = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Respiration", DbType="VarChar(50)")]
+		public string Respiration
+		{
+			get
+			{
+				return this._Respiration;
+			}
+			set
+			{
+				if ((this._Respiration != value))
+				{
+					this._Respiration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Others", DbType="VarChar(50)")]
+		public string Others
+		{
+			get
+			{
+				return this._Others;
+			}
+			set
+			{
+				if ((this._Others != value))
+				{
+					this._Others = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RS", DbType="VarChar(50)")]
+		public string RS
+		{
+			get
+			{
+				return this._RS;
+			}
+			set
+			{
+				if ((this._RS != value))
+				{
+					this._RS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CVS", DbType="VarChar(50)")]
+		public string CVS
+		{
+			get
+			{
+				return this._CVS;
+			}
+			set
+			{
+				if ((this._CVS != value))
+				{
+					this._CVS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PA", DbType="VarChar(50)")]
+		public string PA
+		{
+			get
+			{
+				return this._PA;
+			}
+			set
+			{
+				if ((this._PA != value))
+				{
+					this._PA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNS", DbType="VarChar(50)")]
+		public string CNS
+		{
+			get
+			{
+				return this._CNS;
+			}
+			set
+			{
+				if ((this._CNS != value))
+				{
+					this._CNS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XRAY", DbType="VarChar(50)")]
+		public string XRAY
+		{
+			get
+			{
+				return this._XRAY;
+			}
+			set
+			{
+				if ((this._XRAY != value))
+				{
+					this._XRAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ECG", DbType="VarChar(50)")]
+		public string ECG
+		{
+			get
+			{
+				return this._ECG;
+			}
+			set
+			{
+				if ((this._ECG != value))
+				{
+					this._ECG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USG", DbType="VarChar(50)")]
+		public string USG
+		{
+			get
+			{
+				return this._USG;
+			}
+			set
+			{
+				if ((this._USG != value))
+				{
+					this._USG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OBGY", DbType="VarChar(50)")]
+		public string OBGY
+		{
+			get
+			{
+				return this._OBGY;
+			}
+			set
+			{
+				if ((this._OBGY != value))
+				{
+					this._OBGY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="NVarChar(100)")]
+		public string CompanyName
+		{
+			get
+			{
+				return this._CompanyName;
+			}
+			set
+			{
+				if ((this._CompanyName != value))
+				{
+					this._CompanyName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceDesc", DbType="NVarChar(50)")]
+		public string InsuranceDesc
+		{
+			get
+			{
+				return this._InsuranceDesc;
+			}
+			set
+			{
+				if ((this._InsuranceDesc != value))
+				{
+					this._InsuranceDesc = value;
 				}
 			}
 		}
