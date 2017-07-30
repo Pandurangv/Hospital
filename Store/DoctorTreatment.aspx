@@ -49,6 +49,9 @@
                                     <th>
                                         Action
                                     </th>
+                                    <th>
+                                        Print
+                                    </th>
                                 </tr>
                                 <tbody>
                                     <tr data-ng-repeat="accounttype in SearchTreatmentList">
@@ -59,14 +62,18 @@
                                             {{accounttype.EmployeeName}}
                                         </td>
                                         <td>
-                                            {{accounttype.AdmitDate | mydate | date: 'yyyy-MM-dd'}}
+                                            {{accounttype.TreatmentDate | mydate | date: 'yyyy-MM-dd'}}
                                         </td>
                                         <td>
-                                            {{accounttype.Price | mydate | date: 'yyyy-MM-dd'}}
+                                            {{accounttype.FollowUpDate | mydate | date: 'yyyy-MM-dd'}}
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-ng-click="EditClick(accounttype)">
                                                 Edit</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-ng-click="Print(accounttype)">
+                                                Print</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -84,7 +91,7 @@
                         </div>
                         <div data-ng-show="Add==true || Edit==true">
                             <div class="form-group">
-                                <input type="hidden" data-ng-model="TreatmentModel.ProductId" />
+                                <input type="hidden" data-ng-model="TreatmentModel.TreatId" />
                                 <div class="col-md-12">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -138,8 +145,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Treatment Details" data-ng-model="TreatmentModel.TreatmentDetails" maxlength="200"
-                                                        minlength="2" class="form-control setMargin" />
+                                                    <input type="text" placeholder="Treatment Details" data-ng-model="TreatmentModel.TreatmentDetails"
+                                                        maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
                                         </div>
@@ -151,8 +158,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <div class="form-line">
-                                                        <input type="text" placeholder="Procedures" data-ng-model="TreatmentModel.Procedures" maxlength="200"
-                                                            minlength="2" class="form-control setMargin" />
+                                                        <input type="text" placeholder="Procedures" data-ng-model="TreatmentModel.Procedures"
+                                                            maxlength="200" minlength="2" class="form-control setMargin" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -174,5 +181,7 @@
                     </div>
                 </div>
             </div>
-            <script type="text/javascript" src="../Scripts/Bootstrap/DoctorTreatmentController.js"></script>
+        </div>
+    </div>
+    <script type="text/javascript" src="../Scripts/Bootstrap/DoctorTreatmentController.js"></script>
 </asp:Content>

@@ -147,8 +147,12 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="container-fluid"> 
-    <div id="panel" data-ng-app="HospitalApp" data-ng-controller="ReportsController" class="row card">
+<div class="container-fluid" data-ng-app="HospitalApp" data-ng-controller="ReportsController"> 
+    <div class="col-md-12">
+        <button type="button" class="btn btn-Default pull-left" onclick="PrintPanel()">
+            Print</button>
+    </div> 
+    <div id="panel" class="row card">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-6  col-sm-6  col-xs-12">
                     <div class="left_side">
@@ -318,10 +322,177 @@
                 </div>
             </div>
         </div>
-    <div class="col-md-12">
-        <button type="button" class="btn btn-Default pull-left" onclick="PrintPanel()">
-            Print</button>
-    </div> 
+
+    <div id="Div1" class="row card">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6  col-sm-6  col-xs-12">
+                    <div class="left_side">
+                        <h4 class="title">
+                            <strong>GANGA NURSING HOME</strong>
+                         </h4>
+                         <p><strong>DR.RAJESH TAPADIA</strong></p>
+                        <div class="dr_class">
+                            <p>M.B.B.S M.D (MEDICINE)</p>
+                            <p>CONSULING PHYSICIAN</p>
+                            <p><strong>Red.No. 46039</strong></p>
+                            <p><strong>Time</strong>: 8.30 AM TO 12.30 PM &<br />
+                                6.00 PM TO 9.00 PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6  col-xs-12">
+                    <div class="right_side">
+                        <p class="par_title">
+                            NEXT TO PASSPORT OFFICE,MUNDHWA ROAD,PUNE - 411036
+                            <br />
+                            Tel.:26 88 19 90 /26 88 09 90
+                        </p>
+                        <p><strong>DR. GAYATRI R. TAPADIA</strong></p>
+                        <p>M.D (OBST. & GYNAEC)</p>
+                        <p>CONSULING OBSTETRICIAN & GYNACOLOGIST</p>
+                        <p><strong>Red.No. 50505</strong></p>
+                        <p><strong>Time</strong>: 7.00 PM TO 9.00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <center><strong>(Sunday Closed)</strong></p></center>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tagline">
+                <center><strong>Panel Consultant : Columbia Asia, jahangir,inlaks,Ruby Hall</strong></center>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="reg">
+                        <p>Rx</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="right_side">
+                        <p class="date">
+                            <strong>Date:
+                                <%=string.Format("{0:dd-MMM-yyyy}",DateTime.Now.Date) %>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="Div2">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tagline">
+                    <center><strong>Doctor Treatment Report</strong></center>
+                </div>
+                <div class="col-md-12 marign_bottom_50">
+                    <div class="col-md-6">
+                        <div>
+                            <span class="pull-left patient_name"><strong>Patient Name </strong>: {{PatientInfo.PatientName}}</span></div>
+                        <br />
+                        <div>
+                            <span class="pull-left"><strong>Prescription Date </strong>: {{PatientInfo.Prescription_Date
+                                | mydate | date: 'dd-MM-yyyy'}}</span></div>
+                        <br />
+                        <div>
+                            <span class="pull-left"><strong>Doctor </strong>: {{PatientInfo.EmpName}}</span></div>
+                        <br />
+                        <div>
+                            <span class="pull-left"><strong>Dressing </strong>: {{PatientInfo.IsDressing==true?'Done':'Not
+                                Done'}}</span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-6 pull-right">
+                            <div>
+                                <span class="pull-left"><strong>MRN</strong> : {{PatientInfo.PatientCode}}</span></div>
+                            <br />
+                            <div>
+                                <span class="pull-left"><strong>Patient Type </strong>: {{PatientInfo.PatientType}}</span></div>
+                            <br />
+                            <div>
+                                <span class="pull-left"><strong>Injection</strong> : {{PatientInfo.IsInjection==true?'Done':'Not
+                                    Done'}}</span></div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="midicine_name" rowspan="2">
+                                    Medicine Name
+                                </th>
+                                <th class="midicine_name" colspan="4">
+                                    <span>Medicine Timing</span>
+                                </th>
+                                <th class="midicine_name" rowspan="2">
+                                    No Of Days
+                                </th>
+                                <th class="midicine_name" rowspan="2">
+                                    Quantity
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="midicine_name" style="width: 15%">
+                                </th>
+                                <th class="midicine_name" style="width: 15%">
+                                    सकाळी
+                                </th>
+                                <th class="midicine_name" style="width: 15%">
+                                    दुपारी
+                                </th>
+                                <th class="midicine_name" style="width: 15%">
+                                    संध्याकाळी
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="tabs in data">
+                                <td>
+                                    {{tabs.ProductName}}
+                                </td>
+                                <td>
+                                    {{tabs.IsbeforeLunch==true?'जेवणाआधी':'जेवणानंतर'}}
+                                </td>
+                                <td>
+                                    {{tabs.Morning}}
+                                </td>
+                                <td>
+                                    {{tabs.Afternoon}}
+                                </td>
+                                <td>
+                                    {{tabs.Night}}
+                                </td>
+                                <td>
+                                    {{tabs.NoOfDays}}
+                                </td>
+                                <td>
+                                    {{tabs.Quantity}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-12 marign_bottom_35">
+                    <div class="col-md-6">
+                        <div>
+                            <span class="pull-left"><strong>Follow Up Date</strong> : {{PatientInfo.FollowUpDate!=null?(PatientInfo.FollowUpDate
+                                | mydate | date: 'dd-MM-yyyy'):'-'}}</span></div>
+                        <br />
+                        <div>
+                            <span class="pull-left"><strong>Investigation</strong> : {{PatientInfo.Investigation}}</div>
+                        </span><br />
+                        <div>
+                            <span class="pull-left"><strong>Impression</strong> : {{PatientInfo.Impression}}</div>
+                        </span><br />
+                        <div>
+                            <span class="pull-left"><strong>Advice Note</strong> : {{PatientInfo.AdviceNote}}</span></div>
+                        <br />
+                        <div>
+                            <span class="pull-left"><strong>Remarks </strong>: {{PatientInfo.Remarks}}</span></div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
      </div>
     <script type="text/javascript" src="../Scripts/Bootstrap/ReportsController.js"></script>
 </asp:Content>

@@ -205,6 +205,21 @@ namespace Hospital.Models.DataLayer
             }
         }
 
+        //TreatmentId
+
+        public int TreatmentId
+        {
+            get
+            {
+                int _Rpt = 0;
+                if (HttpContext.Current.Request.QueryString.Count > 0 && HttpContext.Current.Request["TreatmentId"] != null)
+                {
+                    _Rpt = Convert.ToInt32(HttpContext.Current.Request["TreatmentId"]);
+                }
+                return _Rpt;
+            }
+        }
+
         public int BILLNo
         {
             get

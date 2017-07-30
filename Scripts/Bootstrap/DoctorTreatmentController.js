@@ -44,8 +44,6 @@
             processData: false ,
         }).then(function (response) {
                 var data=response.data;
-                //data.splice( 0, 0, {ProcutTypeId:0,ProductType:"---Select---"} );
-                //$scope.ProductTypeList=response.data;
                 $scope.PatientList=response.data.PatientList;
                 $scope.DoctorList=response.data.DoctorList;
                 $scope.MainTreatmentList=response.data.DoctorTreatmentList;
@@ -91,14 +89,29 @@
     }
 
     $scope.EditClick = function (ProductTypeModel) {
-        $scope.TreatmentModel = { ProductId: ProductTypeModel.ProductId, ProductName:  ProductTypeModel.ProductName, UOM: ProductTypeModel.UOM,SubUOM:ProductTypeModel.SubUOM,Price:ProductTypeModel.Price,Content:ProductTypeModel.Content,ProductTypeId:0 };
-//        $scope.SelectedProductType ={ProcutTypeId: ProductTypeModel.ProductTypeId,ProductType:ProductTypeModel.ProductTyepe};
-//        $filter('filter')($scope.ProductTypeList, function (d) { return d.ProcutTypeId === ProductTypeModel.ProductTypeId; })[0].ProcutTypeId=$scope.SelectedProductType.ProcutTypeId;
-        $("#ddlPType").val(ProductTypeModel.ProductTypeId);
-        $scope.TreatmentModel.Content=ProductTypeModel.ProductContent;
+        $scope.TreatmentModel = { 
+                                    TreatId: ProductTypeModel.TreatId, 
+                                    TreatmentDate: ProductTypeModel.TreatmentDate, 
+                                    DoctorId: ProductTypeModel.DoctorId,
+                                    AdmitId:ProductTypeModel.AdmitId,
+                                    TreatmentDetails:ProductTypeModel.TreatmentDetails,
+                                    FollowUpDate:ProductTypeModel.FollowUpDate,
+                                    Procedures:ProductTypeModel.Procedures,
+                                    AdmitDate:ProductTypeModel.AdmitDate   
+                                };
+        $("#ddlPType").val(ProductTypeModel.AdmitId);
+        $("#ddlDoctors").val(ProductTypeModel.DoctorId);
+        $scope.TreatmentModel.TreatmentDetails=ProductTypeModel.TreatmentDetails;
+        $scope.TreatmentModel.Procedures=ProductTypeModel.Procedures;
         $scope.Details = false;
         $scope.Add = false;
         $scope.Edit = true;
+    }
+
+    $scope.Print=function(TreatmentModel)
+    {
+        var url = GetVirtualDirectory() + '/PathalogyReport/Reports.aspx?RequestFor=DoctorTreatmentChart&TreatmentId='+ TreatmentModel.TreatId;
+        window.location=url;
     }
 
     $scope.Save = function (isEdit) {
@@ -133,8 +146,11 @@
             url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx/Update';
         }
         var model={};
+
         $scope.TreatmentModel.DoctorId=$("#ddlDoctors").val();
         $scope.TreatmentModel.AdmitId=$("#ddlPType").val();
+        $scope.TreatmentModel.FollowUpDate=$('#txtFollowUpDate').val();
+        $scope.TreatmentModel.TreatmentDate=$('#txtTreatmentDate').val();
         var req = {
             method: 'POST',
             url: url,
@@ -143,28 +159,8 @@
             processData: false ,
             data: {model: JSON.stringify($scope.TreatmentModel)},
         };
-
         $http(req).then(function (response) {
-            var ptypeid=parseInt($("#ddlPType").val());
-            var ptype=$filter('filter')($scope.ProductTypeList, function (d) { return d.ProcutTypeId === ptypeid })[0];
-            if (isEdit==true) {
-                    $scope.TreatmentModel.ProductId=response.data.Id;
-                    $scope.TreatmentModel.ProcutType=ptype.ProductType;
-                    $scope.TreatmentList.push($scope.TreatmentModel);
-                    setTimeout(function () {
-                    $scope.$apply(function () {
-                        $scope.MainTreatmentList = $scope.TreatmentList;
-                        $scope.SearchTreatmentList = $scope.TreatmentList;
-                        $scope.First();
-                        $scope.CancelClick();
-                    });
-                }, 1000);
-                }
-                else {
-                    $scope.CancelClick();
-                    //GetProducts();
-                }
-                
+             GetPatientList();
         },
         function (response) {
            
@@ -210,7 +206,7 @@
     $scope.init = function () {
         $(document).ready(function () {
             $('#txtTreatmentDate').datepicker({
-                format: "yyyy/mm/dd"
+                format: "yyyy-mm-dd"
             });
             $('#txtTreatmentDate').datepicker()
              .on('changeDate', function (ev) {
@@ -218,7 +214,7 @@
                  $('#txtTreatmentDate').datepicker("hide");
              });
             $('#txtFollowUpDate').datepicker({
-                format: "yyyy/mm/dd"
+                format: "yyyy-mm-dd"
             });
             $('#txtFollowUpDate').datepicker()
              .on('changeDate', function (ev) {

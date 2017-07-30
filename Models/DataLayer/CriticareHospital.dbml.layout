@@ -578,7 +578,7 @@
         <elementListCompartment Id="61a42e1d-1cce-4a71-b2b4-270d7dcf02d2" absoluteBounds="7.2650000000000006, 4.7100000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.5 : 1.575); (1.5 : 1.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 1.575); (1.5 : 1.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CriticareHospitalDataContext/tblGroupMaster/tblGroupMaster_tblItemMaster" />
       <nodes>
         <classShapeMoniker Id="d372da4b-75a0-4562-b41f-e34f53c2b21f" />

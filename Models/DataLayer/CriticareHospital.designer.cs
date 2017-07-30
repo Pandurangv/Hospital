@@ -4259,6 +4259,13 @@ namespace Hospital.Models.DataLayer
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_GetAllPatientListForRegisteredResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_PrintDoctorChart")]
+		public ISingleResult<STP_PrintDoctorChartResult> STP_PrintDoctorChart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TreatmentId", DbType="Int")] System.Nullable<int> treatmentId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), treatmentId);
+			return ((ISingleResult<STP_PrintDoctorChartResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAllocConsultDoctor")]
@@ -69910,6 +69917,176 @@ namespace Hospital.Models.DataLayer
 				if ((this._InsuranceDesc != value))
 				{
 					this._InsuranceDesc = value;
+				}
+			}
+		}
+	}
+	
+	public partial class STP_PrintDoctorChartResult
+	{
+		
+		private int _AdmitId;
+		
+		private string _PatientName;
+		
+		private string _EmployeeName;
+		
+		private System.Nullable<System.DateTime> _FollowUpDate;
+		
+		private System.Nullable<bool> _IsDelete;
+		
+		private string _Procedures;
+		
+		private long _TreatId;
+		
+		private System.Nullable<System.DateTime> _TreatmentDate;
+		
+		private string _TreatmentDetails;
+		
+		public STP_PrintDoctorChartResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int NOT NULL")]
+		public int AdmitId
+		{
+			get
+			{
+				return this._AdmitId;
+			}
+			set
+			{
+				if ((this._AdmitId != value))
+				{
+					this._AdmitId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(152)")]
+		public string PatientName
+		{
+			get
+			{
+				return this._PatientName;
+			}
+			set
+			{
+				if ((this._PatientName != value))
+				{
+					this._PatientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", DbType="NVarChar(101) NOT NULL", CanBeNull=false)]
+		public string EmployeeName
+		{
+			get
+			{
+				return this._EmployeeName;
+			}
+			set
+			{
+				if ((this._EmployeeName != value))
+				{
+					this._EmployeeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FollowUpDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FollowUpDate
+		{
+			get
+			{
+				return this._FollowUpDate;
+			}
+			set
+			{
+				if ((this._FollowUpDate != value))
+				{
+					this._FollowUpDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
+		public System.Nullable<bool> IsDelete
+		{
+			get
+			{
+				return this._IsDelete;
+			}
+			set
+			{
+				if ((this._IsDelete != value))
+				{
+					this._IsDelete = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Procedures", DbType="VarChar(500)")]
+		public string Procedures
+		{
+			get
+			{
+				return this._Procedures;
+			}
+			set
+			{
+				if ((this._Procedures != value))
+				{
+					this._Procedures = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatId", DbType="BigInt NOT NULL")]
+		public long TreatId
+		{
+			get
+			{
+				return this._TreatId;
+			}
+			set
+			{
+				if ((this._TreatId != value))
+				{
+					this._TreatId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TreatmentDate
+		{
+			get
+			{
+				return this._TreatmentDate;
+			}
+			set
+			{
+				if ((this._TreatmentDate != value))
+				{
+					this._TreatmentDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDetails", DbType="VarChar(500)")]
+		public string TreatmentDetails
+		{
+			get
+			{
+				return this._TreatmentDetails;
+			}
+			set
+			{
+				if ((this._TreatmentDetails != value))
+				{
+					this._TreatmentDetails = value;
 				}
 			}
 		}
