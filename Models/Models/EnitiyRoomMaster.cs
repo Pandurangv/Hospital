@@ -24,4 +24,6 @@ namespace Hospital.Models.Models
 
         public string FloorName { get; set; }
     }
+
+    
 }

@@ -1482,6 +1482,18 @@
       <Column Name="USG" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tblDoctorTreatment" Member="tblDoctorTreatments">
+    <Type Name="tblDoctorTreatment">
+      <Column Name="TreatId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TreatmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdmitId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Procedures" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_GetStateForEdit" Method="sp_GetStateForEdit">
     <Parameter Name="StateCode" Parameter="stateCode" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="sp_GetStateForEditResult">

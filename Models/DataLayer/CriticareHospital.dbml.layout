@@ -652,5 +652,11 @@
         <elementListCompartment Id="9073f92c-f8b1-46dc-97a7-dc2bdc14b889" absoluteBounds="2.7649999999999997, 9.21, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="80c8eef1-f17a-49d7-98e3-36e21919aa79" isExpanded="false" absoluteBounds="2.75, 13.75, 2, 0.45">
+      <DataClassMoniker Name="/CriticareHospitalDataContext/tblDoctorTreatment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="272ae18c-3759-494c-acdc-246d1a961bff" absoluteBounds="2.7649999999999997, 14.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

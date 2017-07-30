@@ -305,6 +305,7 @@
     <Content Include="Scripts\Bootstrap\bootstrap-datepicker.js" />
     <Content Include="Scripts\Bootstrap\DailyCollection.js" />
     <Content Include="Scripts\Bootstrap\datehelper.js" />
+    <Content Include="Scripts\Bootstrap\DoctorTreatmentController.js" />
     <Content Include="Scripts\Bootstrap\Main\bootstrap.min.js" />
     <Content Include="Scripts\Bootstrap\common.js" />
     <Content Include="Scripts\Bootstrap\Main\jquery.min.js" />
@@ -372,6 +373,7 @@
     <Content Include="StoreForms\frmRequisitionDetails.aspx" />
     <Content Include="StoreForms\frmStoreMain.aspx" />
     <Content Include="StoreForms\frmUnitMaster.aspx" />
+    <Content Include="Store\DoctorTreatment.aspx" />
     <Content Include="Store\frmDebitNote.aspx" />
     <Content Include="Store\frmIssueMaterial.aspx" />
     <Content Include="Store\frmPurchaseInvoice.aspx" />
@@ -994,6 +996,7 @@
     <Compile Include="Models\BusinessLayer\DignosisBLL.cs" />
     <Compile Include="Models\BusinessLayer\DiscountBLL.cs" />
     <Compile Include="Models\BusinessLayer\DocCategoryBLL.cs" />
+    <Compile Include="Models\BusinessLayer\DoctorTreatmentBLL.cs" />
     <Compile Include="Models\BusinessLayer\EmployeeBLL.cs" />
     <Compile Include="Models\BusinessLayer\GenderBLL.cs" />
     <Compile Include="Models\BusinessLayer\GetLoginBLL.cs" />
@@ -1052,6 +1055,7 @@
     </Compile>
     <Compile Include="Models\DataLayer\ListConverter.cs" />
     <Compile Include="Models\DataLayer\SessionWrapper.cs" />
+    <Compile Include="Models\Models\DoctorTreatmentModel.cs" />
     <Compile Include="Models\Models\EnitiyRoomMaster.cs" />
     <Compile Include="Models\Models\EntityAllocaConDoc.cs" />
     <Compile Include="Models\Models\EntityAllowanceDeduction.cs" />
@@ -1485,6 +1489,13 @@
     </Compile>
     <Compile Include="StoreForms\frmUnitMaster.aspx.designer.cs">
       <DependentUpon>frmUnitMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\DoctorTreatment.aspx.cs">
+      <DependentUpon>DoctorTreatment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\DoctorTreatment.aspx.designer.cs">
+      <DependentUpon>DoctorTreatment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\frmDebitNote.aspx.cs">
       <DependentUpon>frmDebitNote.aspx</DependentUpon>
