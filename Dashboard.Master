@@ -196,6 +196,10 @@
                             <span>Patient Masters</span>
                         </a>
                         <ul class="ml-menu">
+                            <li ><a href="../DoctorTreatment.aspx">
+                                    <span>Doctor Treatment</span>
+                                </a>
+                            </li>
                             <li ><a href="../frmOPDPatientDetail.aspx">
                                     <span>New Patient Registration</span>
                                 </a>

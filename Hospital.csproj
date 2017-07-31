@@ -1562,7 +1562,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
@@ -1570,6 +1569,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dashboard.Master" />
+    <None Include="App_Data\31JUL2017.bak" />
     <None Include="images\Thumbs.db" />
     <None Include="Models\DataLayer\CriticareHospital.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

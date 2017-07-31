@@ -139,6 +139,8 @@
                                                             </asp:MenuItem>--%>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Patient Masters" Value="Main">
+                                                            <asp:MenuItem Text="Doctor Treatment" Value="Doctor Treatment" NavigateUrl="~/Store/DoctorTreatment.aspx">
+                                                            </asp:MenuItem>
                                                             <asp:MenuItem Text="New Patient Registration" Value="New Patient Registration" NavigateUrl="~/frmOPDPatientDetail.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Readmit Patient" Value="Readmit Patient" NavigateUrl="~/frmAdmitPatient.aspx">
