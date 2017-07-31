@@ -152,7 +152,7 @@
         <button type="button" class="btn btn-Default pull-left" onclick="PrintPanel()">
             Print</button>
     </div> 
-    <div id="panel" class="row card">
+    <div id="panel" class="row card" data-ng-show="ReportType=='Prescription'">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-6  col-sm-6  col-xs-12">
                     <div class="left_side">
@@ -323,7 +323,7 @@
             </div>
         </div>
 
-    <div id="Div1" class="row card">
+    <div id="Div1" class="row card" data-ng-show="ReportType=='DoctorTreatmentChart'">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-6  col-sm-6  col-xs-12">
                     <div class="left_side">
@@ -387,28 +387,11 @@
                         <div>
                             <span class="pull-left patient_name"><strong>Patient Name </strong>: {{PatientInfo.PatientName}}</span></div>
                         <br />
-                        <div>
-                            <span class="pull-left"><strong>Prescription Date </strong>: {{PatientInfo.Prescription_Date
-                                | mydate | date: 'dd-MM-yyyy'}}</span></div>
-                        <br />
-                        <div>
-                            <span class="pull-left"><strong>Doctor </strong>: {{PatientInfo.EmpName}}</span></div>
-                        <br />
-                        <div>
-                            <span class="pull-left"><strong>Dressing </strong>: {{PatientInfo.IsDressing==true?'Done':'Not
-                                Done'}}</span></div>
                     </div>
                     <div class="col-md-6">
                         <div class="col-md-6 pull-right">
                             <div>
                                 <span class="pull-left"><strong>MRN</strong> : {{PatientInfo.PatientCode}}</span></div>
-                            <br />
-                            <div>
-                                <span class="pull-left"><strong>Patient Type </strong>: {{PatientInfo.PatientType}}</span></div>
-                            <br />
-                            <div>
-                                <span class="pull-left"><strong>Injection</strong> : {{PatientInfo.IsInjection==true?'Done':'Not
-                                    Done'}}</span></div>
                             <br />
                         </div>
                     </div>
@@ -417,79 +400,37 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="midicine_name" rowspan="2">
-                                    Medicine Name
+                                <th>
+                                    Doctor
                                 </th>
-                                <th class="midicine_name" colspan="4">
-                                    <span>Medicine Timing</span>
+                                <th>
+                                    Treatment Date
                                 </th>
-                                <th class="midicine_name" rowspan="2">
-                                    No Of Days
+                                <th>
+                                    Treatment Details
                                 </th>
-                                <th class="midicine_name" rowspan="2">
-                                    Quantity
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="midicine_name" style="width: 15%">
-                                </th>
-                                <th class="midicine_name" style="width: 15%">
-                                    सकाळी
-                                </th>
-                                <th class="midicine_name" style="width: 15%">
-                                    दुपारी
-                                </th>
-                                <th class="midicine_name" style="width: 15%">
-                                    संध्याकाळी
+                                <th>
+                                    Procedures
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="tabs in data">
+                           <tr data-ng-repeat="treat in data">
                                 <td>
-                                    {{tabs.ProductName}}
+                                    {{treat.EmployeeName}}
                                 </td>
                                 <td>
-                                    {{tabs.IsbeforeLunch==true?'जेवणाआधी':'जेवणानंतर'}}
+                                    {{treat.TreatmentDate | mydate | date : 'yyyy-MM-dd'}}
                                 </td>
                                 <td>
-                                    {{tabs.Morning}}
+                                    {{treat.TreatmentDetails}}
                                 </td>
                                 <td>
-                                    {{tabs.Afternoon}}
-                                </td>
-                                <td>
-                                    {{tabs.Night}}
-                                </td>
-                                <td>
-                                    {{tabs.NoOfDays}}
-                                </td>
-                                <td>
-                                    {{tabs.Quantity}}
+                                    {{treat.Procedures}}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="col-md-12 marign_bottom_35">
-                    <div class="col-md-6">
-                        <div>
-                            <span class="pull-left"><strong>Follow Up Date</strong> : {{PatientInfo.FollowUpDate!=null?(PatientInfo.FollowUpDate
-                                | mydate | date: 'dd-MM-yyyy'):'-'}}</span></div>
-                        <br />
-                        <div>
-                            <span class="pull-left"><strong>Investigation</strong> : {{PatientInfo.Investigation}}</div>
-                        </span><br />
-                        <div>
-                            <span class="pull-left"><strong>Impression</strong> : {{PatientInfo.Impression}}</div>
-                        </span><br />
-                        <div>
-                            <span class="pull-left"><strong>Advice Note</strong> : {{PatientInfo.AdviceNote}}</span></div>
-                        <br />
-                        <div>
-                            <span class="pull-left"><strong>Remarks </strong>: {{PatientInfo.Remarks}}</span></div>
-                        <br />
-                    </div>
                 </div>
             </div>
         </div>

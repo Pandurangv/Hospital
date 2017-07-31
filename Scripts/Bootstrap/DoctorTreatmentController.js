@@ -110,7 +110,7 @@
 
     $scope.Print=function(TreatmentModel)
     {
-        var url = GetVirtualDirectory() + '/PathalogyReport/Reports.aspx?RequestFor=DoctorTreatmentChart&TreatmentId='+ TreatmentModel.TreatId;
+        var url = GetVirtualDirectory() + '/PathalogyReport/Reports.aspx?ReportType=DoctorTreatmentChart&AdmitId='+ TreatmentModel.AdmitId;
         window.location=url;
     }
 

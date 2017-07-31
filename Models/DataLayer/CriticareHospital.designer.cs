@@ -2783,13 +2783,6 @@ namespace Hospital.Models.DataLayer
 			return ((ISingleResult<STP_WardwisePatientDetailsResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetStates")]
-		public ISingleResult<sp_GetStatesResult1> sp_GetStates1()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_GetStatesResult1>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetStateForInsurance")]
 		public ISingleResult<sp_GetStateForInsuranceResult1> sp_GetStateForInsurance1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CountryId", DbType="Int")] System.Nullable<int> countryId)
 		{
@@ -4261,9 +4254,9 @@ namespace Hospital.Models.DataLayer
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_PrintDoctorChart")]
-		public ISingleResult<STP_PrintDoctorChartResult> STP_PrintDoctorChart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TreatmentId", DbType="Int")] System.Nullable<int> treatmentId)
+		public ISingleResult<STP_PrintDoctorChartResult> STP_PrintDoctorChart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdmitId", DbType="Int")] System.Nullable<int> admitId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), treatmentId);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), admitId);
 			return ((ISingleResult<STP_PrintDoctorChartResult>)(result.ReturnValue));
 		}
 	}
@@ -54430,50 +54423,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	public partial class sp_GetStatesResult1
-	{
-		
-		private int _PKId;
-		
-		private string _StateDesc;
-		
-		public sp_GetStatesResult1()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PKId", DbType="Int NOT NULL")]
-		public int PKId
-		{
-			get
-			{
-				return this._PKId;
-			}
-			set
-			{
-				if ((this._PKId != value))
-				{
-					this._PKId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateDesc", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string StateDesc
-		{
-			get
-			{
-				return this._StateDesc;
-			}
-			set
-			{
-				if ((this._StateDesc != value))
-				{
-					this._StateDesc = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_GetStateForInsuranceResult1
 	{
 		
@@ -69927,6 +69876,8 @@ namespace Hospital.Models.DataLayer
 		
 		private int _AdmitId;
 		
+		private string _PatientCode;
+		
 		private string _PatientName;
 		
 		private string _EmployeeName;
@@ -69959,6 +69910,22 @@ namespace Hospital.Models.DataLayer
 				if ((this._AdmitId != value))
 				{
 					this._AdmitId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientCode
+		{
+			get
+			{
+				return this._PatientCode;
+			}
+			set
+			{
+				if ((this._PatientCode != value))
+				{
+					this._PatientCode = value;
 				}
 			}
 		}

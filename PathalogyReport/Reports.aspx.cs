@@ -47,7 +47,7 @@ namespace Hospital.PathalogyReport
                     sb =sb.Append(serializer.Serialize(objData.STP_PrintPrescription(Hospital.Models.DataLayer.QueryStringManager.Instance.Prescription_Id).ToList()));
                     break;
                 case "DoctorTreatmentChart":
-                    sb = sb.Append(serializer.Serialize(objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.TreatmentId).ToList()));
+                    sb = sb.Append(serializer.Serialize(objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId).ToList()));
                     break;
             }
             return sb.ToString();

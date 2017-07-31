@@ -4053,12 +4053,6 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_GetStates" Method="sp_GetStates1">
-    <ElementType Name="sp_GetStatesResult1">
-      <Column Name="PKId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StateDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_GetStateForInsurance" Method="sp_GetStateForInsurance1">
     <Parameter Name="CountryId" Parameter="countryId" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_GetStateForInsuranceResult1">
@@ -5784,9 +5778,10 @@
     </ElementType>
   </Function>
   <Function Name="dbo.STP_PrintDoctorChart" Method="STP_PrintDoctorChart">
-    <Parameter Name="TreatmentId" Parameter="treatmentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdmitId" Parameter="admitId" Type="System.Int32" DbType="Int" />
     <ElementType Name="STP_PrintDoctorChartResult">
       <Column Name="AdmitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PatientName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
       <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(101) NOT NULL" CanBeNull="false" />
       <Column Name="FollowUpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
