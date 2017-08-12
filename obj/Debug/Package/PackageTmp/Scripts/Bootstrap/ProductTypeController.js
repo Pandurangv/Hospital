@@ -26,6 +26,7 @@
     function GetReportTypes()
     {
         var url = GetVirtualDirectory() + '/Store/ProductType.aspx/GetProductType?RequestFor=GetDetails';
+        //var url = 'http://localhost/Hospital/Store/ProductType.aspx/GetProductType?RequestFor=GetDetails';
         $http({
             method: 'GET',
             url: url,

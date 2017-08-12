@@ -104,7 +104,9 @@
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Company Master" Value="Company Master" NavigateUrl="~/frmCompanyMaster.aspx">
                                                             </asp:MenuItem>
-                                                            <asp:MenuItem Text="Tablet Master" Value="Tablet Master" NavigateUrl="~/frmProductMaster.aspx">
+                                                            <asp:MenuItem Text="Product Types" Value="Product Types" NavigateUrl="~/Store/ProductType.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Medicine Master" Value="Medicine Master" NavigateUrl="~/Store/StoreProducts.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Occupation Master" Value="Occupation Master" NavigateUrl="~/frmOccupationMaster.aspx">
                                                             </asp:MenuItem>
@@ -137,6 +139,8 @@
                                                             </asp:MenuItem>--%>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Patient Masters" Value="Main">
+                                                            <asp:MenuItem Text="Doctor Treatment" Value="Doctor Treatment" NavigateUrl="~/Store/DoctorTreatment.aspx">
+                                                            </asp:MenuItem>
                                                             <asp:MenuItem Text="New Patient Registration" Value="New Patient Registration" NavigateUrl="~/frmOPDPatientDetail.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Readmit Patient" Value="Readmit Patient" NavigateUrl="~/frmAdmitPatient.aspx">

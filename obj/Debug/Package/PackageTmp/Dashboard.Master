@@ -3,9 +3,17 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Ganga Clinic</title>
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Ganga Nursing Home</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/adminpanel/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Scripts/adminpanel/node-waves/waves.css" rel="stylesheet" />
+    <link href="../css/adminpanelcss/style.css" rel="stylesheet" />
+    <link href="../css/adminpanelcss/all-themes.css" rel="stylesheet" />
     <script type="text/javascript" src="../scripts/bootstrap/jquery.min.js"></script>
     <script type="text/javascript" src="../scripts/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/angular.min.js"></script>
@@ -15,185 +23,395 @@
     <script type="text/javascript" src="../Scripts/bootstrap/common.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/spin.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/ShowCustomAlert.js"></script>
-    
+    <script type="text/javascript" src="../Scripts/adminpanel/node-waves/waves.js"></script>
+    <script type="text/javascript"  src="../Scripts/adminpanel/admin.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <div class="container Mainborder">
-        <form id="form1" runat="server">
-        <div class="row">
-            <img src="../images/BannerImages/HospitalNameGNH.png" class="img-fluid banner" alt="Ganga Nursing Home">
-        </div>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-              </button>
+<body class="theme-red">
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav">
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Masters
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                       <li><a href="../frmEmployeeMaster.aspx">Employee Master</a></li>
-                       <li><a href="../UserAuthentication/frmUserAuthentication.aspx">
-                          </a>
-                       </li>
-                       <li><a href="../frmDepartmentMaster.aspx">Department Master
-                          </a>
-                       </li>
-                       <li><a href="../frmRoomCategoryMaster.aspx">Room Rate Master
-                          </a>
-                       </li>
-                       <li><a href="../frmRoomMaster.aspx">Ward Master
-                          </a>
-                       </li>
-                       <li><a href="../frmBedMaster.aspx">Bed Master
-                          </a>
-                       </li>
-                       <li><a href="../frmSupplierMaster.aspx">Supplier Master
-                          </a>
-                       </li>
-                       <li><a href="../frmUnitMaster.aspx">Unit Master
-                          </a>
-                       </li>
-                       <li><a href="../frmChargeCategory.aspx">Charge Master
-                          </a>
-                       </li>
-                       <li><a href="../BankTransaction/frmBankMaster.aspx">Bank Master
-                          </a>
-                       </li>
-                       <li><a  href="../frmInsuranceComMaster.aspx">Insurance Master
-                          </a>
-                       </li>
-                       <li><a href="../frmCompanyMaster.aspx">Company Master
-                          </a>
-                       </li>
-                       <li><a href="../frmProductMaster.aspx">Tablet Master
-                          </a>
-                       </li>
-                       <li><a href="../frmOccupationMaster.aspx">Occupation Master
-                          </a>
-                       </li>
-                       <li><a href="../frmOperationCatMaster.aspx">Doctor Department
-                          </a>
-                       </li>
-                       <li><a href="../frmShiftMaster.aspx">Shift Master 
-                          </a>
-                       </li>
-                       <li><a  href="../frmShiftAllocation.aspx">Shift Allocation
-                          </a>
-                       </li>
-                       <li><a href="../frmOperationMaster.aspx">Operation Master
-                          </a>
-                       </li>
-                       <li><a href="../frmDocCategory.aspx">Incharge Doctor
-                          </a>
-                       </li>
-                    </ul>
-                </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patient Masters
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-			            <li ><a href="../frmOPDPatientDetail.aspx" >New Patient Registration</a></li>
-                        <li ><a href="../frmAdmitPatient.aspx" >Readmit Patient</a></li>
-                        <li ><a href="../frmPatientAllocToDoc.aspx" >Allocate Patient ToDoctor</a></li>
-                        <li ><a href="../frmAllocConsultDoctorToPatient.aspx" >Allocate Visiting Doctor</a></li>
-                        <li ><a href="../BedStatus/frmBedAllocToPatient.aspx" >Bed Allocation To Patient</a></li>
-		            </ul>
-                </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-			            <li><a href="../Payroll/frmAllowanceDeduction.aspx">Allowance/Deductions</a></li>
-                        <li><a href="../Payroll/frmSalaryCalculation.aspx">Salary Calculation</a></li>
-		            </ul>
-                </li>
-                <li><a href="../#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laboratory Test
-                        <span class="caret"></span></a>
-                   <ul class="dropdown-menu">
-			            <li><a href="../frmTestMaster.aspx" >Test Master</a></li>
-                        <li><a href="../frmTestParameters.aspx" >Test Parameter</a></li>
-                        <li><a href="../frmTestMethodMaster.aspx" >Test Method</a></li>
-                        <li><a href="../frmTestAllocation.aspx" >Test Invoice</a></li>
-                        <li><a href="../frmPathology.aspx" >Pathology Result</a></li>
-		            </ul>
-                </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ><a href="../frmOTMedicineBill.aspx" >OTPatientMedicineBill</a></li>
-                        <li ><a href="../frmMakeDischarge.aspx" >Discharge</a></li>
-                        <li ><a href="../PatientStatus/frmMedicalCertificate.aspx" >Medical Certificate</a></li>
-                        <li ><a href="../PatientStatus/frmDeathCertificate.aspx" >Death Certificate</a></li>
-                        <li ><a href="../PatientStatus/frmBirthCertificate.aspx" >Birth Certificate</a></li>
-                        <li ><a href="../Billing/frmPatientInvoice.aspx" >Patient Bill</a></li>
-                        <li ><a href="../Billing/frmCustomerTransaction.aspx" >Patient Receipt</a></li>
-                        <li ><a href="../Billing/frmAdvancePayment.aspx" >Refund Payment</a></li>
-                        <li ><a href="../InsuranceClaim/frmInsuranceClaim.aspx" >Insurance Claim</a></li>
-                        <li ><a href="../InsuranceClaim/frmClaimApproval.aspx" >Insurance Approval</a></li>
-                        <li ><a href="../InsuranceClaim/frmCompanyClaim.aspx" >Company Claim</a></li>
-                        <li ><a href="../InsuranceClaim/frmCompanyClaimApproval.aspx" >Company Approval</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Store
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ><a href="../Store/frmPurchaseOrder.aspx" >Purchase Order</a></li>
-                        <li ><a href="../Store/frmPurchaseInvoice.aspx" >Purchase Invoice</a></li>
-                        <li ><a href="../Store/frmSupplierPayment.aspx" >Supplier Payment</a></li>
-                    </ul></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ><a href="PathalogyReport/frmBedConsumption.aspx" >BedConsumptionReport</a></li>
-                        <li ><a href="PathalogyReport/frmIPDPatientReport.aspx" >DailyOPD/IPDPatientDetails</a></li>
-                        <li ><a href="PathalogyReport/frmHistoryReport.aspx" >Patient History</a></li>
-                        <li ><a href="PathalogyReport/frmOutstandingReport.aspx" >Patient Outstanding</a></li>
-                        <li ><a href="PathalogyReport/frmDatewiseCollection.aspx" >Datewise Collection</a></li>
-                        <li ><a href="Reports/MonthwiseSalaryReport.aspx" >Salary Report</a></li>
-                        <li ><a href="PathalogyReport/frmPatientLedger.aspx" >Patient Ledger</a></li>
-                        <li ><a href="PathalogyReport/frmSupplierLedger.aspx" >Supplier Ledger</a></li>
-                        <li ><a href="PathalogyReport/frmStockDetailReport.aspx" >Item Stock Detail</a></li>
-                        <li ><a href="PathalogyReport/frmItemStockReport.aspx" >Stock Detail Report</a></li>
-                        <li ><a href="PathalogyReport/frmSupplierOutstandingReport.aspx" >Supplier Outstanding</a></li>
-                        <li ><a href="PathalogyReport/frmOTBedPatientReport.aspx" >OTBedAllocatePatientReport</a></li>
-                        <li ><a href="PathalogyReport/frmDailyNursingChart.aspx" >DailyNursingTreatmentChart</a></li>
-                        <li ><a href="PathalogyReport/frmAdmitedPatientListReport.aspx" >AdmitedPatientList</a></li>
-                        <li ><a href="PathalogyReport/frmDischargePatientListReport.aspx" >DischargePatientList</a></li>
-                        <li ><a href="PathalogyReport/frmIPDRegistrationBookReport.aspx" >MonthwiseIPDRecord</a></li>
-                        <li ><a href="PathalogyReport/frmDatewiseInsuranceClaim.aspx" >Datewise Insurance Claim</a></li>
-                        <li ><a href="PathalogyReport/frmDatewiseCompanyClaim.aspx" >Datewise Company Claim</a></li>
-                    </ul></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div class="container-fluid bg-3 text-center">
-            <div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+            <p>Please wait...</p>
         </div>
-        <br>
-        <div class="container-fluid bg-3 text-center">
-        </div>
-        <br>
-        <br>
-        <footer class="container-fluid text-center">
-          <p>C Brain Solutions Pvt. Ltd. Pune</p>
-        </footer>
-        </form>
     </div>
+    <div class="overlay"></div>
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html">Ganga Nursing Home</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Masters</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a href="../frmEmployeeMaster.aspx"><span>Employee Master</span></a></li>
+                       <li><a href="../UserAuthentication/frmUserAuthentication.aspx"><span>
+                            User Autherization
+                       </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmDepartmentMaster.aspx"><span>
+                                Department Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmRoomCategoryMaster.aspx">
+                            <span>
+                            Room Rate Master</span>
+                          </a>
+                       </li>
+                       <li><a href="../frmRoomMaster.aspx">
+                            <span>
+                                Ward Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmBedMaster.aspx"><span>
+                             Bed Master
+                       </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmSupplierMaster.aspx"><span>
+                                 Supplier Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmUnitMaster.aspx"><span>
+                                 Unit Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmChargeCategory.aspx">
+                            <span>
+                                Charge Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../BankTransaction/frmBankMaster.aspx">
+                            <span>
+                                Bank Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a  href="../frmInsuranceComMaster.aspx">
+                            <span>
+                                Insurance Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmCompanyMaster.aspx">
+                             <span>
+                                    Company Master
+                             </span>                       
+                          </a>
+                       </li>
+                       <li><a href="../Store/ProductType.aspx">
+                            <span>
+                                Product Type
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../Store/StoreProducts.aspx">
+                            <span>
+                                Medicine Master
+                            </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmOccupationMaster.aspx"><span>Occupation Master</span>
+                          </a>
+                       </li>
+                       <li><a href="../frmOperationCatMaster.aspx"><span>
+                        Doctor Department
+                        </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmShiftMaster.aspx"><span>
+                            Shift Master 
+                       </span>
+                          </a>
+                       </li>
+                       <li><a  href="../frmShiftAllocation.aspx"><span>
+                        Shift Allocation
+                       </span>                          </a>
+                       </li>
+                       <li><a href="../frmOperationMaster.aspx"><span>
+                        Operation Master
+                       </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmPrescription.aspx"><span>
+                        Prescription Master
+                       </span>
+                          </a>
+                       </li>
+                       <li><a href="../frmDocCategory.aspx"><span>
+                        Incharge Doctor
+                       </span>
+                          </a>
+                       </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Patient Masters</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li ><a href="../DoctorTreatment.aspx">
+                                    <span>Doctor Treatment</span>
+                                </a>
+                            </li>
+                            <li ><a href="../frmOPDPatientDetail.aspx">
+                                    <span>New Patient Registration</span>
+                                </a>
+                            </li>
+                            <li ><a href="../frmAdmitPatient.aspx" >
+                                    <span>Readmit Patient</span>
+                                </a>
+                            </li>
+                            <li ><a href="../frmPatientAllocToDoc.aspx" >
+                                    <span>Allocate Patient ToDoctor</span>
+                                </a>
+                            </li>
+                            <li ><a href="../frmAllocConsultDoctorToPatient.aspx">
+                                    <span>Allocate Visiting Doctor</span>
+                                </a>
+                            </li>
+                            <li ><a href="../BedStatus/frmBedAllocToPatient.aspx" >
+                                    <span>Bed Allocation To Patient</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Payroll</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a href="../Payroll/frmAllowanceDeduction.aspx">
+                                    <span>Allowance/Deductions</span>
+                                </a>
+                            </li>
+                            <li><a href="../Payroll/frmSalaryCalculation.aspx">
+                                    <span>Salary Calculation</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                   <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Laboratory Test</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a href="../frmTestMaster.aspx" >
+                                    <span>Test Master</span>
+                                </a>
+                            </li>
+                            <li><a href="../frmTestParameters.aspx" >
+                                    <span>Test Parameter</span>
+                                </a>
+                            </li>
+                            <li><a href="../frmTestMethodMaster.aspx" >
+                                    <span>Test Method</span>
+                                </a>
+                            </li>
+                            <li><a href="../frmTestAllocation.aspx" >
+                                    <span>Test Invoice</span>
+                                </a>
+                            </li>
+                            <li><a href="../frmPathology.aspx" >
+                                    <span>Pathology Result</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Billing</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li ><a href="../frmOTMedicineBill.aspx" >
+                                    <span>OTPatientMedicineBill</span>
+                                </a>
+                            </li>
+                            <li ><a href="../frmMakeDischarge.aspx" >
+                                    <span>Discharge</span>
+                                </a>
+                            </li>
+                            <li ><a href="../PatientStatus/frmMedicalCertificate.aspx" >
+                                    <span>Medical Certificate</span>
+                                </a>
+                            </li>
+                            <li ><a href="../PatientStatus/frmDeathCertificate.aspx" >
+                                    <span>Death Certificate</span>
+                                </a>
+                            </li>
+                            <li ><a href="../PatientStatus/frmBirthCertificate.aspx" >
+                                    <span>Birth Certificate</span>
+                                </a>
+                            </li>
+                            <li ><a href="../Billing/frmPatientInvoice.aspx" >
+                                    <span>Patient Bill</span>
+                                </a>
+                            </li>
+                            <li ><a href="../Billing/frmCustomerTransaction.aspx" >
+                                    <span>Patient Receipt</span>
+                                </a>
+                            </li>
+                            <li ><a href="../InsuranceClaim/frmInsuranceClaim.aspx" >
+                                    <span>Refund Payment</span>
+                                </a>
+                            </li> 
+                            <li ><a href="../InsuranceClaim/frmInsuranceClaim.aspx" >
+                                    <span>Insurance Claim</span>
+                                </a>
+                            </li> <li ><a href="../InsuranceClaim/frmClaimApproval.aspx" >
+                                    <span>Insurance Approval</span>
+                                </a>
+                            </li> 
+                            <li ><a href="../InsuranceClaim/frmCompanyClaim.aspx" >
+                                    <span>Company Claim</span>
+                                </a>
+                            </li> 
+                            <li ><a href="../InsuranceClaim/frmCompanyClaimApproval.aspx" >
+                                    <span>Company Approval</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Store</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li ><a href="../Store/frmPurchaseOrder.aspx" >
+                                    <span>Purchase Order</span>
+                                </a>
+                            </li>
+                            <li ><a href="../Store/frmPurchaseInvoice.aspx" >
+                                    <span>Purchase Invoice</span>
+                                </a>
+                            </li>
+                            <li ><a href="../Store/frmSupplierPayment.aspx" >
+                                    <span>Supplier Payment</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Report</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li ><a href="PathalogyReport/frmBedConsumption.aspx" >
+                                    <span>BedConsumptionReport</span>
+                                </a>
+                            </li>
+                            <li ><a href="../PathalogyReport/frmHistoryReport.aspx" >
+                                    <span>Patient History</span>
+                                </a>
+                            </li>
+                           <li ><a href="../PathalogyReport/DailyCollection.aspx" >
+                                    <span>IPD OPD Collection</span>
+                                </a>
+                            </li>
+                            <li ><a href="PathalogyReport/frmOutstandingReport.aspx" >
+                                    <span>Patient Outstanding</span>
+                                </a>
+                            </li>
+                            <li ><a href="PathalogyReport/frmDatewiseCollection.aspx" >
+                                    <span>Datewise Collection</span>
+                                </a>
+                            </li>
+                            <li ><a href="Reports/MonthwiseSalaryReport.aspx" >
+                                    <span>Salary Report</span>
+                                </a>
+                            </li>
+                            <li ><a href="PathalogyReport/frmPatientLedger.aspx" >
+                                    <span>Patient Ledger</span>
+                                </a>
+                            </li>
+                            <li ><a href="PathalogyReport/frmSupplierLedger.aspx" >
+                                    <span>Supplier Ledger</span>
+                                </a>
+                            </li>
+                            <li ><a href="PathalogyReport/frmStockDetailReport.aspx" ><span> Item Stock Detail</span></a></li>
+                        <li ><a href="PathalogyReport/frmItemStockReport.aspx" ><span>Stock Detail Report</span></a></li>
+                        <li ><a href="PathalogyReport/frmSupplierOutstandingReport.aspx"><span>Supplier Outstanding</span></a></li>
+                        <li ><a href="PathalogyReport/frmOTBedPatientReport.aspx" ><span>OTBedAllocatePatientReport</span></a></li>
+                        <li ><a href="PathalogyReport/frmDailyNursingChart.aspx" ><span>DailyNursingTreatmentChart</span></a></li>
+                        <li ><a href="PathalogyReport/frmAdmitedPatientListReport.aspx" ><span>AdmitedPatientList</span></a></li>
+                        <li ><a href="PathalogyReport/frmDischargePatientListReport.aspx" ><span>DischargePatientList</span></a></li>
+                        <li ><a href="PathalogyReport/frmIPDRegistrationBookReport.aspx" ><span>MonthwiseIPDRecord</span></a></li>
+                        <li ><a href="PathalogyReport/frmDatewiseInsuranceClaim.aspx" ><span>Datewise Insurance Claim</span></a></li>
+                        <li ><a href="PathalogyReport/frmDatewiseCompanyClaim.aspx" ><span>Datewise Company Claim</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 - 2017 <a href="javascript:void(0);">Ganga Nursing Home</a>.
+                </div>
+                <div class="version">
+                    <!--b>Version: 1.0.5 </b--> 
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+    </section>
+    <%--<script src="../Scripts/adminpanel/jquery-datatable.js"></script>--%>
 </body>
 </html>

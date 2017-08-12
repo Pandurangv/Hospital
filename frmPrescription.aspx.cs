@@ -335,6 +335,7 @@ namespace Hospital
                         }
                     }
                     invDtl.Value = serialize.Serialize(lstFinal);
+                    
                     dgvChargesOPD.DataSource = lstFinal;
                     dgvChargesOPD.DataBind();
                 }
@@ -349,10 +350,15 @@ namespace Hospital
                     }
                 }
                 invDtl.Value = serialize.Serialize(lstFinal);
+                //decimal amt=lstFinal.Sum(p => p.Amount);
+                //txtTotalAmount.Text = string.Format("{0:00", Convert.ToString(amt));
                 dgvChargesOPD.DataSource = lst.Where(p => p.IsDelete == false).ToList();
                 dgvChargesOPD.DataBind();
             }
-            txtTotalAmount.Text = string.Format("{0:00", lstFinal.Sum(p => p.Amount));
+
+            decimal amt = lstFinal.Sum(p => p.Amount);
+            txtTotalAmount.Text = Convert.ToString(amt);
+            
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -507,7 +513,7 @@ namespace Hospital
                 entInvoice.IsCash = true;
                 entInvoice.IsDelete = false;
                 entInvoice.BillDate = StringExtension.ToDateTime(txtPrescriptionDate.Text);
-
+                tblins.LanType = ddlLanType.SelectedValue;
                 //entInvoice.Amount=
                 tblins.DoctorId = Convert.ToInt32(ddlDoctors.SelectedValue);
                 tblins.FollowUpDate = DateTime.Now.Date;
@@ -667,6 +673,7 @@ namespace Hospital
                 tblins.Prescription_Id = Convert.ToInt32(PrescriptionId.Value);
                 tblins.AdmitId = Convert.ToInt32(ddlPatient.SelectedValue);
                 tblins.DoctorId = Convert.ToInt32(ddlDoctors.SelectedValue);
+                tblins.LanType = ddlLanType.SelectedValue;
                 //tblins.DeptDoctor = txtDeptCat.Text;
                 tblins.Prescription_Date = StringExtension.ToDateTime(txtPrescriptionDate.Text);
                 tblins.InjectionName = txtInjection.Text;
@@ -881,6 +888,8 @@ namespace Hospital
                 Prescript.Value = serialize.Serialize(lst);
                 dgvChargeDetails.DataSource = lst;
                 dgvChargeDetails.DataBind();
+                dgvChargesOPD.DataSource = new List<EntityInvoiceDetails>();
+                dgvChargesOPD.DataBind();
                 MultiView1.SetActiveView(View2);
             }
             catch (Exception ex)

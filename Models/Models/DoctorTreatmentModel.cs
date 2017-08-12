@@ -55,4 +55,21 @@ namespace Hospital.Models.Models
         }
         
     }
+
+    public class NurseTreatResponse : Error
+    {
+        public List<EntityNursingManagementDetails> NurseTreatmentList { get; set; }
+
+        public List<EntityEmployee> NurseList { get; set; }
+
+        public List<EntityPatientAdmit> PatientList { get; set; }
+
+        public NurseTreatResponse()
+        {
+            NurseTreatmentList = new List<EntityNursingManagementDetails>();
+            NurseList = new List<EntityEmployee>();
+            PatientList = new List<EntityPatientAdmit>();
+        }
+
+    }
 }

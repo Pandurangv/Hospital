@@ -1670,43 +1670,7 @@
             }
             #endregion
 
-            #region DailyNursingFollowupSheet
-            else if (ReportType.Equals("NursingFollowupSheet"))
-            {
-                StringBuilder sb = new StringBuilder();
-                List<Hospital.Models.DataLayer.STP_PrintNursingFollowupSheetResult> lstBill = objData.STP_PrintNursingFollowupSheet(Convert.ToInt32(Hospital.Models.DataLayer.QueryStringManager.Instance.Sr_No)).ToList();
-                
-                sb.Append("<table align='center' style='border:0px solid; height:auto;' width='1000px'><tr height='100%'><td height='100%'><table width='100%' Height='100%'><tr><td  width='100%' align='center'> ");
-                sb.Append("<img src='../images/BannerImages/HospitalNameGNH.png'  alt='#' width='100%' align='Left'/>");
-                sb.Append("</td></tr><tr><td width='100%' align='center'><strong>");
-                sb.Append("</strong></td></tr></table></td></tr><tr style='width:100% height:auto;'><td style='width:90%; height:auto;'>");
-                sb.Append("<table align='center' style='height:auto;width:100%;'><tr><td align='center' colspan='2'><strong><u>TREATMENT PLAN SHEET</u></strong></td></tr>");
-                sb.Append("<tr><td style='width:40%;' align='left'><strong><font size='4'>Nurse Name :- ");
-                sb.Append(lstBill[0].NurseName).Append("</font></strong></td><td align='center'><strong><font size='4'>Dept :- ");
-                sb.Append(lstBill[0].Department).Append("</font></strong></td></tr><tr><td align='left'><strong><font size='4'>Treatment Date :- ");
-                sb.Append(string.Format("{0:dd/MM/yyyy}", lstBill[0].TreatmentDate)).Append("</font></strong></td><td align='center'><strong><font size='4'>Ward Type :- ");
-                sb.Append(lstBill[0].CategoryDesc).Append("</font></strong></td></tr>");
-                sb.Append("<tr><td colspan='2'></td></tr><tr><td colspan='2' align='left' style='width:100%;'>");
-                sb.Append("<table style='border:1px solid black; border-collapse:collapse;' height='auto' width='100%'><tr><td align='center' style='border:1px solid black;'><strong><font size='4'>Patient Name</font></strong></td>");
-                sb.Append("<td align='center' style='border:1px solid black;'><strong><font size='4'>Treatment Timing</font></strong></td> <td align='center' style='border:1px solid black;'><strong><font size='4'>Injectable Medications</font></strong></td>");
-                sb.Append("<td align='center' style='border:1px solid black;'><strong><font size='4'>Infusions</font></strong></td><td align='center' style='border:1px solid black;'><strong><font size='4'>Oral/Topical</font></strong></td>");
-                sb.Append("<td align='center' style='border:1px solid black;'><strong><font size='4'>Nursing Care</font></strong></td></tr>");
-
-                foreach (Hospital.Models.DataLayer.STP_PrintNursingFollowupSheetResult item in lstBill)
-                {
-                    sb.Append("<tr><td align='center'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.PatientName).Append("</font></td><td align='center'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.TreatmentTime).Append("</font></td><td align='left'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.InjectableMedications).Append("</font></td><td align='left'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.Infusions).Append("</font></td><td align='left'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.Oral).Append("</font></td><td align='left'style='border:1px solid black;'><font size='4'>");
-                    sb.Append(item.NursingCare).Append("</font></td></tr>");
-                }
-                sb.Append("</table></td></tr></table></td></tr></table>");
-                Response.Write(sb.ToString());
-            }
-            #endregion
-                
+            
             #region Prescription
             else if (ReportType.Equals("Prescription"))
             {

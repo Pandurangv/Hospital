@@ -263,13 +263,13 @@
                                 <th class="midicine_name" style="width: 15%">
                                 </th>
                                 <th class="midicine_name" style="width: 15%">
-                                    सकाळी
+                                    {{LanTypeValues.Morning}}
                                 </th>
                                 <th class="midicine_name" style="width: 15%">
-                                    दुपारी
+                                    {{LanTypeValues.Afternoon}}
                                 </th>
                                 <th class="midicine_name" style="width: 15%">
-                                    संध्याकाळी
+                                    {{LanTypeValues.Evening}}
                                 </th>
                             </tr>
                         </thead>
@@ -277,6 +277,8 @@
                             <tr data-ng-repeat="tabs in data">
                                 <td>
                                     {{tabs.ProductName}}
+                                    <br />
+                                    {{tabs.ProductContent}}
                                 </td>
                                 <td>
                                     {{tabs.IsbeforeLunch==true?'जेवणाआधी':'जेवणानंतर'}}

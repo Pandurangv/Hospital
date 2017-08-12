@@ -235,6 +235,28 @@
                                                                         MaxLength="30" Width="150px"></asp:TextBox>
                                                                 </td>
                                                             </tr>
+
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <asp:Label ID="Label17" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                                        ForeColor="#3b3535" Text="Injection : "></asp:Label>
+                                                                </td>
+                                                                <td align="left">
+                                                                    <asp:DropDownList ID="ddlLanType" runat="server" Width="150px">
+                                                                        <asp:ListItem Value="Eng" Text="English"></asp:ListItem>
+                                                                        <asp:ListItem Value="Mar" Text="Marathi"></asp:ListItem>
+                                                                        <asp:ListItem Value="Guj" Text="Gujrathi"></asp:ListItem>
+                                                                        <asp:ListItem Value="Tam" Text="Tamil"></asp:ListItem>
+                                                                        <asp:ListItem Value="Tel" Text="Telgu"></asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </td>
+                                                                <td align="right">
+                                                                    
+                                                                </td>
+                                                                <td align="left">
+                                                                    
+                                                                </td>
+                                                            </tr>
                                                         </table>
                                                     </asp:Panel>
                                                 </td>
@@ -463,7 +485,8 @@
                                                                 </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
-                                                        <asp:GridView ID="dgvChargesOPD" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both"
+                                                        <asp:GridView ID="dgvChargesOPD" runat="server" CellPadding="4" 
+                                                            ForeColor="#333333" GridLines="Both"
                                                             Font-Names="Verdana" Width="100%" Font-Size="Small" AutoGenerateColumns="false"
                                                             DataKeyNames="TempId">
                                                             <FooterStyle BackColor="#3b3535" Font-Bold="True" ForeColor="White" />

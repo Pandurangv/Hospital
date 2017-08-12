@@ -309,6 +309,7 @@
     <Content Include="Scripts\Bootstrap\Main\bootstrap.min.js" />
     <Content Include="Scripts\Bootstrap\common.js" />
     <Content Include="Scripts\Bootstrap\Main\jquery.min.js" />
+    <Content Include="Scripts\Bootstrap\NurseTreatmentController.js" />
     <Content Include="Scripts\Bootstrap\ProductController.js" />
     <Content Include="Scripts\Bootstrap\ProductTypeController.js" />
     <Content Include="Scripts\Bootstrap\ReportsController.js" />
@@ -388,6 +389,7 @@
     <Content Include="Style\pil_submeny.png" />
     <Content Include="Style\style.css" />
     <Content Include="svn.ico" />
+    <Content Include="Treatment\Nursetreatment.aspx" />
     <Content Include="UserAuthentication\frmUserAuthentication.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1552,6 +1554,13 @@
     </Compile>
     <Compile Include="Store\StoreProducts.aspx.designer.cs">
       <DependentUpon>StoreProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Treatment\Nursetreatment.aspx.cs">
+      <DependentUpon>Nursetreatment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Treatment\Nursetreatment.aspx.designer.cs">
+      <DependentUpon>Nursetreatment.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAuthentication\frmUserAuthentication.aspx.cs">
       <DependentUpon>frmUserAuthentication.aspx</DependentUpon>

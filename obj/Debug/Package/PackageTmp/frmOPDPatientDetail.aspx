@@ -138,13 +138,13 @@
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Left" />
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Print" ItemStyle-HorizontalAlign="Left">
+                                                                <%--<asp:TemplateField HeaderText="Print" ItemStyle-HorizontalAlign="Left">
                                                                     <ItemTemplate>
                                                                         <asp:ImageButton ID="ImagePrint" runat="server" ImageUrl="~/images/Report.bmp" Height="24px"
                                                                             Width="24px" OnClick="btnPrint_Click" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Left" />
-                                                                </asp:TemplateField>
+                                                                </asp:TemplateField>--%>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </asp:Panel>

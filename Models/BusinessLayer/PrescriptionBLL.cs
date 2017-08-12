@@ -178,7 +178,7 @@ namespace Hospital.Models.BusinessLayer
             try
             {
                 objData.STP_Insert_tblPrescription(Convert.ToInt32(tblins.AdmitId), Convert.ToInt32(tblins.DeptCategory), tblins.DeptDoctor, tblins.Prescription_Date,
-                    tblins.IsDressing, tblins.IsInjection, tblins.InjectionName, tblins.Investigation, tblins.Impression, tblins.AdviceNote, tblins.Remarks,tblins.DoctorId,tblins.FollowUpDate, ref PrescriptionId);
+                    tblins.IsDressing, tblins.IsInjection, tblins.InjectionName, tblins.Investigation, tblins.Impression, tblins.AdviceNote, tblins.Remarks,tblins.DoctorId,tblins.FollowUpDate,tblins.LanType, ref PrescriptionId);
                 foreach (EntityPrescriptionDetails item in lst)
                 {
                     tblPrescriptionDetail tbl = new tblPrescriptionDetail()
