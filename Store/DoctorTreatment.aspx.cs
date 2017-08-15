@@ -23,6 +23,21 @@ namespace Hospital.Store
             {
                 GetTreatmentDetails();
             }
+            else if ("GetProductBatch"==QueryStringManager.Instance.RequestFor)
+            {
+                GetProductBatchNo(QueryStringManager.Instance.ProductId);
+            }
+        }
+
+        private void GetProductBatchNo(int ProductId=0)
+        {
+            JavaScriptSerializer serialize = new JavaScriptSerializer();
+            ProductBLL objProducts = new ProductBLL();
+            DoctorTreatResponse response = new DoctorTreatResponse();
+            response.ProductBatchList = objProducts.GetAllProductBatchList(ProductId);
+            Response.Clear();
+            Response.Output.Write(serialize.Serialize(response));
+            Response.End();
         }
 
         public void GetTreatmentDetails()
@@ -30,9 +45,10 @@ namespace Hospital.Store
             JavaScriptSerializer serialize = new JavaScriptSerializer();
             OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
             List<EntityPatientAdmit> ldtRequisition = mobjPatientMasterBLL.GetPatientList();
-            ldtRequisition.Insert(0, new EntityPatientAdmit() { AdmitId = 0, PatientFirstName = "----Select----" });
+            ldtRequisition.Insert(0, new EntityPatientAdmit() { AdmitId = 0, PatientFirstName = "----Select Patient----" });
             PatientAllocDocBLL objdoctor = new PatientAllocDocBLL();
             DoctorTreatmentBLL objProductTypes = new DoctorTreatmentBLL();
+            ProductBLL objProducts = new ProductBLL();
             DoctorTreatResponse response = new DoctorTreatResponse();
             response.DoctorList = (from tbl in objdoctor.GetAllDoctor()
                                    select new EntityEmployee()
@@ -41,11 +57,13 @@ namespace Hospital.Store
                                        PKId = tbl.PKId
                                    }).ToList();
 
-            response.DoctorList.Insert(0, new EntityEmployee() { FullName = "----Select----", PKId = 0 });
+            response.DoctorList.Insert(0, new EntityEmployee() { FullName = "----Select Doctor----", PKId = 0 });
             serialize.MaxJsonLength = Int32.MaxValue;
             response.DoctorTreatmentList =objProductTypes.GetTreatmentDetails();
             response.PatientList = ldtRequisition;
-
+            List<sp_GetAllProductResult> lstp = objProducts.GetAllProduct();
+            lstp.Insert(0, new sp_GetAllProductResult() { ProductId=0,ProductName="----Select Product----"});
+            response.ProductList = lstp;
             Response.Clear();
             Response.Output.Write(serialize.Serialize(response));
             Response.End();

@@ -41,9 +41,6 @@
                                         Doctor Name
                                     </th>
                                     <th>
-                                        Admit Date
-                                    </th>
-                                    <th>
                                         Treatment Date
                                     </th>
                                     <th>
@@ -63,9 +60,6 @@
                                         </td>
                                         <td>
                                             {{accounttype.TreatmentDate | mydate | date: 'yyyy-MM-dd'}}
-                                        </td>
-                                        <td>
-                                            {{accounttype.FollowUpDate | mydate | date: 'yyyy-MM-dd'}}
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-ng-click="EditClick(accounttype)">
@@ -102,9 +96,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsPatientName==true">
-                                            <span>{{ErrorMessage}}</span>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="col-md-12">
@@ -115,10 +106,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsDoctorName==true">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsPatientName==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsDoctorName==true">
                                             <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
+                                    <!--Second Level-->
                                     <div class="col-md-6">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -133,25 +130,22 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Followup Date" id="txtFollowUpDate" maxlength="50"
-                                                        minlength="2" class="form-control setMargin" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
                                                     <input type="text" placeholder="Treatment Details" data-ng-model="TreatmentModel.TreatmentDetails"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsTreatment==true">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsTreatment==true">
                                             <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
+                                    <!--End Second Level-->
+
+                                     <!--Third Level-->
                                     <div class="col-md-6">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -162,12 +156,177 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                     <!--End Third Level-->
+                                     <!-- Fourth Level -->
+                                     <div class="col-md-12">
+                                        <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <select class="form-control setMargin" id="ddlProduct" data-ng-click="ProductChange()">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Quantity" id="ProductModel.Quantity" maxlength="50"
+                                                        minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductName==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductQuantity==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                    </div>
+                                     </div>
+
+                                     <!-- End Fourth Level -->
+
+                                     <!-- Fourth Level -->
+                                     <div class="col-md-12">
+                                        <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <select class="form-control setMargin" id="ddlBatch" data-ng-show="CheckBatchNo==true">
+                                                    </select>
+                                                    <input type="text" placeholder="Batch No" data-ng-model="ProductModel.BatchNo" data-ng-show="CheckBatchNo==false"
+                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <select class="form-control setMargin" id="ddlExpiry" data-ng-show="CheckBatchNo==true">
+                                                    </select>
+                                                    <input type="text" placeholder="Expiry Date" data-ng-model="ProductModel.ExpiryDate" data-ng-show="CheckBatchNo==false"
+                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductBatch==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductExpiry==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                    </div>
+                                     </div>
+
+                                     <!-- End Fourth Level -->
+
+                                     <!-- Fifth Level -->
+                                     <div class="col-md-12">
+                                        <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Price" data-ng-model="ProductModel.Price"
+                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Amount" data-ng-model="ProductModel.Amount"
+                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductPrice==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductAmount==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-Default" data-ng-show="AddProduct==true">Add</button>
+                                        <button class="btn btn-Default" data-ng-show="EditProduct==true">Update</button>
+                                        <button class="btn btn-Default">Cancel</button>
+                                    </div>
+                                         <div class="col-md-12" data-ng-show="AddedProductList.length>0">
+                                             <table class="table table-bordered">
+                                                 <tr>
+                                                     <th>
+                                                         Product Name
+                                                     </th>
+                                                     <th>
+                                                        Batch No
+                                                     </th>
+                                                     <th>
+                                                        Expiry Date
+                                                     </th>
+                                                     <th>
+                                                         Price
+                                                     </th>
+                                                     <th>
+                                                         Quantity
+                                                     </th>
+                                                     <th>
+                                                         Amount
+                                                     </th>
+                                                     <th>
+                                                         Edit
+                                                     </th>
+                                                 </tr>
+                                                 <tbody>
+                                                     <tr data-ng-repeat="product in AddedProductList">
+                                                         <td>
+                                                             {{product.ProductName}}
+                                                         </td>
+                                                         <td>
+                                                             {{product.BatchNo}}
+                                                         </td>
+                                                         <td>
+                                                             {{product.ExpiryDate | mydate | date: 'yyyy-MM-dd'}}
+                                                         </td>
+                                                         <td>
+                                                            {{product.Price}}
+                                                         </td>
+                                                         <td>
+                                                            {{product.Quantity}}
+                                                         </td>
+                                                         <td>
+                                                            {{product.Amount}}
+                                                         </td>
+                                                         <td>
+                                                             <button type="button" class="btn btn-primary" data-ng-click="EditProduct(product)">
+                                                                 Edit</button>
+                                                         </td>
+                                                     </tr>
+                                                 </tbody>
+                                             </table>
+                                         </div>
+                                     </div>
+
+                                     <!-- End Fifth Level -->
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary" data-ng-click="SaveProduct(true)" data-ng-show="Add==true">
                                             Save</button>
-                                        <button type="button" class="btn btn-primary" data-ng-click="Save(false)" data-ng-show="Edit==true">
+                                        <button type="button" class="btn btn-primary" data-ng-click="SaveProduct(false)" data-ng-show="Edit==true">
                                             Update</button>
-                                        <button type="button" class="btn btn-primary" data-ng-click="CancelClick()">
+                                        <button type="button" class="btn btn-primary" data-ng-click="CancelProduct()">
                                             Cancel</button>
                                     </div>
                                 </div>

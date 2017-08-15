@@ -261,7 +261,20 @@ namespace Hospital.Models.DataLayer
                 return _PatientId;
             }
         }
-        
+
+
+        public int ProductId
+        {
+            get
+            {
+                int _PatientId = 0;
+                if (HttpContext.Current.Request.QueryString.Count > 0 && HttpContext.Current.Request["ProductId"] != null)
+                {
+                    _PatientId = Convert.ToInt32(HttpContext.Current.Request["ProductId"]);
+                }
+                return _PatientId;
+            }
+        }
     }
 
     public enum BrowserType

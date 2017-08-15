@@ -207,9 +207,6 @@ namespace Hospital.Models.DataLayer
     partial void InserttblOTBedAlloc(tblOTBedAlloc instance);
     partial void UpdatetblOTBedAlloc(tblOTBedAlloc instance);
     partial void DeletetblOTBedAlloc(tblOTBedAlloc instance);
-    partial void InserttblOTMedicineBill(tblOTMedicineBill instance);
-    partial void UpdatetblOTMedicineBill(tblOTMedicineBill instance);
-    partial void DeletetblOTMedicineBill(tblOTMedicineBill instance);
     partial void InserttblOTMedicineBillDetail(tblOTMedicineBillDetail instance);
     partial void UpdatetblOTMedicineBillDetail(tblOTMedicineBillDetail instance);
     partial void DeletetblOTMedicineBillDetail(tblOTMedicineBillDetail instance);
@@ -339,12 +336,12 @@ namespace Hospital.Models.DataLayer
     partial void InserttblPatientAdmitDetail(tblPatientAdmitDetail instance);
     partial void UpdatetblPatientAdmitDetail(tblPatientAdmitDetail instance);
     partial void DeletetblPatientAdmitDetail(tblPatientAdmitDetail instance);
-    partial void InserttblDoctorTreatment(tblDoctorTreatment instance);
-    partial void UpdatetblDoctorTreatment(tblDoctorTreatment instance);
-    partial void DeletetblDoctorTreatment(tblDoctorTreatment instance);
     partial void InserttblPrescription(tblPrescription instance);
     partial void UpdatetblPrescription(tblPrescription instance);
     partial void DeletetblPrescription(tblPrescription instance);
+    partial void InserttblOTMedicineBill(tblOTMedicineBill instance);
+    partial void UpdatetblOTMedicineBill(tblOTMedicineBill instance);
+    partial void DeletetblOTMedicineBill(tblOTMedicineBill instance);
     #endregion
 		
 		public CriticareHospitalDataContext() : 
@@ -857,14 +854,6 @@ namespace Hospital.Models.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<tblOTMedicineBill> tblOTMedicineBills
-		{
-			get
-			{
-				return this.GetTable<tblOTMedicineBill>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblOTMedicineBillDetail> tblOTMedicineBillDetails
 		{
 			get
@@ -1217,19 +1206,19 @@ namespace Hospital.Models.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<tblDoctorTreatment> tblDoctorTreatments
-		{
-			get
-			{
-				return this.GetTable<tblDoctorTreatment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblPrescription> tblPrescriptions
 		{
 			get
 			{
 				return this.GetTable<tblPrescription>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblOTMedicineBill> tblOTMedicineBills
+		{
+			get
+			{
+				return this.GetTable<tblOTMedicineBill>();
 			}
 		}
 		
@@ -2044,6 +2033,13 @@ namespace Hospital.Models.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), prescriptionId);
 			return ((ISingleResult<STP_PrintPrescriptionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_GetProductBatch")]
+		public ISingleResult<STP_GetProductBatchResult> STP_GetProductBatch()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<STP_GetProductBatchResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -18683,164 +18679,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblOTMedicineBill")]
-	public partial class tblOTMedicineBill : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _BillNo;
-		
-		private System.Nullable<System.DateTime> _Bill_Date;
-		
-		private System.Nullable<int> _AdmitId;
-		
-		private System.Nullable<decimal> _TotalAmount;
-		
-		private System.Nullable<bool> _IsDelete;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBillNoChanging(int value);
-    partial void OnBillNoChanged();
-    partial void OnBill_DateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBill_DateChanged();
-    partial void OnAdmitIdChanging(System.Nullable<int> value);
-    partial void OnAdmitIdChanged();
-    partial void OnTotalAmountChanging(System.Nullable<decimal> value);
-    partial void OnTotalAmountChanged();
-    partial void OnIsDeleteChanging(System.Nullable<bool> value);
-    partial void OnIsDeleteChanged();
-    #endregion
-		
-		public tblOTMedicineBill()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int BillNo
-		{
-			get
-			{
-				return this._BillNo;
-			}
-			set
-			{
-				if ((this._BillNo != value))
-				{
-					this.OnBillNoChanging(value);
-					this.SendPropertyChanging();
-					this._BillNo = value;
-					this.SendPropertyChanged("BillNo");
-					this.OnBillNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Bill_Date
-		{
-			get
-			{
-				return this._Bill_Date;
-			}
-			set
-			{
-				if ((this._Bill_Date != value))
-				{
-					this.OnBill_DateChanging(value);
-					this.SendPropertyChanging();
-					this._Bill_Date = value;
-					this.SendPropertyChanged("Bill_Date");
-					this.OnBill_DateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int")]
-		public System.Nullable<int> AdmitId
-		{
-			get
-			{
-				return this._AdmitId;
-			}
-			set
-			{
-				if ((this._AdmitId != value))
-				{
-					this.OnAdmitIdChanging(value);
-					this.SendPropertyChanging();
-					this._AdmitId = value;
-					this.SendPropertyChanged("AdmitId");
-					this.OnAdmitIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> TotalAmount
-		{
-			get
-			{
-				return this._TotalAmount;
-			}
-			set
-			{
-				if ((this._TotalAmount != value))
-				{
-					this.OnTotalAmountChanging(value);
-					this.SendPropertyChanging();
-					this._TotalAmount = value;
-					this.SendPropertyChanged("TotalAmount");
-					this.OnTotalAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
-		public System.Nullable<bool> IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this.OnIsDeleteChanging(value);
-					this.SendPropertyChanging();
-					this._IsDelete = value;
-					this.SendPropertyChanged("IsDelete");
-					this.OnIsDeleteChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblOTMedicineBillDetails")]
 	public partial class tblOTMedicineBillDetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -31039,236 +30877,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblDoctorTreatment")]
-	public partial class tblDoctorTreatment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _TreatId;
-		
-		private System.Nullable<System.DateTime> _TreatmentDate;
-		
-		private System.Nullable<int> _DoctorId;
-		
-		private System.Nullable<int> _AdmitId;
-		
-		private string _TreatmentDetails;
-		
-		private System.Nullable<bool> _IsDelete;
-		
-		private System.Nullable<System.DateTime> _FollowUpDate;
-		
-		private string _Procedures;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTreatIdChanging(long value);
-    partial void OnTreatIdChanged();
-    partial void OnTreatmentDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnTreatmentDateChanged();
-    partial void OnDoctorIdChanging(System.Nullable<int> value);
-    partial void OnDoctorIdChanged();
-    partial void OnAdmitIdChanging(System.Nullable<int> value);
-    partial void OnAdmitIdChanged();
-    partial void OnTreatmentDetailsChanging(string value);
-    partial void OnTreatmentDetailsChanged();
-    partial void OnIsDeleteChanging(System.Nullable<bool> value);
-    partial void OnIsDeleteChanged();
-    partial void OnFollowUpDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnFollowUpDateChanged();
-    partial void OnProceduresChanging(string value);
-    partial void OnProceduresChanged();
-    #endregion
-		
-		public tblDoctorTreatment()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatId", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long TreatId
-		{
-			get
-			{
-				return this._TreatId;
-			}
-			set
-			{
-				if ((this._TreatId != value))
-				{
-					this.OnTreatIdChanging(value);
-					this.SendPropertyChanging();
-					this._TreatId = value;
-					this.SendPropertyChanged("TreatId");
-					this.OnTreatIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TreatmentDate
-		{
-			get
-			{
-				return this._TreatmentDate;
-			}
-			set
-			{
-				if ((this._TreatmentDate != value))
-				{
-					this.OnTreatmentDateChanging(value);
-					this.SendPropertyChanging();
-					this._TreatmentDate = value;
-					this.SendPropertyChanged("TreatmentDate");
-					this.OnTreatmentDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorId", DbType="Int")]
-		public System.Nullable<int> DoctorId
-		{
-			get
-			{
-				return this._DoctorId;
-			}
-			set
-			{
-				if ((this._DoctorId != value))
-				{
-					this.OnDoctorIdChanging(value);
-					this.SendPropertyChanging();
-					this._DoctorId = value;
-					this.SendPropertyChanged("DoctorId");
-					this.OnDoctorIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int")]
-		public System.Nullable<int> AdmitId
-		{
-			get
-			{
-				return this._AdmitId;
-			}
-			set
-			{
-				if ((this._AdmitId != value))
-				{
-					this.OnAdmitIdChanging(value);
-					this.SendPropertyChanging();
-					this._AdmitId = value;
-					this.SendPropertyChanged("AdmitId");
-					this.OnAdmitIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDetails", DbType="VarChar(500)")]
-		public string TreatmentDetails
-		{
-			get
-			{
-				return this._TreatmentDetails;
-			}
-			set
-			{
-				if ((this._TreatmentDetails != value))
-				{
-					this.OnTreatmentDetailsChanging(value);
-					this.SendPropertyChanging();
-					this._TreatmentDetails = value;
-					this.SendPropertyChanged("TreatmentDetails");
-					this.OnTreatmentDetailsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
-		public System.Nullable<bool> IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this.OnIsDeleteChanging(value);
-					this.SendPropertyChanging();
-					this._IsDelete = value;
-					this.SendPropertyChanged("IsDelete");
-					this.OnIsDeleteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FollowUpDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FollowUpDate
-		{
-			get
-			{
-				return this._FollowUpDate;
-			}
-			set
-			{
-				if ((this._FollowUpDate != value))
-				{
-					this.OnFollowUpDateChanging(value);
-					this.SendPropertyChanging();
-					this._FollowUpDate = value;
-					this.SendPropertyChanged("FollowUpDate");
-					this.OnFollowUpDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Procedures", DbType="VarChar(500)")]
-		public string Procedures
-		{
-			get
-			{
-				return this._Procedures;
-			}
-			set
-			{
-				if ((this._Procedures != value))
-				{
-					this.OnProceduresChanging(value);
-					this.SendPropertyChanging();
-					this._Procedures = value;
-					this.SendPropertyChanged("Procedures");
-					this.OnProceduresChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblPrescription")]
 	public partial class tblPrescription : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -31666,6 +31274,236 @@ namespace Hospital.Models.DataLayer
 					this._LanType = value;
 					this.SendPropertyChanged("LanType");
 					this.OnLanTypeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblOTMedicineBill")]
+	public partial class tblOTMedicineBill : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BillNo;
+		
+		private System.Nullable<System.DateTime> _Bill_Date;
+		
+		private System.Nullable<int> _AdmitId;
+		
+		private System.Nullable<decimal> _TotalAmount;
+		
+		private System.Nullable<bool> _IsDelete;
+		
+		private string _TreatmentDetails;
+		
+		private string _TreatmentPro;
+		
+		private System.Nullable<int> _DoctorId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBillNoChanging(int value);
+    partial void OnBillNoChanged();
+    partial void OnBill_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBill_DateChanged();
+    partial void OnAdmitIdChanging(System.Nullable<int> value);
+    partial void OnAdmitIdChanged();
+    partial void OnTotalAmountChanging(System.Nullable<decimal> value);
+    partial void OnTotalAmountChanged();
+    partial void OnIsDeleteChanging(System.Nullable<bool> value);
+    partial void OnIsDeleteChanged();
+    partial void OnTreatmentDetailsChanging(string value);
+    partial void OnTreatmentDetailsChanged();
+    partial void OnTreatmentProChanging(string value);
+    partial void OnTreatmentProChanged();
+    partial void OnDoctorIdChanging(System.Nullable<int> value);
+    partial void OnDoctorIdChanged();
+    #endregion
+		
+		public tblOTMedicineBill()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BillNo
+		{
+			get
+			{
+				return this._BillNo;
+			}
+			set
+			{
+				if ((this._BillNo != value))
+				{
+					this.OnBillNoChanging(value);
+					this.SendPropertyChanging();
+					this._BillNo = value;
+					this.SendPropertyChanged("BillNo");
+					this.OnBillNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Bill_Date
+		{
+			get
+			{
+				return this._Bill_Date;
+			}
+			set
+			{
+				if ((this._Bill_Date != value))
+				{
+					this.OnBill_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Bill_Date = value;
+					this.SendPropertyChanged("Bill_Date");
+					this.OnBill_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int")]
+		public System.Nullable<int> AdmitId
+		{
+			get
+			{
+				return this._AdmitId;
+			}
+			set
+			{
+				if ((this._AdmitId != value))
+				{
+					this.OnAdmitIdChanging(value);
+					this.SendPropertyChanging();
+					this._AdmitId = value;
+					this.SendPropertyChanged("AdmitId");
+					this.OnAdmitIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TotalAmount
+		{
+			get
+			{
+				return this._TotalAmount;
+			}
+			set
+			{
+				if ((this._TotalAmount != value))
+				{
+					this.OnTotalAmountChanging(value);
+					this.SendPropertyChanging();
+					this._TotalAmount = value;
+					this.SendPropertyChanged("TotalAmount");
+					this.OnTotalAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
+		public System.Nullable<bool> IsDelete
+		{
+			get
+			{
+				return this._IsDelete;
+			}
+			set
+			{
+				if ((this._IsDelete != value))
+				{
+					this.OnIsDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._IsDelete = value;
+					this.SendPropertyChanged("IsDelete");
+					this.OnIsDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDetails", DbType="VarChar(500)")]
+		public string TreatmentDetails
+		{
+			get
+			{
+				return this._TreatmentDetails;
+			}
+			set
+			{
+				if ((this._TreatmentDetails != value))
+				{
+					this.OnTreatmentDetailsChanging(value);
+					this.SendPropertyChanging();
+					this._TreatmentDetails = value;
+					this.SendPropertyChanged("TreatmentDetails");
+					this.OnTreatmentDetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentPro", DbType="VarChar(500)")]
+		public string TreatmentPro
+		{
+			get
+			{
+				return this._TreatmentPro;
+			}
+			set
+			{
+				if ((this._TreatmentPro != value))
+				{
+					this.OnTreatmentProChanging(value);
+					this.SendPropertyChanging();
+					this._TreatmentPro = value;
+					this.SendPropertyChanged("TreatmentPro");
+					this.OnTreatmentProChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorId", DbType="Int")]
+		public System.Nullable<int> DoctorId
+		{
+			get
+			{
+				return this._DoctorId;
+			}
+			set
+			{
+				if ((this._DoctorId != value))
+				{
+					this.OnDoctorIdChanging(value);
+					this.SendPropertyChanging();
+					this._DoctorId = value;
+					this.SendPropertyChanged("DoctorId");
+					this.OnDoctorIdChanged();
 				}
 			}
 		}
@@ -54486,6 +54324,68 @@ namespace Hospital.Models.DataLayer
 				if ((this._Age != value))
 				{
 					this._Age = value;
+				}
+			}
+		}
+	}
+	
+	public partial class STP_GetProductBatchResult
+	{
+		
+		private string _BatchNo;
+		
+		private System.Nullable<System.DateTime> _ExpiryDate;
+		
+		private int _ProductId;
+		
+		public STP_GetProductBatchResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BatchNo", DbType="VarChar(50)")]
+		public string BatchNo
+		{
+			get
+			{
+				return this._BatchNo;
+			}
+			set
+			{
+				if ((this._BatchNo != value))
+				{
+					this._BatchNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiryDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ExpiryDate
+		{
+			get
+			{
+				return this._ExpiryDate;
+			}
+			set
+			{
+				if ((this._ExpiryDate != value))
+				{
+					this._ExpiryDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
+		public int ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					this._ProductId = value;
 				}
 			}
 		}

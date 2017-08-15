@@ -153,6 +153,21 @@ namespace Hospital.Models.BusinessLayer
             return cnt;
         }
 
+        public List<EntityProduct> GetAllProductBatchList(int ProductId=0)
+        {
+            List<EntityProduct> lst = (from tbl in objData.STP_GetProductBatch()
+                                       select new EntityProduct { 
+                                            ProductId=tbl.ProductId,
+                                            BatchNo=tbl.BatchNo,
+                                            ExpiryDate=tbl.ExpiryDate,
+                                       }).ToList();
+            if (ProductId>0)
+            {
+                lst = lst.Where(p => p.ProductId == ProductId).ToList();
+            }
+            return lst;
+        }
+
         public List<EntityProduct> GetAllProducts()
         {
             List<EntityProduct> lst = null;

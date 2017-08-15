@@ -27,6 +27,10 @@ namespace Hospital.Models.Models
 
         public string Content { get; set; }
 
+        public string BatchNo { get; set; }
+
+        public DateTime? ExpiryDate { get; set; }
+
         public int ProductTypeId { get; set; }
 
         #endregion

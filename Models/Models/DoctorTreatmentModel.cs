@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Hospital.Models.DataLayer;
 
 namespace Hospital.Models.Models
 {
     public class DoctorTreatmentModel
     {
+        public DoctorTreatmentModel()
+        {
+            ProductList = new List<EntityOTMedicineBillDetails>();
+        }
         public long? TreatId { get; set; }
 
         public DateTime? TreatmentDate { get; set; }
@@ -28,6 +33,10 @@ namespace Hospital.Models.Models
         public string EmployeeName { get; set; }
 
         public DateTime? AdmitDate { get; set; }
+
+        public List<EntityOTMedicineBillDetails> ProductList { get; set; }
+
+        public decimal? TotalAmount { get; set; }
     }
 
     public class Error
@@ -47,11 +56,17 @@ namespace Hospital.Models.Models
 
         public List<EntityPatientAdmit> PatientList { get; set; }
 
+        public List<sp_GetAllProductResult> ProductList { get; set; }
+
+        public List<EntityProduct> ProductBatchList { get; set; }
+
         public DoctorTreatResponse()
         {
+            ProductBatchList = new List<EntityProduct>();
             DoctorTreatmentList = new List<DoctorTreatmentModel>();
             DoctorList = new List<EntityEmployee>();
             PatientList = new List<EntityPatientAdmit>();
+            ProductList = new List<sp_GetAllProductResult>();
         }
         
     }

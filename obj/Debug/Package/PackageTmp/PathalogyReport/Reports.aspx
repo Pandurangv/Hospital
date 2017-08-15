@@ -147,13 +147,17 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 <div class="container-fluid" data-ng-app="HospitalApp" data-ng-controller="ReportsController"> 
-    <div class="col-md-12">
-        <button type="button" class="btn btn-Default pull-left" onclick="PrintPanel()">
-            Print</button>
-    </div> 
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-Default pull-left" onclick="PrintPanel()">
+                Print</button>
+        </div>
+    </div>
     <div id="panel" class="row card" data-ng-show="ReportType=='Prescription'">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-6  col-sm-6  col-xs-12">
                     <div class="left_side">
                         <h4 class="title">
@@ -281,7 +285,7 @@
                                     {{tabs.ProductContent}}
                                 </td>
                                 <td>
-                                    {{tabs.IsbeforeLunch==true?'जेवणाआधी':'जेवणानंतर'}}
+                                    {{tabs.IsbeforeLunch==true?LanTypeValues.BeforeLunch:LanTypeValues.AfterLunch}}
                                 </td>
                                 <td>
                                     {{tabs.Morning}}

@@ -102,9 +102,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsPatientName==true">
-                                            <span>{{ErrorMessage}}</span>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="col-md-12">
@@ -115,10 +112,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsDoctorName==true">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsPatientName==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsDoctorName==true">
                                             <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
+                                    <!--Second Level-->
                                     <div class="col-md-6">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -139,6 +142,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--End Second Level-->
+
+                                     <!--Third Level-->
                                     <div class="col-md-6">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -147,9 +153,6 @@
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12" data-ng-show="ErrorModel.IsTreatment==true">
-                                            <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -162,6 +165,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsTreatment==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                    </div>
+                                     <!--End Third Level-->
                                     <div class="col-md-12">
                                         <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true">
                                             Save</button>

@@ -171,5 +171,9 @@ namespace Hospital.Models.Models
 
         public decimal Price { get; set; }
         public decimal Amount { get; set; }
+
+        public string BatchNo { get; set; }
+
+        public DateTime? ExpiryDate { get; set; }
     }
 }

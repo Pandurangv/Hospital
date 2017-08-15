@@ -7,24 +7,96 @@
     $scope.TreatmentList = [];
     $scope.SearchTreatmentList = [];
 
+    $scope.ProductList=[];
+
+    
+
+    $scope.AddedProductList=[];
+
     $scope.SelectedDoctor=0;
 
     $scope.SelectedPatient=0;
    
     $scope.Details = true;
-    $scope.ErrorModel = { IsPatientName: false,IsDoctorName:false,IsTreatment:false };
+    $scope.ErrorModel = { IsPatientName: false,IsDoctorName:false,IsTreatment:false,IsProductName:false,IsProductQuantity:false,IsProductPrice:false,IsProductAmount:false };
     $scope.ErrorMessage = ""
     $scope.Add = false;
     $scope.Edit = false;
+
+    $scope.AddProduct=true;
+    $scope.EditProduct=false;
+
     $scope.TreatId = 0;
     $scope.AdmitId = 0;
     $scope.Paging = 10;
     $scope.CurruntIndex = 0;
     $scope.TreatmentModel = { TreatId: 0, TreatmentDate: "", DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
 
+    $scope.ProductModel = { BillDetailsId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"" };
+
     $scope.Prefix = "";
 
+    $scope.EditProduct=function(productmodel)
+    {
+        $scope.AddProduct=false;
+        $scope.EditProduct=true;
+        $("#ddlProduct").val(productmodel.ProductId);
+        $scope.ProductChange(productmodel);
+
+    }
+
+    $scope.CheckBatchNo=false;
+
+    $scope.ProductChange=function(productmodel)
+    {
+        if($("#ddlProduct").val()>0)
+        {
+           var url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx?RequestFor=GetProductBatch&ProductId='+$("#ddlProduct").val();
+           $http({
+                method: 'GET',
+                url: url,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processData: false ,
+            }).then(function (response) {
+                 var data=response.data;
+                 if (data.ProductBatchList.length>0) {
+                    $scope.CheckBatchNo=true;
+                    var html="";
+                    var html1="";
+                    angular.forEach($scope.ProductBatchList, function(value, key) {
+                        html+='<option value="' + value.BatchNo +'">'+ value.BathcNo +'</option>';
+                        html1+='<option value="' + value.ExpiryDate +'">'+ value.ExpiryDate +'</option>';
+                    });
+                    $("#ddlBatch").html(html);
+                    $("#ddlExpiry").html(html1);
+                    if (productmodel!==undefined) {
+                        $("#ddlBatch").val(productmodel.BatchNo);
+                        $("#ddlExpiry").val(productmodel.ExpiryDate);
+                    }
+                }
+            },
+            function (response) {
+           
+            }); 
+        }
+    }
+
+    $scope.SaveProduct=function(IsEdit)
+    {
+        $scope.AddProduct=true;
+        $scope.EditProduct=false;
+        if (IsEdit) {
+            
+        }
+        else {
+    
+        }
+    }
+
     $scope.AddNewUI = function (isedit) {
+        $scope.AddProduct=true;
+        $scope.EditProduct=false;
         $("#ddlPType").val(0);
         $scope.TreatmentModel = { TreatId: 0, TreatmentDate: "", DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
         $scope.Details = false;
@@ -48,6 +120,7 @@
                 $scope.DoctorList=response.data.DoctorList;
                 $scope.MainTreatmentList=response.data.DoctorTreatmentList;
                 $scope.TreatmentList=response.data.DoctorTreatmentList;
+                $scope.ProductList=response.data.ProductList;
                 $scope.First();
                 var html="";
                 angular.forEach($scope.PatientList, function(value, key) {
@@ -61,6 +134,13 @@
                 });
                 $("#ddlDoctors").html(html);
                 $("#ddlDoctors").val(0);
+
+                html="";
+                angular.forEach($scope.ProductList, function(value, key) {
+                    html+='<option value="' + value.ProductId +'">'+ value.ProductName +'</option>';
+                });
+                $("#ddlProduct").html(html);
+                $("#ddlProduct").val(0);
 
         },
         function (response) {
@@ -83,6 +163,8 @@
     }
 
     $scope.CancelClick = function () {
+        $scope.ProductModel = { BillDetailsId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"" };
+        $scope.AddedProductList=[];
         $scope.Details = true;
         $scope.Add = false;
         $scope.Edit = false;
@@ -160,6 +242,7 @@
             data: {model: JSON.stringify($scope.TreatmentModel)},
         };
         $http(req).then(function (response) {
+             $scope.AddedProductList=[];
              GetPatientList();
         },
         function (response) {
@@ -212,14 +295,6 @@
              .on('changeDate', function (ev) {
                  $('#txtTreatmentDate').val(ev.date);
                  $('#txtTreatmentDate').datepicker("hide");
-             });
-            $('#txtFollowUpDate').datepicker({
-                format: "yyyy-mm-dd"
-            });
-            $('#txtFollowUpDate').datepicker()
-             .on('changeDate', function (ev) {
-                 $('#txtFollowUpDate').val(ev.date);
-                 $('#txtFollowUpDate').datepicker("hide");
              });
         });
         GetPatientList();
