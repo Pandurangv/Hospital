@@ -1641,13 +1641,6 @@ namespace Hospital.Models.DataLayer
 			return ((ISingleResult<STP_PatientwiseDocumentDetailResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_PrintDoctorChart")]
-		public ISingleResult<STP_PrintDoctorChartResult> STP_PrintDoctorChart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdmitId", DbType="Int")] System.Nullable<int> admitId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), admitId);
-			return ((ISingleResult<STP_PrintDoctorChartResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_PrintPathology")]
 		public ISingleResult<STP_PrintPathologyResult> STP_PrintPathology([global::System.Data.Linq.Mapping.ParameterAttribute(Name="LabId", DbType="Int")] System.Nullable<int> labId)
 		{
@@ -2040,6 +2033,13 @@ namespace Hospital.Models.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<STP_GetProductBatchResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.STP_PrintDoctorChart")]
+		public ISingleResult<STP_PrintDoctorChartResult> STP_PrintDoctorChart([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdmitId", DbType="Int")] System.Nullable<int> admitId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), admitId);
+			return ((ISingleResult<STP_PrintDoctorChartResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -43503,194 +43503,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	public partial class STP_PrintDoctorChartResult
-	{
-		
-		private int _AdmitId;
-		
-		private string _PatientCode;
-		
-		private string _PatientName;
-		
-		private string _EmployeeName;
-		
-		private System.Nullable<System.DateTime> _FollowUpDate;
-		
-		private System.Nullable<bool> _IsDelete;
-		
-		private string _Procedures;
-		
-		private long _TreatId;
-		
-		private System.Nullable<System.DateTime> _TreatmentDate;
-		
-		private string _TreatmentDetails;
-		
-		public STP_PrintDoctorChartResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int NOT NULL")]
-		public int AdmitId
-		{
-			get
-			{
-				return this._AdmitId;
-			}
-			set
-			{
-				if ((this._AdmitId != value))
-				{
-					this._AdmitId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PatientCode
-		{
-			get
-			{
-				return this._PatientCode;
-			}
-			set
-			{
-				if ((this._PatientCode != value))
-				{
-					this._PatientCode = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(152)")]
-		public string PatientName
-		{
-			get
-			{
-				return this._PatientName;
-			}
-			set
-			{
-				if ((this._PatientName != value))
-				{
-					this._PatientName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", DbType="NVarChar(101) NOT NULL", CanBeNull=false)]
-		public string EmployeeName
-		{
-			get
-			{
-				return this._EmployeeName;
-			}
-			set
-			{
-				if ((this._EmployeeName != value))
-				{
-					this._EmployeeName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FollowUpDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FollowUpDate
-		{
-			get
-			{
-				return this._FollowUpDate;
-			}
-			set
-			{
-				if ((this._FollowUpDate != value))
-				{
-					this._FollowUpDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
-		public System.Nullable<bool> IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this._IsDelete = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Procedures", DbType="VarChar(500)")]
-		public string Procedures
-		{
-			get
-			{
-				return this._Procedures;
-			}
-			set
-			{
-				if ((this._Procedures != value))
-				{
-					this._Procedures = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatId", DbType="BigInt NOT NULL")]
-		public long TreatId
-		{
-			get
-			{
-				return this._TreatId;
-			}
-			set
-			{
-				if ((this._TreatId != value))
-				{
-					this._TreatId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TreatmentDate
-		{
-			get
-			{
-				return this._TreatmentDate;
-			}
-			set
-			{
-				if ((this._TreatmentDate != value))
-				{
-					this._TreatmentDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDetails", DbType="VarChar(500)")]
-		public string TreatmentDetails
-		{
-			get
-			{
-				return this._TreatmentDetails;
-			}
-			set
-			{
-				if ((this._TreatmentDetails != value))
-				{
-					this._TreatmentDetails = value;
-				}
-			}
-		}
-	}
-	
 	public partial class STP_PrintPathologyResult
 	{
 		
@@ -54386,6 +54198,158 @@ namespace Hospital.Models.DataLayer
 				if ((this._ProductId != value))
 				{
 					this._ProductId = value;
+				}
+			}
+		}
+	}
+	
+	public partial class STP_PrintDoctorChartResult
+	{
+		
+		private int _AdmitId;
+		
+		private string _PatientCode;
+		
+		private string _PatientName;
+		
+		private string _EmployeeName;
+		
+		private int _BillNo;
+		
+		private System.Nullable<System.DateTime> _Bill_Date;
+		
+		private string _TreatmentDetails;
+		
+		private string _TreatmentPro;
+		
+		public STP_PrintDoctorChartResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdmitId", DbType="Int NOT NULL")]
+		public int AdmitId
+		{
+			get
+			{
+				return this._AdmitId;
+			}
+			set
+			{
+				if ((this._AdmitId != value))
+				{
+					this._AdmitId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientCode
+		{
+			get
+			{
+				return this._PatientCode;
+			}
+			set
+			{
+				if ((this._PatientCode != value))
+				{
+					this._PatientCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(152)")]
+		public string PatientName
+		{
+			get
+			{
+				return this._PatientName;
+			}
+			set
+			{
+				if ((this._PatientName != value))
+				{
+					this._PatientName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", DbType="NVarChar(101) NOT NULL", CanBeNull=false)]
+		public string EmployeeName
+		{
+			get
+			{
+				return this._EmployeeName;
+			}
+			set
+			{
+				if ((this._EmployeeName != value))
+				{
+					this._EmployeeName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillNo", DbType="Int NOT NULL")]
+		public int BillNo
+		{
+			get
+			{
+				return this._BillNo;
+			}
+			set
+			{
+				if ((this._BillNo != value))
+				{
+					this._BillNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bill_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Bill_Date
+		{
+			get
+			{
+				return this._Bill_Date;
+			}
+			set
+			{
+				if ((this._Bill_Date != value))
+				{
+					this._Bill_Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentDetails", DbType="VarChar(500)")]
+		public string TreatmentDetails
+		{
+			get
+			{
+				return this._TreatmentDetails;
+			}
+			set
+			{
+				if ((this._TreatmentDetails != value))
+				{
+					this._TreatmentDetails = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TreatmentPro", DbType="VarChar(500)")]
+		public string TreatmentPro
+		{
+			get
+			{
+				return this._TreatmentPro;
+			}
+			set
+			{
+				if ((this._TreatmentPro != value))
+				{
+					this._TreatmentPro = value;
 				}
 			}
 		}

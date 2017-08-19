@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Hospital.Models.DataLayer;
 using System.Text;
 using System.Web.Script.Serialization;
+using Hospital.Models.Models;
+using Hospital.Models.BusinessLayer;
 
 namespace Hospital.PathalogyReport
 {
@@ -47,7 +49,14 @@ namespace Hospital.PathalogyReport
                     sb =sb.Append(serializer.Serialize(objData.STP_PrintPrescription(Hospital.Models.DataLayer.QueryStringManager.Instance.Prescription_Id).ToList()));
                     break;
                 case "DoctorTreatmentChart":
-                    sb = sb.Append(serializer.Serialize(objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId).ToList()));
+                    OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
+                    List<EntityOTMedicineBillDetails> lst = new List<EntityOTMedicineBillDetails>();
+                    var response=new DoctorTreatmentChartResponse() { TreatmentList = objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId).ToList() };
+                    foreach (var item in response.TreatmentList)
+                    {
+                        lst.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
+                    }
+                    sb = sb.Append(serializer.Serialize(response));
                     break;
             }
             return sb.ToString();

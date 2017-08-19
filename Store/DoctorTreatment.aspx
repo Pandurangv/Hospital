@@ -174,7 +174,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Quantity" id="ProductModel.Quantity" maxlength="50"
+                                                    <input type="text" placeholder="Quantity" data-ng-model="ProductModel.Quantity" maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
@@ -200,7 +200,7 @@
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlBatch" data-ng-show="CheckBatchNo==true">
                                                     </select>
-                                                    <input type="text" placeholder="Batch No" data-ng-model="ProductModel.BatchNo" data-ng-show="CheckBatchNo==false"
+                                                    <input type="text" placeholder="Batch No" id="txtBatchNo" data-ng-show="CheckBatchNo==false"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
@@ -212,7 +212,7 @@
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlExpiry" data-ng-show="CheckBatchNo==true">
                                                     </select>
-                                                    <input type="text" placeholder="Expiry Date" data-ng-model="ProductModel.ExpiryDate" data-ng-show="CheckBatchNo==false"
+                                                    <input type="text" placeholder="Expiry Date" id="txtExpiryDate" data-ng-show="CheckBatchNo==false"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
@@ -260,9 +260,12 @@
                                             <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
+                                    <div class="col-md-12" data-ng-show="ProductError==true">
+                                        <span>{{ErrorMessage}}</span>
+                                    </div>
                                     <div class="col-md-12">
-                                        <button class="btn btn-Default" data-ng-show="AddProduct==true">Add</button>
-                                        <button class="btn btn-Default" data-ng-show="EditProduct==true">Update</button>
+                                        <button class="btn btn-Default" data-ng-show="AddProduct==true" data-ng-click="SaveProduct(true)">Add</button>
+                                        <button class="btn btn-Default" data-ng-show="EditProduct==true" data-ng-click="SaveProduct(false)">Update</button>
                                         <button class="btn btn-Default">Cancel</button>
                                     </div>
                                          <div class="col-md-12" data-ng-show="AddedProductList.length>0">
@@ -299,7 +302,7 @@
                                                              {{product.BatchNo}}
                                                          </td>
                                                          <td>
-                                                             {{product.ExpiryDate | mydate | date: 'yyyy-MM-dd'}}
+                                                             {{product.ExpiryDate}}
                                                          </td>
                                                          <td>
                                                             {{product.Price}}
@@ -322,9 +325,9 @@
 
                                      <!-- End Fifth Level -->
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary" data-ng-click="SaveProduct(true)" data-ng-show="Add==true">
+                                        <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true">
                                             Save</button>
-                                        <button type="button" class="btn btn-primary" data-ng-click="SaveProduct(false)" data-ng-show="Edit==true">
+                                        <button type="button" class="btn btn-primary" data-ng-click="Save(false)" data-ng-show="Edit==true">
                                             Update</button>
                                         <button type="button" class="btn btn-primary" data-ng-click="CancelProduct()">
                                             Cancel</button>

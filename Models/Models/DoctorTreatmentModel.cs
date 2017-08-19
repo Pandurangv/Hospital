@@ -48,6 +48,18 @@ namespace Hospital.Models.Models
         public string Message { get; set; }
     }
 
+    public class DoctorTreatmentChartResponse
+    {
+        public DoctorTreatmentChartResponse()
+        {
+            TreatmentList = new List<STP_PrintDoctorChartResult>();
+            ProductList = new List<EntityOTMedicineBillDetails>();
+        }
+        public List<STP_PrintDoctorChartResult> TreatmentList { get; set; }
+
+        public List<EntityOTMedicineBillDetails>  ProductList { get; set; }
+    }
+
     public class DoctorTreatResponse:Error
     {
         public List<DoctorTreatmentModel> DoctorTreatmentList { get; set; }

@@ -74,20 +74,20 @@ namespace Hospital.Models.BusinessLayer
                     IsDelete=false,
                     Price=item.Price,
                     Quantity=item.Quantity,
-                    TabletId=item.TabletId
+                    TabletId = item.ProductId
                 };
                 objData.tblOTMedicineBillDetails.InsertOnSubmit(medicine);
 
                 tblStockDetail stock = new tblStockDetail()
                 {
-                    ProductId=item.TabletId,
+                    ProductId=item.ProductId.Value,
                     OpeningQtyDate=model.TreatmentDate,
                     InwardQty=0,
                     InwardPrice=0,
                     OutwardQty=item.Quantity,
                     OutwardPrice=item.Price,
                     DocumentNo=tbl.BillNo,
-                    TransactionType="DOCTORTREATMENT",
+                    TransactionType="DT",
                     IsDelete=false,
                     BatchNo=item.BatchNo,
                     ExpiryDate=item.ExpiryDate,

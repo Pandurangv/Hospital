@@ -294,5 +294,31 @@ namespace Hospital.Models.BusinessLayer
             }
             return ldt;
         }
+
+        internal List<EntityOTMedicineBillDetails> GetBillProducts(int BillNo)
+        {
+            var lst = (from tbl in objData.tblOTMedicineBillDetails
+                       join tblproduct in objData.tblProductMasters
+                       on tbl.TabletId equals tblproduct.ProductId
+                       join tblstock in objData.tblStockDetails
+                       on tbl.TabletId equals tblstock.ProductId
+                       where tbl.IsDelete == false
+                       && tblstock.TransactionType == "DT"
+                       && tbl.BillNo==BillNo
+                       && tblstock.DocumentNo == BillNo
+                       select new EntityOTMedicineBillDetails 
+                       {
+                           BillDetailId=tbl.BillDetailId,
+                           Amount=tbl.Amount,
+                           BatchNo=tblstock.BatchNo,
+                           ExpiryDate=tblstock.ExpiryDate,
+                           IsDelete=tblstock.IsDelete,
+                           ProductId=tbl.TabletId,
+                           ProductName=tblproduct.ProductName,
+                           Quantity=tbl.Quantity,
+                           BillNo=BillNo
+                       }).ToList();
+            return lst;
+        }
     }
 }

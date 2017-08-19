@@ -27,6 +27,20 @@ namespace Hospital.Store
             {
                 GetProductBatchNo(QueryStringManager.Instance.ProductId);
             }
+            else if ("GetBillDetails" == QueryStringManager.Instance.RequestFor)
+            {
+                GetBillDetails(QueryStringManager.Instance.BILLNo);
+            }
+        }
+
+        private void GetBillDetails(int BillNo)
+        {
+            JavaScriptSerializer serialize = new JavaScriptSerializer();
+            OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
+            List<EntityOTMedicineBillDetails> lst = mobjPatientMasterBLL.GetBillProducts(BillNo);
+            Response.Clear();
+            Response.Output.Write(serialize.Serialize(lst));
+            Response.End();
         }
 
         private void GetProductBatchNo(int ProductId=0)
