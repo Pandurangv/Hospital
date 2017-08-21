@@ -85,6 +85,8 @@
     <Content Include="bin\TimePicker.dll" />
     <Content Include="BookAppoinment.aspx" />
     <Content Include="css\adminpanelcss\all-themes.css" />
+    <Content Include="css\adminpanelcss\fontcss.css" />
+    <Content Include="css\adminpanelcss\icon.css" />
     <Content Include="css\adminpanelcss\materialize.css" />
     <Content Include="css\adminpanelcss\style.css" />
     <Content Include="css\Bootstrap\bootstrap.min.css" />
@@ -1579,6 +1581,21 @@
   <ItemGroup>
     <Content Include="Dashboard.Master" />
     <None Include="App_Data\31JUL2017.bak" />
+    <None Include="css\adminpanelcss\fonts\-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2" />
+    <None Include="css\adminpanelcss\fonts\77FXFjRbGzN4aCrSFhlh3hJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="css\adminpanelcss\fonts\97uahxiqZRoncBaCEI3aWxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="css\adminpanelcss\fonts\CWB0XYA8bzo0kSThX0UTuA.woff2" />
+    <None Include="css\adminpanelcss\fonts\d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2" />
+    <None Include="css\adminpanelcss\fonts\ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\isZ-wbCXNKAbnjo6_TwHThJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="css\adminpanelcss\fonts\jSN2CGVDbcVyCnfJfjSdfBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="css\adminpanelcss\fonts\mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\NdF9MtnOpLzo-noMoG0miPesZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\PwZc-YbIL414wB9rB1IAPRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="css\adminpanelcss\fonts\u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <None Include="css\adminpanelcss\fonts\UX6i4JxQDm3fVTc1CPuwqhJtnKITppOI_IvcXXDNrsc.woff2" />
     <None Include="images\Thumbs.db" />
     <None Include="Models\DataLayer\CriticareHospital.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
