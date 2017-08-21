@@ -18,6 +18,8 @@
     
     $scope.SelectedBillNo = 0;
 
+    
+
     $scope.AdmitId = 0;
     
     /// Declaration of Models
@@ -38,6 +40,8 @@
     $scope.AddProduct=true;
     $scope.EditProduct=false;
 
+    $scope.DisableButton=false;
+
     $scope.CheckBatchNo=false;
     
     $scope.Paging = 10;
@@ -45,13 +49,16 @@
 
     $scope.Prefix = "";
 
+    $scope.SelectedBillDetailId=0;
+
     $scope.EditProduct=function(productmodel)
     {
         $scope.AddProduct=false;
         $scope.EditProduct=true;
         $scope.SelectedTempId=productmodel.TempId;
         $("#ddlProduct").val(productmodel.ProductId);
-        $scope.ProductChange(productmodel);
+        $("#txtExpiryDate").val(productmodel.ExpiryDate);
+        $("#txtBatchNo").val(productmodel.BatchNo);
         $scope.ProductModel = { 
                                 TempId:productmodel.TempId,
                                 BillDetailId: productmodel.BillDetailId, 
@@ -61,8 +68,11 @@
                                 Quantity:productmodel.Quantity,
                                 Price:productmodel.Price,
                                 Amount:productmodel.Amount,
-                                ExpiryDate:productmodel.ExpiryDate 
+                                ExpiryDate:productmodel.ExpiryDate,
+                                BatchNo:productmodel.BatchNo 
                               };
+
+        $scope.SelectedBillDetailId=productmodel.BillDetailId;
     }
 
     
@@ -70,53 +80,115 @@
     $scope.ProductChange=function(productmodel)
     {
         if($("#ddlProduct").val()>0)
-        {
-           var url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx?RequestFor=GetProductBatch&ProductId='+$("#ddlProduct").val();
-           $http({
-                method: 'GET',
-                url: url,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                processData: false ,
-            }).then(function (response) {
-                 var data=response.data;
-                 if (data.ProductBatchList.length>0) {
-                    $scope.CheckBatchNo=true;
-                    var html="";
-                    var html1="";
-                    angular.forEach($scope.ProductBatchList, function(value, key) {
-                        if (value.BatchNo!=null) {
-                            html+='<option value="' + value.BatchNo +'">'+ value.BathcNo +'</option>';
-                        }
-                        if (value.ExpiryDate!=null) {
-                            html1+='<option value="' + value.ExpiryDate +'">'+ value.ExpiryDate +'</option>';
-                        }
-                    });
-                    $("#ddlBatch").html(html);
-                    if ($('select#ddlBatch option').length==0) {
-                        $scope.CheckBatchNo=false;
-                    }
-                    $("#ddlExpiry").html(html1);
-                    if (productmodel!==undefined) {
-                        $("#ddlBatch").val(productmodel.BatchNo);
-                        $("#ddlExpiry").val(productmodel.ExpiryDate);
-                    }
+            {
+               var product = $scope.AddedProductList.filter(function (pr) {
+                    return (pr.ProductId===parseInt($("#ddlProduct").val()));
+                });
+                if (product.length>0) {
+                    $scope.ProductModel.Price=product[0].Price;
                 }
-            },
-            function (response) {
+               var url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx?RequestFor=GetProductBatch&ProductId='+$("#ddlProduct").val();
+               $http({
+                    method: 'GET',
+                    url: url,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    processData: false ,
+                }).then(function (response) {
+                     var data=response.data;
+                     if (data.ProductBatchList.length>0) {
+                        $scope.CheckBatchNo=true;
+                        var html="";
+                        var html1="";
+                        angular.forEach($scope.ProductBatchList, function(value, key) {
+                            if (value.BatchNo!=null) {
+                                html+='<option value="' + value.BatchNo +'">'+ value.BathcNo +'</option>';
+                            }
+                            if (value.ExpiryDate!=null) {
+                                html1+='<option value="' + value.ExpiryDate +'">'+ value.ExpiryDate +'</option>';
+                            }
+                        });
+                        $("#ddlBatch").html(html);
+                        if ($('select#ddlBatch option').length==0) {
+                            $scope.CheckBatchNo=false;
+                        }
+                        $("#ddlExpiry").html(html1);
+                        if (productmodel!==undefined) {
+                            $("#ddlBatch").val(productmodel.BatchNo);
+                            $("#ddlExpiry").val(productmodel.ExpiryDate);
+                        }
+                    }
+                },
+                function (response) {
            
-            }); 
-        }
+                }); 
+            }
     }
 
     $scope.SaveProduct=function(IsEdit)
     {
+        if ($("#ddlProduct").val()=="0") {
+            $scope.ErrorModel.IsProductName = true;
+            $scope.ErrorMessage = "Product name should be selected.";
+            return false;
+        }
+        else {
+            $scope.ErrorModel.IsProductName = false;
+        }
+
+        if (ProductModel.Quantity=="") {
+            $scope.ErrorModel.IsProductQuantity = true;
+            $scope.ErrorMessage = "Product quantity should be filled.";
+            return false;
+        }
+        else {
+            $scope.ErrorModel.IsProductQuantity = false;
+        }
+        if ($scope.CheckBatchNo) {
+            if ($("#ddlBatch").val()=="") {
+                $scope.ErrorModel.IsProductBatch = true;
+                $scope.ErrorMessage = "Batch No should be selected.";
+                return false;
+            }
+            else {
+                $scope.ErrorModel.IsProductBatch = false;
+            }
+            if ($("#ddlExpiry").val()=="") {
+                $scope.ErrorModel.IsProductExpiry = true;
+                $scope.ErrorMessage = "Expiry date should be selected.";
+                return false;
+            }
+            else {
+                $scope.ErrorModel.IsProductExpiry = false;
+            }
+        }
+        else {
+            if ($("#txtBatchNo").val()=="") {
+                $scope.ErrorModel.IsProductBatch = true;
+                $scope.ErrorMessage = "Batch No should be selected.";
+                return false;
+            }
+            else {
+                $scope.ErrorModel.IsProductBatch = false;
+            }
+            if ($("#txtExpiryDate").val()=="") {
+                $scope.ErrorModel.IsProductExpiry = true;
+                $scope.ErrorMessage = "Expiry date should be selected.";
+                return false;
+            }
+            else {
+                $scope.ErrorModel.IsProductExpiry = false;
+            }
+        }
+        
+        $scope.DisableButton=true;
         $scope.AddProduct=true;
         $scope.EditProduct=false;
-        var product = $scope.AddedProductList.filter(function (pr) {
-            return (pr.ProductId===$("#ddlProduct").val());
-        });
+        
         if (IsEdit) {
+            var product = $scope.AddedProductList.filter(function (pr) {
+                return (pr.ProductId===$("#ddlProduct").val());
+            });
             if (product.length==0) {
                 $scope.ProductError=false;
                 var tempid=$scope.AddedProductList.length==0?1:$scope.AddedProductList.length + 1;
@@ -141,7 +213,14 @@
             }
         }
         else {
-            angular.forEach($scope.AddedProductList, function(value, key) {
+            var flag=false;
+            for (var i = 0; i < $scope.AddedProductList.length; i++) {
+                if ($scope.AddedProductList[i].TempId!=$scope.SelectedTempId && $scope.AddedProductList[i].ProductId==$("#ddlProduct").val()) {
+                    flag=true;
+                }
+            }
+            if (flag==false) {
+                angular.forEach($scope.AddedProductList, function(value, key) {
                     if (value.TempId==$scope.SelectedTempId) {
                         $scope.AddedProductList[key].BillDetailsId=value.BillDetailsId;
                         $scope.AddedProductList[key].BillNo=$scope.SelectedBillNo;
@@ -154,11 +233,17 @@
                         $scope.AddedProductList[key].BatchNo=$scope.CheckBatchNo? $("#txtBatchNo").val():$("#ddlBatch").val();
                     }        
                 });
+            }
+            else {
+                $scope.ProductError=true;
+                $scope.ErrorMessage="Product already exist.";
+            }
         }
         $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0 };
         $("#txtExpiryDate").val("");
         $("#ddlProduct").val(0);
         $("#txtBatchNo").val("");
+        $scope.DisableButton=false;
     }
 
     $scope.AddNewUI = function (isedit) {
@@ -331,6 +416,16 @@
             $scope.ErrorModel.IsTreatment = false;
         }
         
+        if($scope.AddedProductList.length==0)
+        {
+            $scope.ProductError=true;
+            $scope.ErrorMessage="Please add products";
+            return false;
+        }
+        else {
+            $scope.ProductError=false;
+        }
+
         var url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx/Save';
         if (isEdit == false) {
             url = GetVirtualDirectory() + '/Store/DoctorTreatment.aspx/Update';

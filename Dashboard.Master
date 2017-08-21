@@ -8,8 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Ganga Nursing Home</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <link href="../css/adminpanelcss/fontcss.css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
+    <link href="../css/adminpanelcss/icon.css?family=Material+Icons" rel="stylesheet" type="text/css" />
     <link href="../Scripts/adminpanel/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../Scripts/adminpanel/node-waves/waves.css" rel="stylesheet" />
     <link href="../css/adminpanelcss/style.css" rel="stylesheet" />

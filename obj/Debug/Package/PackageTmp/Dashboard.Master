@@ -72,7 +72,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="#">
+                        <a href="../frmOPDPatientDetail.aspx">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -196,7 +196,7 @@
                             <span>Patient Masters</span>
                         </a>
                         <ul class="ml-menu">
-                            <li ><a href="../DoctorTreatment.aspx">
+                            <li ><a href="../Store/DoctorTreatment.aspx">
                                     <span>Doctor Treatment</span>
                                 </a>
                             </li>

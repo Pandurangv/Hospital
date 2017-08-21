@@ -426,13 +426,13 @@
                                     {{treat.EmployeeName}}
                                 </td>
                                 <td>
-                                    {{treat.TreatmentDate | mydate | date : 'yyyy-MM-dd'}}
+                                    {{treat.Bill_Date | mydate | date : 'yyyy-MM-dd'}}
                                 </td>
                                 <td>
                                     {{treat.TreatmentDetails}}
                                 </td>
                                 <td>
-                                    {{treat.Procedures}}
+                                    {{treat.TreatmentPro}}
                                 </td>
                             </tr>
                         </tbody>

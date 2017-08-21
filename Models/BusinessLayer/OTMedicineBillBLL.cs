@@ -316,6 +316,7 @@ namespace Hospital.Models.BusinessLayer
                            ProductId=tbl.TabletId,
                            ProductName=tblproduct.ProductName,
                            Quantity=tbl.Quantity,
+                           Price=tbl.Price,
                            BillNo=BillNo
                        }).ToList();
             return lst;
