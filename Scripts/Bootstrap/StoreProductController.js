@@ -1,4 +1,4 @@
-﻿HospitalApp.controller("ProductController", ['$scope', '$http', '$filter', '$rootScope', function ($scope, $http, $filter, $rootScope) {
+﻿HospitalApp.controller("StoreProductController", ['$scope', '$http', '$filter', '$rootScope', function ($scope, $http, $filter, $rootScope) {
     
     $scope.ProductTypeList = [];
     $scope.MainProductList = [];
@@ -57,7 +57,7 @@
 
     function GetProducts()
     {
-        var url = GetVirtualDirectory() + '/Store/PresProducts.aspx/GetProducts?RequestFor=GetDetails';
+        var url = GetVirtualDirectory() + '/Store/storeproducts.aspx/GetProducts?RequestFor=GetDetails';
         $http({
             method: 'GET',
             url: url,
@@ -139,9 +139,9 @@
             $scope.ErrorModel.IsPrice = false;
         }
         
-        var url = GetVirtualDirectory() + '/Store/PresProducts.aspx/Save';
+        var url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Save';
         if (isEdit == false) {
-            url = GetVirtualDirectory() + '/Store/PresProducts.aspx/Update';
+            url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Update';
         }
         var model={};
         $scope.ProductModel.ProductTypeId=$("#ddlPType").val();
@@ -157,6 +157,7 @@
         $http(req).then(function (response) {
             $scope.CancelClick();
             GetProducts();
+                
         },
         function (response) {
            

@@ -366,6 +366,7 @@
     <Content Include="Scheduling\frmOTScheduling.aspx" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\Bootstrap\jquery.min.js" />
+    <Content Include="Scripts\Bootstrap\StoreProductController.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />

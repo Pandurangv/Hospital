@@ -80,22 +80,17 @@
                                                     <DynamicSelectedStyle BackColor="#990000" />
                                                     <Items>
                                                         <asp:MenuItem Text="Masters" Value="Main">
-                                                            <asp:MenuItem Text="Employee Master" Value="Employee Master" NavigateUrl="~/frmEmployeeMaster.aspx"
-                                                                ToolTip="Employee Master"></asp:MenuItem>
+                                                            
                                                             <asp:MenuItem Text="User Authorisation" Value="User Authorisation" NavigateUrl="~/UserAuthentication/frmUserAuthentication.aspx">
                                                             </asp:MenuItem>
-                                                            <asp:MenuItem Text="Department Master" Value="Department Master" NavigateUrl="~/frmDepartmentMaster.aspx">
-                                                            </asp:MenuItem>
+                                                            
                                                             <asp:MenuItem Text="Room Rate Master" Value="Room Rate Master" NavigateUrl="~/frmRoomCategoryMaster.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Ward Master" Value="Ward Master" NavigateUrl="~/frmRoomMaster.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Bed Master" Value="Bed Master" NavigateUrl="~/frmBedMaster.aspx">
                                                             </asp:MenuItem>
-                                                            <asp:MenuItem Text="Supplier Master" Value="Supplier Master" NavigateUrl="~/frmSupplierMaster.aspx">
-                                                            </asp:MenuItem>
-                                                            <asp:MenuItem Text="Unit Master" Value="Unit Master" NavigateUrl="~/frmUnitMaster.aspx">
-                                                            </asp:MenuItem>
+                                                            
                                                             <asp:MenuItem Text="Charge Master" Value="Charge Master" NavigateUrl="~/frmChargeCategory.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Bank Master" Value="Bank Master" NavigateUrl="~/BankTransaction/frmBankMaster.aspx">
@@ -106,7 +101,7 @@
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Product Types" Value="Product Types" NavigateUrl="~/Store/ProductType.aspx">
                                                             </asp:MenuItem>
-                                                            <asp:MenuItem Text="Medicine Master" Value="Medicine Master" NavigateUrl="~/Store/StoreProducts.aspx">
+                                                            <asp:MenuItem Text="Prescription Products" Value="Prescription Products" NavigateUrl="~/Store/PresProducts.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Occupation Master" Value="Occupation Master" NavigateUrl="~/frmOccupationMaster.aspx">
                                                             </asp:MenuItem>
@@ -129,8 +124,7 @@
                                                             <asp:MenuItem Text="NurseMaster" Value="NurseMaster" NavigateUrl="~/frmNurseMaster.aspx">
                                                             </asp:MenuItem><asp:MenuItem Text="Visiting Doctor" Value="Visiting Doctor" NavigateUrl="~/AnaesthetistMaster.aspx">
                                                             </asp:MenuItem>--%>
-                                                            <asp:MenuItem Text="Prescription" Value="Prescription" NavigateUrl="~/frmPrescription.aspx">
-                                                            </asp:MenuItem>
+                                                            
                                                             <asp:MenuItem Text="DailyNursingManagement" Value="DailyNursingManagement" NavigateUrl="~/frmDailyNursingManagement.aspx">
                                                             </asp:MenuItem>
                                                             <%--<asp:MenuItem Text="Upload Documents" Value="Upload Documents" NavigateUrl="~/frmUploadDocuments.aspx">
@@ -139,8 +133,7 @@
                                                             </asp:MenuItem>--%>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Patient Masters" Value="Main">
-                                                            <asp:MenuItem Text="Doctor Treatment" Value="Doctor Treatment" NavigateUrl="~/Store/DoctorTreatment.aspx">
-                                                            </asp:MenuItem>
+                                                            
                                                             <asp:MenuItem Text="New Patient Registration" Value="New Patient Registration" NavigateUrl="~/frmOPDPatientDetail.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Readmit Patient" Value="Readmit Patient" NavigateUrl="~/frmAdmitPatient.aspx">
@@ -148,6 +141,10 @@
                                                             <asp:MenuItem Text="Allocate Patient ToDoctor" Value="Allocate Patient To Doctor"
                                                                 NavigateUrl="~/frmPatientAllocToDoc.aspx"></asp:MenuItem>
                                                             <asp:MenuItem Text="Allocate Visiting Doctor" Value="Allocate Visiting Doctor" NavigateUrl="~/frmAllocConsultDoctorToPatient.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Prescription" Value="Prescription" NavigateUrl="~/frmPrescription.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Doctor Treatment" Value="Doctor Treatment" NavigateUrl="~/Store/DoctorTreatment.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Bed Allocation" NavigateUrl="#">
                                                                 <asp:MenuItem Text="Bed Allocation To Patient" Value="Bed Allocation To Patient"
@@ -157,6 +154,10 @@
                                                             </asp:MenuItem>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Payroll" Value="Main">
+                                                            <asp:MenuItem Text="Department Master" Value="Department Master" NavigateUrl="~/frmDepartmentMaster.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Employee Master" Value="Employee Master" NavigateUrl="~/frmEmployeeMaster.aspx"
+                                                                ToolTip="Employee Master"></asp:MenuItem>
                                                             <asp:MenuItem Text="Allowance/Deductions" Value="Allowance/Deductions" NavigateUrl="~/Payroll/frmAllowanceDeduction.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Salary Calculation" Value="Salary Calculation" NavigateUrl="~/Payroll/frmSalaryCalculation.aspx">
@@ -205,6 +206,12 @@
                                                             </asp:MenuItem>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Store" Value="Main">
+                                                            <asp:MenuItem Text="Supplier Master" Value="Supplier Master" NavigateUrl="~/frmSupplierMaster.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Unit Master" Value="Unit Master" NavigateUrl="~/frmUnitMaster.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Store Products" Value="Store Products" NavigateUrl="~/Store/StoreProducts.aspx">
+                                                            </asp:MenuItem>
                                                             <asp:MenuItem Text="Purchase Order" Value="Purchase Order" NavigateUrl="~/Store/frmPurchaseOrder.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Purchase Invoice" Value="Purchase Invoice" NavigateUrl="~/Store/frmPurchaseInvoice.aspx">

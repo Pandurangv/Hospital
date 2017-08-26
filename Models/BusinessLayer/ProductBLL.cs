@@ -66,6 +66,7 @@ namespace Hospital.Models.BusinessLayer
                     ProductContent=entProduct.Content,
                     ProductTypeId=entProduct.ProductTypeId,
                     IsDelete=false,
+                    Category=entProduct.Category
                 };
                 objData.tblProductMasters.InsertOnSubmit(obj);
                 objData.SubmitChanges();

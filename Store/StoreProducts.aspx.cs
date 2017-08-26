@@ -43,7 +43,9 @@ namespace Hospital.Store
         {
             ProductBLL objProductTypes = new ProductBLL();
             JavaScriptSerializer serialize = new JavaScriptSerializer();
-            return objProductTypes.InsertProduct(serialize.Deserialize<EntityProduct>(model));
+            var product = serialize.Deserialize<EntityProduct>(model);
+            product.Category = "Store";
+            return objProductTypes.InsertProduct(product);
         }
 
         [WebMethod]
