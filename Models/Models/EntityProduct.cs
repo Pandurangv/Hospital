@@ -34,6 +34,8 @@ namespace Hospital.Models.Models
         public int ProductTypeId { get; set; }
 
         #endregion
+
+        public string Category { get; set; }
     }
 
     public class EntityProductType

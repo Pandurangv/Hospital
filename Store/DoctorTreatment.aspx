@@ -154,7 +154,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <select class="form-control setMargin" id="ddlProduct">
+                                                    <select class="form-control setMargin" id="ddlProduct" data-ng-click="ProductChange()">
                                                     </select>
                                                 </div>
                                             </div>

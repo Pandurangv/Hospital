@@ -77,11 +77,11 @@
 
     
 
-    $scope.ProductChange=function(productmodel)
+    $scope.ProductChange=function()
     {
         if($("#ddlProduct").val()>0)
             {
-               var product = $scope.AddedProductList.filter(function (pr) {
+               var product = $scope.ProductList.filter(function (pr) {
                     return (pr.ProductId===parseInt($("#ddlProduct").val()));
                 });
                 if (product.length>0) {
@@ -113,10 +113,10 @@
                             $scope.CheckBatchNo=false;
                         }
                         $("#ddlExpiry").html(html1);
-                        if (productmodel!==undefined) {
-                            $("#ddlBatch").val(productmodel.BatchNo);
-                            $("#ddlExpiry").val(productmodel.ExpiryDate);
-                        }
+//                        if (productmodel!==undefined) {
+//                            $("#ddlBatch").val(productmodel.BatchNo);
+//                            $("#ddlExpiry").val(productmodel.ExpiryDate);
+//                        }
                     }
                 },
                 function (response) {
@@ -136,7 +136,7 @@
             $scope.ErrorModel.IsProductName = false;
         }
 
-        if (ProductModel.Quantity=="") {
+        if ($scope.ProductModel.Quantity=="") {
             $scope.ErrorModel.IsProductQuantity = true;
             $scope.ErrorMessage = "Product quantity should be filled.";
             return false;
@@ -230,7 +230,7 @@
                         $scope.AddedProductList[key].Price=$scope.ProductModel.Price;
                         $scope.AddedProductList[key].Amount=parseFloat($scope.ProductModel.Quantity) * parseFloat($scope.ProductModel.Price);
                         $scope.AddedProductList[key].ExpiryDate=$scope.CheckBatchNo==false? $("#txtExpiryDate").val():$("#ddlExpiry").val();
-                        $scope.AddedProductList[key].BatchNo=$scope.CheckBatchNo? $("#txtBatchNo").val():$("#ddlBatch").val();
+                        $scope.AddedProductList[key].BatchNo=$scope.CheckBatchNo==false? $("#txtBatchNo").val():$("#ddlBatch").val();
                     }        
                 });
             }
@@ -432,6 +432,7 @@
         }
         var model={};
 
+        $scope.TreatmentModel.AdmitDate=objdatehelper.getFormatteddate($filter('mydate')($scope.TreatmentModel.AdmitDate), "yyyy-MM-dd")
         $scope.TreatmentModel.DoctorId=$("#ddlDoctors").val();
         $scope.TreatmentModel.AdmitId=$("#ddlPType").val();
         $scope.TreatmentModel.FollowUpDate=$('#txtFollowUpDate').val();
@@ -446,6 +447,10 @@
             data: {model: JSON.stringify($scope.TreatmentModel)},
         };
         $http(req).then(function (response) {
+             $scope.TreatmentModel = { TreatId: 0, TreatmentDate: "", DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
+             $scope.Details = true;
+             $scope.Add = false;
+             $scope.Edit = false;
              $scope.AddedProductList=[];
              GetPatientList();
         },

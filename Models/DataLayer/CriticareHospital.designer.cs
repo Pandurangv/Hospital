@@ -327,9 +327,6 @@ namespace Hospital.Models.DataLayer
     partial void InserttblUserData(tblUserData instance);
     partial void UpdatetblUserData(tblUserData instance);
     partial void DeletetblUserData(tblUserData instance);
-    partial void InserttblProductMaster(tblProductMaster instance);
-    partial void UpdatetblProductMaster(tblProductMaster instance);
-    partial void DeletetblProductMaster(tblProductMaster instance);
     partial void InserttblProductType(tblProductType instance);
     partial void UpdatetblProductType(tblProductType instance);
     partial void DeletetblProductType(tblProductType instance);
@@ -342,6 +339,9 @@ namespace Hospital.Models.DataLayer
     partial void InserttblOTMedicineBill(tblOTMedicineBill instance);
     partial void UpdatetblOTMedicineBill(tblOTMedicineBill instance);
     partial void DeletetblOTMedicineBill(tblOTMedicineBill instance);
+    partial void InserttblProductMaster(tblProductMaster instance);
+    partial void UpdatetblProductMaster(tblProductMaster instance);
+    partial void DeletetblProductMaster(tblProductMaster instance);
     #endregion
 		
 		public CriticareHospitalDataContext() : 
@@ -1182,14 +1182,6 @@ namespace Hospital.Models.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<tblProductMaster> tblProductMasters
-		{
-			get
-			{
-				return this.GetTable<tblProductMaster>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblProductType> tblProductTypes
 		{
 			get
@@ -1219,6 +1211,14 @@ namespace Hospital.Models.DataLayer
 			get
 			{
 				return this.GetTable<tblOTMedicineBill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblProductMaster> tblProductMasters
+		{
+			get
+			{
+				return this.GetTable<tblProductMaster>();
 			}
 		}
 		
@@ -1331,13 +1331,6 @@ namespace Hospital.Models.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_GetAllPatientListForRegisteredResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAllProduct")]
-		public ISingleResult<sp_GetAllProductResult> sp_GetAllProduct()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_GetAllProductResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAllRoomDetails")]
@@ -2040,6 +2033,13 @@ namespace Hospital.Models.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), admitId);
 			return ((ISingleResult<STP_PrintDoctorChartResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAllProduct")]
+		public ISingleResult<sp_GetAllProductResult> sp_GetAllProduct()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_GetAllProductResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -29443,260 +29443,6 @@ namespace Hospital.Models.DataLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblProductMaster")]
-	public partial class tblProductMaster : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ProductId;
-		
-		private string _ProductName;
-		
-		private string _UOM;
-		
-		private string _SubUOM;
-		
-		private decimal _Price;
-		
-		private bool _IsReusable;
-		
-		private bool _IsDelete;
-		
-		private System.Nullable<int> _ProductTypeId;
-		
-		private string _ProductContent;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProductIdChanging(int value);
-    partial void OnProductIdChanged();
-    partial void OnProductNameChanging(string value);
-    partial void OnProductNameChanged();
-    partial void OnUOMChanging(string value);
-    partial void OnUOMChanged();
-    partial void OnSubUOMChanging(string value);
-    partial void OnSubUOMChanged();
-    partial void OnPriceChanging(decimal value);
-    partial void OnPriceChanged();
-    partial void OnIsReusableChanging(bool value);
-    partial void OnIsReusableChanged();
-    partial void OnIsDeleteChanging(bool value);
-    partial void OnIsDeleteChanged();
-    partial void OnProductTypeIdChanging(System.Nullable<int> value);
-    partial void OnProductTypeIdChanged();
-    partial void OnProductContentChanging(string value);
-    partial void OnProductContentChanged();
-    #endregion
-		
-		public tblProductMaster()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ProductId
-		{
-			get
-			{
-				return this._ProductId;
-			}
-			set
-			{
-				if ((this._ProductId != value))
-				{
-					this.OnProductIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProductId = value;
-					this.SendPropertyChanged("ProductId");
-					this.OnProductIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string ProductName
-		{
-			get
-			{
-				return this._ProductName;
-			}
-			set
-			{
-				if ((this._ProductName != value))
-				{
-					this.OnProductNameChanging(value);
-					this.SendPropertyChanging();
-					this._ProductName = value;
-					this.SendPropertyChanged("ProductName");
-					this.OnProductNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UOM", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string UOM
-		{
-			get
-			{
-				return this._UOM;
-			}
-			set
-			{
-				if ((this._UOM != value))
-				{
-					this.OnUOMChanging(value);
-					this.SendPropertyChanging();
-					this._UOM = value;
-					this.SendPropertyChanged("UOM");
-					this.OnUOMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubUOM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string SubUOM
-		{
-			get
-			{
-				return this._SubUOM;
-			}
-			set
-			{
-				if ((this._SubUOM != value))
-				{
-					this.OnSubUOMChanging(value);
-					this.SendPropertyChanging();
-					this._SubUOM = value;
-					this.SendPropertyChanged("SubUOM");
-					this.OnSubUOMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,2) NOT NULL")]
-		public decimal Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReusable", DbType="Bit NOT NULL")]
-		public bool IsReusable
-		{
-			get
-			{
-				return this._IsReusable;
-			}
-			set
-			{
-				if ((this._IsReusable != value))
-				{
-					this.OnIsReusableChanging(value);
-					this.SendPropertyChanging();
-					this._IsReusable = value;
-					this.SendPropertyChanged("IsReusable");
-					this.OnIsReusableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL")]
-		public bool IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this.OnIsDeleteChanging(value);
-					this.SendPropertyChanging();
-					this._IsDelete = value;
-					this.SendPropertyChanged("IsDelete");
-					this.OnIsDeleteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTypeId", DbType="Int")]
-		public System.Nullable<int> ProductTypeId
-		{
-			get
-			{
-				return this._ProductTypeId;
-			}
-			set
-			{
-				if ((this._ProductTypeId != value))
-				{
-					this.OnProductTypeIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProductTypeId = value;
-					this.SendPropertyChanged("ProductTypeId");
-					this.OnProductTypeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductContent", DbType="VarChar(150)")]
-		public string ProductContent
-		{
-			get
-			{
-				return this._ProductContent;
-			}
-			set
-			{
-				if ((this._ProductContent != value))
-				{
-					this.OnProductContentChanging(value);
-					this.SendPropertyChanging();
-					this._ProductContent = value;
-					this.SendPropertyChanged("ProductContent");
-					this.OnProductContentChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblProductType")]
 	public partial class tblProductType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -31504,6 +31250,284 @@ namespace Hospital.Models.DataLayer
 					this._DoctorId = value;
 					this.SendPropertyChanged("DoctorId");
 					this.OnDoctorIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblProductMaster")]
+	public partial class tblProductMaster : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProductId;
+		
+		private string _ProductName;
+		
+		private string _UOM;
+		
+		private string _SubUOM;
+		
+		private decimal _Price;
+		
+		private bool _IsReusable;
+		
+		private bool _IsDelete;
+		
+		private System.Nullable<int> _ProductTypeId;
+		
+		private string _ProductContent;
+		
+		private string _Category;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProductIdChanging(int value);
+    partial void OnProductIdChanged();
+    partial void OnProductNameChanging(string value);
+    partial void OnProductNameChanged();
+    partial void OnUOMChanging(string value);
+    partial void OnUOMChanged();
+    partial void OnSubUOMChanging(string value);
+    partial void OnSubUOMChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    partial void OnIsReusableChanging(bool value);
+    partial void OnIsReusableChanged();
+    partial void OnIsDeleteChanging(bool value);
+    partial void OnIsDeleteChanged();
+    partial void OnProductTypeIdChanging(System.Nullable<int> value);
+    partial void OnProductTypeIdChanged();
+    partial void OnProductContentChanging(string value);
+    partial void OnProductContentChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
+    #endregion
+		
+		public tblProductMaster()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					this.OnProductIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProductId = value;
+					this.SendPropertyChanged("ProductId");
+					this.OnProductIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this.OnProductNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProductName = value;
+					this.SendPropertyChanged("ProductName");
+					this.OnProductNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UOM", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string UOM
+		{
+			get
+			{
+				return this._UOM;
+			}
+			set
+			{
+				if ((this._UOM != value))
+				{
+					this.OnUOMChanging(value);
+					this.SendPropertyChanging();
+					this._UOM = value;
+					this.SendPropertyChanged("UOM");
+					this.OnUOMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubUOM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SubUOM
+		{
+			get
+			{
+				return this._SubUOM;
+			}
+			set
+			{
+				if ((this._SubUOM != value))
+				{
+					this.OnSubUOMChanging(value);
+					this.SendPropertyChanging();
+					this._SubUOM = value;
+					this.SendPropertyChanged("SubUOM");
+					this.OnSubUOMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReusable", DbType="Bit NOT NULL")]
+		public bool IsReusable
+		{
+			get
+			{
+				return this._IsReusable;
+			}
+			set
+			{
+				if ((this._IsReusable != value))
+				{
+					this.OnIsReusableChanging(value);
+					this.SendPropertyChanging();
+					this._IsReusable = value;
+					this.SendPropertyChanged("IsReusable");
+					this.OnIsReusableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL")]
+		public bool IsDelete
+		{
+			get
+			{
+				return this._IsDelete;
+			}
+			set
+			{
+				if ((this._IsDelete != value))
+				{
+					this.OnIsDeleteChanging(value);
+					this.SendPropertyChanging();
+					this._IsDelete = value;
+					this.SendPropertyChanged("IsDelete");
+					this.OnIsDeleteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTypeId", DbType="Int")]
+		public System.Nullable<int> ProductTypeId
+		{
+			get
+			{
+				return this._ProductTypeId;
+			}
+			set
+			{
+				if ((this._ProductTypeId != value))
+				{
+					this.OnProductTypeIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProductTypeId = value;
+					this.SendPropertyChanged("ProductTypeId");
+					this.OnProductTypeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductContent", DbType="VarChar(150)")]
+		public string ProductContent
+		{
+			get
+			{
+				return this._ProductContent;
+			}
+			set
+			{
+				if ((this._ProductContent != value))
+				{
+					this.OnProductContentChanging(value);
+					this.SendPropertyChanging();
+					this._ProductContent = value;
+					this.SendPropertyChanged("ProductContent");
+					this.OnProductContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="VarChar(50)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
 				}
 			}
 		}
@@ -35568,194 +35592,6 @@ namespace Hospital.Models.DataLayer
 				if ((this._InsuranceDesc != value))
 				{
 					this._InsuranceDesc = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_GetAllProductResult
-	{
-		
-		private int _ProductId;
-		
-		private string _ProductName;
-		
-		private string _UOM;
-		
-		private string _SubUOM;
-		
-		private decimal _Price;
-		
-		private bool _IsReusable;
-		
-		private bool _IsDelete;
-		
-		private System.Nullable<int> _ProductTypeId;
-		
-		private string _ProductContent;
-		
-		private string _ProductTyepe;
-		
-		public sp_GetAllProductResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
-		public int ProductId
-		{
-			get
-			{
-				return this._ProductId;
-			}
-			set
-			{
-				if ((this._ProductId != value))
-				{
-					this._ProductId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string ProductName
-		{
-			get
-			{
-				return this._ProductName;
-			}
-			set
-			{
-				if ((this._ProductName != value))
-				{
-					this._ProductName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UOM", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string UOM
-		{
-			get
-			{
-				return this._UOM;
-			}
-			set
-			{
-				if ((this._UOM != value))
-				{
-					this._UOM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubUOM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string SubUOM
-		{
-			get
-			{
-				return this._SubUOM;
-			}
-			set
-			{
-				if ((this._SubUOM != value))
-				{
-					this._SubUOM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,2) NOT NULL")]
-		public decimal Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this._Price = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReusable", DbType="Bit NOT NULL")]
-		public bool IsReusable
-		{
-			get
-			{
-				return this._IsReusable;
-			}
-			set
-			{
-				if ((this._IsReusable != value))
-				{
-					this._IsReusable = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL")]
-		public bool IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this._IsDelete = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTypeId", DbType="Int")]
-		public System.Nullable<int> ProductTypeId
-		{
-			get
-			{
-				return this._ProductTypeId;
-			}
-			set
-			{
-				if ((this._ProductTypeId != value))
-				{
-					this._ProductTypeId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductContent", DbType="VarChar(150)")]
-		public string ProductContent
-		{
-			get
-			{
-				return this._ProductContent;
-			}
-			set
-			{
-				if ((this._ProductContent != value))
-				{
-					this._ProductContent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTyepe", DbType="VarChar(50)")]
-		public string ProductTyepe
-		{
-			get
-			{
-				return this._ProductTyepe;
-			}
-			set
-			{
-				if ((this._ProductTyepe != value))
-				{
-					this._ProductTyepe = value;
 				}
 			}
 		}
@@ -54350,6 +54186,212 @@ namespace Hospital.Models.DataLayer
 				if ((this._TreatmentPro != value))
 				{
 					this._TreatmentPro = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetAllProductResult
+	{
+		
+		private int _ProductId;
+		
+		private string _ProductName;
+		
+		private string _UOM;
+		
+		private string _SubUOM;
+		
+		private decimal _Price;
+		
+		private bool _IsReusable;
+		
+		private bool _IsDelete;
+		
+		private System.Nullable<int> _ProductTypeId;
+		
+		private string _ProductContent;
+		
+		private string _Category;
+		
+		private string _ProductTyepe;
+		
+		public sp_GetAllProductResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
+		public int ProductId
+		{
+			get
+			{
+				return this._ProductId;
+			}
+			set
+			{
+				if ((this._ProductId != value))
+				{
+					this._ProductId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UOM", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string UOM
+		{
+			get
+			{
+				return this._UOM;
+			}
+			set
+			{
+				if ((this._UOM != value))
+				{
+					this._UOM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubUOM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string SubUOM
+		{
+			get
+			{
+				return this._SubUOM;
+			}
+			set
+			{
+				if ((this._SubUOM != value))
+				{
+					this._SubUOM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this._Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReusable", DbType="Bit NOT NULL")]
+		public bool IsReusable
+		{
+			get
+			{
+				return this._IsReusable;
+			}
+			set
+			{
+				if ((this._IsReusable != value))
+				{
+					this._IsReusable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit NOT NULL")]
+		public bool IsDelete
+		{
+			get
+			{
+				return this._IsDelete;
+			}
+			set
+			{
+				if ((this._IsDelete != value))
+				{
+					this._IsDelete = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTypeId", DbType="Int")]
+		public System.Nullable<int> ProductTypeId
+		{
+			get
+			{
+				return this._ProductTypeId;
+			}
+			set
+			{
+				if ((this._ProductTypeId != value))
+				{
+					this._ProductTypeId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductContent", DbType="VarChar(150)")]
+		public string ProductContent
+		{
+			get
+			{
+				return this._ProductContent;
+			}
+			set
+			{
+				if ((this._ProductContent != value))
+				{
+					this._ProductContent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="VarChar(50)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this._Category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductTyepe", DbType="VarChar(50)")]
+		public string ProductTyepe
+		{
+			get
+			{
+				return this._ProductTyepe;
+			}
+			set
+			{
+				if ((this._ProductTyepe != value))
+				{
+					this._ProductTyepe = value;
 				}
 			}
 		}

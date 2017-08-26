@@ -26,11 +26,23 @@ namespace Hospital.Models.Models
         #endregion
     }
 
-    public class EntityOTMedicineBill
+    public class EntityOTMedicineBill:Error
     {
         public EntityOTMedicineBill()
         {
+            ProductList = new List<EntityOTMedicineBillDetails>();
         }
+
+        public List<EntityOTMedicineBillDetails> ProductList { get; set; }
+
+        public string EmployeeName { get; set; }
+
+        public string PatientCode { get; set; }
+
+        public string TreatmentDetails { get; set; }
+
+        public string TreatmentPro { get; set; }
+
         private int _BillNo;
         private bool _IsDelete;
         public string PatientName { get; set; }

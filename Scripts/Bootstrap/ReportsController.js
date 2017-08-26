@@ -6,6 +6,9 @@
     $scope.init = function () {
         $scope.ReportType = reportType;
         $scope.data = data;
+        if ($scope.ReportType == "DoctorTreatmentChart") {
+            $scope.PatientInfo = $scope.data.TreatmentList[0];
+        }
         if ($scope.data.length > 0) {
             $scope.PatientInfo = $scope.data[0];
             switch ($scope.PatientInfo.LanType) {

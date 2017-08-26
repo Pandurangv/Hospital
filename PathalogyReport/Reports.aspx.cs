@@ -51,10 +51,23 @@ namespace Hospital.PathalogyReport
                 case "DoctorTreatmentChart":
                     OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
                     List<EntityOTMedicineBillDetails> lst = new List<EntityOTMedicineBillDetails>();
-                    var response=new DoctorTreatmentChartResponse() { TreatmentList = objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId).ToList() };
+                    var response = new DoctorTreatmentChartResponse()
+                    {
+                        TreatmentList =
+                                (from tbl in objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId)
+                                 select new EntityOTMedicineBill { 
+                                    BillNo=tbl.BillNo,
+                                    Bill_Date=tbl.Bill_Date,
+                                    EmployeeName=tbl.EmployeeName,
+                                    PatientCode=tbl.PatientCode,
+                                    PatientName=tbl.PatientName,
+                                    TreatmentDetails=tbl.TreatmentDetails,
+                                    TreatmentPro=tbl.TreatmentPro
+                                 }).ToList()
+                    };
                     foreach (var item in response.TreatmentList)
                     {
-                        lst.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
+                        item.ProductList.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
                     }
                     sb = sb.Append(serializer.Serialize(response));
                     break;

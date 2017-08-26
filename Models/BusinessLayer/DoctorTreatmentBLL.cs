@@ -59,7 +59,7 @@ namespace Hospital.Models.BusinessLayer
                 TreatmentPro=model.Procedures,
                 Bill_Date=model.TreatmentDate,
                 TreatmentDetails=model.TreatmentDetails,
-                TotalAmount=model.TotalAmount,
+                TotalAmount=model.ProductList.Sum(p=>p.Amount),
             };
             
             objData.tblOTMedicineBills.InsertOnSubmit(tbl);
@@ -103,18 +103,89 @@ namespace Hospital.Models.BusinessLayer
 
         public DoctorTreatResponse Update(DoctorTreatmentModel model)
         {
-            //tblDoctorTreatment tbl = objData.tblDoctorTreatments.Where(p => p.TreatId == model.TreatId).FirstOrDefault();
-            //if (tbl!=null)
-            //{
-            //    tbl.AdmitId = model.AdmitId;
-            //    tbl.DoctorId = model.DoctorId;
-            //    tbl.FollowUpDate = model.FollowUpDate;
-            //    tbl.Procedures = model.Procedures;
-            //    tbl.TreatmentDate = model.TreatmentDate;
-            //    tbl.TreatmentDetails = model.TreatmentDetails;
+            if (model.TreatmentDate==null)
+            {
+                model.TreatmentDate = DateTime.Now;
+            }
+            if (model.FollowUpDate==null)
+            {
+                model.FollowUpDate = DateTime.Now.AddDays(1);
+            }
+            tblOTMedicineBill tbl = objData.tblOTMedicineBills.Where(p => p.BillNo == model.TreatId).FirstOrDefault();
+            if (tbl!=null)
+            {
+                tbl.AdmitId = model.AdmitId;
+                tbl.DoctorId = model.DoctorId;
+                tbl.TreatmentPro=model.Procedures;
+                tbl.Bill_Date=model.TreatmentDate;
+                tbl.TreatmentDetails=model.TreatmentDetails;
+                tbl.TotalAmount = model.ProductList.Sum(p => p.Amount);
+            }
+            foreach (var item in model.ProductList)
+            {
+                if (item.BillDetailId==0)
+                {
+                    tblOTMedicineBillDetail medicine = new tblOTMedicineBillDetail()
+                    {
+                        Amount = item.Amount,
+                        BillNo = tbl.BillNo,
+                        IsDelete = false,
+                        Price = item.Price,
+                        Quantity = item.Quantity,
+                        TabletId = item.ProductId
+                    };
+                    objData.tblOTMedicineBillDetails.InsertOnSubmit(medicine);
 
-            //    objData.SubmitChanges();
-            //}
+                    tblStockDetail stock = new tblStockDetail()
+                    {
+                        ProductId = item.ProductId.Value,
+                        OpeningQtyDate = model.TreatmentDate,
+                        InwardQty = 0,
+                        InwardPrice = 0,
+                        OutwardQty = item.Quantity,
+                        OutwardPrice = item.Price,
+                        DocumentNo =Convert.ToInt32(model.TreatId),
+                        TransactionType = "DT",
+                        IsDelete = false,
+                        BatchNo = item.BatchNo,
+                        ExpiryDate = item.ExpiryDate,
+                        InwardAmount = 0,
+                        OutwardAmount = item.Amount,
+                    };
+                    objData.tblStockDetails.InsertOnSubmit(stock);    
+                }
+                else
+                {
+                    tblOTMedicineBillDetail medicine = objData.tblOTMedicineBillDetails.Where(p=>p.BillDetailId==item.BillDetailId).FirstOrDefault();
+                    if(medicine!=null)
+                    {
+                        medicine.Amount = item.Amount;
+                        medicine.BillNo = tbl.BillNo;
+                        medicine.Price = item.Price;
+                        medicine.Quantity = item.Quantity;
+                        medicine.TabletId = item.ProductId;
+                    };
+
+                    tblStockDetail stock = objData.tblStockDetails.Where(p=>p.ProductId==item.ProductId && p.DocumentNo==model.TreatId && p.TransactionType=="DT").FirstOrDefault();
+                    if(stock!=null)
+                    {
+                        stock.ProductId = item.ProductId.Value;
+                        stock.OpeningQtyDate = model.TreatmentDate;
+                        stock.InwardQty = 0;
+                        stock.InwardPrice = 0;
+                        stock.OutwardQty = item.Quantity;
+                        stock.OutwardPrice = item.Price;
+                        stock.DocumentNo = Convert.ToInt32(model.TreatId);
+                        stock.TransactionType = "DT";
+                        stock.BatchNo = item.BatchNo;
+                        stock.ExpiryDate = item.ExpiryDate;
+                        stock.InwardAmount = 0;
+                        stock.OutwardAmount = item.Amount;
+                    };
+                }
+            }
+            objData.SubmitChanges();
+
             return new DoctorTreatResponse();// { Id = tbl.TreatId, status = 0 };
         }
     }

@@ -1387,19 +1387,6 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tblProductMaster" Member="tblProductMasters">
-    <Type Name="tblProductMaster">
-      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProductName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="UOM" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="SubUOM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="IsReusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ProductTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProductContent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblProductType" Member="tblProductTypes">
     <Type Name="tblProductType">
       <Column Name="ProductTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1484,6 +1471,20 @@
       <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblProductMaster" Member="tblProductMasters">
+    <Type Name="tblProductMaster">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UOM" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SubUOM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="IsReusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProductTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductContent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.GetALLCategories" Method="GetALLCategories">
@@ -1767,20 +1768,6 @@
       <Column Name="OBGY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="InsuranceDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_GetAllProduct" Method="sp_GetAllProduct">
-    <ElementType Name="sp_GetAllProductResult">
-      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ProductName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="UOM" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="SubUOM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="IsReusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ProductTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProductContent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="ProductTyepe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_GetAllRoomDetails" Method="sp_GetAllRoomDetails">
@@ -3400,6 +3387,21 @@
       <Column Name="Bill_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetAllProduct" Method="sp_GetAllProduct">
+    <ElementType Name="sp_GetAllProductResult">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UOM" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SubUOM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="IsReusable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProductTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductContent" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductTyepe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

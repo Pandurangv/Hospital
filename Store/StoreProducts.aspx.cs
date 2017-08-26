@@ -33,7 +33,7 @@ namespace Hospital.Store
             ProductBLL objProductTypes = new ProductBLL();
             serialize.MaxJsonLength = Int32.MaxValue;
             Response.Clear();
-            Response.Output.Write(serialize.Serialize(objProductTypes.GetAllProduct()));
+            Response.Output.Write(serialize.Serialize(objProductTypes.GetAllProduct().Where(p => p.Category == "Store").ToList()));
             Response.End();
         }
 

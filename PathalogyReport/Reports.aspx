@@ -421,7 +421,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                           <tr data-ng-repeat="treat in data">
+                           <tr data-ng-repeat="treat in data.TreatmentList">
                                 <td>
                                     {{treat.EmployeeName}}
                                 </td>
@@ -430,6 +430,16 @@
                                 </td>
                                 <td>
                                     {{treat.TreatmentDetails}}
+                                    <table>
+                                        <tr data-ng-repeat="product in treat.ProductList">
+                                            <td>
+                                                {{product.ProductName}}
+                                            </td>
+                                            <td>
+                                                {{product.Quantity}}
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                                 <td>
                                     {{treat.TreatmentPro}}

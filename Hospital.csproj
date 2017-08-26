@@ -383,6 +383,7 @@
     <Content Include="Store\frmPurchaseOrder.aspx" />
     <Content Include="Store\frmStockDetails.aspx" />
     <Content Include="Store\frmSupplierPayment.aspx" />
+    <Content Include="Store\PresProducts.aspx" />
     <Content Include="Store\ProductType.aspx" />
     <Content Include="Store\StoreProducts.aspx" />
     <Content Include="Style\AdminStyle.css" />
@@ -393,7 +394,9 @@
     <Content Include="svn.ico" />
     <Content Include="Treatment\Nursetreatment.aspx" />
     <Content Include="UserAuthentication\frmUserAuthentication.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1542,6 +1545,13 @@
     </Compile>
     <Compile Include="Store\frmSupplierPayment.aspx.designer.cs">
       <DependentUpon>frmSupplierPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\PresProducts.aspx.cs">
+      <DependentUpon>PresProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\PresProducts.aspx.designer.cs">
+      <DependentUpon>PresProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Store\ProductType.aspx.cs">
       <DependentUpon>ProductType.aspx</DependentUpon>

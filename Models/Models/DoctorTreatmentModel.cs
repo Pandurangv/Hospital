@@ -52,10 +52,10 @@ namespace Hospital.Models.Models
     {
         public DoctorTreatmentChartResponse()
         {
-            TreatmentList = new List<STP_PrintDoctorChartResult>();
+            TreatmentList = new List<EntityOTMedicineBill>();
             ProductList = new List<EntityOTMedicineBillDetails>();
         }
-        public List<STP_PrintDoctorChartResult> TreatmentList { get; set; }
+        public List<EntityOTMedicineBill> TreatmentList { get; set; }
 
         public List<EntityOTMedicineBillDetails>  ProductList { get; set; }
     }
