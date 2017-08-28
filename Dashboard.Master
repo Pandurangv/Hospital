@@ -396,7 +396,6 @@
                         <li ><a href="PathalogyReport/frmItemStockReport.aspx" ><span>Stock Detail Report</span></a></li>
                         <li ><a href="PathalogyReport/frmSupplierOutstandingReport.aspx"><span>Supplier Outstanding</span></a></li>
                         <li ><a href="PathalogyReport/frmOTBedPatientReport.aspx" ><span>OTBedAllocatePatientReport</span></a></li>
-                        <li ><a href="PathalogyReport/frmDailyNursingChart.aspx" ><span>DailyNursingTreatmentChart</span></a></li>
                         <li ><a href="PathalogyReport/frmAdmitedPatientListReport.aspx" ><span>AdmitedPatientList</span></a></li>
                         <li ><a href="PathalogyReport/frmDischargePatientListReport.aspx" ><span>DischargePatientList</span></a></li>
                         <li ><a href="PathalogyReport/frmIPDRegistrationBookReport.aspx" ><span>MonthwiseIPDRecord</span></a></li>

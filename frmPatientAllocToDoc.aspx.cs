@@ -129,7 +129,7 @@ namespace Hospital
                             else
                             {
                                 entPat.PatientId = Convert.ToInt32(ddlPatientName.SelectedValue);
-                                entPat.DocId = Convert.ToInt32(Doc_Id.Value);
+                                entPat.DocId = Convert.ToInt32(ddlDoctorName.SelectedValue);
                                 entPat.AppDate = StringExtension.ToDateTime(txtAppDate.Text).Date;
                                 entPat.Charges = Convert.ToDecimal(txtCharge.Text);
 
@@ -226,7 +226,7 @@ namespace Hospital
             {
                 ImageButton imgEdit = (ImageButton)sender;
                 GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
-                Session["pat_id"] = Convert.ToInt32(dgvAllocPatient.DataKeys[cnt.RowIndex].Value);
+                pat_id.Value = dgvAllocPatient.DataKeys[cnt.RowIndex].Value.ToString();
                 bool IsDischarge = new PatientAllocDocBLL().GetDischargeInfo(Convert.ToInt32(pat_id.Value));
                 if (IsDischarge == false)
                 {

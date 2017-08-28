@@ -125,8 +125,8 @@
                                                             </asp:MenuItem><asp:MenuItem Text="Visiting Doctor" Value="Visiting Doctor" NavigateUrl="~/AnaesthetistMaster.aspx">
                                                             </asp:MenuItem>--%>
                                                             
-                                                            <asp:MenuItem Text="DailyNursingManagement" Value="DailyNursingManagement" NavigateUrl="~/frmDailyNursingManagement.aspx">
-                                                            </asp:MenuItem>
+                                                            <%--<asp:MenuItem Text="DailyNursingManagement" Value="DailyNursingManagement" NavigateUrl="~/frmDailyNursingManagement.aspx">
+                                                            </asp:MenuItem>--%>
                                                             <%--<asp:MenuItem Text="Upload Documents" Value="Upload Documents" NavigateUrl="~/frmUploadDocuments.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="View Documents" Value="View Documents" NavigateUrl="~/frmViewDocument.aspx">
