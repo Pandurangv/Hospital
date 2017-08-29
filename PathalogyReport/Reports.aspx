@@ -137,7 +137,13 @@
         function PrintPanel() {
             w = window.open(null, 'Print_Page', 'scrollbars=yes;');
             var myStyle = '<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" />';
-            w.document.write(myStyle + $('#panel').html());
+            if (reportType != "DoctorTreatmentChart") {
+                w.document.write(myStyle + $('#panel').html());
+            }
+            else {
+                w.document.write(myStyle + $('#Div1').html());
+            }
+            
             w.document.close();
             setTimeout(function () {
                 w.print();
