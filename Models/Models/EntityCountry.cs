@@ -80,7 +80,7 @@ namespace Hospital.Models.Models
 
         public DateTime? Bill_Date { get; set; }
         public int? AdmitId { get; set; }
-        public decimal TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
     }
 
     public class EntityOTMedicineBillDetails

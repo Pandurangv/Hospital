@@ -8052,3 +8052,16 @@ html.ie11 .bs-searchbox .form-control {
     text-decoration: none;
   }
 
+th {
+background-color: #1f91f3 !important;
+color:#fff;
+}
+table tr:nth-child(odd) td{
+background:#ccc;
+}
+table tr:nth-child(even) td{
+background:#fff;
+}
+.form-group.margin-bottom_25 {
+margin-bottom: 0px !important;
+}

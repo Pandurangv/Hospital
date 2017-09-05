@@ -49,6 +49,9 @@
                                     <th>
                                         Print
                                     </th>
+                                    <th>
+                                        Print Bill
+                                    </th>
                                 </tr>
                                 <tbody>
                                     <tr data-ng-repeat="accounttype in SearchTreatmentList">
@@ -68,6 +71,10 @@
                                         <td>
                                             <button type="button" class="btn btn-primary" data-ng-click="Print(accounttype)">
                                                 Print</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-ng-click="PrintBill(accounttype)">
+                                                Print Bill</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -229,9 +236,6 @@
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsProductPrice==true">
                                             <span>{{ErrorMessage}}</span>
                                         </div>
-                                        <%--<div class="col-md-6" data-ng-show="ErrorModel.IsProductAmount==true">
-                                            <span>{{ErrorMessage}}</span>
-                                        </div>--%>
                                     </div>
                                     <div class="col-md-12" data-ng-show="ProductError==true">
                                         <span>{{ErrorMessage}}</span>

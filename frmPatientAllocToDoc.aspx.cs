@@ -171,8 +171,8 @@ namespace Hospital
             ddlDoctorName.SelectedIndex = 0;
             txtPatientType.Text = string.Empty;
             txtAppDate.Text = string.Empty;
-            txtStartTime.Text = string.Empty;
-            txtEndTime.Text = string.Empty;
+            //txtStartTime.Text = string.Empty;
+            //txtEndTime.Text = string.Empty;
             txtCharge.Text = string.Empty;
         }
 
@@ -236,8 +236,8 @@ namespace Hospital
                     ListItem Desig = ddlDoctorName.Items.FindByText(cnt.Cells[2].Text);
                     ddlDoctorName.SelectedValue = Desig.Value;
                     txtAppDate.Text = string.Format("{0:dd/MM/yyy}", StringExtension.ToDateTime(cnt.Cells[3].Text));
-                    txtStartTime.Text = cnt.Cells[4].Text;
-                    txtEndTime.Text = cnt.Cells[5].Text;
+                    //txtStartTime.Text = cnt.Cells[4].Text;
+                    //txtEndTime.Text = cnt.Cells[5].Text;
                     txtCharge.Text = cnt.Cells[6].Text;
                     btnUpdate.Visible = true;
                     BtnSave.Visible = false;
@@ -314,13 +314,13 @@ namespace Hospital
                 }
             }
         }
-        protected void ddlDoctorName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Doc_Id.Value = ddlDoctorName.SelectedValue;
-            EntityShift objShift = new PatientAllocDocBLL().GetStartEndTime(Convert.ToInt32(Doc_Id.Value));
-            txtStartTime.Text = string.Format("{0:hh:mm tt}", objShift.StartTime);
-            txtEndTime.Text = string.Format("{0:hh:mm tt}", objShift.EndTime);
-        }
+        //protected void ddlDoctorName_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Doc_Id.Value = ddlDoctorName.SelectedValue;
+        //    EntityShift objShift = new PatientAllocDocBLL().GetStartEndTime(Convert.ToInt32(Doc_Id.Value));
+        //    txtStartTime.Text = string.Format("{0:hh:mm tt}", objShift.StartTime);
+        //    txtEndTime.Text = string.Format("{0:hh:mm tt}", objShift.EndTime);
+        //}
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try

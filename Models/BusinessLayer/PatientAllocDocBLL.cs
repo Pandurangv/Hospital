@@ -127,12 +127,12 @@ namespace Hospital.Models.BusinessLayer
                         on tbl.PatientId equals tblAdmit.AdmitId
                         join tblPat in objData.tblPatientMasters
                         on tblAdmit.PatientId equals tblPat.PKId
-                        join tblShift in objData.tblShiftAllocEmps
-                        on tbl.DocId equals tblShift.Emp_Id
+                        //join tblShift in objData.tblShiftAllocEmps
+                        //on tbl.DocId equals tblShift.Emp_Id
                         join tblEmp in objData.tblEmployees
-                        on tblShift.Emp_Id equals tblEmp.PKId
-                        join tblShMas in objData.tblShiftMasters
-                        on tblShift.Shift_Id equals tblShMas.ShiftId
+                        on tbl.DocId equals tblEmp.PKId
+                        //join tblShMas in objData.tblShiftMasters
+                        //on tblShift.Shift_Id equals tblShMas.ShiftId
                         join tblI in objData.tblInitials
                         on tblPat.Initial equals tblI.PKId
                         where tbl.IsDelete == false
@@ -142,11 +142,11 @@ namespace Hospital.Models.BusinessLayer
                             PatientName = tblPat.PatientFirstName + " " + tblPat.PatientMiddleName + " " + tblPat.PatientLastName,
                             Emp_Id = tblEmp.PKId,
                             EmpName = tblEmp.EmpFirstName + " " + tblEmp.EmpMiddleName + " " + tblEmp.EmpLastName,
-                            ShiftName = tblShMas.ShiftName,
+                            //ShiftName = tblShMas.ShiftName,
                             AppointDate = tbl.AppDate,
                             Charges = tbl.Charges,
-                            StartTime = tblShMas.StartTime,
-                            EndTime = tblShMas.EndTime
+                            //StartTime = DateTime.Now.TimeOfDay,
+                            //EndTime = tblShMas.EndTime
                         }).ToList();
             }
             catch (Exception ex)

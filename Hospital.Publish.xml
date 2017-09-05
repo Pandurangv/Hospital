@@ -23,7 +23,7 @@
     <file relUrl="bin/AjaxControlToolkit.dll" publishTime="03/27/2017 22:40:46" />
     <file relUrl="js/coin-slider.min.js" publishTime="03/27/2017 22:40:48" />
     <file relUrl="images/Knob/Knob Valid Green.png" publishTime="03/27/2017 22:40:47" />
-    <file relUrl="Store/DoctorTreatment.aspx" publishTime="08/19/2017 17:41:58" />
+    <file relUrl="Store/DoctorTreatment.aspx" publishTime="09/02/2017 20:53:33" />
     <file relUrl="images/Banner/laboratory.png" publishTime="03/27/2017 22:40:46" />
     <file relUrl="images/gal6.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="bin/obout_EasyMenu_Pro.dll" publishTime="03/27/2017 22:40:46" />
@@ -48,6 +48,7 @@
     <file relUrl="Billing/frmICUInvoice.aspx" publishTime="04/30/2017 14:34:00" />
     <file relUrl="Scheduling/frmOTScheduling.aspx" publishTime="04/30/2017 01:38:56" />
     <file relUrl="frmOccupationMaster.aspx" publishTime="05/19/2017 18:46:12" />
+    <file relUrl="css/adminpanelcss/fontcss.css" publishTime="08/21/2017 21:44:24" />
     <file relUrl="Scripts/Bootstrap/spin.js" publishTime="06/04/2017 16:45:11" />
     <file relUrl="images/Justtach-04_011.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/User_256x256.png" publishTime="03/27/2017 22:40:48" />
@@ -60,7 +61,7 @@
     <file relUrl="PathalogyReport/frmDebitNoteReport.aspx" publishTime="04/30/2017 14:40:29" />
     <file relUrl="Scripts/adminpanel/jquery-datatable.js" publishTime="07/19/2017 23:03:32" />
     <file relUrl="frmTestMaster.aspx" publishTime="05/29/2017 23:05:04" />
-    <file relUrl="Scripts/Bootstrap/ReportsController.js" publishTime="08/12/2017 22:35:06" />
+    <file relUrl="Scripts/Bootstrap/ReportsController.js" publishTime="09/03/2017 14:31:36" />
     <file relUrl="images/BirthCertificate.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="Scripts/Bootstrap/angular.min.js" publishTime="06/04/2017 16:45:11" />
     <file relUrl="Notimoo/notimoo-documented-1.1.js" publishTime="03/27/2017 22:40:48" />
@@ -71,12 +72,13 @@
     <file relUrl="Store/frmPurchaseOrder.aspx" publishTime="04/30/2017 14:52:24" />
     <file relUrl="images/Report.bmp" publishTime="03/27/2017 22:40:48" />
     <file relUrl="Sample.aspx" publishTime="05/22/2017 21:33:04" />
-    <file relUrl="Store/StoreProducts.aspx" publishTime="07/23/2017 17:35:19" />
+    <file relUrl="Store/StoreProducts.aspx" publishTime="08/26/2017 14:05:37" />
     <file relUrl="images/BannerImages/mir.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/ICU1.JPG" publishTime="03/27/2017 22:40:47" />
     <file relUrl="Scripts/adminpanel/jquery-datatable/skin/bootstrap/images/sort_both.png" publishTime="07/19/2017 23:03:32" />
     <file relUrl="frmSurgeryMaster.aspx" publishTime="03/29/2017 11:55:47" />
     <file relUrl="Scripts/adminpanel/jquery-datatable/extensions/export/buttons.flash.min.js" publishTime="07/19/2017 23:03:32" />
+    <file relUrl="Store/PresProducts.aspx" publishTime="08/26/2017 12:12:26" />
     <file relUrl="PathalogyReport/frmPatientLedger.aspx" publishTime="06/01/2017 23:37:00" />
     <file relUrl="ExcelReport/MonthwiseSalExcel.aspx" publishTime="04/22/2017 15:57:24" />
     <file relUrl="Store/frmPurchaseInvoice.aspx" publishTime="04/30/2017 14:52:11" />
@@ -85,7 +87,7 @@
     <file relUrl="Store/frmSupplierPayment.aspx" publishTime="06/03/2017 22:12:54" />
     <file relUrl="StoreForms/frmMaterialInword.aspx" publishTime="03/29/2017 22:54:59" />
     <file relUrl="frmGenderMaster.aspx" publishTime="03/30/2017 23:16:45" />
-    <file relUrl="Dashboard.Master" publishTime="08/19/2017 23:18:04" />
+    <file relUrl="Dashboard.Master" publishTime="08/26/2017 19:10:04" />
     <file relUrl="frmViewIPDPatient.aspx" publishTime="04/30/2017 01:06:15" />
     <file relUrl="images/BirthCertificate1.JPG" publishTime="03/27/2017 22:40:47" />
     <file relUrl="css/coin-slider.css" publishTime="03/27/2017 22:40:46" />
@@ -132,7 +134,7 @@
     <file relUrl="images/BannerImages/accounts.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/DeathCertificate.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/BannerImages/cooltext1748792652.png" publishTime="03/27/2017 22:40:47" />
-    <file relUrl="Billing/frmPatientInvoice.aspx" publishTime="05/31/2017 23:11:00" />
+    <file relUrl="Billing/frmPatientInvoice.aspx" publishTime="09/05/2017 17:45:42" />
     <file relUrl="Scripts/Bootstrap/bootstrap.min.js" publishTime="04/09/2017 20:06:23" />
     <file relUrl="About.aspx" publishTime="03/26/2017 23:24:49" />
     <file relUrl="images/BannerImages/HospitalNameDrKhan.png" publishTime="03/27/2017 22:40:47" />
@@ -141,7 +143,7 @@
     <file relUrl="PathalogyReport/frmAdmitedPatientListReport.aspx" publishTime="04/30/2017 01:33:59" />
     <file relUrl="Scripts/adminpanel/bootstrap/css/bootstrap.css" publishTime="07/19/2017 23:03:31" />
     <file relUrl="Scripts/Bootstrap/jquery.min.js" publishTime="04/09/2017 20:05:29" />
-    <file relUrl="PathalogyReport/Reports.aspx" publishTime="08/19/2017 23:29:23" />
+    <file relUrl="PathalogyReport/Reports.aspx" publishTime="09/03/2017 14:42:51" />
     <file relUrl="Style/calender.png" publishTime="03/27/2017 22:40:49" />
     <file relUrl="frmEmployeeMaster.aspx" publishTime="04/30/2017 17:46:14" />
     <file relUrl="images/gal4.jpg" publishTime="03/27/2017 22:40:47" />
@@ -156,7 +158,7 @@
     <file relUrl="images/BannerImages/Receptionist.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/spiffygif_30x30.gif" publishTime="03/27/2017 22:40:48" />
     <file relUrl="images/edit.ico" publishTime="03/27/2017 22:40:47" />
-    <file relUrl="bin/Hospital.dll" publishTime="08/20/2017 11:01:06" />
+    <file relUrl="bin/Hospital.dll" publishTime="09/05/2017 19:26:27" />
     <file relUrl="Scripts/Bootstrap/Main/bootstrap.min.js" publishTime="06/04/2017 16:45:11" />
     <file relUrl="frmStateMaster.aspx" publishTime="03/29/2017 12:02:03" />
     <file relUrl="images/gal1.jpg" publishTime="03/27/2017 22:40:47" />
@@ -165,6 +167,7 @@
     <file relUrl="js/cufon-titillium-250.js" publishTime="03/27/2017 22:40:48" />
     <file relUrl="Scripts/Bootstrap/ProductTypeController.js" publishTime="07/22/2017 18:37:07" />
     <file relUrl="BankTransaction/frmBankMaster.aspx" publishTime="05/27/2017 17:31:15" />
+    <file relUrl="PathalogyReport/frmItemStockReport.aspx" publishTime="04/14/2017 20:54:03" />
     <file relUrl="UserAuthentication/frmUserAuthentication.aspx" publishTime="05/10/2017 23:51:52" />
     <file relUrl="PatientStatus/frmDeathCertificate.aspx" publishTime="06/11/2017 15:37:03" />
     <file relUrl="images/pdficonblack.jpg" publishTime="03/27/2017 22:40:47" />
@@ -178,20 +181,20 @@
     <file relUrl="images/oprogoramowanie-dla-przychodni1.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="StoreForms/frmMaterialRequisiton.aspx" publishTime="03/29/2017 22:49:36" />
     <file relUrl="PathalogyReport/frmSupplierLedger.aspx" publishTime="04/14/2017 20:54:02" />
-    <file relUrl="bin/Hospital.pdb" publishTime="08/20/2017 11:01:05" />
+    <file relUrl="bin/Hospital.pdb" publishTime="09/05/2017 19:26:27" />
     <file relUrl="frmTestParameters.aspx" publishTime="03/29/2017 10:12:42" />
     <file relUrl="images/EndoHold1.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="frmLogin.aspx" publishTime="04/29/2017 20:26:24" />
     <file relUrl="Store/frmDebitNote.aspx" publishTime="04/30/2017 14:49:32" />
     <file relUrl="frmShiftMaster.aspx" publishTime="05/28/2017 13:12:36" />
     <file relUrl="PathalogyReport/frmDatewiseCollection.aspx" publishTime="04/30/2017 01:39:00" />
-    <file relUrl="frmOPDPatientDetail.aspx" publishTime="08/12/2017 11:25:46" />
-    <file relUrl="frmPatientAllocToDoc.aspx" publishTime="05/28/2017 15:20:32" />
+    <file relUrl="frmOPDPatientDetail.aspx" publishTime="09/05/2017 11:12:22" />
+    <file relUrl="frmPatientAllocToDoc.aspx" publishTime="09/05/2017 17:26:08" />
     <file relUrl="images/Final1.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/joint_replacement.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="PathalogyReport/frmDatewiseConsultDoctorReport.aspx" publishTime="05/01/2017 23:20:56" />
     <file relUrl="PathalogyReport/frmTDSReport.aspx" publishTime="04/30/2017 14:42:30" />
-    <file relUrl="PathalogyReport/PathologyReport.aspx" publishTime="08/10/2017 23:15:46" />
+    <file relUrl="PathalogyReport/PathologyReport.aspx" publishTime="09/05/2017 19:08:58" />
     <file relUrl="README.txt" publishTime="03/27/2017 22:40:55" />
     <file relUrl="Scripts/adminpanel/bootstrap/css/bootstrap.min.css" publishTime="07/19/2017 23:03:31" />
     <file relUrl="frmOTMedicineBill.aspx" publishTime="04/30/2017 14:37:27" />
@@ -217,7 +220,7 @@
     <file relUrl="mstmain.Master" publishTime="06/07/2017 23:00:59" />
     <file relUrl="css/Bootstrap/bootstrap.min.css" publishTime="07/01/2017 13:43:38" />
     <file relUrl="frmCurrencyMaster.aspx" publishTime="03/28/2017 19:58:50" />
-    <file relUrl="PathalogyReport/frmItemStockReport.aspx" publishTime="04/14/2017 20:54:03" />
+    <file relUrl="css/adminpanelcss/icon.css" publishTime="08/21/2017 21:44:54" />
     <file relUrl="images/BannerImages/HospitalNameGNH.png" publishTime="04/18/2017 23:12:07" />
     <file relUrl="images/BannerImages/Laboratory.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="frmRoomMaster.aspx" publishTime="05/28/2017 11:09:26" />
@@ -242,7 +245,7 @@
     <file relUrl="images/fotolia_28051798.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="InsuranceClaim/frmCompanyClaim.aspx" publishTime="04/30/2017 14:39:00" />
     <file relUrl="images/Atlas.jpg" publishTime="03/27/2017 22:40:46" />
-    <file relUrl="Scripts/Bootstrap/ProductController.js" publishTime="07/18/2017 23:12:56" />
+    <file relUrl="Scripts/Bootstrap/ProductController.js" publishTime="08/26/2017 14:21:42" />
     <file relUrl="frmTabletMaster.aspx" publishTime="03/29/2017 11:54:24" />
     <file relUrl="images/spine_surgery.jpg" publishTime="03/27/2017 22:40:48" />
     <file relUrl="Scripts/adminpanel/node-waves/waves.min.css" publishTime="07/19/2017 23:03:32" />
@@ -261,7 +264,7 @@
     <file relUrl="bin/System.Web.Extensions.dll" publishTime="03/18/2010 19:31:26" />
     <file relUrl="images/Main_01.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="Scripts/adminpanel/admin.js" publishTime="07/19/2017 23:03:31" />
-    <file relUrl="Scripts/Bootstrap/DoctorTreatmentController.js" publishTime="08/19/2017 23:58:14" />
+    <file relUrl="Scripts/Bootstrap/DoctorTreatmentController.js" publishTime="09/03/2017 14:18:46" />
     <file relUrl="images/BannerImages/Sevadham - Copy.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="bin/AjaxMin.dll" publishTime="03/27/2017 22:40:46" />
     <file relUrl="Scripts/adminpanel/bootstrap/js/bootstrap.min.js" publishTime="07/19/2017 23:03:32" />
@@ -281,13 +284,14 @@
     <file relUrl="images/BannerImages/HospitalNameNagare.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="Scripts/adminpanel/jquery-datatable/extensions/export/jszip.min.js" publishTime="07/19/2017 23:03:32" />
     <file relUrl="frmShiftAllocation.aspx" publishTime="05/28/2017 13:15:38" />
+    <file relUrl="Scripts/Bootstrap/StoreProductController.js" publishTime="08/26/2017 14:18:31" />
     <file relUrl="frmRoomCategoryMaster.aspx" publishTime="05/11/2017 00:16:03" />
     <file relUrl="images/pdf-icon.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/find_test.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="Scripts/jquery-1.4.1.js" publishTime="03/26/2017 23:24:49" />
     <file relUrl="svn.ico" publishTime="03/27/2017 22:40:55" />
     <file relUrl="Scripts/Bootstrap/NurseTreatmentController.js" publishTime="08/08/2017 22:53:24" />
-    <file relUrl="css/adminpanelcss/style.css" publishTime="07/19/2017 23:01:55" />
+    <file relUrl="css/adminpanelcss/style.css" publishTime="08/20/2017 19:40:10" />
     <file relUrl="images/child2.jpg" publishTime="03/27/2017 22:40:47" />
     <file relUrl="images/Knob/Knob Cancel.png" publishTime="03/27/2017 22:40:47" />
     <file relUrl="InsuranceClaim/frmInsuranceClaim.aspx" publishTime="04/30/2017 14:39:35" />
@@ -309,7 +313,7 @@
     <file relUrl="images/slide1.jpg" publishTime="03/27/2017 22:40:48" />
     <file relUrl="frmOPDMaster.aspx" publishTime="03/29/2017 15:08:11" />
     <file relUrl="images/BedImages/bed4.png" publishTime="03/27/2017 22:40:47" />
-    <file relUrl="frmPrescription.aspx" publishTime="08/12/2017 13:36:34" />
+    <file relUrl="frmPrescription.aspx" publishTime="08/31/2017 22:59:09" />
     <file relUrl="frmInitialsMaster.aspx" publishTime="03/30/2017 23:11:39" />
     <file relUrl="js/cufon-yui.js" publishTime="03/27/2017 22:40:48" />
     <file relUrl="frmOPDPatient.aspx" publishTime="07/24/2017 23:40:13" />
@@ -333,6 +337,6 @@
     <file relUrl="Scripts/adminpanel/jquery-datatable/extensions/export/vfs_fonts.js" publishTime="07/19/2017 23:03:32" />
     <file relUrl="Scripts/Bootstrap/DailyCollection.js" publishTime="07/20/2017 23:44:28" />
     <file relUrl="css/content.css" publishTime="03/27/2017 22:40:46" />
-    <file relUrl="mstAdmin.Master" publishTime="07/31/2017 23:51:37" />
+    <file relUrl="mstAdmin.Master" publishTime="08/26/2017 19:09:07" />
   </publishProfile>
 </publishData>

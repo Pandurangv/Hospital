@@ -275,6 +275,19 @@ namespace Hospital.Models.DataLayer
                 return _PatientId;
             }
         }
+
+        public int ReceiptNo
+        {
+            get
+            {
+                int _PatientId = 0;
+                if (HttpContext.Current.Request.QueryString.Count > 0 && HttpContext.Current.Request["ReceiptNo"] != null)
+                {
+                    _PatientId = Convert.ToInt32(HttpContext.Current.Request["ReceiptNo"]);
+                }
+                return _PatientId;
+            }
+        }
     }
 
     public enum BrowserType
@@ -312,32 +325,20 @@ namespace Hospital.Models.DataLayer
         {
             get
             {
-                string Id = HttpContext.Current.Session.SessionID;
-                var userdata = objData.tblUserDatas.Where(p => p.SessionId == Id).FirstOrDefault();
-                if (userdata==null)
+                if (HttpContext.Current.Session["user"] != null)
+                {
+                    return (EntityEmployee)HttpContext.Current.Session["user"];
+                }
+                else
                 {
                     return null;
                 }
-                EntityEmployee emp = serializer.Deserialize<EntityEmployee>(userdata.UserData);
-                return emp;
             }
             set
             {
                 try
                 {
-                    string data = serializer.Serialize(value);
-                    tblUserData user = objData.tblUserDatas.Where(p => p.UserId == value.PKId).FirstOrDefault(); 
-                    if (user!=null)
-                    {
-                        user.SessionId = HttpContext.Current.Session.SessionID;
-                    }
-                    else
-                    {
-                        user = new tblUserData() { SessionId = HttpContext.Current.Session.SessionID, UserId = value.PKId, UserData = data };
-                        objData.tblUserDatas.InsertOnSubmit(user);
-                    }
-                    objData.SubmitChanges();
-                    HttpContext.Current.Session["user"] = data;
+                    HttpContext.Current.Session["user"] = value;
                 }
                 catch (Exception ex)
                 {

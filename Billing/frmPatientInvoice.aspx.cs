@@ -33,6 +33,7 @@ namespace Hospital.Billing
         public void BindPatients()
         {
             List<EntityPatientMaster> ldtRequisition = mobjPatientMasterBLL.GetPatientList().Where(p=>p.IsDischarged==false).ToList();
+            ldtRequisition.Insert(0, new EntityPatientMaster() { AdmitId = 0, FullName="--Select Patient--" });
             ddlPatient.DataSource = ldtRequisition;
             ddlPatient.DataValueField = "AdmitId";
             ddlPatient.DataTextField = "FullName";
@@ -44,20 +45,20 @@ namespace Hospital.Billing
             if (ddlBillType.SelectedItem.Text == "Intermediate")
             {
                 BindPatients();
-                Label4.Visible = false;
+                //Label4.Visible = false;
                 txtPatientType.Visible = false;
             }
             else
             {
                 if (btnUpdate.Enabled == true)
                 {
-                    Label4.Visible = true;
+                    //Label4.Visible = true;
                     txtPatientType.Visible = true;
                 }
                 else
                 {
                     BindPatients();
-                    Label4.Visible = true;
+                    //Label4.Visible = true;
                     txtPatientType.Visible = true;
                 }
             }
@@ -358,7 +359,7 @@ namespace Hospital.Billing
             txtBillDate.Enabled = true;
             lblWard.Visible = false;
             txtWard.Visible = false;
-            Label4.Visible = false;
+            //Label4.Visible = false;
             txtPatientType.Visible = false;
             BtnSave.Visible = true;
             btnUpdateCharge.Visible = false;
@@ -478,15 +479,15 @@ namespace Hospital.Billing
                         }
                         else
                         {
-                            if (ddlBillType.SelectedIndex == 0)
-                            {
-                                lblMsg.Text = "Please Select Bill Type";
-                                ddlBillType.Focus();
-                                return;
-                            }
+                            //if (ddlBillType.SelectedIndex == 0)
+                            //{
+                            //    lblMsg.Text = "Please Select Bill Type";
+                            //    ddlBillType.Focus();
+                            //    return;
+                            //}
 
                             entInvoice.PatientId = Convert.ToInt32(ddlPatient.SelectedValue);
-                            entInvoice.BillType = Convert.ToString(ddlBillType.SelectedItem.Text);
+                            entInvoice.BillType = "Original";// Convert.ToString(ddlBillType.SelectedItem.Text);
                             entInvoice.PreparedByName = SessionManager.Instance.LoginUser.EmpName;
                             entInvoice.PatientType = Convert.ToString(txtPatientType.Text);
                             entInvoice.Amount = Convert.ToDecimal(txtTotal.Text);
@@ -1018,12 +1019,12 @@ namespace Hospital.Billing
 
                     if (ddlBillType.SelectedItem.Text == "Intermediate")
                     {
-                        Label4.Visible = false;
+                        //Label4.Visible = false;
                         txtPatientType.Visible = false;
                     }
                     else
                     {
-                        Label4.Visible = true;
+                        //Label4.Visible = true;
                         txtPatientType.Visible = true;
                         EntityPatientMaster Cate = mobjDeptBLL.GetPatientCate(Convert.ToInt32(Pat_Id.Value));
                         EntityPatientAlloc objTxt = new PatientAllocDocBLL().GetPatientType(Convert.ToInt32(ddlPatient.SelectedValue));

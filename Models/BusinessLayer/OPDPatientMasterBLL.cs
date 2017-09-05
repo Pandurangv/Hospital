@@ -465,6 +465,19 @@ namespace Hospital.Models.BusinessLayer
             }
             return lst;
         }
+
+        internal void ReadmitPatient(int PatientId)
+        {
+            int cnt = objData.tblPatientAdmitDetails.Where(p => p.PatientId == PatientId && p.IsDischarge==false).Count();
+            if (cnt>0)
+            {
+                objData.STP_ReadmitPatient(PatientId);
+            }
+            else
+            {
+                throw new Exception("Patient not discharged yet.");
+            }
+        }
     }
 
     

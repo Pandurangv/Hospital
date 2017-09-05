@@ -2,12 +2,14 @@
     $scope.data = [];
     $scope.ReportType = "";
     $scope.PatientInfo = {};
+    //$scope.ProductList = [];
     $scope.LanTypeValues = { Morning: "Morning", Afternoon: "Afternoon", Evening: "Evening", BeforeLunch: "Before Eating", AfterLunch: "After Eating" };
     $scope.init = function () {
         $scope.ReportType = reportType;
         $scope.data = data;
-        if ($scope.ReportType == "DoctorTreatmentChart") {
+        if ($scope.ReportType == "DoctorTreatmentChart" || $scope.ReportType == "OTMedicinBill") {
             $scope.PatientInfo = $scope.data.TreatmentList[0];
+            //$scope.ProductList == $scope.PatientInfo.ProductList;
         }
         if ($scope.data.length > 0) {
             $scope.PatientInfo = $scope.data[0];

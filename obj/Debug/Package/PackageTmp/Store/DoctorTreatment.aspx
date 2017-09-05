@@ -49,6 +49,9 @@
                                     <th>
                                         Print
                                     </th>
+                                    <th>
+                                        Print Bill
+                                    </th>
                                 </tr>
                                 <tbody>
                                     <tr data-ng-repeat="accounttype in SearchTreatmentList">
@@ -69,6 +72,10 @@
                                             <button type="button" class="btn btn-primary" data-ng-click="Print(accounttype)">
                                                 Print</button>
                                         </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-ng-click="PrintBill(accounttype)">
+                                                Print Bill</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -88,24 +95,20 @@
                                 <input type="hidden" data-ng-model="TreatmentModel.TreatId" />
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlPType">
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlDoctors">
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsPatientName==true">
@@ -117,68 +120,59 @@
                                     </div>
                                     <!--Second Level-->
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <input type="text" placeholder="Treatment Date" id="txtTreatmentDate" maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <input type="text" placeholder="Treatment Details" data-ng-model="TreatmentModel.TreatmentDetails"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="col-md-6">
-                                        </div>
-                                        <div class="col-md-6" data-ng-show="ErrorModel.IsTreatment==true">
-                                            <span>{{ErrorMessage}}</span>
-                                        </div>
+                                    <div class="col-md-6">
                                     </div>
-                                    <!--End Second Level-->
+                                    <div class="col-md-6" data-ng-show="ErrorModel.IsTreatment==true">
+                                        <span>{{ErrorMessage}}</span>
+                                    </div>
+                                   
 
                                      <!--Third Level-->
+                                     <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <input type="text" placeholder="Procedures" data-ng-model="TreatmentModel.Procedures"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
+                                     </div>
+
                                     
                                      <!--End Third Level-->
-                                     <!-- Fourth Level -->
+
                                      <div class="col-md-12">
                                         <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlProduct" data-ng-click="ProductChange()">
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <input type="text" placeholder="Quantity" data-ng-model="ProductModel.Quantity" maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsProductName==true">
@@ -190,13 +184,9 @@
                                     </div>
                                      </div>
 
-                                     <!-- End Fourth Level -->
-
-                                     <!-- Fourth Level -->
                                      <div class="col-md-12">
                                         <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlBatch" data-ng-show="CheckBatchNo==true">
                                                     </select>
@@ -204,11 +194,9 @@
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <select class="form-control setMargin" id="ddlExpiry" data-ng-show="CheckBatchNo==true">
                                                     </select>
@@ -216,7 +204,6 @@
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsProductBatch==true">
@@ -228,47 +215,38 @@
                                     </div>
                                      </div>
 
-                                     <!-- End Fourth Level -->
-
-                                     <!-- Fifth Level -->
                                      <div class="col-md-12">
                                         <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Price" data-ng-model="ProductModel.Price"
-                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                    <input type="text" placeholder="Price" data-ng-model="ProductModel.Price" maxlength="50"
+                                                        minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Amount" data-ng-model="ProductModel.Amount"
-                                                        maxlength="200" minlength="2" class="form-control setMargin" />
+                                                    <input type="text" placeholder="Amount" data-ng-model="ProductModel.Amount" maxlength="50"
+                                                        minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsProductPrice==true">
-                                            <span>{{ErrorMessage}}</span>
-                                        </div>
-                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductAmount==true">
                                             <span>{{ErrorMessage}}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-12" data-ng-show="ProductError==true">
                                         <span>{{ErrorMessage}}</span>
                                     </div>
+
                                     <div class="col-md-12">
-                                        <button class="btn btn-Default" data-ng-show="AddProduct==true" data-ng-click="SaveProduct(true)">Add</button>
-                                        <button class="btn btn-Default" data-ng-show="EditProduct==true" data-ng-click="SaveProduct(false)">Update</button>
+                                        <button class="btn btn-Default" data-ng-show="AddProduct==true" data-ng-click="SaveProduct(true)" data-ng-disabled="DisableButton">Add</button>
+                                        <button class="btn btn-Default" data-ng-show="EditProduct==true" data-ng-click="SaveProduct(false)" data-ng-disabled="DisableButton">Update</button>
                                         <button class="btn btn-Default">Cancel</button>
                                     </div>
-                                         <div class="col-md-12" data-ng-show="AddedProductList.length>0">
+                                        <div class="col-md-12" data-ng-show="AddedProductList.length>0">
                                              <table class="table table-bordered">
                                                  <tr>
                                                      <th>
@@ -322,14 +300,12 @@
                                              </table>
                                          </div>
                                      </div>
-
-                                     <!-- End Fifth Level -->
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true">
+                                        <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true" data-ng-disabled="DisableButton">
                                             Save</button>
-                                        <button type="button" class="btn btn-primary" data-ng-click="Save(false)" data-ng-show="Edit==true">
+                                        <button type="button" class="btn btn-primary" data-ng-click="Save(false)" data-ng-show="Edit==true" data-ng-disabled="DisableButton">
                                             Update</button>
-                                        <button type="button" class="btn btn-primary" data-ng-click="CancelProduct()">
+                                        <button type="button" class="btn btn-primary" data-ng-click="CancelClick()">
                                             Cancel</button>
                                     </div>
                                 </div>

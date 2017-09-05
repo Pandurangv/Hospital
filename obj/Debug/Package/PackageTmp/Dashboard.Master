@@ -8,8 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Ganga Nursing Home</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+    <link href="../css/adminpanelcss/fontcss.css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
+    <link href="../css/adminpanelcss/icon.css?family=Material+Icons" rel="stylesheet" type="text/css" />
     <link href="../Scripts/adminpanel/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="../Scripts/adminpanel/node-waves/waves.css" rel="stylesheet" />
     <link href="../css/adminpanelcss/style.css" rel="stylesheet" />
@@ -83,17 +83,13 @@
                             <span>Masters</span>
                         </a>
                         <ul class="ml-menu">
-                            <li><a href="../frmEmployeeMaster.aspx"><span>Employee Master</span></a></li>
+                            
                        <li><a href="../UserAuthentication/frmUserAuthentication.aspx"><span>
                             User Autherization
                        </span>
                           </a>
                        </li>
-                       <li><a href="../frmDepartmentMaster.aspx"><span>
-                                Department Master
-                            </span>
-                          </a>
-                       </li>
+                       
                        <li><a href="../frmRoomCategoryMaster.aspx">
                             <span>
                             Room Rate Master</span>
@@ -150,9 +146,9 @@
                             </span>
                           </a>
                        </li>
-                       <li><a href="../Store/StoreProducts.aspx">
+                       <li><a href="../Store/PresProducts.aspx">
                             <span>
-                                Medicine Master
+                                Prescription Products
                             </span>
                           </a>
                        </li>
@@ -178,11 +174,7 @@
                        </span>
                           </a>
                        </li>
-                       <li><a href="../frmPrescription.aspx"><span>
-                        Prescription Master
-                       </span>
-                          </a>
-                       </li>
+                       
                        <li><a href="../frmDocCategory.aspx"><span>
                         Incharge Doctor
                        </span>
@@ -196,10 +188,7 @@
                             <span>Patient Masters</span>
                         </a>
                         <ul class="ml-menu">
-                            <li ><a href="../Store/DoctorTreatment.aspx">
-                                    <span>Doctor Treatment</span>
-                                </a>
-                            </li>
+                            
                             <li ><a href="../frmOPDPatientDetail.aspx">
                                     <span>New Patient Registration</span>
                                 </a>
@@ -220,6 +209,17 @@
                                     <span>Bed Allocation To Patient</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="../frmPrescription.aspx">
+                                    <span>
+                                        Prescription Master
+                                    </span>
+                                </a>
+                            </li>
+                            <li ><a href="../Store/DoctorTreatment.aspx">
+                                    <span>Doctor Treatment</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -228,6 +228,13 @@
                             <span>Payroll</span>
                         </a>
                         <ul class="ml-menu">
+                            
+                            <li><a href="../frmDepartmentMaster.aspx"><span>
+                                    Department Master
+                                </span>
+                              </a>
+                            </li>
+                            <li><a href="../frmEmployeeMaster.aspx"><span>Employee Master</span></a></li>
                             <li><a href="../Payroll/frmAllowanceDeduction.aspx">
                                     <span>Allowance/Deductions</span>
                                 </a>
@@ -327,6 +334,12 @@
                             <span>Store</span>
                         </a>
                         <ul class="ml-menu">
+                            <li><a href="../Store/StoreProducts.aspx">
+                            <span>
+                                Store Products
+                            </span>
+                          </a>
+                       </li>
                             <li ><a href="../Store/frmPurchaseOrder.aspx" >
                                     <span>Purchase Order</span>
                                 </a>
@@ -383,7 +396,6 @@
                         <li ><a href="PathalogyReport/frmItemStockReport.aspx" ><span>Stock Detail Report</span></a></li>
                         <li ><a href="PathalogyReport/frmSupplierOutstandingReport.aspx"><span>Supplier Outstanding</span></a></li>
                         <li ><a href="PathalogyReport/frmOTBedPatientReport.aspx" ><span>OTBedAllocatePatientReport</span></a></li>
-                        <li ><a href="PathalogyReport/frmDailyNursingChart.aspx" ><span>DailyNursingTreatmentChart</span></a></li>
                         <li ><a href="PathalogyReport/frmAdmitedPatientListReport.aspx" ><span>AdmitedPatientList</span></a></li>
                         <li ><a href="PathalogyReport/frmDischargePatientListReport.aspx" ><span>DischargePatientList</span></a></li>
                         <li ><a href="PathalogyReport/frmIPDRegistrationBookReport.aspx" ><span>MonthwiseIPDRecord</span></a></li>

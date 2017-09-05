@@ -235,11 +235,10 @@
                                                                         MaxLength="30" Width="150px"></asp:TextBox>
                                                                 </td>
                                                             </tr>
-
                                                             <tr>
                                                                 <td align="right">
                                                                     <asp:Label ID="Label17" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                        ForeColor="#3b3535" Text="Injection : "></asp:Label>
+                                                                        ForeColor="#3b3535" Text="Language : "></asp:Label>
                                                                 </td>
                                                                 <td align="left">
                                                                     <asp:DropDownList ID="ddlLanType" runat="server" Width="150px">

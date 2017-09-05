@@ -58,6 +58,11 @@ namespace Hospital.Models.BusinessLayer
             return obj;
         }
 
+        public List<tblPatientAdmitDetail> AdmitPatientList()
+        {
+            return objData.tblPatientAdmitDetails.ToList();
+        }
+
         public tblPatientMaster GetPatientbyCode(int id)
         {
             tblPatientMaster obj = null;

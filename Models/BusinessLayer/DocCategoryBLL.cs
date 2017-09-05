@@ -89,7 +89,9 @@ namespace Hospital.Models.BusinessLayer
                 tblDocCategory obj = new tblDocCategory()
                 {
                     OperaCatId = entOpera.OperaCatId,
-                    DocId = entOpera.DocId
+                    DocId = entOpera.DocId,
+                    Charges=0,
+                    IsDelete=false
                 };
                 objData.tblDocCategories.InsertOnSubmit(obj);
                 objData.SubmitChanges();

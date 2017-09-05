@@ -160,7 +160,7 @@
                 {
                     sb.Append("<tr style='width:100%'>");
                     sb.Append("<td style='width:15%;' align='left'><strong>Bill No </strong></td><td style='width:25%;' align='left'><strong>:- ");
-                    sb.Append(Convert.ToInt32(Session["BILLNo"])).Append("</strong></td><td style='width:15%;'></td>");
+                    sb.Append(Hospital.Models.DataLayer.QueryStringManager.Instance.BILLNo).Append("</strong></td><td style='width:15%;'></td>");
                     sb.Append("<td style='width:20%;' align='left'><strong>Date </strong></td><td style='width:25%;' align='left'><strong> :- ");
                     sb.Append(string.Format("{0:dd/MM/yyyy}", lstBill[0].BillDate)).Append("</strong></td></tr>"); 
                 }
@@ -368,7 +368,7 @@
             {
                 StringBuilder sb = new StringBuilder();
 
-                List<Hospital.Models.DataLayer.STP_PrintReceiptResult> lstBill = objData.STP_PrintReceipt(Convert.ToInt32(Session["ReceiptNo"])).ToList();
+                List<Hospital.Models.DataLayer.STP_PrintReceiptResult> lstBill = objData.STP_PrintReceipt(Convert.ToInt32(Hospital.Models.DataLayer.QueryStringManager.Instance.ReceiptNo)).ToList();
                 if (lstBill.Count > 0)
                 {
                     if (lstBill[0].IsCheque == true && lstBill[0].PatientCategory=="Self")

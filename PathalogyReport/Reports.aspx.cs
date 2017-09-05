@@ -32,6 +32,8 @@ namespace Hospital.PathalogyReport
         public string GetReportData()
         {
             CriticareHospitalDataContext objData = new CriticareHospitalDataContext();
+            OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
+            List<EntityOTMedicineBillDetails> lst = new List<EntityOTMedicineBillDetails>();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength=Int32.MaxValue;
             string ReportType = QueryStringManager.Instance.ReportType;
@@ -49,8 +51,6 @@ namespace Hospital.PathalogyReport
                     sb =sb.Append(serializer.Serialize(objData.STP_PrintPrescription(Hospital.Models.DataLayer.QueryStringManager.Instance.Prescription_Id).ToList()));
                     break;
                 case "DoctorTreatmentChart":
-                    OTMedicineBillBLL mobjPatientMasterBLL = new OTMedicineBillBLL();
-                    List<EntityOTMedicineBillDetails> lst = new List<EntityOTMedicineBillDetails>();
                     var response = new DoctorTreatmentChartResponse()
                     {
                         TreatmentList =
@@ -71,6 +71,31 @@ namespace Hospital.PathalogyReport
                     }
                     sb = sb.Append(serializer.Serialize(response));
                     break;
+                case "OTMedicinBill":
+                    var responsebill = new DoctorTreatmentChartResponse()
+                    {
+                        TreatmentList =
+                                (from tbl in objData.STP_PrintDoctorChart(Hospital.Models.DataLayer.QueryStringManager.Instance.AdmitId)
+                                 where tbl.BillNo==Hospital.Models.DataLayer.QueryStringManager.Instance.BILLNo
+                                 select new EntityOTMedicineBill
+                                 {
+                                     BillNo = tbl.BillNo,
+                                     Bill_Date = tbl.Bill_Date,
+                                     EmployeeName = tbl.EmployeeName,
+                                     PatientCode = tbl.PatientCode,
+                                     PatientName = tbl.PatientName,
+                                     TreatmentDetails = tbl.TreatmentDetails,
+                                     TreatmentPro = tbl.TreatmentPro,
+                                     TotalAmount = mobjPatientMasterBLL.GetBillProducts(Hospital.Models.DataLayer.QueryStringManager.Instance.BILLNo).Sum(p=>p.Price * p.Quantity),
+                                 }).ToList()
+                    };
+                    foreach (var item in responsebill.TreatmentList)
+                    {
+                        item.ProductList.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
+                    }
+                    sb = sb.Append(serializer.Serialize(responsebill));
+                    break;
+
             }
             return sb.ToString();
         }

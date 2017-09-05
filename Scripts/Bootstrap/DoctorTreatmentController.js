@@ -27,7 +27,16 @@
     $scope.TreatmentModel = { TreatId: 0, TreatmentDate: "", DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
 
     $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0 };
-    $scope.ErrorModel = { IsPatientName: false,IsDoctorName:false,IsTreatment:false,IsProductName:false,IsProductQuantity:false,IsProductPrice:false,IsProductAmount:false,ProductExist:false };
+    $scope.ErrorModel = { 
+        IsPatientName: false,
+        IsDoctorName:false,
+        IsTreatment:false,
+        IsProductName:false,
+        IsProductQuantity:false,
+        IsProductPrice:false,
+        IsProductAmount:false,
+        ProductExist:false 
+    };
     $scope.ErrorMessage = ""
     
     /// Declaration of Flags
@@ -113,10 +122,6 @@
                             $scope.CheckBatchNo=false;
                         }
                         $("#ddlExpiry").html(html1);
-//                        if (productmodel!==undefined) {
-//                            $("#ddlBatch").val(productmodel.BatchNo);
-//                            $("#ddlExpiry").val(productmodel.ExpiryDate);
-//                        }
                     }
                 },
                 function (response) {
@@ -136,7 +141,7 @@
             $scope.ErrorModel.IsProductName = false;
         }
 
-        if ($scope.ProductModel.Quantity=="") {
+        if ($scope.ProductModel.Quantity=="" || $scope.ProductModel.Quantity==0) {
             $scope.ErrorModel.IsProductQuantity = true;
             $scope.ErrorMessage = "Product quantity should be filled.";
             return false;
@@ -179,6 +184,20 @@
             else {
                 $scope.ErrorModel.IsProductExpiry = false;
             }
+        }
+
+        if ($scope.ProductModel.Price=="" || $scope.ProductModel.Price=="0") {
+            if ($scope.ProductModel.Amount=="" || $scope.ProductModel.Amount=="0") {
+                $scope.ErrorModel.IsProductPrice = true;
+                $scope.ErrorMessage = "Product Price should be selected.";
+                return false;
+            }
+            else {
+                $scope.ProductModel.Price=$scope.ProductModel.Amount/$scope.ProductModel.Quantity;
+            }
+        }
+        else {
+            $scope.ErrorModel.IsProductPrice = false;
         }
         
         $scope.DisableButton=true;
@@ -256,6 +275,7 @@
         $scope.Edit = false;
     }
 
+    
 
     function GetPatientList()
     {
@@ -389,6 +409,12 @@
         window.location=url;
     }
 
+    $scope.PrintBill=function(TreatmentModel)
+    {
+        var url = GetVirtualDirectory() + '/PathalogyReport/Reports.aspx?ReportType=OTMedicinBill&BillNo='+ TreatmentModel.TreatId + "&AdmitId="+ TreatmentModel.AdmitId;
+        window.location=url;
+    }
+    
     $scope.Save = function (isEdit) {
         if ($("#ddlPType").val()=="0") {
             $scope.ErrorModel.IsPatientName = true;

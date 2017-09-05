@@ -199,17 +199,9 @@ namespace Hospital.Models.BusinessLayer
 
         public List<EntityPatientInvoice> GetConsultChargesOPD(int PatID)
         {
-            List<EntityPatientInvoice> lst = (from tbl in objData.tblPatientMasters
-                                              join tblAdmit in objData.tblPatientAdmitDetails
-                                              on tbl.PKId equals tblAdmit.PatientId
-                                              join tblDocCat in objData.tblDocCategories
-                                              on tbl.DeptCategory equals tblDocCat.OperaCatId
-                                              //join tblDocCat1 in objData.tblDocCategories
-                                              //on tbl.DeptDoctorId equals tblDocCat1.DocId
-                                              where tblAdmit.AdmitId.Equals(PatID)
-                                              //&& tbl.DeptCategory.Equals(tblDocCat.OperaCatId)
-                                              //&& tbl.DeptDoctorId.Equals(tblDocCat.DocId)
-                                              select new EntityPatientInvoice { DocAllocId = Convert.ToInt32(tblAdmit.AdmitId), Amount = tblDocCat.Charges }).ToList();
+            List<EntityPatientInvoice> lst = (from tbl in objData.tblPatientAllocToDocs
+                                              where tbl.PatientId==PatID
+                                              select new EntityPatientInvoice { DocAllocId = Convert.ToInt32(tbl.PatientId), Amount = tbl.Charges }).ToList();
             return lst;
         }
 

@@ -285,17 +285,22 @@
                                             <table style="margin-right: 2px;">
                                                 <tr>
                                                     <td align="right">
-                                                        <asp:Label ID="lblBillType" Text="Bill Type :" runat="server" ForeColor="#3b3535" />
+                                                        <asp:Label ID="lblBillType" Text="Patient Name :" runat="server" ForeColor="#3b3535" />
                                                     </td>
                                                     <td>
-                                                        <asp:DropDownList ID="ddlBillType" runat="server" Font-Names="Verdana" Font-Size="11px" 
+                                                        <asp:DropDownList ID="ddlBillType" runat="server" Font-Names="Verdana" Font-Size="11px"  Visible="false"
                                                             Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlBillType_IndexChanged">
                                                             <asp:ListItem Selected="True" Text="--Select --" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="Intermediate" Value="Intermediate"></asp:ListItem>
                                                             <asp:ListItem Text="Estimated" Value="Estimated"></asp:ListItem>
-                                                            <asp:ListItem Text="Original" Value="Original"></asp:ListItem>
+                                                            <asp:ListItem Text="Original" Value="Original" Selected="True"></asp:ListItem>
                                                         </asp:DropDownList>
-                                                        
+                                                        <asp:DropDownList ID="ddlPatient" runat="server" Width="150px" AutoPostBack="True"
+                                                            OnSelectedIndexChanged="ddlPatient_SelectedIndexChanged">
+                                                        </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
+                                                            ControlToValidate="ddlPatient" Font-Size="13" ValidationGroup="Save" ErrorMessage="*"
+                                                            InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
                                                     </td>
                                                     <td align="right">
                                                         <asp:Label ID="lblDate" Text="Billing Date :" runat="server" ForeColor="#3b3535" />
@@ -312,27 +317,22 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <asp:Label ID="lblPatientName" Text="Patient Name :" runat="server" ForeColor="#3b3535" />
+                                                        <asp:Label ID="lblPatientName" Text="Patient Type :" runat="server" ForeColor="#3b3535" />
                                                     </td>
                                                     <td align="left">
-                                                        <asp:DropDownList ID="ddlPatient" runat="server" Width="150px" AutoPostBack="True"
-                                                            OnSelectedIndexChanged="ddlPatient_SelectedIndexChanged">
-                                                        </asp:DropDownList>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
-                                                            ControlToValidate="ddlPatient" Font-Size="13" ValidationGroup="Save" ErrorMessage="*"
-                                                            InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                        <asp:TextBox ID="txtPatientType" runat="server" Font-Names="Verdana" Font-Size="11px" 
+                                                            Width="120px"></asp:TextBox>
                                                     </td>
                                                     <td align="right">
-                                                        <asp:Label ID="Label4" Text="Patient Type :" runat="server" ForeColor="#3b3535" />
+                                                        <asp:Label ID="Label10" Text=" &nbsp; Is Cash :" runat="server" ForeColor="#3b3535" />
+                                                        <asp:CheckBox ID="chkIsCash" runat="server" Checked="false" />
                                                         <cc:CalendarExtender ID="CalBillDate" runat="server" TargetControlID="txtBillDate"
                                                             Format="dd/MM/yyyy" DaysModeTitleFormat="dd/MM/yyyy" TodaysDateFormat="dd/MM/yyyy">
                                                         </cc:CalendarExtender>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtPatientType" runat="server" Font-Names="Verdana" Font-Size="11px" 
-                                                            Width="120px"></asp:TextBox>
-                                                        <asp:Label ID="Label10" Text=" &nbsp; Is Cash :" runat="server" ForeColor="#3b3535" />
-                                                        <asp:CheckBox ID="chkIsCash" runat="server" Checked="false" />
+                                                        
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>

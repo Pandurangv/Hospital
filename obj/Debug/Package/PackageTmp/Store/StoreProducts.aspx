@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="container-fluid">
-    <div class="row clearfix" data-ng-app="HospitalApp" data-ng-controller="ProductController">
+    <div class="row clearfix" data-ng-app="HospitalApp" data-ng-controller="StoreProductController">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
      <div class="card">
     <div class="header">
@@ -170,5 +170,5 @@
 </div>
 </div>
 </div>
-<script type="text/javascript" src="../Scripts/Bootstrap/ProductController.js"></script>
+<script type="text/javascript" src="../Scripts/Bootstrap/StoreProductController.js"></script>
 </asp:Content>
