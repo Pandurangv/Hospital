@@ -8,13 +8,16 @@ namespace Hospital.Models
 {
     public class BasePage : System.Web.UI.Page
     {
-        public void AuthenticateUser()
+        public bool AuthenticateUser()
         {
+            bool IsLogin = true;
             if (SessionManager.Instance.LoginUser==null)
             {
+                IsLogin = false;
                 SessionManager.Instance.LogOut();
-                HttpContext.Current.Response.Redirect("~/frmLogin.aspx", false);
+                HttpContext.Current.Response.Redirect("~/frmLogin.aspx", true);
             }
+            return IsLogin;
         }
     }
 }
