@@ -75,7 +75,7 @@ namespace Hospital.Store
             serialize.MaxJsonLength = Int32.MaxValue;
             response.DoctorTreatmentList =objProductTypes.GetTreatmentDetails();
             response.PatientList = ldtRequisition;
-            List<sp_GetAllProductResult> lstp = objProducts.GetAllProduct();
+            List<sp_GetAllProductResult> lstp = objProducts.GetAllProduct().Where(p=>p.Category=="Store").ToList();
             lstp.Insert(0, new sp_GetAllProductResult() { ProductId=0,ProductName="----Select Product----"});
             response.ProductList = lstp;
             Response.Clear();

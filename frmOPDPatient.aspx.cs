@@ -98,7 +98,7 @@ namespace Hospital
                         txtRefDoctor.Text = ldtPat.ReferedBy;
                         txtDignosys.Text = ldtPat.Dignosys;
 
-                        tblPatientAdmitDetail admit = mobjPatient.AdmitPatientList().Where(p => p.PatientId == Convert.ToInt32(QueryStringManager.Instance.PatientId) && p.IsDischarge == false).FirstOrDefault();
+                        tblPatientAdmitDetail admit = mobjPatient.AdmitPatientList().Where(p => p.PatientId == Convert.ToInt32(QueryStringManager.Instance.PatientId)).OrderByDescending(p=>p.AdmitId).FirstOrDefault();
                         if (admit!=null)
                         {
                             txtProvDiag.Text = admit.ProvDiag;//"].ToString();
@@ -300,7 +300,7 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
-                if (ddlDeptDoctor.Items.Count == 0 || ddlDeptDoctor.SelectedIndex == 0)
+                if (ddlDeptDoctor.Items.Count == 0)
                 {
                     lblMsg.Text = "Please Select dept doctor.";
                     return;
@@ -743,7 +743,7 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
-                if (ddlDeptDoctor.Items.Count==0 || ddlDeptDoctor.SelectedIndex==0)
+                if (ddlDeptDoctor.Items.Count==0)
                 {
                     lblMsg.Text = "Please Select dept doctor.";
                     return;

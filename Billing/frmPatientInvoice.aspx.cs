@@ -492,11 +492,11 @@ namespace Hospital.Billing
                             entInvoice.PatientType = Convert.ToString(txtPatientType.Text);
                             entInvoice.Amount = Convert.ToDecimal(txtTotal.Text);
                             entInvoice.BillDate = StringExtension.ToDateTime(txtBillDate.Text);
-                            entInvoice.NetAmount = Convert.ToDecimal(txtNetAmount.Text);
-                            entInvoice.TotalAdvance = Convert.ToDecimal(txtTotalAdvance.Text);
-                            entInvoice.BalanceAmount = Convert.ToDecimal(txtBalance.Text);
-                            entInvoice.ReceivedAmount = Convert.ToDecimal(txtReceivedAmount.Text);
-                            entInvoice.RefundAmount = Convert.ToDecimal(txtRefund.Text);
+                            
+                            entInvoice.TotalAdvance = 0;
+                            entInvoice.BalanceAmount = 0;
+                            entInvoice.ReceivedAmount = 0;
+                            entInvoice.RefundAmount = 0;
 
                             if (string.IsNullOrEmpty(txtDiscount.Text))
                             {
@@ -506,6 +506,7 @@ namespace Hospital.Billing
                             {
                                 entInvoice.FixedDiscount = Convert.ToDecimal(txtDiscount.Text);
                             }
+                            entInvoice.NetAmount = entInvoice.Amount - entInvoice.FixedDiscount;// Convert.ToDecimal(txtNetAmount.Text);
                             List<EntityInvoiceDetails> lstInvoice =serialize.Deserialize<List<EntityInvoiceDetails>>(BillDetails.Value);
 
                             Invoice = mobjDeptBLL.InsertInvoice(entInvoice, lstInvoice, chkIsCash.Checked);

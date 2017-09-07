@@ -545,12 +545,12 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="right" style="border-top: none; border-bottom: none; border-right: none;">
-                                                        <asp:Label ID="Label7" Text="Total Advance :" runat="server" ForeColor="#3b3535"></asp:Label>
+                                                        <asp:Label ID="Label7" Text="Total Advance :" runat="server" ForeColor="#3b3535" Visiable="false"></asp:Label>
                                                     </td>
                                                     <td align="left" style="border-top: none; border-bottom: none; border-left: none;
                                                         border-right: none;">
                                                         <asp:TextBox ID="txtTotalAdvance" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                            Width="150px" MaxLength="10"></asp:TextBox>
+                                                            Width="150px" MaxLength="10" Visiable="false"></asp:TextBox>
                                                     </td>
                                                     <td align="right" style="border-top: none; border-bottom: none; border-right: none;
                                                         border-left: none;">
@@ -561,11 +561,11 @@
                                                             Width="150px" MaxLength="10"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                <tr style="height: 8px;">
+                                                <tr style="display:none">
                                                     <td colspan="4" style="border-top: none; border-bottom: none;">
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr style="display:none">
                                                     <td align="right" style="border-top: none; border-bottom: none; border-right: none;">
                                                         <asp:Label ID="Label8" Text="Balance Amount:" runat="server" ForeColor="#3b3535"></asp:Label>
                                                     </td>
@@ -583,11 +583,11 @@
                                                             Width="150px" MaxLength="10"></asp:TextBox>
                                                     </td>
                                                 </tr>
-                                                <tr style="height: 8px;">
+                                                <tr style="display:none;">
                                                     <td colspan="4" style="border-top: none; border-bottom: none;">
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr style="display:none">
                                                     <td align="right" style="border-top: none; border-bottom: none; border-right: none;">
                                                         <asp:Label ID="Label9" Text="Refund Amount :" runat="server" ForeColor="#3b3535"></asp:Label>
                                                     </td>

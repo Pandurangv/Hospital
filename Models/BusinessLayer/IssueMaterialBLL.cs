@@ -40,7 +40,7 @@ namespace Hospital.Models.BusinessLayer
         {
             List<EntityProduct> lst = (from tbl in objData.tblProductMasters
                                        where tbl.IsDelete == false
-                                       select new EntityProduct { ProductId = tbl.ProductId, ProductName = tbl.ProductName }).ToList();
+                                       select new EntityProduct { ProductId = tbl.ProductId, ProductName = tbl.ProductName, Category=tbl.Category }).ToList();
 
             return lst;
         }

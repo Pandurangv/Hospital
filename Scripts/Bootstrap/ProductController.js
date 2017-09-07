@@ -17,7 +17,7 @@
     $scope.ProductTypeId = 0;
     $scope.Paging = 10;
     $scope.CurruntIndex = 0;
-    $scope.ProductModel = { ProductId: 0, ProductName: "", UOM: "",SubUOM:"",Price:0,Content:"",ProductTypeId:0 };
+    $scope.ProductModel = { ProductId: 0, ProductName: "", UOM: "nos",SubUOM:"nos",Price:0,Content:"",ProductTypeId:0 };
 
     $scope.Prefix = "";
 
@@ -121,23 +121,23 @@
         else {
             $scope.ErrorModel.IsProductName = false;
         }
-        if ($scope.ProductModel.UOM=="") {
-            $scope.ErrorModel.IsUOM = true;
-            $scope.ErrorMessage = "U. O. M. should be selected.";
-            return false;
-        }
-        else {
-            $scope.ErrorModel.IsUOM = false;
-        }
+//        if ($scope.ProductModel.UOM=="") {
+//            $scope.ErrorModel.IsUOM = true;
+//            $scope.ErrorMessage = "U. O. M. should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsUOM = false;
+//        }
 
-        if ($scope.ProductModel.Price=="") {
-            $scope.ErrorModel.IsPrice = true;
-            $scope.ErrorMessage = "Price should be selected.";
-            return false;
-        }
-        else {
-            $scope.ErrorModel.IsPrice = false;
-        }
+//        if ($scope.ProductModel.Price=="") {
+//            $scope.ErrorModel.IsPrice = true;
+//            $scope.ErrorMessage = "Price should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsPrice = false;
+//        }
         
         var url = GetVirtualDirectory() + '/Store/PresProducts.aspx/Save';
         if (isEdit == false) {

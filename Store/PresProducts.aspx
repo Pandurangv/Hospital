@@ -31,12 +31,6 @@
                     Product Type
                 </th>
                 <th>
-                    UOM
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
                     Content
                 </th>
                 <th>
@@ -50,12 +44,6 @@
                 </td>
                 <td>
                     {{accounttype.ProductTyepe}}
-                </td>
-                <td>
-                    {{accounttype.UOM}}
-                </td>
-                <td>
-                    {{accounttype.Price}}
                 </td>
                 <td>
                     {{accounttype.ProductContent}}
@@ -119,7 +107,7 @@
                     </div>
                 </div>
                 <br />
-                <div class="col-md-12">
+                <div class="col-md-12" style="display:none">
                     <div class="col-md-6">
                     <div class="form-group">
                        <div class="form-line">
@@ -133,7 +121,7 @@
                     </div>
                 </div>
                 <br />
-                <div class="col-md-12">
+                <div class="col-md-12"  style="display:none">
                     <div class="col-md-6">
                      <div class="form-group">
                        <div class="form-line">
@@ -143,7 +131,7 @@
                 </div>
                  </div>
                 <br />
-                <div class="col-md-12">
+                <div class="col-md-12"  style="display:none">
                     <div class="col-md-6">
                      <div class="form-group">
                        <div class="form-line">
