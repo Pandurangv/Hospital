@@ -104,14 +104,6 @@
                                 MRN : <asp:Label ID="MRN" runat="server" Text="" Font-Bold="true"></asp:Label>
                             </td>
                         </tr>
-                        <tr>
-                            <td align="left">
-                                Sex : <asp:Label ID="lblSex" runat="server" Text="" Font-Bold="true"></asp:Label>
-                            </td>
-                            <td align="right">
-                                Blood Group :<asp:Label ID="lblBloodGroup" runat="server" Text="" Font-Bold="true"></asp:Label>
-                            </td>
-                        </tr>
                     </table>
                     <asp:Panel ID="Panel2" ScrollBars="Both" runat="server" Width="80%" Style="text-align: center;
                         background-color: #E0F0E8; height: auto;" BorderColor="Green" BorderStyle="Solid"

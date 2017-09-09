@@ -1299,7 +1299,7 @@
                     traet = string.Empty;
                     sb.Append("<div style='height: auto;'>");
                     sb.Append("<table style='width: 100%;'><tr><td colspan='2'><p align='left' style='font-weight:bold;'><u>Advance On Discharge : </u></td></tr><tr><td colspan='2' align='left'>");
-                    strReplace = lstDischarge[0].AdviceOnDischarge.Split('\n');
+                    strReplace = string.IsNullOrEmpty(lstDischarge[0].AdviceOnDischarge) ? " ".Split('\n') : lstDischarge[0].AdviceOnDischarge.Split('\n');
                     for (int i = 0; i < strReplace.Length; i++)
                     {
                         if (i == 0)

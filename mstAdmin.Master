@@ -176,8 +176,8 @@
                                                             </asp:MenuItem>
                                                         </asp:MenuItem>
                                                         <asp:MenuItem Text="Billing" Value="Main">
-                                                            <asp:MenuItem Text="OTPatientMedicineBill" Value="OTPatientMedicineBill" NavigateUrl="~/frmOTMedicineBill.aspx">
-                                                            </asp:MenuItem>
+                                                            <%--<asp:MenuItem Text="OTPatientMedicineBill" Value="OTPatientMedicineBill" NavigateUrl="~/frmOTMedicineBill.aspx">
+                                                            </asp:MenuItem>--%>
                                                             <asp:MenuItem Text="Discharge" Value="Discharge" NavigateUrl="~/frmMakeDischarge.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="Medical Certificate" Value="Medical Certificate" NavigateUrl="~/PatientStatus/frmMedicalCertificate.aspx">

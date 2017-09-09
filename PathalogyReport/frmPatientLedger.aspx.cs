@@ -31,8 +31,8 @@ namespace Hospital.PathalogyReport
             lblFrom.Text = string.Empty;
             lblTo.Text = string.Empty;
             lblAge.Text = string.Empty;
-            lblBloodGroup.Text = string.Empty;
-            lblSex.Text = string.Empty;
+            //lblBloodGroup.Text = string.Empty;
+            //lblSex.Text = string.Empty;
         }
         private void BindPatients()
         {
@@ -66,8 +66,8 @@ namespace Hospital.PathalogyReport
                 {
                     lblAge.Text = Convert.ToString(objPatient.Age);
                     MRN.Text = Convert.ToString(objPatient.PatientCode);
-                    lblSex.Text = Convert.ToString(objPatient.GenderDesc);
-                    lblBloodGroup.Text = Convert.ToString(objPatient.BloodGroup);
+                    //lblSex.Text = Convert.ToString(objPatient.GenderDesc);
+                    //lblBloodGroup.Text = Convert.ToString(objPatient.BloodGroup);
                 }
                 tblCustomerTransaction obj = new tblCustomerTransaction() { };
                 lst.Add(obj);
@@ -134,8 +134,8 @@ namespace Hospital.PathalogyReport
             {
                 EntityPatientMaster ldtRequisition = new OPDPatientMasterBLL().GetPatientList().Where(p => p.AdmitId == Convert.ToUInt32(ddlPatient.SelectedValue)).FirstOrDefault();// && p.DeptDoctorId == Convert.ToInt32(ddlDoctors.SelectedValue) && p.PatientType.ToUpper() == "OPD").ToList();
                 MRN.Text = ldtRequisition.PatientCode;
-                lblSex.Text = ldtRequisition.Gender == 1 ? "Male" : "Female";
-                lblBloodGroup.Text = ldtRequisition.BloodGroup;
+                //lblSex.Text = ldtRequisition.Gender == 1 ? "Male" : "Female";
+                //lblBloodGroup.Text = ldtRequisition.BloodGroup;
                 lblAge.Text = ldtRequisition.Age.ToString();
             }
             catch (Exception ex)
