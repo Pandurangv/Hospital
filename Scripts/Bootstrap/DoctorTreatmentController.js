@@ -107,18 +107,19 @@
                      var data=response.data;
                      if (data.ProductBatchList.length>0) {
                         $scope.CheckBatchNo=true;
+                        $scope.ProductBatchList=data.ProductBatchList;
                         var html="";
                         var html1="";
                         angular.forEach($scope.ProductBatchList, function(value, key) {
                             if (value.BatchNo!=null) {
-                                html+='<option value="' + value.BatchNo +'">'+ value.BathcNo +'</option>';
+                                html+='<option value="' + value.BatchNo +'">'+ value.BatchNo +'</option>';
                             }
                             if (value.ExpiryDate!=null) {
-                                html1+='<option value="' + value.ExpiryDate +'">'+ value.ExpiryDate +'</option>';
+                                html1+='<option value="' +objdatehelper.getFormatteddate($filter('mydate')(value.ExpiryDate), "yyyy-MM-dd")  +'">'+ objdatehelper.getFormatteddate($filter('mydate')(value.ExpiryDate), "yyyy-MM-dd") +'</option>';
                             }
                         });
                         $("#ddlBatch").html(html);
-                        if ($('select#ddlBatch option').length==0) {
+                        if ($('#ddlBatch > option').length==0) {
                             $scope.CheckBatchNo=false;
                         }
                         $("#ddlExpiry").html(html1);

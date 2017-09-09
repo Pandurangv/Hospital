@@ -36,14 +36,14 @@ namespace Hospital.Models.BusinessLayer
             return lst;
         }
 
-        public List<EntityProduct> GetProductList()
-        {
-            List<EntityProduct> lst = (from tbl in objData.tblProductMasters
-                                       where tbl.IsDelete == false
-                                       select new EntityProduct { ProductId = tbl.ProductId, ProductName = tbl.ProductName, Category=tbl.Category }).ToList();
+        //public List<EntityProduct> GetProductList()
+        //{
+        //    List<EntityProduct> lst = (from tbl in objData.tblProductMasters
+        //                               where tbl.IsDelete == false
+        //                               select new EntityProduct { ProductId = tbl.ProductId, ProductName = tbl.ProductName, Category = tbl.Category }).ToList();
 
-            return lst;
-        }
+        //    return lst;
+        //}
 
         public EntityProduct GetProductPrice(int Prod_ID)
         {

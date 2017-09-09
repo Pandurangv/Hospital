@@ -31,7 +31,7 @@ namespace Hospital.Models.Models
 
         public DateTime? ExpiryDate { get; set; }
 
-        public int ProductTypeId { get; set; }
+        public int? ProductTypeId { get; set; }
 
         #endregion
 

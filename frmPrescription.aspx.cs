@@ -37,8 +37,8 @@ namespace Hospital
         {
             try
             {
-                IssueMaterialBLL mobjDeptBLL = new IssueMaterialBLL();
-                List<EntityProduct> lstPat = mobjDeptBLL.GetProductList().Where(p=>p.Category=="Pres").ToList();
+                ProductBLL mobjProduct = new ProductBLL(); // mobjDeptBLL = new IssueMaterialBLL();
+                List<EntityProduct> lstPat = mobjProduct.GetAllProducts().Where(p => p.Category == "Pres").ToList();
                 ddlTablet.DataSource = lstPat;
                 lstPat.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "--Select--" });
                 ddlTablet.DataValueField = "ProductId";

@@ -249,9 +249,9 @@
                                                             <asp:MenuItem Text="Supplier Outstanding" Value="Supplier Outstanding" NavigateUrl="~/PathalogyReport/frmSupplierOutstandingReport.aspx">
                                                             </asp:MenuItem>
                                                             <%--<asp:MenuItem Text="Debit Note Report" Value="Debit Note Report" NavigateUrl="~/PathalogyReport/frmDebitNoteReport.aspx">
-                                                            </asp:MenuItem>--%>
-                                                            <asp:MenuItem Text="DailyNursingTreatmentChart" Value="DailyNursingTreatmentChart" NavigateUrl="~/PathalogyReport/frmDailyNursingChart.aspx">
                                                             </asp:MenuItem>
+                                                            <asp:MenuItem Text="DailyNursingTreatmentChart" Value="DailyNursingTreatmentChart" NavigateUrl="~/PathalogyReport/frmDailyNursingChart.aspx">
+                                                            </asp:MenuItem>--%>
                                                             <asp:MenuItem Text="NewServicesReport" Value="NewServicesReport" NavigateUrl="~/PathalogyReport/frmNewServicesReport.aspx">
                                                             </asp:MenuItem>
                                                             <asp:MenuItem Text="AdmitedPatientList" Value="AdmitedPatientList" NavigateUrl="~/PathalogyReport/frmAdmitedPatientListReport.aspx">

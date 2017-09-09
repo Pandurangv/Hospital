@@ -179,7 +179,13 @@ namespace Hospital.Models.BusinessLayer
                        select new EntityProduct
                        {
                            ProductId = tbl.ProductId,
-                           ProductName = tbl.ProductName
+                           ProductName = tbl.ProductName,
+                           Category=tbl.Category,
+                           Content=tbl.ProductContent,
+                           Price=tbl.Price,
+                           ProductTypeId=tbl.ProductTypeId,
+                           UOM=tbl.UOM,
+                           SubUOM=tbl.SubUOM,
                        }).ToList();
             }
             catch (Exception ex)

@@ -154,7 +154,7 @@ namespace Hospital.Store
             try
             {
                 ProductBLL mobjProduct = new ProductBLL();
-                List<EntityProduct> lst = mobjProduct.GetAllProducts();
+                List<EntityProduct> lst = mobjProduct.GetAllProducts().Where(p=>p.Category=="Store").ToList();
                 lst.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "------Select------" });
                 ddlProduct.DataSource = lst;
                 ddlProduct.DataValueField = "ProductId";

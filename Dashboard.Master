@@ -279,10 +279,10 @@
                             <span>Billing</span>
                         </a>
                         <ul class="ml-menu">
-                            <li ><a href="../frmOTMedicineBill.aspx" >
+                            <%--<li ><a href="../frmOTMedicineBill.aspx" >
                                     <span>OTPatientMedicineBill</span>
                                 </a>
-                            </li>
+                            </li>--%>
                             <li ><a href="../frmMakeDischarge.aspx" >
                                     <span>Discharge</span>
                                 </a>

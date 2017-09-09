@@ -47,7 +47,8 @@ namespace Hospital.Store
 
         private void BindProductList()
         {
-            List<EntityProduct> lstPat = mobjDeptBLL.GetProductList().Where(p=>p.Category=="Store").ToList();
+            ProductBLL mobjProduct = new ProductBLL();
+            List<EntityProduct> lstPat = mobjProduct.GetAllProducts().Where(p => p.Category == "Store").ToList();
             ddlProduct.DataSource = lstPat;
             lstPat.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "--Select--" });
             ddlProduct.DataValueField = "ProductId";
