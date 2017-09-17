@@ -90,6 +90,7 @@
     <Content Include="css\adminpanelcss\materialize.css" />
     <Content Include="css\adminpanelcss\style.css" />
     <Content Include="css\Bootstrap\bootstrap.min.css" />
+    <Content Include="Scripts\adminpanel\bootstrap\css\jquery.datetimepicker.css" />
     <Content Include="css\coin-slider.css" />
     <Content Include="css\content.css" />
     <Content Include="css\Message.css" />
@@ -308,6 +309,7 @@
     <Content Include="Scripts\Bootstrap\DailyCollection.js" />
     <Content Include="Scripts\Bootstrap\datehelper.js" />
     <Content Include="Scripts\Bootstrap\DoctorTreatmentController.js" />
+    <Content Include="Scripts\Bootstrap\jquery.datetimepicker.js" />
     <Content Include="Scripts\Bootstrap\Main\bootstrap.min.js" />
     <Content Include="Scripts\Bootstrap\common.js" />
     <Content Include="Scripts\Bootstrap\Main\jquery.min.js" />
