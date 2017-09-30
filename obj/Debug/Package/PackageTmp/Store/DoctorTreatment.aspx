@@ -2,6 +2,7 @@
     CodeBehind="DoctorTreatment.aspx.cs" Inherits="Hospital.Store.DoctorTreatment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript" src="../scripts/bootstrap/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
@@ -169,7 +170,7 @@
                                     <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Quantity" data-ng-model="ProductModel.Quantity" maxlength="50"
+                                                    <input type="text" placeholder="Quantity" id="qty" maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>

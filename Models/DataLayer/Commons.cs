@@ -13,6 +13,7 @@ namespace Hospital.Models.DataLayer
 {
     public static class StringExtension
     {
+        
         /// <summary>
         /// Function to Convert Parameter Object to Date.
         /// </summary>
@@ -64,6 +65,19 @@ namespace Hospital.Models.DataLayer
 
     public class Commons
     {
+
+        public static DateTimeOffset ConvertUTCBasedOnCuture()
+        {
+            TimeZoneInfo INDIAN_ZONE = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+            //utcTime is 29 Dec 2013, 6:15 A.M
+            //string TimezoneId =
+            //        System.Configuration.ConfigurationManager.AppSettings
+            //        [System.Threading.Thread.CurrentThread.CurrentCulture.Name];
+            //// if the user changes culture from sv-se to ta-IN, different date is shown
+            //TimeZoneInfo tZone = TimeZoneInfo.FindSystemTimeZoneById(TimezoneId);
+            DateTimeOffset localtime = DateTimeOffset.Now;
+            return TimeZoneInfo.ConvertTime(localtime, INDIAN_ZONE);
+        }
 
         public static void ADDParameter(ref List<SqlParameter> lstParam, string param_name, DbType dbtype, object param_Value)
         {

@@ -1565,7 +1565,7 @@
             else if (ReportType.Equals("Death"))
             {
                 StringBuilder sb = new StringBuilder();
-                List<Hospital.Models.DataLayer.STP_PrintDeathReportResult> lstDischarge = objData.STP_PrintDeathReport(Convert.ToInt32(Session["Death_Id"])).ToList();
+                List<Hospital.Models.DataLayer.STP_PrintDeathReportResult> lstDischarge = objData.STP_PrintDeathReport(Hospital.Models.DataLayer.QueryStringManager.Instance.Death_Id).ToList();
                 //DateTime Today = DateTime.Now.Date;
                 //DateTime Birth = DateTime.Parse(Convert.ToString(lstDischarge[0].BirthDate));
                 //int days = Today.Subtract(Birth).Days;

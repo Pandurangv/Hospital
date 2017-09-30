@@ -81,7 +81,7 @@
                                                     <asp:Label ID="lblMessage" runat="server" Text="" Font-Names="Verdana" Font-Size="11px"
                                                         ForeColor="Red"></asp:Label>
                                                     <asp:GridView ID="dgvSupplier" runat="server" CellPadding="4" ForeColor="#333333"
-                                                        DataKeyNames="SupplierCode" GridLines="Both" Font-Names="Verdana" Width="1000px"
+                                                        DataKeyNames="PKId" GridLines="Both" Font-Names="Verdana" Width="1000px"
                                                         Font-Size="Small" AllowPaging="true" PageSize="15" AutoGenerateColumns="false"
                                                         OnPageIndexChanged="dgvSupplier_PageIndexChanged"
                                                         OnPageIndexChanging="dgvSupplier_PageIndexChanging">
@@ -199,9 +199,7 @@
                                                                 <td align="right">
                                                                 </td>
                                                                 <td align="left">
-                                                                    <asp:RegularExpressionValidator ID="regPhNo" runat="server" ForeColor="Red" ControlToValidate="txtPhoneNo"
-                                                                        Display="Dynamic" SetFocusOnError="true" Font-Size="11px" Font-Names="Verdana"
-                                                                        ValidationGroup="Save" ErrorMessage="Invalid Phone No." ValidationExpression="[0-9]{14}"></asp:RegularExpressionValidator>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>

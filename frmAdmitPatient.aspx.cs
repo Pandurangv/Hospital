@@ -23,9 +23,10 @@ namespace Hospital
             base.AuthenticateUser();
             if (!Page.IsPostBack)
             {
-                string tt=string.Format("{0:tt}",DateTime.Now);
-                MKB.TimePicker.TimeSelector.AmPmSpec time=tt=="AM"?MKB.TimePicker.TimeSelector.AmPmSpec.AM:MKB.TimePicker.TimeSelector.AmPmSpec.PM;
-                AdmissionTimeSelector.SetTime(DateTime.Now.Hour, DateTime.Now.Minute, time);
+                DateTimeOffset localtime = Commons.ConvertUTCBasedOnCuture();
+                string tt = string.Format("{0:tt}", localtime);
+                MKB.TimePicker.TimeSelector.AmPmSpec time = tt == "AM" ? MKB.TimePicker.TimeSelector.AmPmSpec.AM : MKB.TimePicker.TimeSelector.AmPmSpec.PM;
+                AdmissionTimeSelector.SetTime(localtime.Hour, localtime.Minute, time);
                 GetPatientList();
                 BindPatientTypes();
                 GetDeptCategory();

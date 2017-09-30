@@ -302,7 +302,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                     <cc1:TimeSelector ID="AdmissionTimeSelector" runat="server" DisplaySeconds="false"
-                                                                        SelectedTimeFormat="Twelve">
+                                                                        SelectedTimeFormat="Twelve" >
                                                                     </cc1:TimeSelector>
                                                                 </td>
                                                                 <td align="right">

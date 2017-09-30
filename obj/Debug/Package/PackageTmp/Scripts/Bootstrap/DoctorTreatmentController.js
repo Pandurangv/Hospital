@@ -23,8 +23,9 @@
     $scope.AdmitId = 0;
     
     /// Declaration of Models
+    var objdatehelper = new datehelper({ format: "dd/MM/yyyy", cdate: new Date() });
     
-    $scope.TreatmentModel = { TreatId: 0, TreatmentDate: "", DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
+    $scope.TreatmentModel = { TreatId: 0, TreatmentDate: objdatehelper.getFormatteddate(new Date(), "yyyy-MM-dd"), DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
 
     $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0 };
     $scope.ErrorModel = { 
@@ -142,12 +143,13 @@
             $scope.ErrorModel.IsProductName = false;
         }
 
-        if ($scope.ProductModel.Quantity=="" || $scope.ProductModel.Quantity==0) {
+        if ($("#qty").val()=="") {
             $scope.ErrorModel.IsProductQuantity = true;
             $scope.ErrorMessage = "Product quantity should be filled.";
             return false;
         }
         else {
+            $scope.ProductModel.Quantity=$("#qty").val();
             $scope.ErrorModel.IsProductQuantity = false;
         }
         if ($scope.CheckBatchNo) {
@@ -218,9 +220,9 @@
                                 BillNo: 0, 
                                 ProductId: $("#ddlProduct").val(),
                                 ProductName:$("#ddlProduct option:selected").text(),
-                                Quantity:$scope.ProductModel.Quantity,
+                                Quantity:$("#qty").val(),
                                 Price:$scope.ProductModel.Price,
-                                Amount:parseFloat($scope.ProductModel.Quantity) * parseFloat($scope.ProductModel.Price),
+                                Amount:parseFloat($("#qty").val()) * parseFloat($scope.ProductModel.Price),
                                 ExpiryDate: $scope.CheckBatchNo==false? $("#txtExpiryDate").val():$("#ddlExpiry").val(),
                                 BatchNo: $scope.CheckBatchNo==false? $("#txtBatchNo").val():$("#ddlBatch").val(),
                                 IsDelete:false, 
@@ -246,9 +248,9 @@
                         $scope.AddedProductList[key].BillNo=$scope.SelectedBillNo;
                         $scope.AddedProductList[key].ProductId=$("#ddlProduct").val();
                         $scope.AddedProductList[key].ProductName=$("#ddlProduct option:selected").text();
-                        $scope.AddedProductList[key].Quantity=$scope.ProductModel.Quantity;
+                        $scope.AddedProductList[key].Quantity=$("#qty").val();
                         $scope.AddedProductList[key].Price=$scope.ProductModel.Price;
-                        $scope.AddedProductList[key].Amount=parseFloat($scope.ProductModel.Quantity) * parseFloat($scope.ProductModel.Price);
+                        $scope.AddedProductList[key].Amount=parseFloat($("#qty").val()) * parseFloat($scope.ProductModel.Price);
                         $scope.AddedProductList[key].ExpiryDate=$scope.CheckBatchNo==false? $("#txtExpiryDate").val():$("#ddlExpiry").val();
                         $scope.AddedProductList[key].BatchNo=$scope.CheckBatchNo==false? $("#txtBatchNo").val():$("#ddlBatch").val();
                     }        
@@ -343,7 +345,7 @@
         $scope.Edit = false;
     }
 
-    var objdatehelper = new datehelper({ format: "dd/MM/yyyy", cdate: new Date() });
+    
     $scope.EditClick = function (ProductTypeModel) {
         $scope.TreatmentModel = { 
                                     TreatId: ProductTypeModel.TreatId, 
@@ -524,25 +526,14 @@
 
     $scope.init = function () {
         $(document).ready(function () {
-            $('#txtTreatmentDate').datepicker({
-                format: "yyyy-mm-dd"
+            $('#txtTreatmentDate').datetimepicker({
+                timepicker: false,
+                format: 'Y/m/d'
             });
-            $('#txtTreatmentDate').datepicker()
-             .on('changeDate', function (ev) {
-                 $('#txtTreatmentDate').val(ev.date);
-                 $('#txtTreatmentDate').datepicker("hide");
-             });
-
-             //
-
-             $('#txtExpiryDate').datepicker({
-                format: "yyyy-mm-dd"
+             $('#txtExpiryDate').datetimepicker({
+                timepicker: false,
+                format: 'Y/m/d'
             });
-            $('#txtExpiryDate').datepicker()
-             .on('changeDate', function (ev) {
-                 $('#txtExpiryDate').val(ev.date);
-                 $('#txtExpiryDate').datepicker("hide");
-             });
         });
         GetPatientList();
     }

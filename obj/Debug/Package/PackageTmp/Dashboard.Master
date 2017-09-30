@@ -10,14 +10,16 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link href="../css/adminpanelcss/fontcss.css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" />
     <link href="../css/adminpanelcss/icon.css?family=Material+Icons" rel="stylesheet" type="text/css" />
-    <link href="../Scripts/adminpanel/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Scripts/adminpanel/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/adminpanel/bootstrap/css/jquery.datetimepicker.css" rel="stylesheet" />
     <link href="../Scripts/adminpanel/node-waves/waves.css" rel="stylesheet" />
     <link href="../css/adminpanelcss/style.css" rel="stylesheet" />
     <link href="../css/adminpanelcss/all-themes.css" rel="stylesheet" />
     <script type="text/javascript" src="../scripts/bootstrap/jquery.min.js"></script>
     <script type="text/javascript" src="../scripts/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/angular.min.js"></script>
-    <script type="text/javascript" src="../scripts/bootstrap/bootstrap-datepicker.js"></script>
+    <%--<script type="text/javascript" src="../scripts/bootstrap/bootstrap-datepicker.js"></script>--%>
+    <script type="text/javascript" src="../scripts/bootstrap/jquery.datetimepicker.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/datehelper.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/App.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap/common.js"></script>
