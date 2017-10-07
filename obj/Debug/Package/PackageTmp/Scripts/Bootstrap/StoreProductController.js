@@ -130,7 +130,7 @@
             $scope.ErrorModel.IsUOM = false;
         }
 
-        if ($scope.ProductModel.Price=="") {
+        if ($("#txtPrice").val()=="") {
             $scope.ErrorModel.IsPrice = true;
             $scope.ErrorMessage = "Price should be selected.";
             return false;
@@ -138,7 +138,7 @@
         else {
             $scope.ErrorModel.IsPrice = false;
         }
-        
+        $scope.ProductModel.Price=$("#txtPrice").val();
         var url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Save';
         if (isEdit == false) {
             url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Update';

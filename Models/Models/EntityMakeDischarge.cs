@@ -12,7 +12,12 @@ namespace Hospital.Models.Models
     {
         public EntityMakeDischarge()
         {
+
+
         }
+
+        public string SElect1 { get; set; }
+
         private string _HB;
 
         private string _TLC;
@@ -483,7 +488,7 @@ namespace Hospital.Models.Models
 
         public string NameOfSurgery { get; set; }
 
-        public int SurgeryId { get; set; }
+        public int? SurgeryId { get; set; }
 
         public string OperationalProcedure { get; set; }
 

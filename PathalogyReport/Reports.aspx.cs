@@ -62,7 +62,10 @@ namespace Hospital.PathalogyReport
                                     PatientCode=tbl.PatientCode,
                                     PatientName=tbl.PatientName,
                                     TreatmentDetails=tbl.TreatmentDetails,
-                                    TreatmentPro=tbl.TreatmentPro
+                                    TreatmentPro=tbl.TreatmentPro,
+                                    TreatmentTime = tbl.TreatmentTime,
+                                    NetAmount = tbl.NetAmount,
+                                    TotalTaxAmount = tbl.TotalTaxAmount,
                                  }).ToList()
                     };
                     foreach (var item in response.TreatmentList)
@@ -86,12 +89,32 @@ namespace Hospital.PathalogyReport
                                      PatientName = tbl.PatientName,
                                      TreatmentDetails = tbl.TreatmentDetails,
                                      TreatmentPro = tbl.TreatmentPro,
+                                     TreatmentTime=tbl.TreatmentTime,
+                                     NetAmount=tbl.NetAmount,
+                                     TotalTaxAmount=tbl.TotalTaxAmount,
                                      TotalAmount = mobjPatientMasterBLL.GetBillProducts(Hospital.Models.DataLayer.QueryStringManager.Instance.BILLNo).Sum(p=>p.Price * p.Quantity),
                                  }).ToList()
                     };
+
+
+                    var patientbill=  responsebill.TreatmentList.FirstOrDefault();
+                    var ProductList = new List<EntityOTMedicineBillDetails>();
+                    if (patientbill!=null)
+                    {
+                        var lstbills = objData.tblOTMedicineBills.Where(p => patientbill.Bill_Date >= p.Bill_Date && patientbill.Bill_Date <= p.Bill_Date && p.BillNo!=patientbill.BillNo).ToList();
+                        foreach (var item in lstbills)
+                        {
+                            ProductList.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
+                        }
+                    }
+
                     foreach (var item in responsebill.TreatmentList)
                     {
                         item.ProductList.AddRange(mobjPatientMasterBLL.GetBillProducts(item.BillNo));
+                    }
+                    if (responsebill.TreatmentList.Count>0)
+                    {
+                        responsebill.TreatmentList[0].ProductList.AddRange(ProductList);
                     }
                     sb = sb.Append(serializer.Serialize(responsebill));
                     break;

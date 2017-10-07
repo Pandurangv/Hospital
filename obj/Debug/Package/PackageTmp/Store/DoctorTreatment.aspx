@@ -144,19 +144,25 @@
                                    
 
                                      <!--Third Level-->
-                                     <div class="col-md-12">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
                                                     <input type="text" placeholder="Procedures" data-ng-model="TreatmentModel.Procedures"
                                                         maxlength="200" minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
-                                    </div>
-                                     </div>
-
-                                    
-                                     <!--End Third Level-->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group margin-bottom_25">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Treatment Time" value="<%=string.Format("{0:hh:mm tt}",DateTime.Now) %>"
+                                                        id="TreatmentTime" maxlength="200" minlength="2" class="form-control setMargin" />
+                                                    </div> 
+                                                </div> 
+                                            </div> 
+                                       </div>
+                                       <!--End Third Level-->
 
                                      <div class="col-md-12">
                                         <div class="col-md-6">
@@ -170,7 +176,7 @@
                                     <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Quantity" id="qty" maxlength="50"
+                                                    <input type="text" placeholder="Quantity" id="qty" maxlength="50" 
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
@@ -220,7 +226,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Price" data-ng-model="ProductModel.Price" maxlength="50"
+                                                    <input type="text" placeholder="Price" data-ng-model="ProductModel.Price" data-ng-change="AmountChanged()" maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
@@ -228,10 +234,11 @@
                                     <div class="col-md-6">
                                             <div class="form-group margin-bottom_25">
                                                 <div class="form-line">
-                                                    <input type="text" placeholder="Amount" data-ng-model="ProductModel.Amount" maxlength="50"
+                                                    <input type="text" placeholder="Amount" id="amt"  maxlength="50"
                                                         minlength="2" class="form-control setMargin" />
                                                 </div>
                                             </div>
+                                    </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="col-md-6" data-ng-show="ErrorModel.IsProductPrice==true">
@@ -239,6 +246,33 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12" data-ng-show="ProductError==true">
+                                        <span>{{ErrorMessage}}</span>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <div class="form-group margin-bottom_25">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Tax Percent" id="taxpercent"  maxlength="50"
+                                                        minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="form-group margin-bottom_25">
+                                                <div class="form-line">
+                                                    <input type="text" placeholder="Tax Amount" id="txamt" maxlength="50"
+                                                        minlength="2" class="form-control setMargin" />
+                                                </div>
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" data-ng-show="ErrorModel.IsProductTax==true">
+                                            <span>{{ErrorMessage}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" data-ng-show="ErrorModel.IsTaxAmount==true">
                                         <span>{{ErrorMessage}}</span>
                                     </div>
 
@@ -300,7 +334,9 @@
                                                  </tbody>
                                              </table>
                                          </div>
-                                     </div>
+                                     
+
+
                                     <div class="col-md-12">
                                         <button type="button" class="btn btn-primary" data-ng-click="Save(true)" data-ng-show="Add==true" data-ng-disabled="DisableButton">
                                             Save</button>

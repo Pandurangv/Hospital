@@ -142,10 +142,14 @@ namespace Hospital
                 EntityMakeDischarge lst = mobjDischarge.GetDischargeDetails(Convert.ToInt32(DischargeId.Value));
                 if (lst != null)
                 {
-                    ListItem item = ddlPatient.Items.FindByText(Convert.ToString(cnt.Cells[3].Text));
+                    ListItem item = ddlPatient.Items.FindByValue(lst.PatientId.ToString());
                     ddlPatient.SelectedValue = item.Value;
-                    ListItem itemSur = ddlNameOfSurgery.Items.FindByText(Convert.ToString(lst.NameOfSurgery));
-                    ddlNameOfSurgery.SelectedValue = itemSur.Value;
+                    if (lst.SurgeryId!=null)
+                    {
+                        ListItem itemSur = ddlNameOfSurgery.Items.FindByValue(Convert.ToString(lst.SurgeryId));
+                        ddlNameOfSurgery.SelectedValue = itemSur.Value;
+                    }
+                    
                     patientID.Value = ddlPatient.SelectedValue;
                     SurID.Value = ddlNameOfSurgery.SelectedValue;
                     ddlPatient.Enabled = false;
@@ -167,6 +171,7 @@ namespace Hospital
                     txtXRay.Text = lst.XRay;
                     txtHaemogram.Text = lst.Haemogram;
                     txtOthers.Text = lst.Others;
+                    txtBP.Text = lst.BP;
                     txtTreatmentHospital.Text = lst.TreatmentInHospitalisation;
                     txtAdviceDischarge.Text = lst.AdviceOnDischarge;
                     txtFollowUp.Text = lst.FollowUp;
@@ -337,43 +342,54 @@ namespace Hospital
         {
             try
             {
-                EntityMakeDischarge entDischarge = new EntityMakeDischarge();
-                entDischarge.PatientId = Convert.ToInt32(ddlPatient.SelectedValue);
-                entDischarge.SurgeryId = Convert.ToInt32(ddlNameOfSurgery.SelectedValue);
-                entDischarge.NameOfSurgery = Convert.ToString(ddlNameOfSurgery.SelectedItem.Text);
                 TimeSpan span = new TimeSpan(AdmissionTimeSelector.Hour, AdmissionTimeSelector.Minute, 0);
-                entDischarge.TypeOfDischarge = ddlDischargeType.SelectedItem.Text;
-                entDischarge.Diagnosis = FirstCharToUpper(txtDiagnosis.Text);
-                entDischarge.OperationalProcedure = FirstCharToUpper(txtOperatonalProce.Text);
-                entDischarge.HistoryClinical = FirstCharToUpper(txtHistory.Text);
-                entDischarge.XRay = txtXRay.Text;
-                entDischarge.Haemogram = txtHaemogram.Text;
-                entDischarge.Others = txtOthers.Text;
-                entDischarge.TreatmentInHospitalisation = FirstCharToUpper(txtTreatmentHospital.Text);
-                entDischarge.AdviceOnDischarge = FirstCharToUpper(txtAdviceDischarge.Text);
-                entDischarge.FollowUp = txtFollowUp.Text;
-                entDischarge.DischargeReceiptDate = StringExtension.ToDateTime(txtDischargeDate.Text).Add(span);
-                entDischarge.BUL = txtBUL.Text;
-                entDischarge.SCreat = txtSCreat.Text;
-                entDischarge.SElect = txtSElect.Text;
-                entDischarge.BSL = txtBSL.Text;
-                entDischarge.UrineR = txtUrineR.Text;
-                entDischarge.ECG = txtECG.Text;
-                entDischarge.Temp = txtTemp.Text;
-                entDischarge.Pulse = txtPulse.Text;
-                entDischarge.BP = txtBP.Text;
-                entDischarge.RespRate = txtRespRate.Text; ;
-                entDischarge.Pallor = txtPallor.Text;
-                entDischarge.Oedema = txtOedema.Text;
-                entDischarge.Cyanosis = txtCyanosis.Text;
-                entDischarge.Clubbing = txtClubbing.Text;
-                entDischarge.Icterus = txtIcterus.Text;
-                entDischarge.Skin = txtSkin.Text;
-                entDischarge.RespSystem = txtRespSystem.Text;
-                entDischarge.CNS = txtCNS.Text;
-                entDischarge.PerAbd = txtPerAbd.Text;
-                entDischarge.CVS = txtCVS.Text;
-                entDischarge.PreparedByName = SessionManager.Instance.LoginUser.EmpName;
+                EntityMakeDischarge entDischarge = new EntityMakeDischarge()
+                {
+                    AdviceOnDischarge = FirstCharToUpper(txtAdviceDischarge.Text),
+                    BP = txtBP.Text,
+                    BSL = txtBSL.Text,
+                    BUL = txtBUL.Text,
+                    Clubbing = txtClubbing.Text,
+                    CNS = txtCNS.Text,
+                    CVS = txtCVS.Text,
+                    Cyanosis = txtCyanosis.Text,
+                    DischargeReceiptDate = StringExtension.ToDateTime(txtDischargeDate.Text).Add(span),
+                    Diagnosis = FirstCharToUpper(txtDiagnosis.Text),
+                    ECG = txtECG.Text,
+                    FollowUp = txtFollowUp.Text,
+                    HistoryClinical = FirstCharToUpper(txtHistory.Text),
+                    Icterus = txtIcterus.Text,
+
+                    NameOfSurgery = Convert.ToString(ddlNameOfSurgery.SelectedItem.Text),
+
+                    OperationalProcedure = FirstCharToUpper(txtOperatonalProce.Text),
+                    Oedema = txtOedema.Text,
+                    Others = txtOthers.Text,
+
+                    PatientId = Convert.ToInt32(ddlPatient.SelectedValue),
+                    Pulse = txtPulse.Text,
+                    Pallor = txtPallor.Text,
+                    PerAbd = txtPerAbd.Text,
+                    PreparedByName = SessionManager.Instance.LoginUser.EmpName,
+
+                    RespRate = txtRespRate.Text,
+                    RespSystem = txtRespSystem.Text,
+
+                    SCreat = txtSCreat.Text,
+                    SElect = txtSElect.Text,
+                    Skin = txtSkin.Text,
+
+                    SurgeryId = Convert.ToInt32(ddlNameOfSurgery.SelectedValue),
+                    
+                    TypeOfDischarge = ddlDischargeType.SelectedItem.Text,
+                    Temp = txtTemp.Text,
+                    TreatmentInHospitalisation = FirstCharToUpper(txtTreatmentHospital.Text),
+
+                    XRay = txtXRay.Text,
+                    Haemogram = txtHaemogram.Text,
+
+                    UrineR = txtUrineR.Text,
+                };
 
                 int i = mobjDischarge.Save(entDischarge);
                 if (i > 0)
@@ -397,43 +413,55 @@ namespace Hospital
         {
             try
             {
-                EntityMakeDischarge entDischarge = new EntityMakeDischarge();
-                entDischarge.PatientId = Convert.ToInt32(patientID.Value);
                 TimeSpan span = new TimeSpan(AdmissionTimeSelector.Hour, AdmissionTimeSelector.Minute, 0);
-                entDischarge.TypeOfDischarge = Convert.ToString(ddlDischargeType.SelectedItem.Text);
-                entDischarge.Diagnosis = FirstCharToUpper(txtDiagnosis.Text);
-                entDischarge.SurgeryId = Convert.ToInt32(ddlNameOfSurgery.SelectedValue);
-                entDischarge.NameOfSurgery = Convert.ToString(ddlNameOfSurgery.SelectedItem.Text);
-                entDischarge.OperationalProcedure = FirstCharToUpper(txtOperatonalProce.Text);
-                entDischarge.HistoryClinical = FirstCharToUpper(txtHistory.Text);
-                entDischarge.XRay = txtXRay.Text;
-                entDischarge.ECG = txtECG.Text;
-                entDischarge.Others = txtOthers.Text;
-                entDischarge.TreatmentInHospitalisation = FirstCharToUpper(txtTreatmentHospital.Text);
-                entDischarge.AdviceOnDischarge = FirstCharToUpper(txtAdviceDischarge.Text);
-                entDischarge.FollowUp = txtFollowUp.Text;
-                entDischarge.DischargeReceiptDate = StringExtension.ToDateTime(txtDischargeDate.Text).Add(span);
-                entDischarge.Haemogram = txtHaemogram.Text;
-                entDischarge.BUL = txtBUL.Text;
-                entDischarge.SCreat = txtSCreat.Text;
-                entDischarge.SElect = txtSElect.Text;
-                entDischarge.BSL = txtBSL.Text;
-                entDischarge.UrineR = txtUrineR.Text;
-                entDischarge.Pulse = txtPulse.Text;
-                entDischarge.Temp = txtTemp.Text;
-                entDischarge.BP = txtBP.Text;
-                entDischarge.RespRate = txtRespRate.Text;
-                entDischarge.Pallor = txtPallor.Text;
-                entDischarge.Oedema = txtOedema.Text;
-                entDischarge.Cyanosis = txtCyanosis.Text;
-                entDischarge.Clubbing = txtClubbing.Text;
-                entDischarge.Icterus = txtIcterus.Text;
-                entDischarge.Skin = txtSkin.Text;
-                entDischarge.RespSystem = txtRespSystem.Text;
-                entDischarge.CNS = txtCNS.Text;
-                entDischarge.PerAbd = txtPerAbd.Text;
-                entDischarge.CVS = txtCVS.Text;
-                entDischarge.PreparedByName = SessionManager.Instance.LoginUser.EmpName;
+                EntityMakeDischarge entDischarge = new EntityMakeDischarge()
+                {
+                    DichargeId=Convert.ToInt32(DischargeId.Value),
+                    AdviceOnDischarge = FirstCharToUpper(txtAdviceDischarge.Text),
+                    BP = txtBP.Text,
+                    BSL = txtBSL.Text,
+                    BUL = txtBUL.Text,
+                    Clubbing = txtClubbing.Text,
+                    CNS = txtCNS.Text,
+                    CVS = txtCVS.Text,
+                    Cyanosis = txtCyanosis.Text,
+                    DischargeReceiptDate = StringExtension.ToDateTime(txtDischargeDate.Text).Add(span),
+                    Diagnosis = FirstCharToUpper(txtDiagnosis.Text),
+                    ECG = txtECG.Text,
+                    FollowUp = txtFollowUp.Text,
+                    HistoryClinical = FirstCharToUpper(txtHistory.Text),
+                    Icterus = txtIcterus.Text,
+
+                    NameOfSurgery = Convert.ToString(ddlNameOfSurgery.SelectedItem.Text),
+
+                    OperationalProcedure = FirstCharToUpper(txtOperatonalProce.Text),
+                    Oedema = txtOedema.Text,
+                    Others = txtOthers.Text,
+
+                    PatientId = Convert.ToInt32(ddlPatient.SelectedValue),
+                    Pulse = txtPulse.Text,
+                    Pallor = txtPallor.Text,
+                    PerAbd = txtPerAbd.Text,
+                    PreparedByName = SessionManager.Instance.LoginUser.EmpName,
+
+                    RespRate = txtRespRate.Text,
+                    RespSystem = txtRespSystem.Text,
+
+                    SCreat = txtSCreat.Text,
+                    SElect = txtSElect.Text,
+                    Skin = txtSkin.Text,
+
+                    SurgeryId = Convert.ToInt32(ddlNameOfSurgery.SelectedValue),
+
+                    TypeOfDischarge = ddlDischargeType.SelectedItem.Text,
+                    Temp = txtTemp.Text,
+                    TreatmentInHospitalisation = FirstCharToUpper(txtTreatmentHospital.Text),
+
+                    XRay = txtXRay.Text,
+                    Haemogram = txtHaemogram.Text,
+                    
+                    UrineR = txtUrineR.Text,
+                };
 
                 int i = mobjDischarge.Update(entDischarge, Convert.ToInt32(DischargeId.Value));
                 if (i > 0)

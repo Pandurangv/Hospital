@@ -22,6 +22,12 @@ namespace Hospital.Models.Models
 
         public string TreatmentDetails { get; set; }
 
+        public decimal? TotalTaxAmount { get; set; }
+
+        public string TreatmentTime { get; set; }
+
+        public decimal? NetAmount { get; set; }
+
         public bool? IsDelete { get; set; }
 
         public DateTime? FollowUpDate { get; set; }
@@ -71,6 +77,8 @@ namespace Hospital.Models.Models
         public List<sp_GetAllProductResult> ProductList { get; set; }
 
         public List<EntityProduct> ProductBatchList { get; set; }
+
+        public decimal? LatestPrice { get; set; }
 
         public DoctorTreatResponse()
         {

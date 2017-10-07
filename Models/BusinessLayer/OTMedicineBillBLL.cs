@@ -317,7 +317,9 @@ namespace Hospital.Models.BusinessLayer
                            ProductName=tblproduct.ProductName,
                            Quantity=tbl.Quantity,
                            Price=tbl.Price,
-                           BillNo=BillNo
+                           BillNo=BillNo,
+                           TaxPercent=tbl.TaxPercent!=null?tbl.TaxPercent:0,
+                           TaxAmount=tbl.TaxAmount!=null?tbl.TaxAmount:0,
                        }).ToList();
             return lst;
         }

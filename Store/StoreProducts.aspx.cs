@@ -33,7 +33,8 @@ namespace Hospital.Store
             ProductBLL objProductTypes = new ProductBLL();
             serialize.MaxJsonLength = Int32.MaxValue;
             Response.Clear();
-            Response.Output.Write(serialize.Serialize(objProductTypes.GetAllProduct().Where(p => p.Category == "Store").ToList()));
+            var lst = objProductTypes.GetAllProduct().Where(p => p.Category == "Store").ToList();
+            Response.Output.Write(serialize.Serialize(lst));
             Response.End();
         }
 
@@ -54,7 +55,10 @@ namespace Hospital.Store
         {
             ProductBLL objProductTypes = new ProductBLL();
             JavaScriptSerializer serialize = new JavaScriptSerializer();
-            objProductTypes.UpdateProduct(serialize.Deserialize<EntityProduct>(model));
+            var product = serialize.Deserialize<EntityProduct>(model);
+            product.Category = "Store";
+            
+            objProductTypes.UpdateProduct(product);
             return true;
         }
     }

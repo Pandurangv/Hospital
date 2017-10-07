@@ -25,9 +25,19 @@
     /// Declaration of Models
     var objdatehelper = new datehelper({ format: "dd/MM/yyyy", cdate: new Date() });
     
-    $scope.TreatmentModel = { TreatId: 0, TreatmentDate: objdatehelper.getFormatteddate(new Date(), "yyyy-MM-dd"), DoctorId: 0,AdmitId:0,TreatmentDetails:"",FollowUpDate:"",Procedures:"",AdmitDate:"" };
+    $scope.TreatmentModel = { 
+                TreatId: 0, 
+                TreatmentDate: objdatehelper.getFormatteddate(new Date(), "yyyy-MM-dd"), 
+                DoctorId: 0,
+                AdmitId:0,
+                TreatmentDetails:"",
+                FollowUpDate:"",
+                Procedures:"",
+                AdmitDate:"" 
+                };
 
-    $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0 };
+    $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0,TaxPercent:0,
+                                TaxAmount:0 };
     $scope.ErrorModel = { 
         IsPatientName: false,
         IsDoctorName:false,
@@ -36,7 +46,9 @@
         IsProductQuantity:false,
         IsProductPrice:false,
         IsProductAmount:false,
-        ProductExist:false 
+        ProductExist:false,
+        IsProductTax:false,
+        IsTaxAmount:false, 
     };
     $scope.ErrorMessage = ""
     
@@ -79,7 +91,9 @@
                                 Price:productmodel.Price,
                                 Amount:productmodel.Amount,
                                 ExpiryDate:productmodel.ExpiryDate,
-                                BatchNo:productmodel.BatchNo 
+                                BatchNo:productmodel.BatchNo,
+                                TaxPercent:productmodel.TaxPercent,
+                                TaxAmount:productmodel.TaxAmount, 
                               };
 
         $scope.SelectedBillDetailId=productmodel.BillDetailId;
@@ -124,12 +138,36 @@
                             $scope.CheckBatchNo=false;
                         }
                         $("#ddlExpiry").html(html1);
+                        if (data.LatestPrice!="0" || data.LatestPrice!=0) {
+                            $scope.ProductModel.Price=data.LatestPrice;
+                        }
                     }
                 },
                 function (response) {
            
                 }); 
             }
+    }
+
+    $scope.AmountChanged=function()
+    {
+        if ($scope.ProductModel.Price!=0) {
+            $("#amt").val($("#qty").val() * $scope.ProductModel.Price);
+        }
+        else if ($("#amt").val()!=0) {
+            $scope.ProductModel.Price=$("#amt").val() / $("#qty").val();
+        }
+    }
+
+    $scope.TaxPercentChanges=function()
+    {
+//        if ($("#taxpercent").val()!=0) {
+//            var tax=parseFloat($scope.ProductModel.Price) * parseFloat($("#taxpercent").val() / 100);
+//            $("#txamt").val(parseFloat(tax) * parseFloat($("#qty").val()));
+//        }
+//        else if ($("#txamt").val()!=0) {
+//            $("#taxpercent").val($("#txamt").val() / $("#qty").val());
+//        }
     }
 
     $scope.SaveProduct=function(IsEdit)
@@ -190,18 +228,36 @@
         }
 
         if ($scope.ProductModel.Price=="" || $scope.ProductModel.Price=="0") {
-            if ($scope.ProductModel.Amount=="" || $scope.ProductModel.Amount=="0") {
+            if ($("#amt").val()=="" || $("#amt").val()=="0") {
                 $scope.ErrorModel.IsProductPrice = true;
                 $scope.ErrorMessage = "Product Price should be selected.";
                 return false;
             }
             else {
-                $scope.ProductModel.Price=$scope.ProductModel.Amount/$scope.ProductModel.Quantity;
+                $scope.ProductModel.Price=$("#amt").val()/$("#qty").val();
             }
         }
         else {
             $scope.ErrorModel.IsProductPrice = false;
         }
+
+//        if ($("#taxpercent").val()==0) {
+//            $scope.ErrorModel.IsProductTax = true;
+//            $scope.ErrorMessage = "Product Tax Percent should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsProductTax = false;
+//        }
+
+//        if ($("#txamt").val()==0) {
+//            $scope.ErrorModel.IsTaxAmount = true;
+//            $scope.ErrorMessage = "Product Tax Percent should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsTaxAmount = false;
+//        }
         
         $scope.DisableButton=true;
         $scope.AddProduct=true;
@@ -225,6 +281,8 @@
                                 Amount:parseFloat($("#qty").val()) * parseFloat($scope.ProductModel.Price),
                                 ExpiryDate: $scope.CheckBatchNo==false? $("#txtExpiryDate").val():$("#ddlExpiry").val(),
                                 BatchNo: $scope.CheckBatchNo==false? $("#txtBatchNo").val():$("#ddlBatch").val(),
+                                TaxPercent: 0,
+                                TaxAmount: 0,
                                 IsDelete:false, 
                               };
                 $scope.AddedProductList.push($scope.ProductModel);
@@ -253,6 +311,8 @@
                         $scope.AddedProductList[key].Amount=parseFloat($("#qty").val()) * parseFloat($scope.ProductModel.Price);
                         $scope.AddedProductList[key].ExpiryDate=$scope.CheckBatchNo==false? $("#txtExpiryDate").val():$("#ddlExpiry").val();
                         $scope.AddedProductList[key].BatchNo=$scope.CheckBatchNo==false? $("#txtBatchNo").val():$("#ddlBatch").val();
+                        $scope.AddedProductList[key].TaxPercent= 0;
+                        $scope.AddedProductList[key].TaxAmount= 0;
                     }        
                 });
             }
@@ -264,7 +324,11 @@
         $scope.ProductModel = { BillDetailId: 0, BillNo: 0, ProductId: 0,ProductName:"",Quantity:0,Price:0,Amount:0,ExpiryDate:"",TempId:0 };
         $("#txtExpiryDate").val("");
         $("#ddlProduct").val(0);
-        $("#txtBatchNo").val("");
+        $("#txtBatchNo").val("0");
+        $("#taxpercent").val("0");
+        $("#txamt").val("");
+        $("#amt").val("0");
+        $("#qty").val("0")
         $scope.DisableButton=false;
     }
 
@@ -466,6 +530,8 @@
         $scope.TreatmentModel.AdmitId=$("#ddlPType").val();
         $scope.TreatmentModel.FollowUpDate=$('#txtFollowUpDate').val();
         $scope.TreatmentModel.TreatmentDate=$('#txtTreatmentDate').val();
+        $scope.TreatmentModel.TreatmentTime=$('#TreatmentTime').val();
+        
         $scope.TreatmentModel.ProductList=$scope.AddedProductList;
         var req = {
             method: 'POST',
@@ -526,6 +592,15 @@
 
     $scope.init = function () {
         $(document).ready(function () {
+            $("#qty").on("blur",function(){
+                $scope.AmountChanged();
+            });
+            $("#amt").on("blur",function(){
+                $scope.AmountChanged();
+            });
+            $("#taxpercent").on("blur",function(){
+                $scope.TaxPercentChanges();
+            });
             $('#txtTreatmentDate').datetimepicker({
                 timepicker: false,
                 format: 'Y/m/d'

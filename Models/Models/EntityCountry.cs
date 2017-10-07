@@ -63,6 +63,12 @@ namespace Hospital.Models.Models
             }
         }
 
+        public string TreatmentTime { get; set; }
+
+        public decimal? TotalTaxAmount { get; set; }
+
+        public decimal? NetAmount { get; set; }
+
         public bool IsDelete
         {
             get
@@ -93,6 +99,12 @@ namespace Hospital.Models.Models
         }
         public int TempId { get; set; }
         public int MedicineId { get; set; }
+
+        public decimal? TaxPercent { get; set; }
+
+        public decimal? TaxAmount { get; set; }
+
+
 
         private int _BillDetailId;
 

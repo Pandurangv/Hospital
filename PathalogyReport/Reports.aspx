@@ -447,6 +447,9 @@
                                 Treatment Date
                             </th>
                             <th>
+                                Treatment Time
+                            </th>
+                            <th>
                                 Treatment Details
                             </th>
                             <th>
@@ -461,6 +464,9 @@
                             </td>
                             <td>
                                 {{treat.Bill_Date | mydate | date : 'yyyy-MM-dd'}}
+                            </td>
+                            <td>
+                                {{treat.TreatmentTime}}
                             </td>
                             <td>
                                 {{treat.TreatmentDetails}}
@@ -565,7 +571,7 @@
                 <div class="col-md-6">
                     <div class="col-md-6 pull-right">
                         <div>
-                            <span class="pull-left"><strong>MRN</strong> : {{PatientInfo.Bill_Date | mydate | date : 'yyyy-MM-dd'}}</span></div>
+                            <span class="pull-left"><strong>Bill Date</strong> : {{PatientInfo.Bill_Date | mydate | date : 'yyyy-MM-dd'}}</span></div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -593,6 +599,9 @@
                                 Expiry Date
                             </th>
                             <th>
+                                GST
+                            </th>
+                            <th>
                                 Quantity
                             </th>
                             <th>
@@ -615,6 +624,9 @@
                                 {{product.ExpiryDate | mydate | date : 'yyyy-MM-dd'}}
                             </td>
                             <td>
+                                {{product.TaxAmount}}
+                            </td>
+                            <td>
                                 {{product.Quantity}}
                             </td>
                             <td>
@@ -627,6 +639,15 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-md-12" style="display:none">
+                <div class="col-md-6 pull-right">
+                    <div class="col-md-6 pull-right">
+                        <span class="pull-right"><h4>{{PatientInfo.TotalTaxAmount}} </h4></span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="pull-right"><h4>Total Tax</h4></span></div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="col-md-6 pull-right">
                     <div class="col-md-6 pull-right">
@@ -634,6 +655,15 @@
                     </div>
                     <div class="col-md-6">
                         <span class="pull-right"><h4>Total Amount</h4></span></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6 pull-right">
+                    <div class="col-md-6 pull-right">
+                        <span class="pull-right"><h4>{{PatientInfo.NetAmount}} </h4></span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="pull-right"><h4>Net Amount</h4></span></div>
                 </div>
             </div>
         </div>

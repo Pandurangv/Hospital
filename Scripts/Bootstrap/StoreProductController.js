@@ -98,6 +98,7 @@
     $scope.EditClick = function (ProductTypeModel) {
         $scope.ProductModel = { ProductId: ProductTypeModel.ProductId, ProductName:  ProductTypeModel.ProductName, UOM: ProductTypeModel.UOM,SubUOM:ProductTypeModel.SubUOM,Price:ProductTypeModel.Price,Content:ProductTypeModel.Content,ProductTypeId:0 };
         $("#ddlPType").val(ProductTypeModel.ProductTypeId);
+        $("#txtPrice").val(ProductTypeModel.Price);
         $scope.ProductModel.Content=ProductTypeModel.ProductContent;
         $scope.Details = false;
         $scope.Add = false;
@@ -130,7 +131,7 @@
             $scope.ErrorModel.IsUOM = false;
         }
 
-        if ($scope.ProductModel.Price=="") {
+        if ($("#txtPrice").val()=="") {
             $scope.ErrorModel.IsPrice = true;
             $scope.ErrorMessage = "Price should be selected.";
             return false;
@@ -138,7 +139,7 @@
         else {
             $scope.ErrorModel.IsPrice = false;
         }
-        
+        $scope.ProductModel.Price=$("#txtPrice").val();
         var url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Save';
         if (isEdit == false) {
             url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Update';

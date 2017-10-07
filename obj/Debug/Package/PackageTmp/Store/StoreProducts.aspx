@@ -147,7 +147,7 @@
                     <div class="col-md-6">
                      <div class="form-group">
                        <div class="form-line">
-                        <input type="text" placeholder="Price" data-ng-model="ProductModel.Price" maxlength="50" minlength="2" 
+                        <input type="text" placeholder="Price" id="txtPrice" maxlength="50" minlength="2" 
                                class="form-control setMargin" />
                     </div>
                      </div>

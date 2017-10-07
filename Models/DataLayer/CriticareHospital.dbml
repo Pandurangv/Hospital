@@ -356,60 +356,6 @@
       <Column Name="ChangeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblDischarge" Member="tblDischarges">
-    <Type Name="tblDischarge">
-      <Column Name="DichargeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PatientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TypeOfDischarge" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Diagnosis" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="NameOfSurgery" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="SurgeryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HistoryClinical" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="XRay" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="OperationalProcedure" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Others" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="TreatmentInHospitalisation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="AdviceOnDischarge" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="FollowUp" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="DischargeReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Haemogram" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="UrineR" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="ECG" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="BUL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="SCreat" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="SElect1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="BSL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Temp" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Pulse" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="BP" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="RespRate" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Pallor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Oedema" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Cyanosis" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Clubbing" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Icterus" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="Skin" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="RespSystem" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="CNS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="PerAbd" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="CVS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="PreparedByName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="R" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="Urine" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="HIV" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="HBSAG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="PP" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="SE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="Creat" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="PLC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="TLC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="HB" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="TreatmentOnDischarge" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="OperativeNotes" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="USG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblDiscount" Member="tblDiscounts">
     <Type Name="tblDiscount">
       <Column Name="PKId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -839,17 +785,6 @@
       <Column Name="SurgeryNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblOTMedicineBillDetails" Member="tblOTMedicineBillDetails">
-    <Type Name="tblOTMedicineBillDetail">
-      <Column Name="BillDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BillNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TabletId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblOTSchedulingMaster" Member="tblOTSchedulingMasters">
     <Type Name="tblOTSchedulingMaster">
       <Column Name="OTScheduleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -938,32 +873,6 @@
       <Column Name="ChargePerDay" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblPurchaseInvoice" Member="tblPurchaseInvoices">
-    <Type Name="tblPurchaseInvoice">
-      <Column Name="PINo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PIDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PONo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SupplierId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="Tax1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tax2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblPurchaseInvoiceDetails" Member="tblPurchaseInvoiceDetails">
-    <Type Name="tblPurchaseInvoiceDetail">
-      <Column Name="PINoSrNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ProductCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="InvoiceQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="InvoicePrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="BatchNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PINo" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblPurchaseOrder" Member="tblPurchaseOrders">
@@ -1397,18 +1306,6 @@
       <Column Name="LanType" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblOTMedicineBill" Member="tblOTMedicineBills">
-    <Type Name="tblOTMedicineBill">
-      <Column Name="BillNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Bill_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="AdmitId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblProductMaster" Member="tblProductMasters">
     <Type Name="tblProductMaster">
       <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1483,6 +1380,117 @@
       <Column Name="InsuranceName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="PatientTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblOTMedicineBillDetails" Member="tblOTMedicineBillDetails">
+    <Type Name="tblOTMedicineBillDetail">
+      <Column Name="BillDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TabletId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TaxPercent" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TaxAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblOTMedicineBill" Member="tblOTMedicineBills">
+    <Type Name="tblOTMedicineBill">
+      <Column Name="BillNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bill_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AdmitId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalTaxAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TreatmentTime" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="NetAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDischarge" Member="tblDischarges">
+    <Type Name="tblDischarge">
+      <Column Name="DichargeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeOfDischarge" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Diagnosis" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NameOfSurgery" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SurgeryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HistoryClinical" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="XRay" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="OperationalProcedure" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Others" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TreatmentInHospitalisation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AdviceOnDischarge" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FollowUp" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DischargeReceiptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Haemogram" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="UrineR" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ECG" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BUL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="SCreat" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="SElect1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BSL" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Temp" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Pulse" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="BP" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="RespRate" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Pallor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Oedema" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Cyanosis" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Clubbing" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Icterus" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Skin" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="RespSystem" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CNS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PerAbd" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CVS" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PreparedByName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="R" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Urine" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="HIV" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="HBSAG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PP" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Creat" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PLC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TLC" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="HB" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TreatmentOnDischarge" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="OperativeNotes" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="USG" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPurchaseInvoice" Member="tblPurchaseInvoices">
+    <Type Name="tblPurchaseInvoice">
+      <Column Name="PINo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PIDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PONo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupplierId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Tax1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tax2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NetAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPurchaseInvoiceDetails" Member="tblPurchaseInvoiceDetails">
+    <Type Name="tblPurchaseInvoiceDetail">
+      <Column Name="PINoSrNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InvoiceQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InvoicePrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BatchNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PINo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TaxPercent" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="TaxAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.GetALLCategories" Method="GetALLCategories">
@@ -3366,19 +3374,6 @@
       <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.STP_PrintDoctorChart" Method="STP_PrintDoctorChart">
-    <Parameter Name="AdmitId" Parameter="admitId" Type="System.Int32" DbType="Int" />
-    <ElementType Name="STP_PrintDoctorChartResult">
-      <Column Name="AdmitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PatientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PatientName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
-      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(101) NOT NULL" CanBeNull="false" />
-      <Column Name="BillNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Bill_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_GetAllProduct" Method="sp_GetAllProduct">
     <ElementType Name="sp_GetAllProductResult">
       <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -3404,6 +3399,22 @@
       <Column Name="FullName" Type="System.String" DbType="NVarChar(152) NOT NULL" CanBeNull="false" />
       <Column Name="DesignationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DesignationDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.STP_PrintDoctorChart" Method="STP_PrintDoctorChart">
+    <Parameter Name="AdmitId" Parameter="admitId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="STP_PrintDoctorChartResult">
+      <Column Name="AdmitId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientName" Type="System.String" DbType="NVarChar(152)" CanBeNull="true" />
+      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(101) NOT NULL" CanBeNull="false" />
+      <Column Name="BillNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Bill_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TreatmentDetails" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TreatmentPro" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TreatmentTime" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalTaxAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NetAmount" Type="System.Decimal" DbType="Decimal(19,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

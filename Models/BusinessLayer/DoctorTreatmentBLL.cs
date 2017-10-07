@@ -37,6 +37,9 @@ namespace Hospital.Models.BusinessLayer
                                                    TreatmentDate=tbl.Bill_Date,
                                                    TreatmentDetails=tbl.TreatmentDetails,
                                                    EmployeeName=tblEmp.EmpFirstName + " " + tblEmp.EmpLastName,
+                                                   TreatmentTime=tbl.TreatmentTime,
+                                                   TotalTaxAmount=tbl.TotalTaxAmount==null?0:tbl.TotalTaxAmount,
+                                                   NetAmount=(tbl.TotalAmount==null?0:tbl.TotalAmount) + (tbl.TotalTaxAmount==null?0:tbl.TotalTaxAmount)
                                               }).ToList();
             return lst;
         }
@@ -51,17 +54,21 @@ namespace Hospital.Models.BusinessLayer
             {
                 model.FollowUpDate = DateTime.Now.AddDays(1);
             }
+
             tblOTMedicineBill tbl = new tblOTMedicineBill()
             {
-                AdmitId=model.AdmitId,
-                DoctorId=model.DoctorId,
-                IsDelete=false,
-                TreatmentPro=model.Procedures,
-                Bill_Date=model.TreatmentDate,
-                TreatmentDetails=model.TreatmentDetails,
-                TotalAmount=model.ProductList.Sum(p=>p.Amount),
+                AdmitId = model.AdmitId,
+                DoctorId = model.DoctorId,
+                IsDelete = false,
+                TreatmentPro = model.Procedures,
+                Bill_Date = model.TreatmentDate,
+                TreatmentDetails = model.TreatmentDetails,
+                TotalAmount = model.ProductList.Sum(p => p.Amount),
+                TotalTaxAmount=model.TotalTaxAmount,
+                NetAmount=model.NetAmount,
+                TreatmentTime=model.TreatmentTime,
             };
-            
+
             objData.tblOTMedicineBills.InsertOnSubmit(tbl);
             objData.SubmitChanges();
 
@@ -69,35 +76,38 @@ namespace Hospital.Models.BusinessLayer
             {
                 tblOTMedicineBillDetail medicine = new tblOTMedicineBillDetail()
                 {
-                    Amount=item.Amount,
-                    BillNo=tbl.BillNo,
-                    IsDelete=false,
-                    Price=item.Price,
-                    Quantity=item.Quantity,
-                    TabletId = item.ProductId
+                    Amount = item.Amount,
+                    BillNo = tbl.BillNo,
+                    IsDelete = false,
+                    Price = item.Price,
+                    Quantity = item.Quantity,
+                    TabletId = item.ProductId,
+                    TaxPercent=item.TaxPercent,
+                    TaxAmount=item.TaxAmount,
                 };
                 objData.tblOTMedicineBillDetails.InsertOnSubmit(medicine);
 
                 tblStockDetail stock = new tblStockDetail()
                 {
-                    ProductId=item.ProductId.Value,
-                    OpeningQtyDate=model.TreatmentDate,
-                    InwardQty=0,
-                    InwardPrice=0,
-                    OutwardQty=item.Quantity,
-                    OutwardPrice=item.Price,
-                    DocumentNo=tbl.BillNo,
-                    TransactionType="DT",
-                    IsDelete=false,
-                    BatchNo=item.BatchNo,
-                    ExpiryDate=item.ExpiryDate,
-                    InwardAmount=0,
-                    OutwardAmount=item.Amount,
+                    ProductId = item.ProductId.Value,
+                    OpeningQtyDate = model.TreatmentDate,
+                    InwardQty = 0,
+                    InwardPrice = 0,
+                    OutwardQty = item.Quantity,
+                    OutwardPrice = item.Price,
+                    DocumentNo = tbl.BillNo,
+                    TransactionType = "DT",
+                    IsDelete = false,
+                    BatchNo = item.BatchNo,
+                    ExpiryDate = item.ExpiryDate,
+                    InwardAmount = 0,
+                    OutwardAmount = item.Amount,
                 };
                 objData.tblStockDetails.InsertOnSubmit(stock);
 
             }
             objData.SubmitChanges();
+
             return new DoctorTreatResponse() { Id = tbl.BillNo, status = 0 };
         }
 

@@ -121,6 +121,7 @@
         else {
             $scope.ErrorModel.IsProductName = false;
         }
+        
 //        if ($scope.ProductModel.UOM=="") {
 //            $scope.ErrorModel.IsUOM = true;
 //            $scope.ErrorMessage = "U. O. M. should be selected.";

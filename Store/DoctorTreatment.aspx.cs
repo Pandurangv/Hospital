@@ -49,6 +49,7 @@ namespace Hospital.Store
             ProductBLL objProducts = new ProductBLL();
             DoctorTreatResponse response = new DoctorTreatResponse();
             response.ProductBatchList = objProducts.GetAllProductBatchList(ProductId);
+            response.LatestPrice = objProducts.GetLatestPrice(ProductId);
             Response.Clear();
             Response.Output.Write(serialize.Serialize(response));
             Response.End();
@@ -89,8 +90,13 @@ namespace Hospital.Store
         {
             DoctorTreatmentBLL objProductTypes = new DoctorTreatmentBLL();
             JavaScriptSerializer serialize = new JavaScriptSerializer();
-            DoctorTreatResponse response= objProductTypes.Save(serialize.Deserialize<DoctorTreatmentModel>(model));
-            return response.Id;
+            DoctorTreatmentModel datamodel = serialize.Deserialize<DoctorTreatmentModel>(model);
+            datamodel.TotalTaxAmount = datamodel.ProductList.Sum(p => p.TaxAmount);
+            datamodel.TotalAmount = datamodel.ProductList.Sum(p => p.Quantity * p.Price);
+            datamodel.NetAmount = datamodel.TotalAmount + datamodel.TotalTaxAmount;
+
+            DoctorTreatResponse response = objProductTypes.Save(datamodel);
+            return 0;
         }
 
         [WebMethod]
