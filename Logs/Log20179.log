@@ -1,0 +1,42 @@
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 03-09-2017 03:40:10 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 04-09-2017 11:19:12 PM
+---------------------------------------------------------------------------------------
+Message : Object reference not set to an instance of an object.At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 05-09-2017 11:03:05 AM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 05-09-2017 06:43:32 PM
+---------------------------------------------------------------------------------------
+Message : RegistrationBLL - GetDepartments()At Line No. 0 Col 0
+Exception : Cannot open database "SevadhamHospital" requested by the login. The login failed.
+Login failed for user 'sa'.
+LogDate : 07-09-2017 11:41:05 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 09-09-2017 06:49:51 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 09-09-2017 06:50:42 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 09-09-2017 06:50:53 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Object reference not set to an instance of an object.
+LogDate : 09-09-2017 06:50:53 PM
+---------------------------------------------------------------------------------------
+Message : RegistrationBLL - GetDepartments()At Line No. 0 Col 0
+Exception : Cannot open database "SevadhamHospital" requested by the login. The login failed.
+Login failed for user 'sa'.
+LogDate : 21-09-2017 11:45:21 PM
+---------------------------------------------------------------------------------------
