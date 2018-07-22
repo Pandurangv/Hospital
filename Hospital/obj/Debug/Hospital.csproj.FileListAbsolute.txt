@@ -5,4 +5,3 @@ F:\MyApplication\Hospital2010\Hospital\Hospital\bin\System.Web.Extensions.dll
 F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Debug\Hospital.dll
 F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Debug\Hospital.pdb
 F:\MyApplication\Hospital2010\Hospital\Hospital\bin\AjaxMin.dll
-F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Debug\Hospital.csprojResolveAssemblyReference.cache

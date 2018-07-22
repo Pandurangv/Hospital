@@ -18,6 +18,8 @@ namespace Hospital.Models.Models
 
         public int? DoctorId { get; set; }
 
+        public decimal? Discount { get; set; }
+
         public int? AdmitId { get; set; }
 
         public string TreatmentDetails { get; set; }
@@ -63,6 +65,14 @@ namespace Hospital.Models.Models
         }
         public List<EntityOTMedicineBill> TreatmentList { get; set; }
 
+
+        public EntityTestInvoice LabTestInvoice { get; set; }
+
+        public List<EntityTestInvoiceDetails> LabTestList { get; set; }
+
+        public List<STP_PrintPatientInvoiceResult> PatientInvoice { get; set; }
+
+
         public List<EntityOTMedicineBillDetails>  ProductList { get; set; }
     }
 
@@ -79,6 +89,12 @@ namespace Hospital.Models.Models
         public List<EntityProduct> ProductBatchList { get; set; }
 
         public decimal? LatestPrice { get; set; }
+
+        public List<EntityOTMedicineBillDetails> MedicineList { get; set; }
+
+        public tblOTMedicineBill TreatmentDetails { get; set; }
+
+        public List<EntityTest> LabTestList { get; set; }
 
         public DoctorTreatResponse()
         {

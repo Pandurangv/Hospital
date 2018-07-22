@@ -68,19 +68,19 @@ namespace Hospital.PathalogyReport
             datamodel.NetAmount = datamodel.TotalAmount - datamodel.Discount==null?0:datamodel.Discount;
             datamodel.TreatmentDate = DateTime.Now.Date;
             DoctorTreatResponse response = objProductTypes.Save(datamodel,true);
-            if (datamodel.LabTestList.Count>0)
-            {
-                List<TestAllocation> lst = new List<TestAllocation>();
-                tblTestInvoice testInvoice = new tblTestInvoice();
-                testInvoice.Amount = datamodel.LabTestList.Sum(p => p.TestCharge);
-                testInvoice.PatientId = datamodel.AdmitId;
-                testInvoice.TestInvoiceDate = DateTime.Now.Date;
-                foreach (EntityTest item in datamodel.LabTestList)
-                {
-                    lst.Add(new TestAllocation() { TestId = item.TestId, Charges = item.TestCharge == null ? 0 : item.TestCharge.Value });
-                }
-                int i = new clsTestAllocation().Save(lst, testInvoice, datamodel.IsCash);
-            }
+            //if (datamodel.LabTestList.Count>0)
+            //{
+            //    List<TestAllocation> lst = new List<TestAllocation>();
+            //    tblTestInvoice testInvoice = new tblTestInvoice();
+            //    testInvoice.Amount = datamodel.LabTestList.Sum(p => p.TestCharge);
+            //    testInvoice.PatientId = datamodel.AdmitId;
+            //    testInvoice.TestInvoiceDate = DateTime.Now.Date;
+            //    foreach (EntityTest item in datamodel.LabTestList)
+            //    {
+            //        lst.Add(new TestAllocation() { TestId = item.TestId, Charges = item.TestCharge == null ? 0 : item.TestCharge.Value });
+            //    }
+            //    int i = new clsTestAllocation().Save(lst, testInvoice, datamodel.IsCash);
+            //}
             return 0;
         }
 

@@ -90,8 +90,6 @@
     <Content Include="css\adminpanelcss\materialize.css" />
     <Content Include="css\adminpanelcss\style.css" />
     <Content Include="css\Bootstrap\bootstrap.min.css" />
-    <Content Include="Masters\RoomCharge.aspx" />
-    <Content Include="Masters\WebForm1.aspx" />
     <Content Include="PathalogyReport\DoctorWiseCollection.aspx" />
     <Content Include="PathalogyReport\IPDMedicineBill.aspx" />
     <Content Include="Scripts\adminpanel\bootstrap\css\jquery.datetimepicker.css" />
@@ -987,20 +985,6 @@
     <Compile Include="InsuranceClaim\frmInsuranceClaim.aspx.designer.cs">
       <DependentUpon>frmInsuranceClaim.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Masters\RoomCharge.aspx.cs">
-      <DependentUpon>RoomCharge.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Masters\RoomCharge.aspx.designer.cs">
-      <DependentUpon>RoomCharge.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Masters\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Masters\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Models\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1638,6 +1622,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
+    <Folder Include="Masters\" />
     <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>

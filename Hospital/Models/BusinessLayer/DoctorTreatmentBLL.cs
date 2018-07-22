@@ -44,7 +44,7 @@ namespace Hospital.Models.BusinessLayer
             return lst;
         }
 
-        public DoctorTreatResponse Save(DoctorTreatmentModel model)
+        public DoctorTreatResponse Save(DoctorTreatmentModel model,bool IsValid=false)
         {
             if (model.TreatmentDate==null)
             {
