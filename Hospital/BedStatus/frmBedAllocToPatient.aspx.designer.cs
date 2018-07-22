@@ -9,6 +9,7 @@
 
 namespace Hospital.BedStatus {
     
+
     
     public partial class frmBedAllocToPatient {
         
