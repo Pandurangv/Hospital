@@ -18,7 +18,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmDepartmentMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetDepartments();

@@ -18,3 +18,32 @@ Message : ProductBLL -  UpdateProductEntityProduct entProduct)At Line No. 0 Col 
 Exception : Procedure or function 'sp_UpdateProduct' expects parameter '@ProductContent', which was not supplied.
 LogDate : 17-07-2017 11:41:27 PM
 ---------------------------------------------------------------------------------------
+Message : RegistrationBLL - GetDepartments()At Line No. 0 Col 0
+Exception : Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2026; handshake=5426; [Login] initialization=23; authentication=22; [Post-Login] complete=9373; 
+LogDate : 29-07-2017 02:26:33 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Specified argument was out of the range of valid values.
+Parameter name: index
+LogDate : 29-07-2017 02:44:51 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Specified argument was out of the range of valid values.
+Parameter name: index
+LogDate : 29-07-2017 02:44:51 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Specified argument was out of the range of valid values.
+Parameter name: index
+LogDate : 29-07-2017 02:44:51 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Specified argument was out of the range of valid values.
+Parameter name: index
+LogDate : 29-07-2017 02:44:51 PM
+---------------------------------------------------------------------------------------
+Message : frmDepartmentMaster -  dgvData_RowDataBound(object sender, GridViewRowEventArgs e)At Line No. 0 Col 0
+Exception : Specified argument was out of the range of valid values.
+Parameter name: index
+LogDate : 29-07-2017 02:44:51 PM
+---------------------------------------------------------------------------------------

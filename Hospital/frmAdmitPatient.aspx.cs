@@ -20,9 +20,13 @@ namespace Hospital
         PatientMasterBLL mobjPatient = new PatientMasterBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmAdmitPatient.aspx");
             if (!Page.IsPostBack)
             {
+                DateTimeOffset localtime = Commons.ConvertUTCBasedOnCuture();
+                string tt = string.Format("{0:tt}", localtime);
+                MKB.TimePicker.TimeSelector.AmPmSpec time = tt == "AM" ? MKB.TimePicker.TimeSelector.AmPmSpec.AM : MKB.TimePicker.TimeSelector.AmPmSpec.PM;
+                AdmissionTimeSelector.SetTime(localtime.Hour, localtime.Minute, time);
                 GetPatientList();
                 BindPatientTypes();
                 GetDeptCategory();
@@ -381,6 +385,11 @@ namespace Hospital
             txtAdmitDate.Enabled = true;
             AdmissionTimeSelector.Enabled = true;
             lblMsg.Text = string.Empty;
+
+            txtProvDiag.Text = "";
+            txtFinalDiag.Text = "";
+            
+            
         }
 
         public void GetOPDPatientList()
@@ -465,7 +474,39 @@ namespace Hospital
                     entAdmit.InsuName = string.Empty;
                 }
                 entAdmit.Dignosys = txtDignosys.Text;
+                entAdmit.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
 
+                entAdmit.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                entAdmit.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                entAdmit.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                entAdmit.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                entAdmit.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                entAdmit.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                entAdmit.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                entAdmit.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                entAdmit.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                entAdmit.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                entAdmit.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                entAdmit.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                entAdmit.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                entAdmit.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                entAdmit.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                entAdmit.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
                 lintCnt = mobjPatient.UpdatePatient(entAdmit);
 
                 if (lintCnt > 0)
@@ -590,6 +631,40 @@ namespace Hospital
                     ListItem itemCompany = ddlPatientType.Items.FindByValue(Convert.ToString(patient.PatientTypeId));
                     ddlPatientType.SelectedValue = itemCompany.Value;
                 }
+
+                txtProvDiag.Text = patient.ProvDiag;
+
+                txtFinalDiag.Text = patient.FinalDiag;
+
+                txtAilergies.Text = patient.Ailergies;
+
+                txtSymptoms.Text = patient.Symptomes;
+
+                txtPastIllness.Text = patient.PastIllness;
+
+                txtTemperature.Text = patient.Temperature;
+
+                txtPulse.Text =patient.Pulse;
+
+                txtRespiration.Text = patient.Respiration;
+
+                txtOthers.Text = patient.Others;
+
+                txtRS.Text = patient.RS;
+
+                txtCVS.Text = patient.CVS;
+
+                txtPA.Text = patient.PA;
+
+                txtCNS.Text = patient.CNS;
+
+                txtOBGY.Text = patient.OBGY;
+
+                txtXRay.Text = patient.XRAY;
+
+                txtECG.Text = patient.ECG;
+
+                txtUSG.Text =patient.USG;
                 BtnSave.Visible = false;
                 btnUpdate.Visible = true;
                 MultiView1.SetActiveView(View2);
@@ -630,9 +705,8 @@ namespace Hospital
                 entAdmit.PatientAdmitTime = Convert.ToString(objTime);
                 entAdmit.Dignosys = txtDignosys.Text;
 
-                entAdmit.DeptCategory = Convert.ToInt32(ddlDeptCategory.SelectedValue);
-                entAdmit.DeptDoctorId = Convert.ToInt32(ddlDeptDoctor.SelectedValue);
-
+                entAdmit.DeptCategory = ddlDeptCategory.SelectedIndex > 0 ? Convert.ToInt32(ddlDeptCategory.SelectedValue) : SettingsManager.Instance.DeptId;
+                entAdmit.DeptDoctorId = ddlDeptDoctor.SelectedIndex > 0 ? Convert.ToInt32(ddlDeptDoctor.SelectedValue) : SettingsManager.Instance.DoctorId;
                 if (rbtnIPD.Checked)
                 {
                     //DataTable ldt1 = new DataTable();
@@ -690,6 +764,39 @@ namespace Hospital
                     entAdmit.InsuName = string.Empty;
                 }
                 entAdmit.BP = !string.IsNullOrEmpty(txtBP.Text) ? txtBP.Text : "";
+                entAdmit.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
+
+                entAdmit.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                entAdmit.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                entAdmit.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                entAdmit.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                entAdmit.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                entAdmit.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                entAdmit.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                entAdmit.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                entAdmit.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                entAdmit.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                entAdmit.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                entAdmit.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                entAdmit.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                entAdmit.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                entAdmit.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                entAdmit.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
                 entAdmit.PatientTypeId = ddlPatientType.SelectedIndex > 0 ? Convert.ToInt32(ddlPatientType.SelectedValue) : 0;
                 bool Status = mobjPatient.CheckPatientExistforSameDate(entAdmit);
                 if (!Status)

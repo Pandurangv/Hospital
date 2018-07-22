@@ -24,8 +24,8 @@ namespace Hospital.Store
                     GetPurchaseInvoice();
                     BindSupplierList();
                     BindProductList();
-                    ddlSupplier.Enabled = false;
-                    calExpiryDate.StartDate = DateTime.Now.AddDays(10).Date;
+                    //ddlSupplier.Enabled = false;
+                    calExpiryDate.StartDate = DateTime.Now.Date;//.AddDays(-100);
                     MultiView1.SetActiveView(View1);
                 }
             }
@@ -66,35 +66,35 @@ namespace Hospital.Store
             }
         }
 
-        protected void chkIsPO_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (chkIsPO.Checked)
-                {
-                    if (btnUpdate.Visible == false)
-                    {
-                        ddlSupplier.Enabled = false;
-                        ddlPONumber.Enabled = true;
-                    }
-                    else
-                    {
-                        chkIsPO.Checked = false;
-                        lblMsg.Text = "You can not set invoice with Purchase Order";
-                    }
-                }
-                else
-                {
-                    ddlSupplier.Enabled = true;
-                    ddlPONumber.Enabled = false;
-                }
-                BindPODropDown();
-            }
-            catch (Exception ex)
-            {
-                lblMsg.Text = ex.Message;
-            }
-        }
+        //protected void chkIsPO_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (chkIsPO.Checked)
+        //        {
+        //            if (btnUpdate.Visible == false)
+        //            {
+        //                ddlSupplier.Enabled = false;
+        //                ddlPONumber.Enabled = true;
+        //            }
+        //            else
+        //            {
+        //                chkIsPO.Checked = false;
+        //                lblMsg.Text = "You can not set invoice with Purchase Order";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            ddlSupplier.Enabled = true;
+        //            ddlPONumber.Enabled = false;
+        //        }
+        //        BindPODropDown();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblMsg.Text = ex.Message;
+        //    }
+        //}
 
         protected void ddlPONumber_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -154,7 +154,7 @@ namespace Hospital.Store
             try
             {
                 ProductBLL mobjProduct = new ProductBLL();
-                List<EntityProduct> lst = mobjProduct.GetAllProducts();
+                List<EntityProduct> lst = mobjProduct.GetAllProducts().Where(p=>p.Category=="Store").ToList();
                 lst.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "------Select------" });
                 ddlProduct.DataSource = lst;
                 ddlProduct.DataValueField = "ProductId";
@@ -418,19 +418,32 @@ namespace Hospital.Store
                 btnUpdateItem.Visible = true;
                 if (row != null)
                 {
-                    hdnRowIndex.Value = Convert.ToString(row.RowIndex);
-                    ListItem item = ddlProduct.Items.FindByText(row.Cells[1].Text);
-                    ddlProduct.SelectedValue = item.Value;
-                    ddlProduct_SelectedIndexChanged1(sender, e);
-                    txtBatch.Text = row.Cells[3].Text;
-                    txtExpiryDt.Text = row.Cells[4].Text;
-                    txtItemCharge.Text = (row.Cells[5].Text);
-                    txtQuantity.Text = row.Cells[2].Text;
-                    EntityPurchaseOrderDetails poQty = mobjDeptBLL.GetPOQty(Convert.ToInt32(Session["PO_ID"]), Convert.ToInt32(ddlProduct.SelectedValue));
-                    if (poQty != null)
+                    List<EntityPurchaseInvoiceDetails> lst = (List<EntityPurchaseInvoiceDetails>)Session["PIDetails"];
+                    EntityPurchaseInvoiceDetails invdtl = lst.Where(p => p.ProductCode == Convert.ToInt32(row.Cells[1])).FirstOrDefault();
+                    if (invdtl!=null)
                     {
-                        txtPOQty.Text = Convert.ToString(poQty.Quantity);
+                        hdnRowIndex.Value = Convert.ToString(row.RowIndex);
+                        ListItem item = ddlProduct.Items.FindByValue(invdtl.ProductCode.ToString());
+                        if (item!=null)
+                        {
+                            ddlProduct.SelectedValue = item.Value;
+                        }
+                        ddlProduct_SelectedIndexChanged1(sender, e);
+                        txtBatch.Text = invdtl.BatchNo;
+                        txtExpiryDt.Text = string.Format("{0:dd/MM/yyyy}", invdtl.ExpiryDate.Value.Date);
+                        txtItemCharge.Text = Convert.ToString(invdtl.InvoicePrice);
+                        txtQuantity.Text = Convert.ToString(invdtl.InvoiceQty);
+                        txtTax.Text = Convert.ToString(invdtl.TaxPercent);
+                        txtTaxAmount.Text = Convert.ToString(invdtl.TaxAmount);
+                        txtProductAmount.Text = Convert.ToString(invdtl.Amount);
                     }
+                   
+                    
+                    //EntityPurchaseOrderDetails poQty = mobjDeptBLL.GetPOQty(Convert.ToInt32(Session["PO_ID"]), Convert.ToInt32(ddlProduct.SelectedValue));
+                    //if (poQty != null)
+                    //{
+                    //    txtPOQty.Text = Convert.ToString(poQty.Quantity);
+                    //}
                 }
             }
             catch (Exception ex)
@@ -475,6 +488,13 @@ namespace Hospital.Store
                                 lst[i].InvoiceQty = Convert.ToInt32(txtQuantity.Text);
                                 lst[i].Amount = Convert.ToDecimal(txtItemCharge.Text) * (Convert.ToInt32(txtQuantity.Text));
                                 lst[i].InvoicePrice = Convert.ToDecimal(txtItemCharge.Text);
+                                lst[i].TaxPercent=!string.IsNullOrEmpty(txtTax.Text)?Convert.ToDecimal(txtTax.Text):0;
+                                if (lst[i].TaxPercent > 0)
+                                {
+                                    var percent = (lst[i].TaxPercent / 100) * lst[i].InvoicePrice;
+                                    lst[i].TaxAmount = percent;
+                                    lst[i].Amount = (lst[i].InvoiceQty * lst[i].InvoicePrice) + (percent * lst[i].InvoiceQty);
+                                }
                             }
                         }
                     }
@@ -518,7 +538,12 @@ namespace Hospital.Store
                         else
                         {
                             entPurchaseInvoice.SupplierId = Convert.ToInt32(ddlSupplier.SelectedValue);
-                            entPurchaseInvoice.Amount = Convert.ToDecimal(txtNetAmount.Text);
+                            List<EntityPurchaseInvoiceDetails> lstInvoice = (List<EntityPurchaseInvoiceDetails>)Session["PIDetails"];
+                            entPurchaseInvoice.Amount = lstInvoice.Sum(p => p.InvoiceQty * p.InvoicePrice);
+                            
+                            var sum = lstInvoice.Sum(p => p.InvoiceQty * p.InvoicePrice);
+                            var sumtax = lstInvoice.Sum(p => p.TaxAmount * p.InvoiceQty);
+                            entPurchaseInvoice.NetAmount = sum + sumtax;
                             entPurchaseInvoice.PIDate = StringExtension.ToDateTime(txtPurchaseDate.Text);
                             if (!string.IsNullOrEmpty(txtDiscount.Text))
                             {
@@ -528,8 +553,12 @@ namespace Hospital.Store
                             {
                                 entPurchaseInvoice.Tax2 = Convert.ToInt32(txtService.Text);
                             }
-                            entPurchaseInvoice.Tax1 = Convert.ToInt32(txtVAT.Text);
-                            List<EntityPurchaseInvoiceDetails> lstInvoice = (List<EntityPurchaseInvoiceDetails>)Session["PIDetails"];
+
+                            if (!string.IsNullOrEmpty(txtService.Text))
+                            {
+                                entPurchaseInvoice.Tax1 = Convert.ToInt32(txtVAT.Text);
+                            }
+                            
                             if (chkIsPO.Checked)
                             {
                                 entPurchaseInvoice.PONo = Convert.ToInt32(ddlPONumber.SelectedValue);
@@ -581,10 +610,15 @@ namespace Hospital.Store
                             SupplierId = Convert.ToInt32(ddlSupplier.SelectedValue),
                             Amount = Convert.ToDecimal(txtNetAmount.Text),
                             PIDate = StringExtension.ToDateTime(txtPurchaseDate.Text),
-                            Tax1 = Convert.ToInt32(txtService.Text),
-                            Tax2 = Convert.ToInt32(txtVAT.Text),
-                            Discount = Convert.ToInt32(txtDiscount.Text)
+                            Tax1 = !string.IsNullOrEmpty(txtService.Text)? Convert.ToInt32(txtService.Text) : 0,
+                            Tax2 = !string.IsNullOrEmpty(txtVAT.Text) ? Convert.ToInt32(txtVAT.Text) : 0,
+                            Discount = !string.IsNullOrEmpty(txtDiscount.Text) ? Convert.ToInt32(txtDiscount.Text) : 0
                         };
+                        invoice.Amount = lst.Sum(p => p.InvoiceQty * p.InvoicePrice);
+
+                        var sum = lst.Sum(p => p.InvoiceQty * p.InvoicePrice);
+                        var sumtax = lst.Sum(p => p.TaxAmount * p.InvoiceQty);
+                        invoice.NetAmount = sum + sumtax;
                         if (chkIsPO.Checked)
                         {
                             invoice.PONo = Convert.ToInt32(Session["PONO"]);
@@ -643,35 +677,46 @@ namespace Hospital.Store
                 {
                     if (!string.IsNullOrEmpty(txtQuantity.Text))
                     {
-                        if (DateTime.Now.Date.AddMonths(2).Date.CompareTo(StringExtension.ToDateTime(txtExpiryDt.Text)) == 1)
+                        lblMsg.Text = string.Empty;
+                        List<EntityPurchaseInvoiceDetails> lst = (List<EntityPurchaseInvoiceDetails>)Session["PIDetails"];
+
+                        int cnt = (from tbl in lst
+                                   where tbl.ProductCode == Convert.ToInt32(ddlProduct.SelectedValue)
+                                   && tbl.BatchNo.Equals(txtBatch.Text)
+                                   select tbl).ToList().Count;
+                        if (cnt > 0)
                         {
-                            lblMsg.Text = "You can not Short expiry Products.";
+                            lblMsg.Text = "This product is already added...";
                         }
                         else
                         {
                             lblMsg.Text = string.Empty;
-                            List<EntityPurchaseInvoiceDetails> lst = (List<EntityPurchaseInvoiceDetails>)Session["PIDetails"];
-
-                            int cnt = (from tbl in lst
-                                       where tbl.ProductCode == Convert.ToInt32(ddlProduct.SelectedValue)
-                                       && tbl.BatchNo.Equals(txtBatch.Text)
-                                       select tbl).ToList().Count;
-                            if (cnt > 0)
+                            var model = new EntityPurchaseInvoiceDetails()
+                                    {
+                                        ProductCode = Convert.ToInt32(ddlProduct.SelectedValue),
+                                        BatchNo = txtBatch.Text,
+                                        ExpiryDate = StringExtension.ToDateTime(txtExpiryDt.Text),
+                                        ProductName = ddlProduct.SelectedItem.Text,
+                                        InvoiceQty = Convert.ToInt32(txtQuantity.Text),
+                                        Amount = Convert.ToDecimal(txtItemCharge.Text) * (Convert.ToInt32(txtQuantity.Text)),
+                                        InvoicePrice = Convert.ToDecimal(txtItemCharge.Text),
+                                        TaxPercent = !string.IsNullOrEmpty(txtTax.Text) ? Convert.ToDecimal(txtTax.Text) : 0,
+                                    };
+                            
+                            if (model.TaxPercent>0)
                             {
-                                lblMsg.Text = "This product is already added...";
+                                var percent = (model.TaxPercent / 100) * model.InvoicePrice;
+                                model.TaxAmount = percent;
+                                model.Amount = (model.InvoiceQty * model.InvoicePrice) + (percent * model.InvoiceQty);
                             }
-                            else
-                            {
-                                lst.Add(new EntityPurchaseInvoiceDetails() { ProductCode = Convert.ToInt32(ddlProduct.SelectedValue), BatchNo = txtBatch.Text, ExpiryDate = StringExtension.ToDateTime(txtExpiryDt.Text), ProductName = ddlProduct.SelectedItem.Text, InvoiceQty = Convert.ToInt32(txtQuantity.Text), Amount = Convert.ToDecimal(txtItemCharge.Text) * (Convert.ToInt32(txtQuantity.Text)), InvoicePrice = Convert.ToDecimal(txtItemCharge.Text) });
-                                Session["PIDetails"] = lst;
-                                GridView1.DataSource = lst;
-                                GridView1.DataBind();
-                                txtTotal.Text = Convert.ToString(lst.Sum(p => p.Amount));
-                                ClearOther();
-                                Calculation();
-                            }
+                            lst.Add(model);
+                            Session["PIDetails"] = lst;
+                            GridView1.DataSource = lst;
+                            GridView1.DataBind();
+                            txtTotal.Text = Convert.ToString(lst.Sum(p => p.Amount));
+                            ClearOther();
+                            Calculation();
                         }
-
 
                     }
                 }
@@ -699,6 +744,9 @@ namespace Hospital.Store
                 txtPOQty.Text = string.Empty;
                 txtBatch.Text = string.Empty;
                 lblMsg.Text = string.Empty;
+                txtTax.Text = string.Empty;
+                txtProductAmount.Text = string.Empty;
+                txtTaxAmount.Text = string.Empty;
             }
             catch (Exception ex)
             {

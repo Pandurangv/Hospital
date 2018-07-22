@@ -21,10 +21,10 @@ namespace Hospital
         PatientInvoiceBLL objpatientInvoice = new PatientInvoiceBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmPrescription.aspx");
             if (!Page.IsPostBack)
             {
-                BindTablet();
+                //BindTablet();
                 BindOtherCharge();
                 GetDoctortList();
                 Myflag.Value = string.Empty;
@@ -33,23 +33,23 @@ namespace Hospital
             }
         }
 
-        public void BindTablet()
-        {
-            try
-            {
-                IssueMaterialBLL mobjDeptBLL = new IssueMaterialBLL();
-                List<EntityProduct> lstPat = mobjDeptBLL.GetProductList();
-                ddlTablet.DataSource = lstPat;
-                lstPat.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "--Select--" });
-                ddlTablet.DataValueField = "ProductId";
-                ddlTablet.DataTextField = "ProductName";
-                ddlTablet.DataBind();
-            }
-            catch (Exception ex)
-            {
-                lblMessage.Text = ex.Message;
-            }
-        }
+        //public void BindTablet()
+        //{
+        //    try
+        //    {
+        //        ProductBLL mobjProduct = new ProductBLL(); // mobjDeptBLL = new IssueMaterialBLL();
+        //        List<EntityProduct> lstPat = mobjProduct.GetAllProducts().Where(p => p.Category == "Pres").ToList();
+        //        ddlTablet.DataSource = lstPat;
+        //        lstPat.Insert(0, new EntityProduct() { ProductId = 0, ProductName = "--Select--" });
+        //        ddlTablet.DataValueField = "ProductId";
+        //        ddlTablet.DataTextField = "ProductName";
+        //        ddlTablet.DataBind();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblMessage.Text = ex.Message;
+        //    }
+        //}
 
         private void GetDoctortList()
         {
@@ -193,7 +193,8 @@ namespace Hospital
 
         public void Clear(bool isClose=false)
         {
-            ddlTablet.SelectedIndex = 0;
+            //ddlTablet.SelectedIndex = 0;
+            txtMedicine.Text = string.Empty;
             txtMorning.Text = string.Empty;
             txtafternoon.Text = string.Empty;
             txtNight.Text = string.Empty;
@@ -253,8 +254,9 @@ namespace Hospital
                     if (Convert.ToString(Myflag.Value) == "Addnew")
                     {
                         TempId.Value = Convert.ToString(dgvChargeDetails.DataKeys[row.RowIndex].Value);
-                        ListItem itemProduct = ddlTablet.Items.FindByText(row.Cells[0].Text);
-                        ddlTablet.SelectedValue = itemProduct.Value;
+                        //ListItem itemProduct = ddlTablet.Items.FindByText(row.Cells[0].Text);
+                        //ddlTablet.SelectedValue = itemProduct.Value;
+                        txtMedicine.Text = row.Cells[0].Text;
                         txtMorning.Text = row.Cells[1].Text;
                         txtafternoon.Text = row.Cells[2].Text;
                         txtNight.Text = row.Cells[3].Text;
@@ -283,8 +285,9 @@ namespace Hospital
                     else
                     {
                         TempId.Value = Convert.ToString(dgvChargeDetails.DataKeys[row.RowIndex].Value);
-                        ListItem itemProduct = ddlTablet.Items.FindByText(row.Cells[0].Text);
-                        ddlTablet.SelectedValue = itemProduct.Value;
+                        //ListItem itemProduct = ddlTablet.Items.FindByText(row.Cells[0].Text);
+                        //ddlTablet.SelectedValue = itemProduct.Value;
+                        txtMedicine.Text = row.Cells[0].Text;
                         txtMorning.Text = row.Cells[1].Text;
                         txtafternoon.Text = row.Cells[2].Text;
                         txtNight.Text = row.Cells[3].Text;
@@ -335,6 +338,7 @@ namespace Hospital
                         }
                     }
                     invDtl.Value = serialize.Serialize(lstFinal);
+                    
                     dgvChargesOPD.DataSource = lstFinal;
                     dgvChargesOPD.DataBind();
                 }
@@ -349,10 +353,15 @@ namespace Hospital
                     }
                 }
                 invDtl.Value = serialize.Serialize(lstFinal);
+                //decimal amt=lstFinal.Sum(p => p.Amount);
+                //txtTotalAmount.Text = string.Format("{0:00", Convert.ToString(amt));
                 dgvChargesOPD.DataSource = lst.Where(p => p.IsDelete == false).ToList();
                 dgvChargesOPD.DataBind();
             }
-            txtTotalAmount.Text = string.Format("{0:00", lstFinal.Sum(p => p.Amount));
+
+            decimal amt = lstFinal.Sum(p => p.Amount);
+            txtTotalAmount.Text = Convert.ToString(amt);
+            
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -396,25 +405,25 @@ namespace Hospital
         {
             try
             {
-                List<EntityPrescriptionDetails> lst = null;
-                if (Convert.ToString(Myflag.Value).Equals("Addnew", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    lst =serialize.Deserialize<List<EntityPrescriptionDetails>>(Prescript.Value);
-                }
-                else
-                {
-                    lst = serialize.Deserialize<List<EntityPrescriptionDetails>>(Prescript.Value);
-                }
+                List<EntityPrescriptionDetails> lst = serialize.Deserialize<List<EntityPrescriptionDetails>>(Prescript.Value); ;
+                //if (Convert.ToString(Myflag.Value).Equals("Addnew", StringComparison.CurrentCultureIgnoreCase))
+                //{
+                    
+                //}
+                //else
+                //{
+                //    lst = serialize.Deserialize<List<EntityPrescriptionDetails>>(Prescript.Value);
+                //}
                 if (lst==null)
                 {
                     lst = new List<EntityPrescriptionDetails>();
                 }
-                if (ddlTablet.SelectedIndex>0)
+                //if (ddlTablet.SelectedIndex>0)
                 {
                     lst.Add(new EntityPrescriptionDetails
                     {
-                        ProductId = Convert.ToInt32(ddlTablet.SelectedValue),
-                        ProductName = ddlTablet.SelectedItem.Text,
+                        //ProductId = Convert.ToInt32(ddlTablet.SelectedValue),
+                        ProductName = txtMedicine.Text,
                         Morning = txtMorning.Text,
                         Afternoon = txtafternoon.Text,
                         Night = txtNight.Text,
@@ -488,7 +497,7 @@ namespace Hospital
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            ddlTablet.SelectedIndex = 0;
+            //ddlTablet.SelectedIndex = 0;
             txtMorning.Text = string.Empty;
             txtafternoon.Text = string.Empty;
             txtNight.Text = string.Empty;
@@ -506,8 +515,8 @@ namespace Hospital
                 entInvoice.PatientId = Convert.ToInt32(ddlPatient.SelectedValue);
                 entInvoice.IsCash = true;
                 entInvoice.IsDelete = false;
-                entInvoice.BillDate = StringExtension.ToDateTime(txtPrescriptionDate.Text);
-
+                entInvoice.BillDate = !string.IsNullOrEmpty(txtPrescriptionDate.Text)? StringExtension.ToDateTime(txtPrescriptionDate.Text):DateTime.Now.Date;
+                tblins.LanType = ddlLanType.SelectedValue;
                 //entInvoice.Amount=
                 tblins.DoctorId = Convert.ToInt32(ddlDoctors.SelectedValue);
                 tblins.FollowUpDate = DateTime.Now.Date;
@@ -667,6 +676,7 @@ namespace Hospital
                 tblins.Prescription_Id = Convert.ToInt32(PrescriptionId.Value);
                 tblins.AdmitId = Convert.ToInt32(ddlPatient.SelectedValue);
                 tblins.DoctorId = Convert.ToInt32(ddlDoctors.SelectedValue);
+                tblins.LanType = ddlLanType.SelectedValue;
                 //tblins.DeptDoctor = txtDeptCat.Text;
                 tblins.Prescription_Date = StringExtension.ToDateTime(txtPrescriptionDate.Text);
                 tblins.InjectionName = txtInjection.Text;
@@ -711,7 +721,8 @@ namespace Hospital
             {
                 if (Convert.ToInt32(TempId.Value) == item.TempId)
                 {
-                    item.ProductId = Convert.ToInt32(ddlTablet.SelectedValue);
+                    //item.ProductId = Convert.ToInt32(ddlTablet.SelectedValue);
+                    item.ProductName = txtMedicine.Text;
                     item.Morning = Convert.ToString(txtMorning.Text);
                     item.Afternoon = Convert.ToString(txtafternoon.Text);
                     item.Night = Convert.ToString(txtNight.Text);
@@ -728,7 +739,8 @@ namespace Hospital
                             PrescriptionDetailId = item.PrescriptionDetailId,
                             Prescription_Id = item.Prescription_Id,
                             IsDelete = item.IsDelete,
-                            ProductId = item.ProductId,
+                            //ProductId = item.ProductId,
+                            ProductName = txtMedicine.Text,
                             Quantity = item.Quantity,
                             Morning = item.Morning,
                             Afternoon = item.Afternoon,
@@ -881,6 +893,8 @@ namespace Hospital
                 Prescript.Value = serialize.Serialize(lst);
                 dgvChargeDetails.DataSource = lst;
                 dgvChargeDetails.DataBind();
+                dgvChargesOPD.DataSource = new List<EntityInvoiceDetails>();
+                dgvChargesOPD.DataBind();
                 MultiView1.SetActiveView(View2);
             }
             catch (Exception ex)

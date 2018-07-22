@@ -23,7 +23,7 @@ namespace Hospital.Payroll
         JavaScriptSerializer serialize = new JavaScriptSerializer();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmSalaryCalculation.aspx");
             if (!Page.IsPostBack)
             {
                 MultiView1.SetActiveView(View1);

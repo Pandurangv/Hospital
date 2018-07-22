@@ -17,7 +17,7 @@ namespace Hospital
         InsuranceComBLL mobjInsuranceBLL = new InsuranceComBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmInsuranceComMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetInsurance();

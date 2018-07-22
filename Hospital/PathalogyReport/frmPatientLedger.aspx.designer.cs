@@ -139,24 +139,6 @@ namespace Hospital.PathalogyReport {
         protected global::System.Web.UI.WebControls.Label MRN;
         
         /// <summary>
-        /// lblSex control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSex;
-        
-        /// <summary>
-        /// lblBloodGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBloodGroup;
-        
-        /// <summary>
         /// Panel2 control.
         /// </summary>
         /// <remarks>

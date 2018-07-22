@@ -15,6 +15,8 @@ namespace Hospital.Models.Models
 
         }
 
+        public decimal? NetAmount { get; set; }
+
         public string Address { get; set; }
 
         private int _PINo;

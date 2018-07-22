@@ -2994,7 +2994,7 @@ section.content {
     font-size: 14px;
     color: #555;
     padding: 20px;
-    height: 465px;
+    height: 100%;
     overflow: auto; }
     .card .body .col-xs-1,
     .card .body .col-sm-1,
@@ -3025,7 +3025,7 @@ section.content {
     .card .body .col-sm-6,
     .card .body .col-md-6,
     .card .body .col-lg-6 {
-      margin-bottom: 20px; }
+      margin-bottom: 10px; }
     .card .body .col-xs-7,
     .card .body .col-sm-7,
     .card .body .col-md-7,
@@ -3055,7 +3055,7 @@ section.content {
     .card .body .col-sm-12,
     .card .body .col-md-12,
     .card .body .col-lg-12 {
-      margin-bottom: 20px; }
+      margin-bottom: 10px; }
 
 /* Infobox ===================================== */
 .info-box {
@@ -5046,7 +5046,8 @@ section.content {
 
 .form-group {
   width: 100%;
-  margin-bottom: 25px; }
+  margin-bottom: 0px;
+  }
   .form-group .form-control {
     width: 100%;
     border: none;
@@ -8052,3 +8053,89 @@ html.ie11 .bs-searchbox .form-control {
     text-decoration: none;
   }
 
+th {
+background-color: #1f91f3 !important;
+color:#fff;
+}
+table tr:nth-child(odd) td{
+background:#ccc;
+}
+table tr:nth-child(even) td{
+background:#fff;
+}
+.form-group.margin-bottom_25 {
+margin-bottom: 0px !important;
+}
+.validationError
+{
+    margin-bottom: 0px;
+    margin-top: 15px;
+    }
+.angucomplete-holder {
+    position: relative;
+}
+
+.angucomplete-dropdown {
+    border-color: #ececec;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    width: 250px;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    /*top: 32px;
+    left: 0px;
+    */
+    margin-top: -6px;
+    background-color: #ffffff;
+}
+
+.angucomplete-searching {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.angucomplete-description {
+    font-size: 14px;
+}
+
+.angucomplete-row {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 4px;
+    clear: both;
+}
+
+.angucomplete-selected-row {
+    background-color: lightblue;
+    color: #ffffff;
+}
+
+.angucomplete-image-holder {
+    padding-top: 2px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.angucomplete-image {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    border-color: #ececec;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.angucomplete-image-default {
+    /* Add your own default image here
+     background-image: url('/assets/default.png');
+    */
+    background-position: center;
+    background-size: contain;
+    height: 34px;
+    width: 34px;
+}
+.highlight{ color:red;}

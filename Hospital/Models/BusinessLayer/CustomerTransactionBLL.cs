@@ -538,6 +538,59 @@ namespace Hospital.Models.BusinessLayer
             }
         }
 
+        public List<EntityTestInvoiceDetails> GetTestInvoiceList(int TestInvoiceNo)
+        {
+            try
+            {
+                return (from tbl in objData.tblTestInvoiceDetails
+                        join tblTest in objData.tblTestMasters
+                        on tbl.TestId equals tblTest.TestId
+                        where tbl.IsDelete == false
+                        && tbl.TestInvoiceId==TestInvoiceNo
+                        select new EntityTestInvoiceDetails
+                        {
+                            Charges=tbl.Charges,
+                            TestId=tbl.TestId,
+                            TestInvoiceDetailsId=tbl.TestInvoiceDetailsId,
+                            TestName=tblTest.TestName
+                        }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<EntityTestInvoice> GetTestInvoiceDetails()
+        {
+            try
+            {
+                return (from tbl in objData.tblTestInvoices
+                        join tblAdmit in objData.tblPatientAdmitDetails
+                        on tbl.PatientId equals tblAdmit.AdmitId
+                        join tblPatient in objData.tblPatientMasters
+                        on tblAdmit.PatientId equals tblPatient.PKId
+                        where tblPatient.IsDelete == false
+                        select new EntityTestInvoice
+                        {
+                            TestInvoiceNo = tbl.TestInvoiceNo,
+                            TestInvoiceDate = tbl.TestInvoiceDate,
+                            Address = tblPatient.Address,
+                            Amount = tbl.Amount,
+                            Discount = tbl.Discount,
+                            PatientName = tblPatient.PatientFirstName + " " + tblPatient.PatientMiddleName + " " + tblPatient.PatientLastName,
+                            PatientId = tbl.PatientId,
+                            PatientCode = tblPatient.PatientCode,
+                        }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<EntityTestInvoice> GetTestInvoiceList()
         {
             try
@@ -554,7 +607,8 @@ namespace Hospital.Models.BusinessLayer
                             Amount = tbl.Amount,
                             Discount = tbl.Discount,
                             PatientName = tblPatient.PatientFirstName + " " + tblPatient.PatientMiddleName + " " + tblPatient.PatientLastName,
-                            PatientId = tbl.PatientId
+                            PatientId = tbl.PatientId,
+                            PatientCode=tblPatient.PatientCode,
                         }).ToList();
 
             }

@@ -211,8 +211,7 @@
                                                                     <cc:CalendarExtender ID="CalDate" runat="server" TargetControlID="txtPrescriptionDate"
                                                                         Format="dd/MM/yyyy">
                                                                     </cc:CalendarExtender>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtPrescriptionDate"
-                                                                        Display="Dynamic" ErrorMessage="*" Font-Size="13" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             
@@ -235,6 +234,27 @@
                                                                         MaxLength="30" Width="150px"></asp:TextBox>
                                                                 </td>
                                                             </tr>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    <asp:Label ID="Label17" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                                        ForeColor="#3b3535" Text="Language : "></asp:Label>
+                                                                </td>
+                                                                <td align="left">
+                                                                    <asp:DropDownList ID="ddlLanType" runat="server" Width="150px">
+                                                                        <asp:ListItem Value="Eng" Text="English"></asp:ListItem>
+                                                                        <asp:ListItem Value="Mar" Text="Marathi"></asp:ListItem>
+                                                                        <asp:ListItem Value="Guj" Text="Gujrathi"></asp:ListItem>
+                                                                        <asp:ListItem Value="Tam" Text="Tamil"></asp:ListItem>
+                                                                        <asp:ListItem Value="Tel" Text="Telgu"></asp:ListItem>
+                                                                    </asp:DropDownList>
+                                                                </td>
+                                                                <td align="right">
+                                                                    
+                                                                </td>
+                                                                <td align="left">
+                                                                    
+                                                                </td>
+                                                            </tr>
                                                         </table>
                                                     </asp:Panel>
                                                 </td>
@@ -254,11 +274,13 @@
                                                                         Font-Size="11px" ForeColor="#3b3535"></asp:Label>
                                                                 </td>
                                                                 <td style="width: 15%;" align="left">
-                                                                    <asp:DropDownList ID="ddlTablet" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                                    <%--<asp:DropDownList ID="ddlTablet" runat="server" Font-Names="Verdana" Font-Size="11px"
                                                                         Width="154px">
-                                                                    </asp:DropDownList>
+                                                                    </asp:DropDownList>--%>
+                                                                    <asp:TextBox ID="txtMedicine" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                                        Width="150px"  MaxLength="30"></asp:TextBox>
                                                                     <asp:RequiredFieldValidator ID="rfvDept" runat="server" ForeColor="Red" SetFocusOnError="true"
-                                                                        Display="Dynamic" InitialValue="0" ControlToValidate="ddlTablet" Font-Size="13"
+                                                                        Display="Dynamic" ControlToValidate="txtMedicine" Font-Size="13"
                                                                         ValidationGroup="Add" ErrorMessage="*"></asp:RequiredFieldValidator>
                                                                 </td>
                                                                 <td align="right">
@@ -277,7 +299,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                     <asp:TextBox ID="txtMorning" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                        Width="150px" MaxLength="30"></asp:TextBox>
+                                                                        Width="150px"  MaxLength="30"></asp:TextBox>
                                                                 </td>
                                                                  <td style="width: 10%;" align="right">
                                                                     <asp:Label ID="lblNoDays" Text="No of Days : " runat="server" Font-Names="Verdana"
@@ -285,7 +307,7 @@
                                                                 </td>
                                                                 <td style="width: 30%;" align="left">
                                                                     <asp:TextBox ID="txtNoOfDays" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                        Width="150px" MaxLength="30"></asp:TextBox>
+                                                                        Width="150px"  MaxLength="30"></asp:TextBox>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -295,7 +317,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                     <asp:TextBox ID="txtafternoon" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                        Width="150px" MaxLength="30"></asp:TextBox>
+                                                                        Width="150px"  MaxLength="30"></asp:TextBox>
                                                                 </td>
                                                                 <td align="right">
                                                                     <asp:Label ID="Label12" Text="Quantity : " runat="server" Font-Names="Verdana" Font-Size="11px"
@@ -303,7 +325,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                      <asp:TextBox ID="txtQuantity" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                        Width="150px" MaxLength="10"></asp:TextBox>
+                                                                        Width="150px"  MaxLength="30"></asp:TextBox>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -463,7 +485,8 @@
                                                                 </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
-                                                        <asp:GridView ID="dgvChargesOPD" runat="server" CellPadding="4" ForeColor="#333333" GridLines="Both"
+                                                        <asp:GridView ID="dgvChargesOPD" runat="server" CellPadding="4" 
+                                                            ForeColor="#333333" GridLines="Both"
                                                             Font-Names="Verdana" Width="100%" Font-Size="Small" AutoGenerateColumns="false"
                                                             DataKeyNames="TempId">
                                                             <FooterStyle BackColor="#3b3535" Font-Bold="True" ForeColor="White" />
@@ -524,32 +547,32 @@
                                                         <tr>
                                                             <td align="right">
                                                                 <asp:Label ID="lblInvestigation" Text="Investigations Done : " runat="server" Font-Names="Verdana"
-                                                                    Font-Size="11px" ForeColor="#3b3535"></asp:Label>
+                                                                    Font-Size="11px" ForeColor="#3b3535" Visible="false"></asp:Label>
                                                             </td>
                                                             <td align="left">
                                                                 <asp:TextBox ID="txtInvestigation" runat="server" Font-Names="Verdana" Font-Size="11px" TextMode="MultiLine"
-                                                                    Width="300px" Height="35px"></asp:TextBox>
+                                                                    Width="300px" Height="35px" Visible="false"></asp:TextBox>
                                                             </td>
                                                             <td align="right">
                                                                 <asp:Label ID="lblImpression" Text="Impression : " runat="server" Font-Names="Verdana"
-                                                                    Font-Size="11px" ForeColor="#3b3535"></asp:Label>
+                                                                    Font-Size="11px" ForeColor="#3b3535" Visible="false"></asp:Label>
                                                             </td>
                                                             <td align="left">
                                                                 <asp:TextBox ID="txtImpression" runat="server" Font-Names="Verdana" Font-Size="11px" TextMode="MultiLine"
-                                                                    Width="300px" Height="35px"></asp:TextBox>
+                                                                    Width="300px" Height="35px" Visible="false"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td align="right">
                                                                 <asp:Label ID="lblAdvice" Text="Advice Note : " runat="server" Font-Names="Verdana"
-                                                                    Font-Size="11px" ForeColor="#3b3535"></asp:Label>
+                                                                    Font-Size="11px" ForeColor="#3b3535" Visible="false"></asp:Label>
                                                             </td>
                                                             <td align="left">
                                                                 <asp:TextBox ID="txtAdviceNote" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                                                    TextMode="MultiLine" Width="300px" Height="35px"></asp:TextBox>
+                                                                    TextMode="MultiLine" Width="300px" Height="35px" Visible="false"></asp:TextBox>
                                                             </td>
                                                             <td align="right">
-                                                                <asp:Label ID="Label5" Text="Remarks: " runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                                <asp:Label ID="Label5" Text="Instructions: " runat="server" Font-Names="Verdana" Font-Size="11px"
                                                                     ForeColor="#3b3535"></asp:Label>
                                                             </td>
                                                             <td align="left">

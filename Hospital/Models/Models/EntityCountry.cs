@@ -26,11 +26,23 @@ namespace Hospital.Models.Models
         #endregion
     }
 
-    public class EntityOTMedicineBill
+    public class EntityOTMedicineBill:Error
     {
         public EntityOTMedicineBill()
         {
+            ProductList = new List<EntityOTMedicineBillDetails>();
         }
+
+        public List<EntityOTMedicineBillDetails> ProductList { get; set; }
+
+        public string EmployeeName { get; set; }
+
+        public string PatientCode { get; set; }
+
+        public string TreatmentDetails { get; set; }
+
+        public string TreatmentPro { get; set; }
+
         private int _BillNo;
         private bool _IsDelete;
         public string PatientName { get; set; }
@@ -51,6 +63,12 @@ namespace Hospital.Models.Models
             }
         }
 
+        public string TreatmentTime { get; set; }
+
+        public decimal? TotalTaxAmount { get; set; }
+
+        public decimal? NetAmount { get; set; }
+
         public bool IsDelete
         {
             get
@@ -68,7 +86,7 @@ namespace Hospital.Models.Models
 
         public DateTime? Bill_Date { get; set; }
         public int? AdmitId { get; set; }
-        public decimal TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
     }
 
     public class EntityOTMedicineBillDetails
@@ -80,33 +98,34 @@ namespace Hospital.Models.Models
             //
         }
         public int TempId { get; set; }
-        public int MedicineId { get; set; }
+        public int? MedicineId { get; set; }
 
-        private int _BillDetailId;
+        public decimal? TaxPercent { get; set; }
+
+        public decimal? TaxAmount { get; set; }
+
+        public DateTime? PresDate { get; set; }
+
+       
+
+        public int? MorningQty { get; set; }
+
+        public int? AfterNoonQty { get; set; }
+
+        public int? EveningQty { get; set; }
+
+        public int BillDetailId { get; set; }
 
         private System.Nullable<int> _BillNo;
 
         private string _MedicineName;
-        public int TabletId { get; set; }
+        public int? TabletId { get; set; }
 
         private System.Nullable<int> _Quantity;
 
-        private bool _IsDelete;
+        private bool? _IsDelete;
 
-        public int BillDetailId
-        {
-            get
-            {
-                return this._BillDetailId;
-            }
-            set
-            {
-                if ((this._BillDetailId != value))
-                {
-                    this._BillDetailId = value;
-                }
-            }
-        }
+        
 
         public System.Nullable<int> BillNo
         {
@@ -154,7 +173,7 @@ namespace Hospital.Models.Models
             }
         }
 
-        public bool IsDelete
+        public bool? IsDelete
         {
             get
             {
@@ -169,7 +188,21 @@ namespace Hospital.Models.Models
             }
         }
 
-        public decimal Price { get; set; }
-        public decimal Amount { get; set; }
+        public string ProductName { get; set; }
+
+        public decimal? Price { get; set; }
+        public decimal? Amount { get; set; }
+
+        public string BatchNo { get; set; }
+
+        public DateTime? ExpiryDate { get; set; }
+
+        public int? ProductId { get; set; }
+
+        public int? LabTestId { get; set; }
+
+        public string TestName { get; set; }
+
+        public int? NightQty { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Hospital.BedStatus
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmBedAllocToPatient.aspx");
             if (!Page.IsPostBack)
             {
                 GetBedAlloc();

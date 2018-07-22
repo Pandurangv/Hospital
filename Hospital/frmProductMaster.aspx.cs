@@ -18,7 +18,7 @@ namespace Hospital
         ProductBLL mobjProductBLL = new ProductBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmProductMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetProduct();

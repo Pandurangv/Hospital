@@ -306,7 +306,7 @@ namespace Hospital
                     }
                     else
                     {
-                        if (item.IsDelete)
+                        if (item.IsDelete==null && Convert.ToBoolean(item.IsDelete)==true)
                         {
                             lst.Add(new EntityOTMedicineBillDetails()
                             {
@@ -345,7 +345,7 @@ namespace Hospital
                     }
                     else
                     {
-                        if (item.IsDelete)
+                        if (item.IsDelete!=null && Convert.ToBoolean(item.IsDelete)==true)
                         {
                             lst.Add(new EntityOTMedicineBillDetails()
                             {

@@ -3,60 +3,47 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="row" data-ng-app="HospitalApp" data-ng-controller="ProductTypeController">
+<div class="container-fluid">
+<div class="row clearfix" data-ng-app="HospitalApp" data-ng-controller="ProductTypeController">
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <div class="card">
+    <div class="header">
     <h2>Product Type</h2>
+    </div>
+    <div class="body">
     <div class="table-responsive" data-ng-show="Details==true">
         <div class="col-md-12">
             <div class="col-md-8 divsearch">
                 <input type="text" placeholder="Search" class="form-control" data-ng-model="Prefix" data-ng-change="FilterList()" />
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-primary" data-ng-click="FilterList()">Search</button>
-                <button type="button" class="btn btn-primary" data-ng-click="AddNewUI()">New</button>
-                <button type="button" class="btn btn-primary" data-ng-click="Reset()">Reset</button>
+                <button type="button" class="btn btn-primary" data-ng-click="FilterList()" data-toggle="tooltip" title="Search">Search</button>
+                <button type="button" class="btn btn-primary" data-ng-click="AddNewUI()" data-toggle="tooltip" title="New">New</button>
+                <button type="button" class="btn btn-primary" data-ng-click="Reset()" data-toggle="tooltip" title="Reset">Reset</button>
             </div>
             <hr />
         </div>
-
-        <table class="table">
+       <table class="table table-bordered">
             <tr>
                 <th>
-                    Product Name
+                    Product Type
                 </th>
                 <th>
-                    U. O. M.
+                    Description
                 </th>
                 <th>
-                    SUB U. O. M.
-                </th>
-                <th>
-                    Product Price
-                </th>
-                <th>
-                    Edit
+                    Action
                 </th>
             </tr>
             <tr data-ng-repeat="accounttype in SearchProductTypeList">
                 <td>
-                    {{accounttype.ProductName}}
-                </td>
-                <td>
-                    {{accounttype.UOM}}
-                </td>
-                <td>
-                    {{accounttype.SubUOM}}
-                </td>
-                <td>
-                    {{accounttype.Price}}
-                </td>
-                <td>
                     {{accounttype.ProductType}}
                 </td>
                 <td>
-                    {{accounttype.Content}}
+                    {{accounttype.Description}}
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-ng-click="EditClick(accounttype)">Edit</button>
+                    <button type="button" class="btn btn-primary" data-ng-click="EditClick(accounttype)" data-toggle="tooltip" title="Edit">Edit</button>
                 </td>
             </tr>
         </table>
@@ -72,11 +59,15 @@
     <div data-ng-show="Add==true || Edit==true">
             <div class="form-group">
                 <input type="hidden" id="producttypeid" />
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <input type="text"  placeholder="Product Type*" maxlength="50" minlength="2"
+                   <div class="col-md-12">
+                       <div class="col-md-6">
+                        <div class="form-group">
+                       <div class="form-line">
+                        <input type="text" id="ProductType" placeholder="Product Type*" maxlength="50" minlength="2"
                                class="form-control setMargin" />
                     </div>
+                    </div>
+</div>
                     <div class="col-md-6" data-ng-show="ErrorModel.IsSelectProductType==true">
                         <span>{{ErrorMessage}}</span>
                     </div>
@@ -84,9 +75,13 @@
                 <br />
                 <div class="col-md-12">
                     <div class="col-md-6">
+                     <div class="form-group">
+                       <div class="form-line">
                         <input type="text" id="Description" placeholder="Description" maxlength="50" minlength="2" 
                                class="form-control setMargin" />
                     </div>
+                </div>
+                 </div>
                 </div>
             </div>
             <hr />
@@ -97,5 +92,10 @@
             </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+
 <script type="text/javascript" src="../Scripts/Bootstrap/ProductTypeController.js"></script>
 </asp:Content>

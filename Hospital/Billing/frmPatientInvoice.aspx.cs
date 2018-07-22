@@ -20,7 +20,7 @@ namespace Hospital.Billing
         JavaScriptSerializer serialize = new JavaScriptSerializer();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmPatientInvoice.aspx");
             if (!Page.IsPostBack)
             {
                 MyFlag.Value = string.Empty;
@@ -33,6 +33,7 @@ namespace Hospital.Billing
         public void BindPatients()
         {
             List<EntityPatientMaster> ldtRequisition = mobjPatientMasterBLL.GetPatientList().Where(p=>p.IsDischarged==false).ToList();
+            ldtRequisition.Insert(0, new EntityPatientMaster() { AdmitId = 0, FullName="--Select Patient--" });
             ddlPatient.DataSource = ldtRequisition;
             ddlPatient.DataValueField = "AdmitId";
             ddlPatient.DataTextField = "FullName";
@@ -44,20 +45,20 @@ namespace Hospital.Billing
             if (ddlBillType.SelectedItem.Text == "Intermediate")
             {
                 BindPatients();
-                Label4.Visible = false;
+                //Label4.Visible = false;
                 txtPatientType.Visible = false;
             }
             else
             {
                 if (btnUpdate.Enabled == true)
                 {
-                    Label4.Visible = true;
+                    //Label4.Visible = true;
                     txtPatientType.Visible = true;
                 }
                 else
                 {
                     BindPatients();
-                    Label4.Visible = true;
+                    //Label4.Visible = true;
                     txtPatientType.Visible = true;
                 }
             }
@@ -358,7 +359,7 @@ namespace Hospital.Billing
             txtBillDate.Enabled = true;
             lblWard.Visible = false;
             txtWard.Visible = false;
-            Label4.Visible = false;
+            //Label4.Visible = false;
             txtPatientType.Visible = false;
             BtnSave.Visible = true;
             btnUpdateCharge.Visible = false;
@@ -478,24 +479,24 @@ namespace Hospital.Billing
                         }
                         else
                         {
-                            if (ddlBillType.SelectedIndex == 0)
-                            {
-                                lblMsg.Text = "Please Select Bill Type";
-                                ddlBillType.Focus();
-                                return;
-                            }
+                            //if (ddlBillType.SelectedIndex == 0)
+                            //{
+                            //    lblMsg.Text = "Please Select Bill Type";
+                            //    ddlBillType.Focus();
+                            //    return;
+                            //}
 
                             entInvoice.PatientId = Convert.ToInt32(ddlPatient.SelectedValue);
-                            entInvoice.BillType = Convert.ToString(ddlBillType.SelectedItem.Text);
+                            entInvoice.BillType = "Original";// Convert.ToString(ddlBillType.SelectedItem.Text);
                             entInvoice.PreparedByName = SessionManager.Instance.LoginUser.EmpName;
                             entInvoice.PatientType = Convert.ToString(txtPatientType.Text);
                             entInvoice.Amount = Convert.ToDecimal(txtTotal.Text);
                             entInvoice.BillDate = StringExtension.ToDateTime(txtBillDate.Text);
-                            entInvoice.NetAmount = Convert.ToDecimal(txtNetAmount.Text);
-                            entInvoice.TotalAdvance = Convert.ToDecimal(txtTotalAdvance.Text);
-                            entInvoice.BalanceAmount = Convert.ToDecimal(txtBalance.Text);
-                            entInvoice.ReceivedAmount = Convert.ToDecimal(txtReceivedAmount.Text);
-                            entInvoice.RefundAmount = Convert.ToDecimal(txtRefund.Text);
+                            
+                            entInvoice.TotalAdvance = 0;
+                            entInvoice.BalanceAmount = 0;
+                            entInvoice.ReceivedAmount = 0;
+                            entInvoice.RefundAmount = 0;
 
                             if (string.IsNullOrEmpty(txtDiscount.Text))
                             {
@@ -505,6 +506,7 @@ namespace Hospital.Billing
                             {
                                 entInvoice.FixedDiscount = Convert.ToDecimal(txtDiscount.Text);
                             }
+                            entInvoice.NetAmount = entInvoice.Amount - entInvoice.FixedDiscount;// Convert.ToDecimal(txtNetAmount.Text);
                             List<EntityInvoiceDetails> lstInvoice =serialize.Deserialize<List<EntityInvoiceDetails>>(BillDetails.Value);
 
                             Invoice = mobjDeptBLL.InsertInvoice(entInvoice, lstInvoice, chkIsCash.Checked);
@@ -1018,12 +1020,12 @@ namespace Hospital.Billing
 
                     if (ddlBillType.SelectedItem.Text == "Intermediate")
                     {
-                        Label4.Visible = false;
+                        //Label4.Visible = false;
                         txtPatientType.Visible = false;
                     }
                     else
                     {
-                        Label4.Visible = true;
+                        //Label4.Visible = true;
                         txtPatientType.Visible = true;
                         EntityPatientMaster Cate = mobjDeptBLL.GetPatientCate(Convert.ToInt32(Pat_Id.Value));
                         EntityPatientAlloc objTxt = new PatientAllocDocBLL().GetPatientType(Convert.ToInt32(ddlPatient.SelectedValue));
@@ -1307,9 +1309,11 @@ namespace Hospital.Billing
         {
             ImageButton imgEdit = (ImageButton)sender;
             GridViewRow row = (GridViewRow)imgEdit.NamingContainer;
+            int Billno = Convert.ToInt32(dgvTestParameter.DataKeys[row.RowIndex].Value);
+            STP_GetPatientInvoiceResult ldtRoom = mobjDeptBLL.GetPatientInvoice().Where(p=>p.BillNo==Billno).FirstOrDefault();
             //Session["BILLNo"] = Convert.ToInt32(dgvTestParameter.DataKeys[row.RowIndex].Value);
             //Session["ReportType"] = "Invoice";
-            Response.Redirect("~/PathalogyReport/PathologyReport.aspx?ReportType=Invoice&BILLNo=" + dgvTestParameter.DataKeys[row.RowIndex].Value, false);
+            Response.Redirect("~/PathalogyReport/Reports.aspx?ReportType=PatientInvoice&BILLNo=" + Billno + "&AdmitId=" + ldtRoom.AdmitId, false);
         }
     }
 }

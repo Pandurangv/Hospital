@@ -6,12 +6,18 @@ using System.Web.Security;
 using System.Web.SessionState;
 using Hospital.Models.Models;
 using Hospital.Models.DataLayer;
+using Hospital.Models;
 
 namespace Hospital
 {
     public class Global : System.Web.HttpApplication
     {
 
+        public override void Init()
+        {
+            this.BeginRequest += new EventHandler(Application_BeginRequest);
+            base.Init();
+        }
         //public static List<EntityLogin> UsersData { get { return _UserData; } set { _UserData = value; } }
 
         //static List<EntityLogin> _UserData = new List<EntityLogin>();
@@ -34,6 +40,12 @@ namespace Hospital
 
         }
 
+        protected void Application_BeginRequest(Object sender, EventArgs e)
+        {
+            BasePage page = new BasePage();
+            page.AuthenticateUser();
+        }
+
         void Session_End(object sender, EventArgs e)
         {
             // Code that runs when a session ends. 
@@ -43,5 +55,7 @@ namespace Hospital
             Commons.FileLog("Session Expired" + DateTime.Now.Date, new Exception());
         }
 
+
+        
     }
 }

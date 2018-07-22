@@ -165,10 +165,10 @@
                                                                             <asp:DropDownList ID="ddlDeptCategory" runat="server" CssClass="dropdownstyle"
                                                                             AutoPostBack="true" OnSelectedIndexChanged="ddlDeptCategory_SelectedIndexChanged" >
                                                                             </asp:DropDownList>
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
+                                                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
                                                                                 ControlToValidate="ddlDeptCategory" Font-Size="11" ValidationGroup="Save" InitialValue="0"
                                                                                 ErrorMessage="*" Display="Dynamic" SetFocusOnError="true">
-                                                                            </asp:RequiredFieldValidator>
+                                                                            </asp:RequiredFieldValidator>--%>
                                                                         </td>
                                                                         <td align="right">
                                                                             <asp:Label ID="Label20" runat="server" Text="Incharge Doctor :" CssClass="lablestyle"></asp:Label>
@@ -268,10 +268,10 @@
                                                                         <td align="left">
                                                                             <asp:TextBox ID="txtAge" runat="server" Font-Names="Verdana" Font-Size="11px" MaxLength="2"
                                                                                 onkeypress="return isNumber(event);" Width="60px"></asp:TextBox>
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtAge"
+                                                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtAge"
                                                                                 Font-Size="11" ForeColor="Red" ValidationGroup="Save" ErrorMessage="*" Display="Dynamic"
                                                                                 SetFocusOnError="true">
-                                                                            </asp:RequiredFieldValidator>
+                                                                            </asp:RequiredFieldValidator>--%>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -392,8 +392,8 @@
                                                                         <td align="left" colspan="3">
                                                                             <asp:TextBox ID="txtAddress" runat="server" MaxLength="100" TextMode="MultiLine" style="text-transform:capitalize;"
                                                                                 Width="470px" Font-Names="Verdana" Font-Size="11px"></asp:TextBox>
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red"
-                                                                                ControlToValidate="txtAddress" Font-Size="11" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                                                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red"
+                                                                                ControlToValidate="txtAddress" Font-Size="11" ValidationGroup="Save">*</asp:RequiredFieldValidator>--%>
                                                                         </td>
                                                                         
                                                                     </tr>
@@ -531,7 +531,7 @@
                                                                                             Style="text-transform: capitalize;"></asp:Label>
                                                                         </td>
                                                                         <td align="left">
-                                                                            <asp:TextBox ID="txtSymptoms" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtSymptoms" runat="server" CssClass="textStyle" TextMode="MultiLine" MaxLength="100" style="text-transform:capitalize;"></asp:TextBox>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -620,11 +620,11 @@
                                                                             <asp:TextBox ID="txtOBGY" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
                                                                         </td>
                                                                         <td align="right">
-                                                                            <asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
-                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                            <%--<asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>--%>
                                                                         </td>
                                                                         <td align="left">
-                                                                            <asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                            <%--<asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>--%>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>

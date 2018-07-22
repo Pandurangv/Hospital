@@ -18,7 +18,7 @@ namespace Hospital
         CasteBLL mobjCastBLL = new CasteBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmCastMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetCaste();

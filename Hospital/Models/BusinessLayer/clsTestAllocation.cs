@@ -51,7 +51,7 @@ namespace Hospital.Models.BusinessLayer
                        {
                            PatientId = Convert.ToInt32(tblAdmit.AdmitId),
                            FullName = tbl.PatientFirstName + " " + tbl.PatientMiddleName + " " + tbl.PatientLastName,
-                           PatientType=tblAdmit.PatientType
+                           PatientType=string.IsNullOrEmpty(tblAdmit.PatientType)?"OPD":(tblAdmit.PatientType.ToLower()=="opd"?"opd":"ipd")
                        }).ToList();
             }
             catch (Exception ex)

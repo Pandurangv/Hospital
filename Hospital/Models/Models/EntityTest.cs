@@ -145,5 +145,7 @@ namespace Hospital.Models.Models
 
         public string TestCatagoryName { get; set; }
 
+
+        public int BillDetailId { get; set; }
     }
 }

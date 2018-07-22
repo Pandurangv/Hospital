@@ -79,7 +79,8 @@ namespace Hospital.Models.BusinessLayer
                                               select new EntityFormMaster
                                               {
                                                   FormId = tbl.FormId,
-                                                  FormTitle = tblForm.FormTitle
+                                                  FormTitle = tblForm.FormTitle,
+                                                  FormName=tblForm.FormName,
                                               }).ToList();
                 return lst;
             }

@@ -149,10 +149,6 @@
                                                                 <asp:BoundField DataField="Dignosys" HeaderText="Dignosys" ReadOnly="true" SortExpression="Dignosys" />
                                                                 <asp:BoundField DataField="CategoryName" HeaderText="Dept." ReadOnly="True" SortExpression="CategoryName" />
                                                                 <asp:BoundField DataField="EmpName" HeaderText="Doctor" ReadOnly="true" SortExpression="EmpName" />
-                                                                <asp:BoundField DataField="IPDNo" HeaderText="IPD No" ReadOnly="true" SortExpression="IPDNo"
-                                                                    Visible="true" />
-                                                                <asp:BoundField DataField="OPDNo" HeaderText="OPD No" ReadOnly="true" SortExpression="OPDNo"
-                                                                    Visible="true" />
                                                                 <asp:TemplateField HeaderText="Edit" ItemStyle-HorizontalAlign="Left">
                                                                     <ItemTemplate>
                                                                         <asp:ImageButton ID="ImageEdit" runat="server" ImageUrl="~/images/edit.jpg" Height="24px"
@@ -238,9 +234,9 @@
                                                                     <asp:DropDownList ID="ddlDeptCategory" runat="server" Font-Names="Verdana" Font-Size="11px"
                                                                         Width="160px" AutoPostBack="true" OnSelectedIndexChanged="ddlDeptCategory_SelectedIndexChanged">
                                                                     </asp:DropDownList>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
+                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
                                                                         ControlToValidate="ddlDeptCategory" Font-Size="11" ValidationGroup="Save" ErrorMessage="*"
-                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>--%>
                                                                 </td>
                                                                 <td style="width: 12%;" align="right">
                                                                     <asp:Label ID="Label5" runat="server" Text="Incharge Doctor :" Font-Names="Verdana"
@@ -249,9 +245,9 @@
                                                                 <td style="width: 38%;" align="left">
                                                                     <asp:DropDownList ID="ddlDeptDoctor" runat="server" Font-Names="Verdana" Font-Size="11px" Width="153px">
                                                                     </asp:DropDownList>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red"
+                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red"
                                                                         ControlToValidate="ddlDeptDoctor" Font-Size="11" ValidationGroup="Save" ErrorMessage="*"
-                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>--%>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -302,7 +298,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                     <cc1:TimeSelector ID="AdmissionTimeSelector" runat="server" DisplaySeconds="false"
-                                                                        SelectedTimeFormat="Twelve">
+                                                                        SelectedTimeFormat="Twelve" >
                                                                     </cc1:TimeSelector>
                                                                 </td>
                                                                 <td align="right">
@@ -445,7 +441,7 @@
                                                                                             Style="text-transform: capitalize;"></asp:Label>
                                                                         </td>
                                                                         <td align="left">
-                                                                            <asp:TextBox ID="txtSymptoms" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtSymptoms" runat="server" CssClass="textStyle" TextMode="MultiLine" style="text-transform:capitalize;"></asp:TextBox>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -534,11 +530,11 @@
                                                                             <asp:TextBox ID="txtOBGY" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
                                                                         </td>
                                                                         <td align="right">
-                                                                            <asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
-                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                            <%--<asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>--%>
                                                                         </td>
                                                                         <td align="left">
-                                                                            <asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                            <%--<asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>--%>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -572,7 +568,7 @@
                                                                 <td align="center" colspan="4">
                                                                     <asp:Button ID="BtnSave" runat="server" Text="Save" Font-Names="Verdana" Font-Size="12px"
                                                                         BackColor="#3b3535" ForeColor="White" Width="80px" Style="border: 1px solid black;"
-                                                                        onmouseover="SetBtnMouseOver(this)" onmouseout="SetBtnMouseOut(this)" OnClick="BtnSave_Click" />
+                                                                        onmouseover="SetBtnMouseOver(this)" onmouseout="SetBtnMouseOut(this)" OnClick="BtnSave_Click" ValidationGroup="Save" />
                                                                     <asp:Button ID="btnUpdate" runat="server" Text="Update" Font-Names="Verdana" Font-Size="12px"
                                                                         OnClick="BtnEdit_Click" ValidationGroup="Update" BackColor="#3b3535" ForeColor="White"
                                                                         Width="80px" Style="border: 1px solid black" />

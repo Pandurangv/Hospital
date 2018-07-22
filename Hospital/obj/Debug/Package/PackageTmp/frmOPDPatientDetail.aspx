@@ -121,6 +121,7 @@
                                                             <AlternatingRowStyle BackColor="White" Wrap="False" />
                                                             <Columns>
                                                                 <%--<asp:BoundField DataField="AdmitId" HeaderText="Admit Id" />--%>
+                                                                <asp:BoundField DataField="PatientId" HeaderText="PatientId" ReadOnly="True" />
                                                                 <asp:BoundField DataField="PatientCode" HeaderText="MRN" ReadOnly="True" SortExpression="PatientCode" />
                                                                 <asp:BoundField DataField="PatientAdmitDate" HeaderText="Visit Date" ReadOnly="True" DataFormatString="{0:dd/MM/yyyy}" />
                                                                 <asp:BoundField DataField="FullName" HeaderText="Patient Name" ReadOnly="True" SortExpression="FullName" />
@@ -138,13 +139,20 @@
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Left" />
                                                                 </asp:TemplateField>
-                                                                <asp:TemplateField HeaderText="Print" ItemStyle-HorizontalAlign="Left">
+                                                                <asp:TemplateField HeaderText="Readmit" ItemStyle-HorizontalAlign="Left">
+                                                                    <ItemTemplate>
+                                                                        <asp:ImageButton ID="ImageReadmit" runat="server" ImageUrl="~/images/edit.jpg" Height="24px"
+                                                                            Width="24px" OnClick="btnReadmit_Click" />
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                </asp:TemplateField>
+                                                                <%--<asp:TemplateField HeaderText="Print" ItemStyle-HorizontalAlign="Left">
                                                                     <ItemTemplate>
                                                                         <asp:ImageButton ID="ImagePrint" runat="server" ImageUrl="~/images/Report.bmp" Height="24px"
                                                                             Width="24px" OnClick="btnPrint_Click" />
                                                                     </ItemTemplate>
                                                                     <ItemStyle HorizontalAlign="Left" />
-                                                                </asp:TemplateField>
+                                                                </asp:TemplateField>--%>
                                                             </Columns>
                                                         </asp:GridView>
                                                     </asp:Panel>

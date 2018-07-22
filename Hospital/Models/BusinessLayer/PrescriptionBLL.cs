@@ -178,7 +178,7 @@ namespace Hospital.Models.BusinessLayer
             try
             {
                 objData.STP_Insert_tblPrescription(Convert.ToInt32(tblins.AdmitId), Convert.ToInt32(tblins.DeptCategory), tblins.DeptDoctor, tblins.Prescription_Date,
-                    tblins.IsDressing, tblins.IsInjection, tblins.InjectionName, tblins.Investigation, tblins.Impression, tblins.AdviceNote, tblins.Remarks,tblins.DoctorId,tblins.FollowUpDate, ref PrescriptionId);
+                    tblins.IsDressing, tblins.IsInjection, tblins.InjectionName, tblins.Investigation, tblins.Impression, tblins.AdviceNote, tblins.Remarks,tblins.DoctorId,tblins.FollowUpDate,tblins.LanType, ref PrescriptionId);
                 foreach (EntityPrescriptionDetails item in lst)
                 {
                     tblPrescriptionDetail tbl = new tblPrescriptionDetail()
@@ -192,6 +192,7 @@ namespace Hospital.Models.BusinessLayer
                         Prescription_Id = Convert.ToInt32(PrescriptionId),
                         IsDelete = false,
                         IsbeforeLunch=item.IsBeforeLunch,
+                        ProductName=item.ProductName,
                     };
                     objData.tblPrescriptionDetails.InsertOnSubmit(tbl);
                     //tblStockDetail stock = new tblStockDetail()
@@ -322,7 +323,7 @@ namespace Hospital.Models.BusinessLayer
                               select tbl).FirstOrDefault();
                     if (objsal != null)
                     {
-                        objsal.ProductId = item.ProductId;
+                        //objsal.ProductId = item.ProductId;
                         objsal.Quantity = item.Quantity;
                         objsal.Morning = item.Morning;
                         objsal.Afternoon = item.Afternoon;
@@ -330,6 +331,7 @@ namespace Hospital.Models.BusinessLayer
                         objsal.NoOfDays = item.NoOfDays;
                         objsal.IsDelete = item.IsDelete;
                         objsal.IsbeforeLunch = item.IsBeforeLunch;
+                        objsal.ProductName = item.ProductName;
                     }
                     else
                     {

@@ -19,7 +19,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmShiftMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetShiftDetail();

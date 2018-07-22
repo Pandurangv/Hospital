@@ -125,5 +125,19 @@ namespace Hospital.Models.Models
         public string Address { get; set; }
 
 
+
+        public string PatientCode { get; set; }
+    }
+
+    public class EntityTestInvoiceDetails
+    {
+        public int? TestInvoiceDetailsId { get; set; }
+
+        public decimal? Charges { get; set; }
+
+        public int? TestId { get; set; }
+
+        public string TestName { get; set; }
+        
     }
 }

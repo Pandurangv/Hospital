@@ -149,10 +149,6 @@
                                                                 <asp:BoundField DataField="Dignosys" HeaderText="Dignosys" ReadOnly="true" SortExpression="Dignosys" />
                                                                 <asp:BoundField DataField="CategoryName" HeaderText="Dept." ReadOnly="True" SortExpression="CategoryName" />
                                                                 <asp:BoundField DataField="EmpName" HeaderText="Doctor" ReadOnly="true" SortExpression="EmpName" />
-                                                                <asp:BoundField DataField="IPDNo" HeaderText="IPD No" ReadOnly="true" SortExpression="IPDNo"
-                                                                    Visible="true" />
-                                                                <asp:BoundField DataField="OPDNo" HeaderText="OPD No" ReadOnly="true" SortExpression="OPDNo"
-                                                                    Visible="true" />
                                                                 <asp:TemplateField HeaderText="Edit" ItemStyle-HorizontalAlign="Left">
                                                                     <ItemTemplate>
                                                                         <asp:ImageButton ID="ImageEdit" runat="server" ImageUrl="~/images/edit.jpg" Height="24px"
@@ -186,13 +182,13 @@
                             <tr style="width: 100%;">
                                 <td width="100%">
                                     <asp:Panel ID="pnlGrid" runat="server" Width="1020px" Style="text-align: center;
-                                        background-color: #E0F0E8; height: 460px;">
+                                        background-color: #E0F0E8; height: 680px;">
                                         <table width="100%" style="border-color: Green; border-style: solid; border-width: 2px"
                                             cellpadding="0">
                                             <tr>
                                                 <td>
                                                     <asp:Panel ID="Panel2" runat="server" Width="99.7%" Style="text-align: center; background-color: #E0F0E8;
-                                                        height: 450px;" BorderColor="Green" BorderStyle="Solid" BorderWidth="1px">
+                                                        height: 620px;" BorderColor="Green" BorderStyle="Solid" BorderWidth="1px">
                                                         <table width="100%">
                                                             <tr>
                                                                 <td align="center" colspan="4">
@@ -238,9 +234,9 @@
                                                                     <asp:DropDownList ID="ddlDeptCategory" runat="server" Font-Names="Verdana" Font-Size="11px"
                                                                         Width="160px" AutoPostBack="true" OnSelectedIndexChanged="ddlDeptCategory_SelectedIndexChanged">
                                                                     </asp:DropDownList>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
+                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red"
                                                                         ControlToValidate="ddlDeptCategory" Font-Size="11" ValidationGroup="Save" ErrorMessage="*"
-                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>--%>
                                                                 </td>
                                                                 <td style="width: 12%;" align="right">
                                                                     <asp:Label ID="Label5" runat="server" Text="Incharge Doctor :" Font-Names="Verdana"
@@ -249,9 +245,9 @@
                                                                 <td style="width: 38%;" align="left">
                                                                     <asp:DropDownList ID="ddlDeptDoctor" runat="server" Font-Names="Verdana" Font-Size="11px" Width="153px">
                                                                     </asp:DropDownList>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red"
+                                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red"
                                                                         ControlToValidate="ddlDeptDoctor" Font-Size="11" ValidationGroup="Save" ErrorMessage="*"
-                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                                                                        Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>--%>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -302,7 +298,7 @@
                                                                 </td>
                                                                 <td align="left">
                                                                     <cc1:TimeSelector ID="AdmissionTimeSelector" runat="server" DisplaySeconds="false"
-                                                                        SelectedTimeFormat="Twelve">
+                                                                        SelectedTimeFormat="Twelve" >
                                                                     </cc1:TimeSelector>
                                                                 </td>
                                                                 <td align="right">
@@ -426,6 +422,145 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label9" runat="server" Text="Prov.Diag :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtProvDiag" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label10" runat="server" Text="Final Diag :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtFinalDiag" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label11" runat="server" Text="Symptomes of Present illness :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtSymptoms" runat="server" CssClass="textStyle" TextMode="MultiLine" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label12" runat="server" Text="Ailergies :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtAilergies" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                             <asp:Label ID="Label13" runat="server" Text="Past Illness :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtPastIllness" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                           <asp:Label ID="Label14" runat="server" Text="Temperature :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtTemperature" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label15" runat="server" Text="Pulse :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtPulse" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label16" runat="server" Text="Respiration :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtRespiration" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                           <asp:Label ID="Label17" runat="server" Text="Others :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtOthers" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label19" runat="server" Text="R. S. :" CssClass="lablestyle"
+																								Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtRS" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label21" runat="server" Text="C.V.S. :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtCVS" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                           <asp:Label ID="Label22" runat="server" Text="P.A. :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtPA" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label23" runat="server" Text="C.N.S. :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtCNS" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label30" runat="server" Text="OB/GY :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtOBGY" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <%--<asp:Label ID="Label31" runat="server" Text="Lab Investigations :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>--%>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <%--<asp:TextBox ID="txtLabI" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>--%>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label32" runat="server" Text="X-Ray :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtXRay" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label33" runat="server" Text="E.C.G :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtECG" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <asp:Label ID="Label34" runat="server" Text="USG :" CssClass="lablestyle"
+                                                                                            Style="text-transform: capitalize;"></asp:Label>
+                                                                        </td>
+                                                                        <td align="left">
+                                                                            <asp:TextBox ID="txtUSG" runat="server" CssClass="textStyle" style="text-transform:capitalize;"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                            <tr>
                                                                 <td colspan="4">
                                                                 </td>
                                                             </tr>
@@ -433,7 +568,7 @@
                                                                 <td align="center" colspan="4">
                                                                     <asp:Button ID="BtnSave" runat="server" Text="Save" Font-Names="Verdana" Font-Size="12px"
                                                                         BackColor="#3b3535" ForeColor="White" Width="80px" Style="border: 1px solid black;"
-                                                                        onmouseover="SetBtnMouseOver(this)" onmouseout="SetBtnMouseOut(this)" OnClick="BtnSave_Click" />
+                                                                        onmouseover="SetBtnMouseOver(this)" onmouseout="SetBtnMouseOut(this)" OnClick="BtnSave_Click" ValidationGroup="Save" />
                                                                     <asp:Button ID="btnUpdate" runat="server" Text="Update" Font-Names="Verdana" Font-Size="12px"
                                                                         OnClick="BtnEdit_Click" ValidationGroup="Update" BackColor="#3b3535" ForeColor="White"
                                                                         Width="80px" Style="border: 1px solid black" />

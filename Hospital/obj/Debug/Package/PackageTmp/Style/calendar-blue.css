@@ -70,6 +70,14 @@ div.calendar { position: relative; }
   text-align: right;
   padding: 2px 4px 2px 2px;
 }
+
+.calendar tbody .month { /* Cells <TD> containing month days dates */
+  width: 2em;
+  color: #456;
+  text-align: right;
+  padding: 2px 4px 2px 2px;
+}
+
 .calendar tbody .day.othermonth {
   font-size: 80%;
   color: #bbb;

@@ -18,7 +18,7 @@ namespace Hospital
             }
             else
             {
-                lblMessage.Text = "";
+                lblMessage.Text = "You do not have access permission please contact with administrator";
                 DateTime dtExp = Commons.GetExpDate();
                 DateTime alertDate = dtExp.AddDays(-5);
                 if (DateTime.Now.Date.CompareTo(alertDate) >= 0)

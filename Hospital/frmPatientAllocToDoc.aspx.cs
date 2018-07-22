@@ -17,7 +17,7 @@ namespace Hospital
         PatientAllocDocBLL mobjPatAllocBLL = new PatientAllocDocBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmPatientAllocToDoc.aspx");
             if (!Page.IsPostBack)
             {
                 BindAllocatedPatient();
@@ -129,7 +129,7 @@ namespace Hospital
                             else
                             {
                                 entPat.PatientId = Convert.ToInt32(ddlPatientName.SelectedValue);
-                                entPat.DocId = Convert.ToInt32(Doc_Id.Value);
+                                entPat.DocId = Convert.ToInt32(ddlDoctorName.SelectedValue);
                                 entPat.AppDate = StringExtension.ToDateTime(txtAppDate.Text).Date;
                                 entPat.Charges = Convert.ToDecimal(txtCharge.Text);
 
@@ -171,8 +171,8 @@ namespace Hospital
             ddlDoctorName.SelectedIndex = 0;
             txtPatientType.Text = string.Empty;
             txtAppDate.Text = string.Empty;
-            txtStartTime.Text = string.Empty;
-            txtEndTime.Text = string.Empty;
+            //txtStartTime.Text = string.Empty;
+            //txtEndTime.Text = string.Empty;
             txtCharge.Text = string.Empty;
         }
 
@@ -226,7 +226,7 @@ namespace Hospital
             {
                 ImageButton imgEdit = (ImageButton)sender;
                 GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
-                Session["pat_id"] = Convert.ToInt32(dgvAllocPatient.DataKeys[cnt.RowIndex].Value);
+                pat_id.Value = dgvAllocPatient.DataKeys[cnt.RowIndex].Value.ToString();
                 bool IsDischarge = new PatientAllocDocBLL().GetDischargeInfo(Convert.ToInt32(pat_id.Value));
                 if (IsDischarge == false)
                 {
@@ -236,8 +236,8 @@ namespace Hospital
                     ListItem Desig = ddlDoctorName.Items.FindByText(cnt.Cells[2].Text);
                     ddlDoctorName.SelectedValue = Desig.Value;
                     txtAppDate.Text = string.Format("{0:dd/MM/yyy}", StringExtension.ToDateTime(cnt.Cells[3].Text));
-                    txtStartTime.Text = cnt.Cells[4].Text;
-                    txtEndTime.Text = cnt.Cells[5].Text;
+                    //txtStartTime.Text = cnt.Cells[4].Text;
+                    //txtEndTime.Text = cnt.Cells[5].Text;
                     txtCharge.Text = cnt.Cells[6].Text;
                     btnUpdate.Visible = true;
                     BtnSave.Visible = false;
@@ -314,13 +314,13 @@ namespace Hospital
                 }
             }
         }
-        protected void ddlDoctorName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Doc_Id.Value = ddlDoctorName.SelectedValue;
-            EntityShift objShift = new PatientAllocDocBLL().GetStartEndTime(Convert.ToInt32(Doc_Id.Value));
-            txtStartTime.Text = string.Format("{0:hh:mm tt}", objShift.StartTime);
-            txtEndTime.Text = string.Format("{0:hh:mm tt}", objShift.EndTime);
-        }
+        //protected void ddlDoctorName_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Doc_Id.Value = ddlDoctorName.SelectedValue;
+        //    EntityShift objShift = new PatientAllocDocBLL().GetStartEndTime(Convert.ToInt32(Doc_Id.Value));
+        //    txtStartTime.Text = string.Format("{0:hh:mm tt}", objShift.StartTime);
+        //    txtEndTime.Text = string.Format("{0:hh:mm tt}", objShift.EndTime);
+        //}
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try

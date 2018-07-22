@@ -373,15 +373,6 @@ namespace Hospital {
         protected global::AjaxControlToolkit.CalendarExtender CalDate;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-        
-        /// <summary>
         /// chkDress control.
         /// </summary>
         /// <remarks>
@@ -418,6 +409,24 @@ namespace Hospital {
         protected global::System.Web.UI.WebControls.TextBox txtInjection;
         
         /// <summary>
+        /// Label17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label17;
+        
+        /// <summary>
+        /// ddlLanType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLanType;
+        
+        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
@@ -436,13 +445,13 @@ namespace Hospital {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// ddlTablet control.
+        /// txtMedicine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTablet;
+        protected global::System.Web.UI.WebControls.TextBox txtMedicine;
         
         /// <summary>
         /// rfvDept control.

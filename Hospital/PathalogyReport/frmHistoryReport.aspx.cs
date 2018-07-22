@@ -78,18 +78,10 @@ namespace Hospital.PathalogyReport
             {
                 ImageButton imgEdit = (ImageButton)sender;
                 GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
-                Session["Patient_ID"] = cnt.Cells[0].Text;
-                int BillNo = mobjDeptBLL.GetBillNo(Convert.ToInt32(Session["Patient_ID"]));
-                if (BillNo > 0)
-                {
-                    Session["BILLNo"] = BillNo;
-                    Session["ReportType"] = "Invoice";
-                    Response.Redirect("~/PathalogyReport/PathologyReport.aspx", false);
-                }
-                else
-                {
-                    lblMessage.Text = "This Patient Don't Have Invoice";
-                }
+                var PatientId = cnt.Cells[0].Text;
+                int BillNo = mobjDeptBLL.GetBillNo(Convert.ToInt32(PatientId));
+                Response.Redirect("~/PathalogyReport/PathologyReport.aspx?ReportType=Invoice&AdmitId=" + PatientId + "&BILLNo=" + BillNo, false);
+                
             }
             catch (Exception ex)
             {

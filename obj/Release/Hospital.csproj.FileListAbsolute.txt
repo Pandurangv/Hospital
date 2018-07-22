@@ -1,8 +1,0 @@
-F:\MyApplication\Hospital2010\Hospital\Hospital\bin\Hospital.dll
-F:\MyApplication\Hospital2010\Hospital\Hospital\bin\Hospital.pdb
-F:\MyApplication\Hospital2010\Hospital\Hospital\bin\AjaxMin.dll
-F:\MyApplication\Hospital2010\Hospital\Hospital\bin\System.Web.Extensions.dll
-F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Release\Hospital.csprojResolveAssemblyReference.cache
-F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Release\Hospital.dll
-F:\MyApplication\Hospital2010\Hospital\Hospital\obj\Release\Hospital.pdb
-F:\MyApplication\Hospital2010\Hospital\Hospital\bin\System.Web.dll

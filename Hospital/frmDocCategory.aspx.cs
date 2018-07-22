@@ -19,7 +19,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmDocCategory.aspx");
             if (!Page.IsPostBack)
             {
                 update.Value = Server.UrlEncode(System.DateTime.Now.ToString());
@@ -34,9 +34,9 @@ namespace Hospital
         {
             try
             {
-                var tblCat = new PatientAllocDocBLL().GetAllDoctor();
-
-                tblCat.Insert(0, new sp_GetAllDoctorListResult() { FullName = "----Select------", PKId = 0 });
+                List<EntityEmployee> tblCat = new EmployeeBLL().SelectAllEmployee().Where(p => p.DesignationId == SettingsManager.Instance.DoctorDesigId).ToList();
+                tblCat.Insert(0, new EntityEmployee() { PKId = 0, FullName = "---Select---" });
+                
 
                 ddlDocName.DataSource = tblCat;
                 ddlDocName.DataValueField = "PKId";

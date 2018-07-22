@@ -90,29 +90,29 @@ namespace Hospital.Models.BusinessLayer
             }
         }
 
-        public List<STP_DailyNursingChartResult> SearchDailyChart(DateTime fromdate, DateTime todate)
-        {
-            try
-            {
-                return (objData.STP_DailyNursingChart(fromdate, todate)).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public List<STP_DailyNursingChartResult> SearchDailyChart(DateTime fromdate, DateTime todate)
+        //{
+        //    try
+        //    {
+        //        return (objData.STP_DailyNursingChart(fromdate, todate)).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
-        public List<STP_DailyDepartmentwiseNursingChartResult> SearchDepartmentwiseDailyChart(DateTime fromdate, DateTime todate, string dept)
-        {
-            try
-            {
-                return (objData.STP_DailyDepartmentwiseNursingChart(fromdate, todate, dept)).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public List<STP_DailyDepartmentwiseNursingChartResult> SearchDepartmentwiseDailyChart(DateTime fromdate, DateTime todate, string dept)
+        //{
+        //    try
+        //    {
+        //        return (objData.STP_DailyDepartmentwiseNursingChart(fromdate, todate, dept)).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public List<STP_ServiceswiseReportAllResult> NewAllServices(DateTime fromdate, DateTime todate)
         {

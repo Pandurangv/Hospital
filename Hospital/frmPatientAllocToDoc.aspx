@@ -115,9 +115,9 @@
                                                                 <asp:BoundField DataField="PatientName" HeaderText="Patient Name"  />
                                                                 <asp:BoundField DataField="EmpName" HeaderText="Employee Name"  />
                                                                 <asp:BoundField DataField="AppointDate" HeaderText="Appointment Date" DataFormatString="{0:dd/MM/yyyy}"/>
-                                                                <asp:BoundField DataField="StartTime" HeaderText="Appointment Start Time" 
+                                                               <%-- <asp:BoundField DataField="StartTime" HeaderText="Appointment Start Time" 
                                                                      DataFormatString="{0:hh:mm:ss tt}" />
-                                                                <asp:BoundField DataField="EndTime" HeaderText="Appointment End Time" DataFormatString="{0:hh:mm:ss tt}" />
+                                                                <asp:BoundField DataField="EndTime" HeaderText="Appointment End Time" DataFormatString="{0:hh:mm:ss tt}" />--%>
                                                                 <asp:BoundField DataField="Charges" HeaderText="Charges"  />
                                                                 <asp:TemplateField HeaderText="Edit" ItemStyle-HorizontalAlign="Left">
                                                                     <ItemTemplate>
@@ -187,7 +187,7 @@
                                     </td>
                                     <td align="left">
                                         <asp:DropDownList ID="ddlDoctorName" runat="server" Width="150px" Font-Size="11px"
-                                            Font-Names="Verdana" AutoPostBack="True" OnSelectedIndexChanged="ddlDoctorName_SelectedIndexChanged">
+                                            Font-Names="Verdana">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="rfvddlDoctorName" runat="server" ForeColor="Red"
                                             ControlToValidate="ddlDoctorName" Font-Size="13" ValidationGroup="Save" ErrorMessage="*"
@@ -224,7 +224,7 @@
                                             Format="dd/MM/yyyy">
                                         </cc:CalendarExtender>
                                     </td>
-                                    <td align="right">
+                                    <%--<td align="right">
                                         <asp:Label ID="lblAppointment" Text="Appointment Time  : " runat="server" Font-Names="Verdana"
                                             Font-Size="11px" ForeColor="#3b3535" />
                                     </td>
@@ -233,7 +233,7 @@
                                         <asp:Label ID="Label2" Text="-" runat="server" Font-Bold="true" Font-Size="X-Large"
                                             ForeColor="#3b3535" />
                                         <asp:TextBox runat="server" ID="txtEndTime" ReadOnly="True" Width="80px" />
-                                    </td>
+                                    </td>--%>
                                 </tr>
                                 <tr style="height: 5px;">
                                     <td colspan="2">

@@ -19,7 +19,7 @@ namespace Hospital
         JavaScriptSerializer serialize = new JavaScriptSerializer();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmDailyNursingManagement.aspx");
             if (!Page.IsPostBack)
             {
                 BindNurse();

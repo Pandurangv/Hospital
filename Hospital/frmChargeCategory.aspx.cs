@@ -18,7 +18,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmChargeCategory.aspx");
             if (!Page.IsPostBack)
             {
                 GetChargeCategoryDetail();

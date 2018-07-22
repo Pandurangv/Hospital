@@ -17,7 +17,7 @@
     $scope.ProductTypeId = 0;
     $scope.Paging = 10;
     $scope.CurruntIndex = 0;
-    $scope.ProductModel = { ProductId: 0, ProductName: "", UOM: "",SubUOM:"",Price:0,Content:"",ProductTypeId:0 };
+    $scope.ProductModel = { ProductId: 0, ProductName: "", UOM: "nos",SubUOM:"nos",Price:0,Content:"",ProductTypeId:0 };
 
     $scope.Prefix = "";
 
@@ -57,7 +57,7 @@
 
     function GetProducts()
     {
-        var url = GetVirtualDirectory() + '/Store/storeproducts.aspx/GetProducts?RequestFor=GetDetails';
+        var url = GetVirtualDirectory() + '/Store/PresProducts.aspx/GetProducts?RequestFor=GetDetails';
         $http({
             method: 'GET',
             url: url,
@@ -97,8 +97,6 @@
 
     $scope.EditClick = function (ProductTypeModel) {
         $scope.ProductModel = { ProductId: ProductTypeModel.ProductId, ProductName:  ProductTypeModel.ProductName, UOM: ProductTypeModel.UOM,SubUOM:ProductTypeModel.SubUOM,Price:ProductTypeModel.Price,Content:ProductTypeModel.Content,ProductTypeId:0 };
-//        $scope.SelectedProductType ={ProcutTypeId: ProductTypeModel.ProductTypeId,ProductType:ProductTypeModel.ProductTyepe};
-//        $filter('filter')($scope.ProductTypeList, function (d) { return d.ProcutTypeId === ProductTypeModel.ProductTypeId; })[0].ProcutTypeId=$scope.SelectedProductType.ProcutTypeId;
         $("#ddlPType").val(ProductTypeModel.ProductTypeId);
         $scope.ProductModel.Content=ProductTypeModel.ProductContent;
         $scope.Details = false;
@@ -123,36 +121,31 @@
         else {
             $scope.ErrorModel.IsProductName = false;
         }
-        if ($scope.ProductModel.UOM=="") {
-            $scope.ErrorModel.IsUOM = true;
-            $scope.ErrorMessage = "U. O. M. should be selected.";
-            return false;
-        }
-        else {
-            $scope.ErrorModel.IsUOM = false;
-        }
-
-        if ($scope.ProductModel.Price=="") {
-            $scope.ErrorModel.IsPrice = true;
-            $scope.ErrorMessage = "Price should be selected.";
-            return false;
-        }
-        else {
-            $scope.ErrorModel.IsPrice = false;
-        }
         
-        var url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Save';
+//        if ($scope.ProductModel.UOM=="") {
+//            $scope.ErrorModel.IsUOM = true;
+//            $scope.ErrorMessage = "U. O. M. should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsUOM = false;
+//        }
+
+//        if ($scope.ProductModel.Price=="") {
+//            $scope.ErrorModel.IsPrice = true;
+//            $scope.ErrorMessage = "Price should be selected.";
+//            return false;
+//        }
+//        else {
+//            $scope.ErrorModel.IsPrice = false;
+//        }
+        
+        var url = GetVirtualDirectory() + '/Store/PresProducts.aspx/Save';
         if (isEdit == false) {
-            url = GetVirtualDirectory() + '/Store/StoreProducts.aspx/Update';
+            url = GetVirtualDirectory() + '/Store/PresProducts.aspx/Update';
         }
         var model={};
         $scope.ProductModel.ProductTypeId=$("#ddlPType").val();
-//        if (isEdit == false) {
-//            model= {Product: $("#Product").val(),Description:$("#Description").val(),ProcutTypeId:$("#Productid").val()};
-//        }
-//        else {
-//           model= {Product: $("#Product").val(),Description:$("#Description").val(),ProcutTypeId:0};
-//        }
         var req = {
             method: 'POST',
             url: url,
@@ -163,26 +156,8 @@
         };
 
         $http(req).then(function (response) {
-            var ptypeid=parseInt($("#ddlPType").val());
-            var ptype=$filter('filter')($scope.ProductTypeList, function (d) { return d.ProcutTypeId === ptypeid })[0];
-            if (isEdit==true) {
-                    $scope.ProductModel.ProductId=response.data.Id;
-                    $scope.ProductModel.ProcutType=ptype.ProductType;
-                    $scope.ProductList.push($scope.ProductModel);
-                    setTimeout(function () {
-                    $scope.$apply(function () {
-                        $scope.MainProductList = $scope.ProductList;
-                        $scope.SearchProductList = $scope.ProductList;
-                        $scope.First();
-                        $scope.CancelClick();
-                    });
-                }, 1000);
-                }
-                else {
-                    $scope.CancelClick();
-                    GetProducts();
-                }
-                
+            $scope.CancelClick();
+            GetProducts();
         },
         function (response) {
            

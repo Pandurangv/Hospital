@@ -20,9 +20,13 @@ namespace Hospital
         {
             try
             {
-                base.AuthenticateUser();
+                base.AuthenticateUser("frmOPDPatientDetail.aspx");
                 if (!Page.IsPostBack)
                 {
+                    DateTimeOffset localtime=Commons.ConvertUTCBasedOnCuture();
+                    string tt = string.Format("{0:tt}", localtime);
+                    MKB.TimePicker.TimeSelector.AmPmSpec time = tt == "AM" ? MKB.TimePicker.TimeSelector.AmPmSpec.AM : MKB.TimePicker.TimeSelector.AmPmSpec.PM;
+                    AdmissionTimeSelector.SetTime(localtime.Hour, localtime.Minute, time);
                     if (QueryStringManager.Instance.IsEdit)
                     {
                         BtnSave.Visible = false;
@@ -38,45 +42,45 @@ namespace Hospital
                         GetOccupation();
                         GetInsuranceCompanies();
                         BindPatientTypes();
-                        DataTable ldtPat = new PatientMasterBLL().GetPatientDetail(QueryStringManager.Instance.PatientId.ToString());
-                        PatientId.Value = Convert.ToString(ldtPat.Rows[0]["PKId"]);
-                        txtPatientCode.Text = ldtPat.Rows[0]["PatientCode"].ToString();
-                        ddlOccupation.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["Occupation"]);
-                        ddlBloodGroup.Text = Convert.ToString(ldtPat.Rows[0]["BloodGroup"]);
-                        txtAdmitDate.Text = string.Format("{0:dd/MM/yyyy}", StringExtension.ToDateTime(ldtPat.Rows[0]["AdminDate"].ToString(), true));
-                        if (Convert.ToInt32(ldtPat.Rows[0]["InsuranceCompanyId"]) > 0)
+                        tblPatientMaster ldtPat = new PatientMasterBLL().GetPatientbyId(Convert.ToInt32(QueryStringManager.Instance.PatientId));
+                        PatientId.Value = Convert.ToString(ldtPat.PKId.ToString());
+                        txtPatientCode.Text = ldtPat.PatientCode;
+                        ddlOccupation.SelectedIndex = Convert.ToInt32(ldtPat.Occupation);
+                        ddlBloodGroup.Text = Convert.ToString(ldtPat.BloodGroup);
+                        txtAdmitDate.Text = string.Format("{0:dd/MM/yyyy}", ldtPat.AdminDate);
+                        if (Convert.ToInt32(ldtPat.InsuranceCompanyId) > 0)
                         {
                             ChkInsurance.Checked = true;
-                            ddlInsurance.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["InsuranceCompanyId"]);
+                            ddlInsurance.SelectedIndex = Convert.ToInt32(ldtPat.InsuranceCompanyId);
                         }
-                        ddlInitials.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["Initial"]);
-                        txtFirstName.Text = ldtPat.Rows[0]["PatientFirstName"].ToString();
-                        txtMidleName.Text = ldtPat.Rows[0]["PatientMiddleName"].ToString();
-                        txtLastName.Text = ldtPat.Rows[0]["PatientLastName"].ToString();
-                        ddlGender.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["Gender"]);
-                        if (ldtPat.Rows[0]["BirthDate"] != DBNull.Value)
+                        ddlInitials.SelectedIndex = Convert.ToInt32(ldtPat.Initial);
+                        txtFirstName.Text = ldtPat.PatientFirstName;
+                        txtMidleName.Text = ldtPat.PatientMiddleName;
+                        txtLastName.Text = ldtPat.PatientLastName;
+                        ddlGender.SelectedIndex = Convert.ToInt32(ldtPat.Gender);
+                        if (ldtPat.BirthDate!=null)
                         {
-                            txtBirthDate.Text = string.Format("{0:dd/MM/yyyy}", StringExtension.ToDateTime(ldtPat.Rows[0]["BirthDate"].ToString(), true));
+                            txtBirthDate.Text = string.Format("{0:dd/MM/yyyy}", ldtPat.BirthDate);
                         }
-                        ddlOccupation.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["Occupation"]);
-                        if (ldtPat.Rows[0]["DeptCategory"] != DBNull.Value)
+                        ddlOccupation.SelectedIndex = Convert.ToInt32(ldtPat.Occupation);
+                        if (ldtPat.DeptCategory!=null)
                         {
-                            ddlDeptCategory.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["DeptCategory"]);
+                            ddlDeptCategory.SelectedIndex = Convert.ToInt32(ldtPat.DeptCategory);
                             DataTable ldt = new DataTable();
-                            ldt = mobjPatient.GetDeptDoctors(Convert.ToInt32(ldtPat.Rows[0]["DeptCategory"]));
+                            ldt = mobjPatient.GetDeptDoctors(Convert.ToInt32(ldtPat.DeptCategory));
                             if (ldt.Rows.Count > 0 && ldt != null)
                             {
                                 ddlDeptDoctor.DataSource = ldt;
                                 ddlDeptDoctor.DataValueField = "DocAllocId";
                                 ddlDeptDoctor.DataTextField = "EmpName";
                                 ddlDeptDoctor.DataBind();
-                                ddlDeptDoctor.SelectedIndex = Convert.ToInt32(ldtPat.Rows[0]["DeptDoctorId"]);
+                                ddlDeptDoctor.SelectedIndex = Convert.ToInt32(ldtPat.DeptDoctorId);
                             }
                         }
-                        txtAge.Text = ldtPat.Rows[0]["Age"].ToString();
-                        txtWeight.Text = ldtPat.Rows[0]["Weight"].ToString();
-                        txtAddress.Text = string.IsNullOrEmpty(ldtPat.Rows[0]["Address"].ToString()) ? string.Empty : ldtPat.Rows[0]["Address"].ToString();
-                        if (ldtPat.Rows[0]["PatientType"].ToString() == "IPD")
+                        txtAge.Text = ldtPat.Age.ToString();
+                        txtWeight.Text = ldtPat.Weight.ToString();
+                        txtAddress.Text = string.IsNullOrEmpty(ldtPat.Address) ? string.Empty : ldtPat.Address;
+                        if (ldtPat.PatientType == "IPD")
                         {
                             rbtnIPD.Checked = true;
                             lblDiagnosys.Visible = true;
@@ -90,34 +94,73 @@ namespace Hospital
                             txtDignosys.Visible = false;
                             OPD_CheckedChanged(sender, e);
                         }
-                        txtContactNo.Text = ldtPat.Rows[0]["ContactNo"].ToString();
-                        txtCity.Text = ldtPat.Rows[0]["City"].ToString();
-                        txtState.Text = ldtPat.Rows[0]["State"].ToString();
-                        txtCountry.Text = ldtPat.Rows[0]["Country"].ToString();
-                        txtBP.Text = ldtPat.Rows[0]["BP"].ToString();
-                        txtRefDoctor.Text = ldtPat.Rows[0]["ReferedBy"].ToString();// == string.Empty ? ldtPat.Rows[0]["ReferedBy"].ToString() : string.Empty;
-                        txtDignosys.Text = ldtPat.Rows[0]["Dignosys"].ToString();
-                        if (!string.IsNullOrEmpty(ldtPat.Rows[0]["CompanyCode"].ToString()) && Convert.ToInt32(ldtPat.Rows[0]["CompanyCode"]) > 0)
+                        txtContactNo.Text = ldtPat.ContactNo;
+                        txtCity.Text = ldtPat.City;
+                        txtState.Text = ldtPat.State;
+                        txtCountry.Text = ldtPat.Country;
+                        txtBP.Text = ldtPat.BP;
+                        txtRefDoctor.Text = ldtPat.ReferedBy;
+                        txtDignosys.Text = ldtPat.Dignosys;
+
+                        tblPatientAdmitDetail admit = mobjPatient.AdmitPatientList().Where(p => p.PatientId == Convert.ToInt32(QueryStringManager.Instance.PatientId)).OrderByDescending(p=>p.AdmitId).FirstOrDefault();
+                        if (admit!=null)
+                        {
+                            txtProvDiag.Text = admit.ProvDiag;//"].ToString();
+
+                            txtFinalDiag.Text = admit.FinalDiag;//"].ToString();
+
+                            txtAilergies.Text = admit.Ailergies;//"].ToString();
+
+                            txtSymptoms.Text = admit.Symptomes;//"].ToString();
+
+                            txtPastIllness.Text = admit.PastIllness;//"].ToString();
+
+                            txtTemperature.Text = admit.Temperature;//"].ToString();
+
+                            txtPulse.Text = admit.Pulse;//"].ToString();
+
+                            txtRespiration.Text = admit.Respiration;//"].ToString();
+
+                            txtOthers.Text = admit.Others;//"].ToString();
+
+                            txtRS.Text = admit.RS;//"].ToString();
+
+                            txtCVS.Text = admit.CVS;//"].ToString();
+
+                            txtPA.Text = admit.PA;//"].ToString();
+
+                            txtCNS.Text = admit.CNS;//"].ToString();
+
+                            txtOBGY.Text = admit.OBGY;//"].ToString();
+
+                            txtXRay.Text = admit.XRAY;//"].ToString();
+
+                            txtECG.Text = admit.ECG;//"].ToString();
+
+                            txtUSG.Text = admit.USG;//"].ToString();    
+                        }
+
+                        if (!string.IsNullOrEmpty(ldtPat.CompanyCode) && Convert.ToInt32(ldtPat.CompanyCode) > 0)
                         {
                             chkCom.Checked = true;
-                            ListItem item = ddlCompName.Items.FindByValue(ldtPat.Rows[0]["CompanyCode"].ToString());
+                            ListItem item = ddlCompName.Items.FindByValue(ldtPat.CompanyCode);
                             if (item != null)
                             {
                                 ddlCompName.SelectedValue = item.Value;
                             }
                         }
-                        if (!string.IsNullOrEmpty(ldtPat.Rows[0]["InsuranceCompanyId"].ToString()) && Convert.ToInt32(ldtPat.Rows[0]["InsuranceCompanyId"]) > 0)
+                        if (ldtPat.InsuranceCompanyId != null && ldtPat.InsuranceCompanyId > 0)
                         {
                             ChkInsurance.Checked = true;
-                            ListItem item = ddlInsurance.Items.FindByValue(ldtPat.Rows[0]["InsuranceCompanyId"].ToString());
+                            ListItem item = ddlInsurance.Items.FindByValue(ldtPat.InsuranceCompanyId.ToString());
                             if (item != null)
                             {
                                 ddlInsurance.SelectedValue = item.Value;
                             }
                         }
-                        if (!string.IsNullOrEmpty(ldtPat.Rows[0]["PatientTypeId"].ToString()) && Convert.ToInt32(ldtPat.Rows[0]["PatientTypeId"]) > 0)
+                        if (ldtPat.PatientTypeId != null && ldtPat.PatientTypeId>0)
                         {
-                            ListItem item = ddlPatientType.Items.FindByValue(ldtPat.Rows[0]["PatientTypeId"].ToString());
+                            ListItem item = ddlPatientType.Items.FindByValue(ldtPat.PatientTypeId.ToString());
                             if (item != null)
                             {
                                 ddlPatientType.SelectedValue = item.Value;
@@ -252,7 +295,6 @@ namespace Hospital
             {
                 lblMsg.Text = ex.Message;
             }
-
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -262,11 +304,16 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
-                if (ddlDeptCategory.SelectedIndex == 0)
-                {
-                    lblMsg.Text = "Please Select Department Category";
-                }
-                else
+                //if (ddlDeptDoctor.Items.Count == 0)
+                //{
+                //    lblMsg.Text = "Please Select dept doctor.";
+                //    return;
+                //}
+                //if (ddlDeptCategory.SelectedIndex == 0)
+                //{
+                //    lblMsg.Text = "Please Select Department Category";
+                //}
+                //else
                 {
                     if (ddlInitials.SelectedIndex == 0)
                     {
@@ -323,9 +370,9 @@ namespace Hospital
                                         }
 
                                         entPatientMaster.Weight = Convert.ToString(txtWeight.Text);
-                                        entPatientMaster.DeptCategory = Convert.ToInt32(ddlDeptCategory.SelectedValue);
+                                        entPatientMaster.DeptCategory = ddlDeptCategory.SelectedIndex>0? Convert.ToInt32(ddlDeptCategory.SelectedValue):SettingsManager.Instance.DeptId;
                                         entPatientMaster.DeptDoctorId = Convert.ToInt32(ddlDeptDoctor.SelectedValue);
-                                        entPatientMaster.Occupation = Convert.ToInt32(ddlOccupation.SelectedValue);
+                                        entPatientMaster.Occupation = ddlDeptDoctor.SelectedIndex > 0 ? Convert.ToInt32(ddlOccupation.SelectedValue) : SettingsManager.Instance.DoctorId;
                                         entPatientMaster.PatientContactNo = txtContactNo.Text.Trim();
                                         entPatientMaster.PatientAddress = FirstCharToUpper(txtAddress.Text);
                                         entPatientMaster.City = FirstCharToUpper(txtCity.Text);
@@ -333,6 +380,40 @@ namespace Hospital
                                         entPatientMaster.Country = FirstCharToUpper(txtCountry.Text);
                                         entPatientMaster.ReferedBy = FirstCharToUpper(txtRefDoctor.Text);
                                         entPatientMaster.Dignosys = FirstCharToUpper(txtDignosys.Text);
+
+                                        entPatientMaster.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
+
+                                        entPatientMaster.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                                        entPatientMaster.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                                        entPatientMaster.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                                        entPatientMaster.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                                        entPatientMaster.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                                        entPatientMaster.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                                        entPatientMaster.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                                        entPatientMaster.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                                        entPatientMaster.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                                        entPatientMaster.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                                        entPatientMaster.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                                        entPatientMaster.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                                        entPatientMaster.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                                        entPatientMaster.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                                        entPatientMaster.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                                        entPatientMaster.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
 
                                         if (chkCom.Checked)
                                         {
@@ -666,10 +747,14 @@ namespace Hospital
             EntityPatientMaster entPatientMaster = new EntityPatientMaster();
             try
             {
+                //if (ddlDeptDoctor.Items.Count==0)
+                //{
+                //    lblMsg.Text = "Please Select dept doctor.";
+                //    return;
+                //}
                 if (ddlInitials.SelectedIndex == 0)
                 {
                     lblMsg.Text = "Please Select Initial For Patient Name....";
-
                 }
                 else
                 {
@@ -750,18 +835,15 @@ namespace Hospital
                                     {
                                         entPatientMaster.Age = StringExtension.ToDateTime(txtAdmitDate.Text).Year - StringExtension.ToDateTime(txtBirthDate.Text.Trim()).Year;
                                     }
-                                    if (!string.IsNullOrEmpty(txtAge.Text))
-                                    {
-                                        entPatientMaster.Age = Convert.ToInt32(txtAge.Text);
-                                    }
+                                    entPatientMaster.Age = string.IsNullOrEmpty(txtAge.Text) == false ? Convert.ToInt32(txtAge.Text) : 0;
                                     if (!string.IsNullOrEmpty(txtBirthDate.Text))
                                     {
                                         entPatientMaster.BirthDate = StringExtension.ToDateTime(txtBirthDate.Text);
                                     }
                                     entPatientMaster.Weight = Convert.ToString(txtWeight.Text);
                                     entPatientMaster.Occupation = Convert.ToInt32(ddlOccupation.SelectedValue);
-                                    entPatientMaster.DeptCategory = Convert.ToInt32(ddlDeptCategory.SelectedValue);
-                                    entPatientMaster.DeptDoctorId = Convert.ToInt32(ddlDeptDoctor.SelectedValue);
+                                    entPatientMaster.DeptCategory =ddlDeptCategory.SelectedIndex>0? Convert.ToInt32(ddlDeptCategory.SelectedValue):SettingsManager.Instance.DeptId;
+                                    entPatientMaster.DeptDoctorId =ddlDeptDoctor.SelectedIndex>0? Convert.ToInt32(ddlDeptDoctor.SelectedValue):SettingsManager.Instance.DoctorId;
                                     entPatientMaster.PatientContactNo = txtContactNo.Text.Trim();
                                     entPatientMaster.PatientAddress = FirstCharToUpper(txtAddress.Text);
                                     entPatientMaster.City = FirstCharToUpper(txtCity.Text);
@@ -822,6 +904,39 @@ namespace Hospital
                                     entPatientMaster.PatientHistory = "";
                                     entPatientMaster.PastMedicalHistory = "";
                                     entPatientMaster.FamilyHistory = "";
+                                    entPatientMaster.ProvDiag = !string.IsNullOrEmpty(txtProvDiag.Text) ? txtProvDiag.Text : "";
+
+                                    entPatientMaster.FinalDiag = !string.IsNullOrEmpty(txtFinalDiag.Text) ? txtFinalDiag.Text : "";
+
+                                    entPatientMaster.Ailergies = !string.IsNullOrEmpty(txtAilergies.Text) ? txtAilergies.Text : "";
+
+                                    entPatientMaster.Symptomes = !string.IsNullOrEmpty(txtSymptoms.Text) ? txtSymptoms.Text : "";
+
+                                    entPatientMaster.PastIllness = !string.IsNullOrEmpty(txtPastIllness.Text) ? txtPastIllness.Text : "";
+
+                                    entPatientMaster.Temperature = !string.IsNullOrEmpty(txtTemperature.Text) ? txtTemperature.Text : "";
+
+                                    entPatientMaster.Pulse = !string.IsNullOrEmpty(txtPulse.Text) ? txtPulse.Text : "";
+
+                                    entPatientMaster.Respiration = !string.IsNullOrEmpty(txtRespiration.Text) ? txtRespiration.Text : "";
+
+                                    entPatientMaster.Others = !string.IsNullOrEmpty(txtOthers.Text) ? txtOthers.Text : "";
+
+                                    entPatientMaster.RS = !string.IsNullOrEmpty(txtRS.Text) ? txtRS.Text : "";
+
+                                    entPatientMaster.CVS = !string.IsNullOrEmpty(txtCVS.Text) ? txtCVS.Text : "";
+
+                                    entPatientMaster.PA = !string.IsNullOrEmpty(txtPA.Text) ? txtPA.Text : "";
+
+                                    entPatientMaster.CNS = !string.IsNullOrEmpty(txtCNS.Text) ? txtCNS.Text : "";
+
+                                    entPatientMaster.OBGY = !string.IsNullOrEmpty(txtOBGY.Text) ? txtOBGY.Text : "";
+
+                                    entPatientMaster.XRAY = !string.IsNullOrEmpty(txtXRay.Text) ? txtXRay.Text : "";
+
+                                    entPatientMaster.ECG = !string.IsNullOrEmpty(txtECG.Text) ? txtECG.Text : "";
+
+                                    entPatientMaster.USG = !string.IsNullOrEmpty(txtUSG.Text) ? txtUSG.Text : "";
 
                                     if (!Commons.IsRecordExists("tblPatientMaster", "PatientFirstName + ' ' + PatientMiddleName + ' ' + PatientLastName", entPatientMaster.PatientFirstName + ' ' + entPatientMaster.PatientMiddleName + ' ' + entPatientMaster.PatientLastName))
                                     {

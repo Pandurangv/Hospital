@@ -40,6 +40,10 @@ namespace Hospital.Models.Models
 
         public string ProductName { get; set; }
 
+        public decimal? TaxPercent { get; set; }
+
+        public decimal? TaxAmount { get; set; }
+
 
         public System.Nullable<int> PINoSrNo
         {

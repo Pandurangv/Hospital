@@ -80,6 +80,7 @@ namespace Hospital.Models.Models
                 }
             }
         }
+        public int? NurseTreatId { get; set; }
 
         public int NurseId { get; set; }
         public string NurseName { get; set; }

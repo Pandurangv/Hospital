@@ -18,7 +18,7 @@ namespace Hospital.PatientStatus
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmDeathCertificate.aspx");
             if (!Page.IsPostBack)
             {
                 update.Value = Server.UrlEncode(System.DateTime.Now.ToString());
@@ -299,7 +299,7 @@ namespace Hospital.PatientStatus
         {
             ImageButton imgEdit = (ImageButton)sender;
             GridViewRow row = (GridViewRow)imgEdit.NamingContainer;
-            //Death_Id.Value = Convert.ToString(dgvShift.DataKeys[row.RowIndex].Value);
+            Death_Id.Value = Convert.ToString(dgvShift.DataKeys[row.RowIndex].Value);
             //Session["ReportType"] = "Death";
             Response.Redirect("~/PathalogyReport/PathologyReport.aspx?ReportType=Death&Death_Id=" + Death_Id.Value, false);
         }

@@ -582,3 +582,7 @@ a
 {
     outline: none;
 }
+.table tbody tr th { background-color:#1F91F3; } 
+    tr:nth-child(even) {background: #CCC} 
+    tr:nth-child(odd) {background: #FFF} 
+    .pagination { float: right; } 

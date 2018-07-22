@@ -37,7 +37,7 @@ namespace Hospital.Models.BusinessLayer
                            Age = Convert.ToInt32(tbl.Age),
                            AgeIn = tbl.AgeIn,
                            Weight = tbl.Weight,
-                           PatientAdmitDate = tbl.AdminDate==null?DateTime.Now.Date:tbl.AdminDate.Value,
+                           PatientAdmitDate = tblAdmit.AdmitDate == null ? DateTime.Now.Date : tblAdmit.AdmitDate.Value,
                            //EmpName = (tblDoct.EmpFirstName) + " " + (tblDoct.EmpMiddleName) + " " + (tblDoct.EmpLastName),
                            BirthDate = tbl.BirthDate,
                            GenderDesc = tbl.Gender == 1 ? "Male" : "Female",
@@ -388,14 +388,13 @@ namespace Hospital.Models.BusinessLayer
             List<EntityPatientMaster> lst = null;
             try
             {
-                lst = (from tbl in objData.tblPatientMasters
-                       orderby tbl.PatientFirstName
+                lst = (from tbl in objData.STP_GetDistinctPatient()
+                       orderby tbl.FullName
                        select new EntityPatientMaster
                        {
-                           PatientId = tbl.PKId,
-                           FullName = tbl.PatientFirstName + " " + tbl.PatientMiddleName + " " + tbl.PatientLastName,
-                           DeptDoctorId=tbl.DeptDoctorId,
-                           
+                           PatientId = tbl.PatientId,
+                           FullName = tbl.FullName,
+                           //DeptDoctorId=tbl.DeptDoctorId,
                        }).ToList();
 
             }
@@ -464,6 +463,19 @@ namespace Hospital.Models.BusinessLayer
                 throw ex;
             }
             return lst;
+        }
+
+        internal void ReadmitPatient(int PatientId)
+        {
+            int cnt = objData.tblPatientAdmitDetails.Where(p => p.PatientId == PatientId && p.IsDischarge==false).Count();
+            if (cnt>0)
+            {
+                objData.STP_ReadmitPatient(PatientId);
+            }
+            else
+            {
+                throw new Exception("Patient not discharged yet.");
+            }
         }
     }
 

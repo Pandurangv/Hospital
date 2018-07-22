@@ -20,7 +20,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmOPDPatientDetail.aspx");
             if (!Page.IsPostBack)
             {
                 GetOPDPatientList();
@@ -86,8 +86,24 @@ namespace Hospital
             {
                 ImageButton imgEdit = (ImageButton)sender;
                 GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
-                DataTable dt = new PatientMasterBLL().GetPatientDetail(cnt.Cells[0].Text);
+                //DataTable dt = new PatientMasterBLL().GetPatientDetail(cnt.Cells[0].Text);
                 Response.Redirect("~/frmOPDPatient.aspx?PatientId=" + cnt.Cells[0].Text + "&IsEdit=" + true,false);
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
+        }
+
+        protected void btnReadmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ImageButton imgEdit = (ImageButton)sender;
+                GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
+                //DataTable dt = new PatientMasterBLL().GetPatientDetail(cnt.Cells[0].Text);
+                mobjPatientMasterBLL.ReadmitPatient(Convert.ToInt32(cnt.Cells[0].Text));
+                //Response.Redirect("~/frmOPDPatient.aspx?PatientId=" + cnt.Cells[0].Text + "&IsEdit=" + true, false);
             }
             catch (Exception ex)
             {

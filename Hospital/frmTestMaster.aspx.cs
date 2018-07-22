@@ -18,7 +18,7 @@ namespace Hospital
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmTestMaster.aspx");
             if (!Page.IsPostBack)
             {
                 update.Value = Server.UrlEncode(System.DateTime.Now.ToString());

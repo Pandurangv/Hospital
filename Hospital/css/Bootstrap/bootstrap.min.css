@@ -3213,6 +3213,8 @@ select[multiple].input-lg, textarea.input-lg {
     color: #3c763d;
 }
 
+
+
 .has-warning .checkbox, .has-warning .checkbox-inline, .has-warning .control-label, .has-warning .help-block, .has-warning .radio, .has-warning .radio-inline, .has-warning.checkbox label, .has-warning.checkbox-inline label, .has-warning.radio label, .has-warning.radio-inline label {
     color: #8a6d3b;
 }

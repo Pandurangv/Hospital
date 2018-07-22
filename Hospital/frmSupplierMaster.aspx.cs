@@ -17,7 +17,7 @@ namespace Hospital
         SupplierBLL mobjSupplierBLL = new SupplierBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmSupplierMaster.aspx");
             if (!Page.IsPostBack)
             {
                 GetSupplier();
@@ -52,15 +52,21 @@ namespace Hospital
             {
                 ImageButton imgEdit = (ImageButton)sender;
                 GridViewRow cnt = (GridViewRow)imgEdit.NamingContainer;
-                txtSupplierCode.Text = Convert.ToString(cnt.Cells[0].Text);
-                txtSupplierName.Text = Convert.ToString(cnt.Cells[1].Text);
-                txtAddress.Text = Convert.ToString(cnt.Cells[2].Text);
-                txtPhoneNo.Text = Convert.ToString(cnt.Cells[3].Text);
-                txtMobileNo.Text = Convert.ToString(cnt.Cells[4].Text);
-                txtVATCSTNo.Text = Convert.ToString(cnt.Cells[5].Text);
-                txtExciseNo.Text = Convert.ToString(cnt.Cells[6].Text);
-                txtEmail.Text = Convert.ToString(cnt.Cells[7].Text);
-                txtServiceTaxNo.Text = Convert.ToString(cnt.Cells[8].Text);
+
+                int key =Convert.ToInt32(dgvSupplier.DataKeys[cnt.RowIndex].Value);
+                var supplier=mobjSupplierBLL.GetAllSupplier().Where(p => p.PKId == key).FirstOrDefault();
+                if (supplier!=null)
+                {
+                    txtSupplierCode.Text = string.IsNullOrEmpty(supplier.SupplierCode) ? "" : Convert.ToString(supplier.SupplierCode);
+                    txtSupplierName.Text = string.IsNullOrEmpty(supplier.SupplierName) ? "" : Convert.ToString(supplier.SupplierName);
+                    txtAddress.Text = string.IsNullOrEmpty(supplier.Address)?"": Convert.ToString(supplier.Address);
+                    txtPhoneNo.Text = string.IsNullOrEmpty(supplier.PhoneNo) ? "" : Convert.ToString(supplier.PhoneNo);
+                    txtMobileNo.Text = string.IsNullOrEmpty(supplier.MobileNo) ? "" : Convert.ToString(supplier.MobileNo);
+                    txtVATCSTNo.Text = string.IsNullOrEmpty(supplier.VATCSTNo) ? "" : Convert.ToString(supplier.VATCSTNo);
+                    txtExciseNo.Text = string.IsNullOrEmpty(supplier.ExciseNo) ? "" : Convert.ToString(supplier.ExciseNo);
+                    txtEmail.Text = string.IsNullOrEmpty(supplier.Email) ? "" : Convert.ToString(supplier.Email);
+                    txtServiceTaxNo.Text = string.IsNullOrEmpty(supplier.ServiceTaxNo) ? "" : Convert.ToString(supplier.ServiceTaxNo);
+                }
                 BtnSave.Visible = false;
                 btnUpdate.Visible = true;
                 MultiView1.SetActiveView(View2);
@@ -194,22 +200,15 @@ namespace Hospital
                     entSupplier.ServiceTaxNo = txtServiceTaxNo.Text.Trim();
                     entSupplier.EntryBy = SessionManager.Instance.LoginUser.PKId.ToString();
 
-                    if (!Commons.IsRecordExists("tblSupplierMaster", "VATCSTNo", entSupplier.VATCSTNo))
+                    lintcnt = mobjSupplierBLL.InsertSupplier(entSupplier);
+                    if (lintcnt > 0)
                     {
-                        lintcnt = mobjSupplierBLL.InsertSupplier(entSupplier);
-                        if (lintcnt > 0)
-                        {
-                            GetSupplier();
-                            lblMessage.Text = "Record Inserted Successfully";
-                        }
-                        else
-                        {
-                            lblMessage.Text = "Record Not Inserted";
-                        }
+                        GetSupplier();
+                        lblMessage.Text = "Record Inserted Successfully";
                     }
                     else
                     {
-                        lblMessage.Text = "Record Already Exist...";
+                        lblMessage.Text = "Record Not Inserted";
                     }
                 }
                 MultiView1.SetActiveView(View1);

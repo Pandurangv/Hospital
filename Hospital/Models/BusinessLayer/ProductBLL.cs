@@ -66,6 +66,7 @@ namespace Hospital.Models.BusinessLayer
                     ProductContent=entProduct.Content,
                     ProductTypeId=entProduct.ProductTypeId,
                     IsDelete=false,
+                    Category=entProduct.Category
                 };
                 objData.tblProductMasters.InsertOnSubmit(obj);
                 objData.SubmitChanges();
@@ -118,16 +119,29 @@ namespace Hospital.Models.BusinessLayer
             int cnt = 0;
             try
             {
-                List<SqlParameter> lstParam = new List<SqlParameter>();
-                Commons.ADDParameter(ref lstParam, "@ProductId", DbType.String, entProduct.ProductId);
-                Commons.ADDParameter(ref lstParam, "@ProductName", DbType.String, entProduct.ProductName);
-                Commons.ADDParameter(ref lstParam, "@UOM", DbType.String, entProduct.UOM);
-                Commons.ADDParameter(ref lstParam, "@SubUOM", DbType.String, entProduct.SubUOM);
-                Commons.ADDParameter(ref lstParam, "@Price", DbType.String, entProduct.Price);
-                Commons.ADDParameter(ref lstParam, "@ProductTypeId", DbType.Int32, entProduct.ProductTypeId);
-                Commons.ADDParameter(ref lstParam, "@ProductContent", DbType.String, !string.IsNullOrEmpty(entProduct.Content)?entProduct.Content:"");
+                tblProductMaster product = objData.tblProductMasters.Where(p => p.ProductId == entProduct.ProductId).FirstOrDefault();
+                if (product!=null)
+                {
+                    product.ProductName = entProduct.ProductName;
+                    product.ProductContent = entProduct.Content;
+                    product.Price = entProduct.Price;
+                    product.ProductTypeId = entProduct.ProductTypeId;
+                    product.UOM = entProduct.UOM;
+                    product.SubUOM = entProduct.SubUOM;
+                    product.Category = entProduct.Category;
+                    //product.ProductName = entProduct.ProductName;
+                }
+                objData.SubmitChanges();
+                //List<SqlParameter> lstParam = new List<SqlParameter>();
+                //Commons.ADDParameter(ref lstParam, "@ProductId", DbType.String, entProduct.ProductId);
+                //Commons.ADDParameter(ref lstParam, "@ProductName", DbType.String, entProduct.ProductName);
+                //Commons.ADDParameter(ref lstParam, "@UOM", DbType.String, entProduct.UOM);
+                //Commons.ADDParameter(ref lstParam, "@SubUOM", DbType.String, entProduct.SubUOM);
+                //Commons.ADDParameter(ref lstParam, "@Price", DbType.String, entProduct.Price);
+                //Commons.ADDParameter(ref lstParam, "@ProductTypeId", DbType.Int32, entProduct.ProductTypeId);
+                //Commons.ADDParameter(ref lstParam, "@ProductContent", DbType.String, !string.IsNullOrEmpty(entProduct.Content)?entProduct.Content:"");
 
-                cnt = mobjDataAcces.ExecuteQuery("sp_UpdateProduct", lstParam);
+                cnt = 1;
             }
             catch (Exception ex)
             {
@@ -153,6 +167,21 @@ namespace Hospital.Models.BusinessLayer
             return cnt;
         }
 
+        public List<EntityProduct> GetAllProductBatchList(int ProductId=0)
+        {
+            List<EntityProduct> lst = (from tbl in objData.STP_GetProductBatch()
+                                       select new EntityProduct { 
+                                            ProductId=tbl.ProductId,
+                                            BatchNo=tbl.BatchNo,
+                                            ExpiryDate=tbl.ExpiryDate,
+                                       }).ToList();
+            if (ProductId>0)
+            {
+                lst = lst.Where(p => p.ProductId == ProductId).ToList();
+            }
+            return lst;
+        }
+
         public List<EntityProduct> GetAllProducts()
         {
             List<EntityProduct> lst = null;
@@ -163,7 +192,13 @@ namespace Hospital.Models.BusinessLayer
                        select new EntityProduct
                        {
                            ProductId = tbl.ProductId,
-                           ProductName = tbl.ProductName
+                           ProductName = tbl.ProductName,
+                           Category=tbl.Category,
+                           Content=tbl.ProductContent,
+                           Price=tbl.Price,
+                           ProductTypeId=tbl.ProductTypeId,
+                           UOM=tbl.UOM,
+                           SubUOM=tbl.SubUOM,
                        }).ToList();
             }
             catch (Exception ex)
@@ -184,6 +219,12 @@ namespace Hospital.Models.BusinessLayer
                         OutwardQty = tbl.OutwardQty == null ? 0 : tbl.OutwardQty,
                         ClosingStock = tbl.ClosingStock == null ? 0 : tbl.ClosingStock
                     }).ToList();
+        }
+
+        internal decimal? GetLatestPrice(int ProductId)
+        {
+            var invoicedetails= objData.tblPurchaseInvoiceDetails.Where(p => p.ProductCode == ProductId).OrderByDescending(p => p.PINoSrNo).FirstOrDefault();
+            return invoicedetails==null?0:(invoicedetails.Amount + (invoicedetails.TaxAmount != null ? invoicedetails.TaxAmount : 0)) / invoicedetails.InvoiceQty;
         }
     }
 

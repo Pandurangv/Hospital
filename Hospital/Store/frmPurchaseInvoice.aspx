@@ -69,6 +69,33 @@
                 document.getElementById("<%=txtNetAmount.ClientID %>").value = TotalVat + SerAmt;
             }
         }
+
+        function Calculate() {
+            try {
+                var qty = document.getElementById("<%=txtQuantity.ClientID %>").value;
+                var tax = document.getElementById("<%=txtTax.ClientID %>").value;
+                var taxamount = document.getElementById("<%=txtTaxAmount.ClientID %>").value;
+                var txtPAmount = document.getElementById("<%=txtProductAmount.ClientID %>").value;
+                var txtItemCharge = document.getElementById("<%=txtItemCharge.ClientID %>").value;
+
+                if (txtItemCharge != "" && tax != "" && qty != "") {
+                    document.getElementById("<%=txtTaxAmount.ClientID %>").value = (parseFloat(tax) / 100) * parseFloat(txtItemCharge);
+                    document.getElementById("<%=txtTaxAmount.ClientID %>").value = parseFloat(document.getElementById("<%=txtTaxAmount.ClientID %>").value).toFixed(2);
+                    document.getElementById("<%=txtProductAmount.ClientID %>").value = parseFloat(qty * txtItemCharge) + parseFloat(qty * parseFloat(document.getElementById("<%=txtTaxAmount.ClientID %>").value))
+                }
+                else if (txtItemCharge != "" && tax == "" && qty != "") {
+                    document.getElementById("<%=txtTaxAmount.ClientID %>").value = "0";
+                    document.getElementById("<%=txtProductAmount.ClientID %>").value = parseFloat(qty * txtItemCharge);//  + parseFloat(qty * parseFloat(document.getElementById("<%=txtTaxAmount.ClientID %>").value))
+                }
+                else if (txtPAmount != "" && qty != "" && txtItemCharge == "") {
+                    document.getElementById("<%=txtTaxAmount.ClientID %>").value = "0";
+                    document.getElementById("<%=txtProductAmount.ClientID %>").value = parseFloat(qty / txtItemCharge); //  + parseFloat(qty * parseFloat(document.getElementById("<%=txtTaxAmount.ClientID %>").value))
+                }
+            } catch (e) {
+
+            }
+            
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -206,24 +233,21 @@
                                                 </tr>
                                                 <tr>
                                                     <td align="right">
-                                                        <asp:Label ID="Label2" Text="With PO :" runat="server" ForeColor="#3B3535" Font-Names="verdana"
+                                                        <asp:Label ID="Label2" Text="With PO :" Visible="false" runat="server" ForeColor="#3B3535" Font-Names="verdana"
                                                             Font-Size="11px" />
                                                     </td>
                                                     <td>
-                                                        <asp:CheckBox ID="chkIsPO" runat="server" AutoPostBack="true" OnCheckedChanged="chkIsPO_CheckedChanged" />
+                                                        <asp:CheckBox ID="chkIsPO" runat="server" AutoPostBack="true" Visible="false"  />
                                                     </td>
                                                     <td align="right">
-                                                        <asp:Label ID="Label4" Text="PO Number:" runat="server" ForeColor="#3B3535" Font-Names="verdana"
+                                                        <asp:Label ID="Label4" Text="PO Number:" Visible="false" runat="server" ForeColor="#3B3535" Font-Names="verdana"
                                                             Font-Size="11px" />
                                                     </td>
                                                     <td>
-                                                        <asp:DropDownList ID="ddlPONumber" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPONumber_SelectedIndexChanged"
+                                                        <asp:DropDownList ID="ddlPONumber" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPONumber_SelectedIndexChanged"
                                                             Width="150px">
                                                         </asp:DropDownList>
-                                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red"
-                                                            ControlToValidate="ddlPONumber" Font-Size="13" ValidationGroup="Save" ErrorMessage="*"
-                                                            Display="Dynamic" InitialValue="0">
-                                                        </asp:RequiredFieldValidator--%>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -347,26 +371,54 @@
                                                 </tr>
                                                 <tr style="height: 10px;">
                                                     <td align="right">
-                                                        <asp:Label ID="Label5" runat="server" Font-Names="verdana" Font-Size="11px" ForeColor="#3B3535"
+                                                        <asp:Label ID="Label5" runat="server" Visible="false" Font-Names="verdana" Font-Size="11px" ForeColor="#3B3535"
                                                             Text="PO Qty :" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:TextBox ID="txtPOQty" runat="server" Font-Names="Verdana" Font-Size="11px" MaxLength="10"
-                                                            Width="150px"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ForeColor="Red"
-                                                            ControlToValidate="txtPOQty" Font-Size="13" ValidationGroup="Add" ErrorMessage="*"
-                                                            Display="Dynamic" SetFocusOnError="true">
-                                                        </asp:RequiredFieldValidator>
-                                                    </td>
-                                                    <td align="right">
                                                         <asp:Label ID="lblQuantiy" Text="Purchase Quantity :" runat="server" ForeColor="#3B3535"
                                                             Font-Names="verdana" Font-Size="11px" />
                                                     </td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtPOQty" Visible="false" runat="server" Font-Names="Verdana" Font-Size="11px" MaxLength="10"
+                                                            Width="150px"></asp:TextBox>
+                                                         <asp:TextBox ID="txtQuantity" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                            Width="150px" MaxLength="10" onblur="Calculate()"></asp:TextBox>
+                                                       
+                                                    </td>
+                                                    <td align="right">
+                                                        <asp:Label ID="Label3" runat="server" Font-Names="verdana" Font-Size="11px" ForeColor="#3B3535"
+                                                            Text="Tax Percent :" />
+                                                    </td>
                                                     <td align="left">
-                                                        <asp:TextBox ID="txtQuantity" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                                       <asp:TextBox ID="txtTax" runat="server" Font-Names="Verdana" Font-Size="11px" MaxLength="10" onblur="Calculate()"
+                                                            Width="150px"></asp:TextBox>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr style="height: 10px;">
+                                                    <td align="right">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td align="left">
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr style="height: 10px;">
+                                                    <td align="right">
+                                                        <asp:Label ID="Label8" Text="Tax Amount :" runat="server" ForeColor="#3B3535" 
+                                                            Font-Names="verdana" Font-Size="11px" />
+                                                    </td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtTaxAmount" runat="server" Font-Names="Verdana" Font-Size="11px" onblur="Calculate()"
                                                             Width="150px" MaxLength="10"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red"
-                                                            ControlToValidate="txtQuantity" Font-Size="13" ValidationGroup="Add" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ForeColor="Red"
+                                                            ControlToValidate="txtQuantity" Font-Size="13" ValidationGroup="Add" ErrorMessage="*"></asp:RequiredFieldValidator>--%>
+                                                    </td>
+                                                    <td align="right">
+                                                        <asp:Label ID="Label9" Text="Amount :" runat="server" ForeColor="#3B3535"
+                                                            Font-Names="verdana" Font-Size="11px" />
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:TextBox ID="txtProductAmount" runat="server" Font-Names="Verdana" Font-Size="11px" onblur="Calculate()"
+                                                            Width="150px" MaxLength="10"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr style="height: 10px;">
@@ -480,7 +532,7 @@
                                                     <td colspan="4" style="border-top: none; border-bottom: none;">
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr style="display:none">
                                                     <td align="right" style="border-right: none; border-top: none; border-bottom: none;">
                                                         <asp:Label ID="lblVat" Text="VAT (%) :" runat="server" ForeColor="#3b3535"></asp:Label>
                                                     </td>
@@ -488,8 +540,7 @@
                                                         border-left: none;">
                                                         <asp:TextBox ID="txtVAT" runat="server" Font-Names="Verdana" Font-Size="11px" Width="150px"
                                                             MaxLength="10" onblur="javascript:return CheckList();"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="rfvVat" runat="server" ForeColor="Red" ControlToValidate="txtVAT"
-                                                            Font-Size="13" ValidationGroup="Save" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        
                                                     </td>
                                                     <td align="right" style="border-top: none; border-bottom: none; border-right: none;
                                                         border-left: none;">
@@ -503,15 +554,11 @@
                                                 <tr>
                                                     <td colspan="2" style="border-top: none; border-bottom: none; border-right: none;"
                                                         align="center">
-                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ValidationExpression="^[0-9]{1,11}(?:\.[0-9]{1,3})?$"
-                                                            ErrorMessage="Please Enter Only Number" Font-Size="11px" ForeColor="Red" ControlToValidate="txtVAT"
-                                                            runat="server" ValidationGroup="Save" Display="Dynamic" Font-Names="verdana" />
+                                                        
                                                     </td>
                                                     <td colspan="2" style="border-top: none; border-bottom: none; border-left: none;"
                                                         align="center">
-                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[0-9]{1,11}(?:\.[0-9]{1,3})?$"
-                                                            ErrorMessage="Please Enter Only Number" Font-Size="11px" ForeColor="Red" ControlToValidate="txtService"
-                                                            runat="server" ValidationGroup="Save" Display="Dynamic" Font-Names="verdana" />
+                                                        
                                                     </td>
                                                 </tr>
                                                 <tr style="height: 8px;">

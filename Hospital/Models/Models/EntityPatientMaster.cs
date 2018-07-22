@@ -39,7 +39,7 @@ namespace Hospital.Models.Models
         public int WardNo { get; set; }
         public int? BedNo { get; set; }
         public string ReasonForAdmit { get; set; }
-        public int Gender { get; set; }
+        public int? Gender { get; set; }
         public int Age { get; set; }
         public int? Occupation { get; set; }
         public string City { get; set; }

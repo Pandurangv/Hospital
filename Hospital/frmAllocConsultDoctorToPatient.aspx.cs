@@ -19,7 +19,7 @@ namespace Hospital
         JavaScriptSerializer serialize = new JavaScriptSerializer();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmAllocConsultDoctorToPatient.aspx");
             if (!Page.IsPostBack)
             {
                 BindConsultDoctor();
@@ -35,7 +35,7 @@ namespace Hospital
         {
             try
             {
-                List<EntityEmployee> tblCat = new EmployeeBLL().SelectAllEmployee().Where(p => p.DesignationId == 9).ToList();
+                List<EntityEmployee> tblCat = new EmployeeBLL().SelectAllEmployee().Where(p => p.DesignationId == SettingsManager.Instance.VisitingDoctorDesigId).ToList();
                 tblCat.Insert(0, new EntityEmployee() { PKId = 0, FullName = "---Select---" });
                 ddlConsultDoctor.DataSource = tblCat;
                 ddlConsultDoctor.DataValueField = "PKId";

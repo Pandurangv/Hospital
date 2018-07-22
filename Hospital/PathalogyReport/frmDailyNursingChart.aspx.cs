@@ -75,57 +75,57 @@ namespace Hospital.PathalogyReport
                 BedConsumtionBLL consume = new BedConsumtionBLL();
                 if (ddlDepartment.SelectedIndex == 0)
                 {
-                    List<STP_DailyNursingChartResult> lst = consume.SearchDailyChart(StringExtension.ToDateTime(txtBillDate.Text), StringExtension.ToDateTime(txtToDate.Text));
-                    if (lst != null)
-                    {
-                        lbl.Text = "Daily Nursing Chart Report";
-                        lblFrom.Text = txtBillDate.Text;
-                        lblTo.Text = txtToDate.Text;
-                        DataTable dt = ListConverter.ToDataTable(lst);
-                        dt.Columns.Add("colSrNo");
-                        DataColumn dcol = new DataColumn();
-                        if (dt.Rows.Count > 0)
-                        {
-                            int count = 1;
-                            foreach (DataRow dr in dt.Rows)
-                            {
-                                dr["colSrNo"] = count;
-                                count++;
-                            }
-                        }
-                        dgvTestParameter.DataSource = dt;
-                        dgvTestParameter.DataBind();
-                        Session["BedConsump"] = dt;
-                        //txtBillDate.Text = string.Empty;
-                        //txtToDate.Text = string.Empty;
-                    }
+                    //List<STP_DailyNursingChartResult> lst = consume.SearchDailyChart(StringExtension.ToDateTime(txtBillDate.Text), StringExtension.ToDateTime(txtToDate.Text));
+                    //if (lst != null)
+                    //{
+                    //    lbl.Text = "Daily Nursing Chart Report";
+                    //    lblFrom.Text = txtBillDate.Text;
+                    //    lblTo.Text = txtToDate.Text;
+                    //    DataTable dt = ListConverter.ToDataTable(lst);
+                    //    dt.Columns.Add("colSrNo");
+                    //    DataColumn dcol = new DataColumn();
+                    //    if (dt.Rows.Count > 0)
+                    //    {
+                    //        int count = 1;
+                    //        foreach (DataRow dr in dt.Rows)
+                    //        {
+                    //            dr["colSrNo"] = count;
+                    //            count++;
+                    //        }
+                    //    }
+                    //    dgvTestParameter.DataSource = dt;
+                    //    dgvTestParameter.DataBind();
+                    //    Session["BedConsump"] = dt;
+                    //    //txtBillDate.Text = string.Empty;
+                    //    //txtToDate.Text = string.Empty;
+                    //}
                 }
                 else
                 {
-                    List<STP_DailyDepartmentwiseNursingChartResult> lst = consume.SearchDepartmentwiseDailyChart(StringExtension.ToDateTime(txtBillDate.Text), StringExtension.ToDateTime(txtToDate.Text), Convert.ToString(ddlDepartment.SelectedItem.Text));
-                    if (lst != null)
-                    {
-                        lbl.Text = "Daily Nursing Chart Report";
-                        lblFrom.Text = txtBillDate.Text;
-                        lblTo.Text = txtToDate.Text;
-                        DataTable dt = ListConverter.ToDataTable(lst);
-                        dt.Columns.Add("colSrNo");
-                        DataColumn dcol = new DataColumn();
-                        if (dt.Rows.Count > 0)
-                        {
-                            int count = 1;
-                            foreach (DataRow dr in dt.Rows)
-                            {
-                                dr["colSrNo"] = count;
-                                count++;
-                            }
-                        }
-                        dgvTestParameter.DataSource = dt;
-                        dgvTestParameter.DataBind();
-                        Session["BedConsump"] = dt;
+                    //List<STP_DailyDepartmentwiseNursingChartResult> lst = consume.SearchDepartmentwiseDailyChart(StringExtension.ToDateTime(txtBillDate.Text), StringExtension.ToDateTime(txtToDate.Text), Convert.ToString(ddlDepartment.SelectedItem.Text));
+                    //if (lst != null)
+                    //{
+                    //    lbl.Text = "Daily Nursing Chart Report";
+                    //    lblFrom.Text = txtBillDate.Text;
+                    //    lblTo.Text = txtToDate.Text;
+                    //    DataTable dt = ListConverter.ToDataTable(lst);
+                    //    dt.Columns.Add("colSrNo");
+                    //    DataColumn dcol = new DataColumn();
+                    //    if (dt.Rows.Count > 0)
+                    //    {
+                    //        int count = 1;
+                    //        foreach (DataRow dr in dt.Rows)
+                    //        {
+                    //            dr["colSrNo"] = count;
+                    //            count++;
+                    //        }
+                    //    }
+                    //    dgvTestParameter.DataSource = dt;
+                    //    dgvTestParameter.DataBind();
+                    //    Session["BedConsump"] = dt;
                         //txtBillDate.Text = string.Empty;
                         //txtToDate.Text = string.Empty;
-                    }
+                    //}
                 }
             }
             catch (Exception ex)

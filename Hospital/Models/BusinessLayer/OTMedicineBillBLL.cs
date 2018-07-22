@@ -17,15 +17,28 @@ namespace Hospital.Models.BusinessLayer
         }
         public CriticareHospitalDataContext objData { get; set; }
 
-        public tblOTMedicineBill GetPrescriptionInfo(int BillNo)
+        public tblOTMedicineBill GetPrescriptionInfo(int BillNo=0,int PatientId=0,bool IsDischarge=false)
         {
             tblOTMedicineBill obj = null;
             try
             {
-                obj = (from tbl in objData.tblOTMedicineBills
-                       where tbl.IsDelete == false
-                       && tbl.BillNo == BillNo
-                       select tbl).FirstOrDefault();
+                if (BillNo==0)
+                {
+                    obj = (from tbl in objData.tblOTMedicineBills
+                           join tblAdmit in objData.tblPatientAdmitDetails
+                           on tbl.AdmitId equals tblAdmit.AdmitId
+                           where tbl.IsDelete == false
+                           && tbl.AdmitId == PatientId
+                           && tblAdmit.IsDischarge == IsDischarge
+                           select tbl).FirstOrDefault();
+                }
+                else
+                {
+                    obj = (from tbl in objData.tblOTMedicineBills
+                           where tbl.IsDelete == false
+                           && tbl.BillNo == BillNo
+                           select tbl).FirstOrDefault();
+                }
             }
             catch (Exception ex)
             {
@@ -99,6 +112,10 @@ namespace Hospital.Models.BusinessLayer
                         objsal.Price = item.Price;
                         objsal.Amount = item.Quantity * item.Price;
                         objsal.IsDelete = item.IsDelete;
+                        objsal.MorningQty = item.MorningQty;
+                        objsal.EveningQty = item.EveningQty;
+                        objsal.AfterNoonQty = item.AfterNoonQty;
+                        objsal.NightQty = item.NightQty;
                     }
                     else
                     {
@@ -109,7 +126,11 @@ namespace Hospital.Models.BusinessLayer
                             Price = item.Price,
                             Amount = item.Quantity * item.Price,
                             BillNo = Convert.ToInt32(obj.BillNo),
-                            IsDelete = false
+                            IsDelete = false,
+                            MorningQty = item.MorningQty,
+                            EveningQty = item.EveningQty,
+                            AfterNoonQty = item.AfterNoonQty,
+                            NightQty = item.NightQty,
                         };
                         objData.tblOTMedicineBillDetails.InsertOnSubmit(objsal);
                     }
@@ -137,7 +158,11 @@ namespace Hospital.Models.BusinessLayer
                         Price = item.Price,
                         Amount = item.Quantity * item.Price,
                         BillNo = Convert.ToInt32(BillNo),
-                        IsDelete = false
+                        IsDelete = false,
+                        MorningQty = item.MorningQty,
+                        EveningQty = item.EveningQty,
+                        AfterNoonQty = item.AfterNoonQty,
+                        NightQty=item.NightQty,
                     };
                     objData.tblOTMedicineBillDetails.InsertOnSubmit(tbl);
                 }
@@ -215,7 +240,11 @@ namespace Hospital.Models.BusinessLayer
                                                          Price = Convert.ToDecimal(tbl.Price),
                                                          Amount = Convert.ToDecimal(tbl.Amount),
                                                          BillNo = tbl.BillNo,
-                                                         BillDetailId = tbl.BillDetailId
+                                                         BillDetailId = tbl.BillDetailId,
+                                                         MorningQty = tbl.MorningQty!=null?tbl.MorningQty.Value:0,
+                                                         EveningQty = tbl.EveningQty != null ? tbl.EveningQty.Value : 0,
+                                                         AfterNoonQty = tbl.AfterNoonQty != null ? tbl.AfterNoonQty.Value : 0,
+                                                         NightQty = tbl.NightQty != null ? tbl.NightQty.Value : 0,
                                                      }).ToList();
             foreach (EntityOTMedicineBillDetails item in lst)
             {
@@ -242,10 +271,24 @@ namespace Hospital.Models.BusinessLayer
                         objsal.Price = item.Price;
                         objsal.Amount = item.Quantity * item.Price;
                         objsal.IsDelete = item.IsDelete;
+                        objsal.MorningQty = item.MorningQty;
+                        objsal.EveningQty = item.EveningQty;
+                        objsal.AfterNoonQty = item.AfterNoonQty;
+                        objsal.NightQty = item.NightQty;
                     }
                     else
                     {
-                        objsal = new tblOTMedicineBillDetail() { TabletId = Convert.ToInt32(item.TabletId), Quantity = item.Quantity, Price = item.Price, Amount = item.Price * item.Quantity, BillNo = Convert.ToInt32(item.BillNo) };
+                        objsal = new tblOTMedicineBillDetail() { 
+                            TabletId = Convert.ToInt32(item.TabletId), 
+                            Quantity = item.Quantity, 
+                            Price = item.Price, 
+                            Amount = item.Price * item.Quantity, 
+                            BillNo = Convert.ToInt32(item.BillNo),
+                            MorningQty = item.MorningQty,
+                            EveningQty = item.EveningQty,
+                            AfterNoonQty = item.AfterNoonQty,
+                            NightQty=item.NightQty,
+                        };
                         objData.tblOTMedicineBillDetails.InsertOnSubmit(objsal);
                     }
                 }
@@ -293,6 +336,85 @@ namespace Hospital.Models.BusinessLayer
                 Commons.FileLog("PrescriptionBLL - GetTablet()", ex);
             }
             return ldt;
+        }
+
+        internal List<EntityTest> GetLabTestDetails(int BillNo)
+        {
+            var lst = (from tbl in objData.tblOTMedicineBillDetails
+                   join tblproduct in objData.tblTestMasters
+                   on (tbl.LabTestId==null?0:tbl.LabTestId) equals tblproduct.TestId
+                   where tbl.BillNo == BillNo
+                   && tbl.IsDelete == false
+                       select new EntityTest
+                   {
+                       BillDetailId = tbl.BillDetailId,
+                       TestCharge = tblproduct.TestCharge,
+                       IsDelete = tbl.IsDelete==null?false:tbl.IsDelete.Value,
+                       TestId = tbl.LabTestId==null?0:tbl.LabTestId.Value,
+                       TestName = tblproduct.TestName,
+                   }).ToList();
+            return lst;
+        }
+
+        internal List<EntityOTMedicineBillDetails> GetBillProducts(int BillNo,int PatientId=0)
+        {
+            List<EntityOTMedicineBillDetails> lst = null;
+            if (BillNo!=0)
+            {
+                lst = (from tbl in objData.tblOTMedicineBillDetails
+                       join tblproduct in objData.tblProductMasters
+                       on tbl.TabletId equals tblproduct.ProductId
+                       where tbl.IsDelete == false
+                       && tbl.BillNo == BillNo
+                       && tbl.IsDelete == false
+                       select new EntityOTMedicineBillDetails
+                       {
+                           BillDetailId = tbl.BillDetailId,
+                           Amount = tbl.Amount,
+                           BatchNo = tbl.BatchNo,
+                           ExpiryDate = tbl.ExpiryDate,
+                           IsDelete = tbl.IsDelete,
+                           ProductId = tbl.TabletId,
+                           ProductName = tblproduct.ProductName,
+                           Quantity = (tbl.MorningQty != null ? tbl.MorningQty.Value : 0) + (tbl.AfterNoonQty != null ? tbl.AfterNoonQty.Value : 0) + (tbl.EveningQty != null ? tbl.EveningQty.Value : 0) + (tbl.NightQty != null ? tbl.NightQty.Value : 0),
+                           Price = tbl.Price,
+                           BillNo = BillNo,
+                           TaxPercent = tbl.TaxPercent != null ? tbl.TaxPercent : 0,
+                           TaxAmount = tbl.TaxAmount != null ? tbl.TaxAmount : 0,
+                           MorningQty = tbl.MorningQty != null ? tbl.MorningQty.Value : 0,
+                           AfterNoonQty = tbl.AfterNoonQty != null ? tbl.AfterNoonQty.Value : 0,
+                           EveningQty = tbl.EveningQty != null ? tbl.EveningQty.Value : 0,
+                           NightQty = tbl.NightQty != null ? tbl.NightQty.Value : 0,
+                       }).ToList();    
+            }
+            else
+            {
+                lst = (from tbl in objData.tblOTMedicineBills
+                       join tblbills in objData.tblOTMedicineBillDetails
+                       on tbl.BillNo equals tblbills.BillNo
+                       join tblp in objData.tblProductMasters
+                       on tblbills.TabletId equals tblp.ProductId
+                       where tblbills.IsDelete == false
+                       && tbl.AdmitId == PatientId
+                       select new EntityOTMedicineBillDetails
+                       {
+                           AfterNoonQty = tblbills.AfterNoonQty,
+                           BatchNo = tblbills.BatchNo,
+                           BillDetailId = tblbills.BillDetailId,
+                           BillNo = tbl.BillNo,
+                           EveningQty = tblbills.EveningQty,
+                           ExpiryDate = tblbills.ExpiryDate,
+                           IsDelete = tblbills.IsDelete,
+                           TabletId = tblbills.TabletId,
+                           ProductName = tblp.ProductName,
+                           MorningQty = tblbills.MorningQty,
+                           NightQty=tblbills.NightQty,
+                           PresDate = tblbills.PresDate,
+                           LabTestId=tblbills.LabTestId,
+                           TestName = tblbills.LabTestId==0?"":(objData.tblTestMasters.Where(p=>p.TestId==tblbills.LabTestId).FirstOrDefault().TestName),
+                       }).ToList();
+            }
+            return lst;
         }
     }
 }

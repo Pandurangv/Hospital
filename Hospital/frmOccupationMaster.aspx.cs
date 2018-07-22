@@ -17,7 +17,7 @@ namespace Hospital
         OccupationBLL mobjOccupationBLL = new OccupationBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmOPDPatientDetail.aspx");
             if (!Page.IsPostBack)
             {
                 GetOccupation();

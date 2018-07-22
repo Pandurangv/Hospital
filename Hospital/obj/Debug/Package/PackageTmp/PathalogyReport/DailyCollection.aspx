@@ -4,14 +4,31 @@
         var doctorslist=<%=new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(GetDoctorsList()) %>
         var data=<%=new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(GetDailyCollection()) %>
     </script>
-    
+    <script type="text/javascript">
+        function Print() {
+            w = window.open(null, 'Print_Page', 'scrollbars=yes;');
+            var myStyle = '<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" />';
+            if ($("#home").hasClass("active")) {
+                w.document.write(myStyle + $('#home').html());
+            }
+            else {
+                w.document.write(myStyle + $('#menu1').html());
+            }
+            w.document.close();
+            setTimeout(function () {
+                w.print();
+            }, 500);
+            return false;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <div data-ng-app="HospitalApp" data-ng-controller="DailyCollectionController" class="row">
+  <div class="container-fluid">  
+    <div class="row clearfix" data-ng-app="HospitalApp" data-ng-controller="DailyCollectionController">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 card">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">OPD Collection</a></li>
-            <li><a data-toggle="tab" href="#menu1">IPD Collection</a></li>
+            <li class="active"><a data-toggle="tab" href="#home"><h4>OPD Collection</h4></a></li>
+            <li><a data-toggle="tab" href="#menu1"><h4>IPD Collection</h4></a></li>
         </ul>
         <div class="tab-content">
             <div class="col-md-12">
@@ -26,14 +43,15 @@
                     <input type="text" id="txtTODate" class="form-control" placeholder="To date"/>
                 </div>
                 <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" data-ng-click="FilterDate()">Search</button>
                     <button type="button" class="btn btn-primary" data-ng-click="Reset()">Reset</button>
+                    <button type="button" class="btn btn-primary" onclick="Print()">Print</button>
                 </div>
             </div>
             <div id="home" class="tab-pane fade in active">
-                <h3>OPD Collection</h3>
+                <hr />
                 <div class="col-md-12">
                     <table class="table table-bordered">
-                        <thead>
                             <tr>
                                 <th>
                                     Patient Id
@@ -63,9 +81,8 @@
                                     Doctor Name
                                 </th>
                             </tr>
-                        </thead>
                         <tbody>
-                            <tr data-ng-repeat="opd in SearchOPDCollectionList">
+                            <tr data-ng-repeat="opd in ListOPDCollection">
                                 <td>
                                     {{opd.PatientId}}
                                 </td>
@@ -97,18 +114,10 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pull-left" style="margin-left:10px">
-                    <ul class="pagination">
-                        <li data-ng-click="First()"><a href="#"><span><</span></a></li>
-                        <li data-ng-click="Prev()"><a href="#"><span><<</span></a></li>
-                        <li data-ng-click="Next()"><a href="#"><span>>></span></a></li>
-                        <li data-ng-click="Last()"><a href="#"><span>></span></a></li>
-                    </ul>
-                </div>
-                
+                <div class="col-md-12"><span class="pull-right" style="margin-right:100px;"><h3>Total : {{TotalAmount}}</h3></span></div>
             </div>
             <div id="menu1" class="tab-pane fade">
-                <h3>IPD Collection</h3>
+              <hr />
                 <div class="col-md-12">
                     <table class="table table-bordered">
                         <thead>
@@ -143,7 +152,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="opd in SearchIPDCollectionList">
+                            <tr data-ng-repeat="opd in ListIPDCollection">
                                 <td>
                                     {{opd.PatientId}}
                                 </td>
@@ -175,16 +184,12 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pull-left" style="margin-left:10px">
-                    <ul class="pagination">
-                        <li data-ng-click="FirstIPD()"><a href="#"><span><</span></a></li>
-                        <li data-ng-click="PrevIPD()"><a href="#"><span><<</span></a></li>
-                        <li data-ng-click="NextIPD()"><a href="#"><span>>></span></a></li>
-                        <li data-ng-click="LastIPD()"><a href="#"><span>></span></a></li>
-                    </ul>
-                </div>
+                <div class="col-md-12"><span class="pull-right" style="margin-right:100px;"><h3>Total : {{TotalAmountIPD}}</h3></span></div>
             </div>
         </div>
     </div>
+     </div>
+      </div>
     <script type="text/javascript" src="../Scripts/Bootstrap/DailyCollection.js"></script>
 </asp:Content>
+

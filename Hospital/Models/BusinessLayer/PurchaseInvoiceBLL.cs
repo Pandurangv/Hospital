@@ -60,7 +60,8 @@ namespace Hospital.Models.BusinessLayer
                            PONo = tbl.PONo,
                            SupplierName = tbl.SupplierName,
                            Amount = tbl.Amount,
-                           Address = tbl.Address
+                           Address = tbl.Address,
+                           NetAmount=tbl.NetAmount,
                        }).ToList();
             }
             catch (Exception ex)
@@ -143,7 +144,7 @@ namespace Hospital.Models.BusinessLayer
             {
                 int? id = 0;
                 bool flagISPOComplete = false;
-                objData.STP_Insert_PurchaseInvoice(entPurchaseInvoice.PIDate, Convert.ToInt32(entPurchaseInvoice.PONo), Convert.ToInt32(entPurchaseInvoice.SupplierId), false, Convert.ToDecimal(entPurchaseInvoice.Amount), Convert.ToInt32(entPurchaseInvoice.Tax1), Convert.ToInt32(entPurchaseInvoice.Tax2), Convert.ToInt32(entPurchaseInvoice.Discount), ref id);
+                objData.STP_Insert_PurchaseInvoice(entPurchaseInvoice.PIDate, Convert.ToInt32(entPurchaseInvoice.PONo), Convert.ToInt32(entPurchaseInvoice.SupplierId), false, Convert.ToDecimal(entPurchaseInvoice.Amount), Convert.ToInt32(entPurchaseInvoice.Tax1), Convert.ToInt32(entPurchaseInvoice.Tax2),Convert.ToInt32(entPurchaseInvoice.Discount), entPurchaseInvoice.NetAmount, ref id);
                 foreach (EntityPurchaseInvoiceDetails item in lstInvoice)
                 {
                     tblPurchaseInvoiceDetail obj = new tblPurchaseInvoiceDetail()
@@ -155,6 +156,8 @@ namespace Hospital.Models.BusinessLayer
                         Amount = item.Amount,
                         BatchNo = item.BatchNo,
                         ExpiryDate = item.ExpiryDate,
+                        TaxPercent=item.TaxPercent,
+                        TaxAmount=item.TaxAmount,
                         IsDelete = false
                     };
                     tblPurchaseOrderDetail orderItem = (from tbl in objData.tblPurchaseOrderDetails
@@ -252,6 +255,8 @@ namespace Hospital.Models.BusinessLayer
                            PINoSrNo = tbl.PINoSrNo,
                            ProductCode = tbl.ProductCode,
                            ProductName = tblProduct.ProductName,
+                           TaxAmount=tbl.TaxPercent,
+                           TaxPercent=tbl.TaxPercent,
                        }).ToList();
             }
             catch (Exception ex)

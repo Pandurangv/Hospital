@@ -18,7 +18,7 @@ namespace Hospital.Payroll
         AllowanceDeductionBLL objallow = new AllowanceDeductionBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.AuthenticateUser();
+            base.AuthenticateUser("frmAllowanceDeduction.aspx");
             if (!Page.IsPostBack)
             {
                 GetAllowanceDed();
